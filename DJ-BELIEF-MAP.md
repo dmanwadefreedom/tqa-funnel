@@ -3,7 +3,7 @@
 
 **Buyer:** "Raj" — Indian IT pro, 28-42, H-1B/Green Card holder, US metro, earning $85K-$120K, wants $150K-$400K+ in cybersecurity. Spouse is co-decision-maker.
 
-**Product:** CISO 360 Accelerator — $4,997 PIF / $1,897x3
+**Product:** Cybersecurity Accelerator — $4,997 PIF / $1,997x3
 
 **Rule:** No belief = no sale. Content that doesn't build a specific belief is content that doesn't convert.
 
@@ -180,7 +180,7 @@ Content: Anyone can sell you a CompTIA boot camp. I'm not interested in that. I 
 **Why Raj doubts it:** He's been self-learning his whole career. YouTube is free. CompTIA Security+ costs $400. Udemy courses are $12. Why pay $5,000 for something he could piece together himself?
 
 **What makes him believe:**
-- Time math: self-study takes 18-24 months. CISO 360 is 14 weeks. At $85K salary, 12 months of delay = $40K-$65K in lost higher salary.
+- Time math: self-study takes 18-24 months. Cybersecurity Accelerator is 14 weeks. At $85K salary, 12 months of delay = $40K-$65K in lost higher salary.
 - $5K / $65K annual raise = payback in less than 1 month of new salary
 - Self-study doesn't include: job placement support, resume positioning, interview prep, network access, DJ's hiring-side insights
 - Certification alone doesn't get hired — positioning does (DJ teaches the positioning)
@@ -210,7 +210,7 @@ Content: Your assessment recommended [X cert path]. You could self-study that in
 **What makes him believe:**
 - The $47 assessment PDF already showed the salary gap IN THEIR SPECIFIC CASE
 - ROI framing: $5K investment / $65K+ annual salary increase = payback in <1 month
-- Payment plan exists: $1,897 x 3 is more manageable than $5K PIF
+- Payment plan exists: $1,997 x 3 is more manageable than $5K PIF
 - The pre-call prep doc is DESIGNED for Raj to share with his wife
 - DJ addresses this on the call: "Have you discussed this with your partner? What questions do they have?"
 

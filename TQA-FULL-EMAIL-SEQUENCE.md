@@ -2,7 +2,7 @@
 ## April 2 - April 18, 2026
 ## Ready for Agresh to Build in GHL
 
-**Briefing:** April 11, 2026 | 11 AM EST | $27 Entry
+**Briefing:** April 18, 2026 | 11 AM EST | $27 Entry
 **Cybersecurity Accelerator:** $4,997 | **Insider Brief:** $97/mo
 **Registration Link:** [BRIEFING_LINK]
 **Accelerator Application:** [ACCELERATOR_LINK]
@@ -21,7 +21,7 @@ PHASE 3: Briefing Invite (April 8-10) — 2 emails to engaged contacts
     |
 PHASE 4: Pre-Briefing (triggered by registration) — 5 emails
     |
-PHASE 5: Post-Briefing (April 11-18) — 5 emails by outcome
+PHASE 5: Post-Briefing (April 18-18) — 5 emails by outcome
 ```
 
 **Total emails:** 18
@@ -56,7 +56,7 @@ You applied to work with me on your cybersecurity career transition. My team sho
 
 I reviewed your application. You took a step that most IT professionals think about for months and never take. That matters.
 
-Here is where things stand. On April 11, I am running a live career briefing — 90 minutes on the cybersecurity transition framework I have built across 28 years and 400+ organizations. I cover the hiring process from the inside, because I have been the one making hiring decisions at Deloitte, EY, and Shell.
+Here is where things stand. On April 18, I am running a live career briefing — 90 minutes on the cybersecurity transition framework I have built across 28 years and 400+ organizations. I cover the hiring process from the inside, because I have been the one making hiring decisions at Deloitte, EY, and Shell.
 
 Because you already applied, I want you in that room. Registration is $27.
 
@@ -84,7 +84,7 @@ If you want to talk before then, reply to this email. I will make time.
 3. **"You were 1 of 24"** — Exclusivity framing. 24 out of 146 registered. Positions them in a small group.
 
 ### Preview Text
-You showed up when most did not. The April 11 session is rebuilt from that feedback.
+You showed up when most did not. The April 18 session is rebuilt from that feedback.
 
 ### Body
 
@@ -92,7 +92,7 @@ You showed up when most did not. The April 11 session is rebuilt from that feedb
 
 146 people registered for the March 19 session. 24 showed up. You were one of them.
 
-Since then, I took the feedback from that session and rebuilt the format. The April 11 career briefing is different in three ways.
+Since then, I took the feedback from that session and rebuilt the format. The April 18 career briefing is different in three ways.
 
 First, the salary roadmap is sharper. I break down the exact numbers for going from $85K-$105K IT to $150K+ cybersecurity — by role, by metro, by timeline.
 
@@ -100,7 +100,7 @@ Second, I walk through the Rob G. case study in full. He was a chef with zero te
 
 Third, the Q&A is built into the session, not tacked on at the end. You will get your questions answered.
 
-April 11. 11 AM EST. $27 to attend.
+April 18. 11 AM EST. $27 to attend.
 
 You already proved you are serious. This is the next step.
 
@@ -138,7 +138,7 @@ But here is what has not changed.
 
 The Bureau of Labor Statistics data is clear: cybersecurity professionals earn $136,000 on average. General IT sits around $105,000. Over a decade, that gap compounds to roughly $800,000 in lost earnings. Every year you stay in an IT role when you are ready for cybersecurity, the cost grows.
 
-On April 11, I am running a live career briefing. Ninety minutes. The cybersecurity transition framework I have built across 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
+On April 18, I am running a live career briefing. Ninety minutes. The cybersecurity transition framework I have built across 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
 
 $27 to attend. Organizations pay me $2,000-$3,000 a day for this kind of strategic guidance. I am offering this for $27 because I want you to see the framework before you decide anything.
 
@@ -178,7 +178,7 @@ You expressed interest in cybersecurity career transitions at some point. I do n
 
 One data point: there are 470,000 unfilled cybersecurity positions in the United States right now. The average salary is $136,000 and growing 8% year over year. If you have IT experience, the transition window is wide open.
 
-On April 11, I am running a live career briefing — $27. Ninety minutes of the transition framework I have built across 28 years as a CISO.
+On April 18, I am running a live career briefing — $27. Ninety minutes of the transition framework I have built across 28 years as a CISO.
 
 If you are in:
 **[Yes — Reserve My Seat — $27][BRIEFING_LINK]**
@@ -237,12 +237,12 @@ After 28 years of reviewing cybersecurity resumes — and sitting on hiring pane
 
 **What to skip:** SANS/GIAC courses. Excellent training, terrible ROI for career changers at $8,000-$9,000 per course. Wait until your employer pays for them.
 
-If you want to hear more about the transition path, I am doing a live career briefing on April 11.
+If you want to hear more about the transition path, I am doing a live career briefing on April 18.
 
 -- DJ Naronikar
 
 ### CTA
-**Button Text:** Learn More About the April 11 Briefing
+**Button Text:** Learn More About the April 18 Briefing
 **Link:** [BRIEFING_LINK]
 
 ---
@@ -281,12 +281,12 @@ When I am reviewing candidates for a cybersecurity role, I open their LinkedIn b
 2. No summary section at all — 40% of the profiles I review leave this blank.
 3. Endorsements and skills that are all IT with zero security-adjacent terms. If your skills section says "Active Directory" and "VMware" but nothing about risk, compliance, or incident response, you are invisible to security recruiters.
 
-I cover LinkedIn positioning in depth at the April 11 career briefing. Bring your profile open — I do live audits.
+I cover LinkedIn positioning in depth at the April 18 career briefing. Bring your profile open — I do live audits.
 
 -- DJ Naronikar
 
 ### CTA
-**Button Text:** Join the April 11 Briefing
+**Button Text:** Join the April 18 Briefing
 **Link:** [BRIEFING_LINK]
 
 ---
@@ -305,18 +305,18 @@ I cover LinkedIn positioning in depth at the April 11 career briefing. Bring you
 
 ### Subject Line Options
 
-1. **"April 11: Cybersecurity Career Briefing"** — Clean. Informational. Reads like a calendar invite, not marketing.
-2. **"Live career briefing — April 11 at 11 AM EST"** — Adds the time. Creates a mental commitment to check availability.
+1. **"April 18: Cybersecurity Career Briefing"** — Clean. Informational. Reads like a calendar invite, not marketing.
+2. **"Live career briefing — April 18 at 11 AM EST"** — Adds the time. Creates a mental commitment to check availability.
 3. **"90 minutes that could change your career trajectory"** — Outcome-focused. No hype — "career trajectory" is measured language.
 
 ### Preview Text
-April 11, 11 AM EST. 90 minutes. $27. What the cybersecurity career path actually looks like from the hiring side.
+April 18, 11 AM EST. 90 minutes. $27. What the cybersecurity career path actually looks like from the hiring side.
 
 ### Body
 
 {{First Name}},
 
-On April 11 at 11 AM EST, I am running a live cybersecurity career briefing. Here is what it covers.
+On April 18 at 11 AM EST, I am running a live cybersecurity career briefing. Here is what it covers.
 
 **The market reality.** 470,000 unfilled positions. $136,000 average salary. Where the openings are and which roles are growing fastest.
 
@@ -352,7 +352,7 @@ $27 to attend. I cap attendance at 50 people so I can answer questions properly.
 3. **"See you tomorrow, {{First Name}}"** — Personal. Casual. High open rate on small lists.
 
 ### Preview Text
-April 11, 11 AM EST. Bring your laptop and your LinkedIn profile open.
+April 18, 11 AM EST. Bring your laptop and your LinkedIn profile open.
 
 ### Body
 
@@ -360,7 +360,7 @@ April 11, 11 AM EST. Bring your laptop and your LinkedIn profile open.
 
 Quick reminder — the cybersecurity career briefing is tomorrow.
 
-**Date:** April 11, 2026
+**Date:** April 18, 2026
 **Time:** 11:00 AM EST
 **Where:** Zoom (link below)
 **Duration:** 90 minutes
@@ -396,18 +396,18 @@ I will be on 5 minutes early. See you there.
 
 ### Subject Line Options
 
-1. **"You are confirmed — April 11 Briefing"** — Clear confirmation. Inbox-scannable. Sets expectations.
+1. **"You are confirmed — April 18 Briefing"** — Clear confirmation. Inbox-scannable. Sets expectations.
 2. **"Confirmed: your seat for the career briefing"** — Formal. Professional. No ambiguity.
 3. **"You are in, {{First Name}}"** — Personal. Short. Feels like acceptance, not a transaction.
 
 ### Preview Text
-You are confirmed for April 11. Here is your Zoom link and what to expect.
+You are confirmed for April 18. Here is your Zoom link and what to expect.
 
 ### Body
 
 {{First Name}},
 
-You are confirmed for the Cybersecurity Career Briefing on April 11 at 11 AM EST.
+You are confirmed for the Cybersecurity Career Briefing on April 18 at 11 AM EST.
 
 **Your Zoom link:** [ZOOM_LINK]
 (Save this — I will also send it the morning of.)
@@ -417,7 +417,7 @@ You are confirmed for the Cybersecurity Career Briefing on April 11 at 11 AM EST
 - 10 minutes of live Q&A
 - No upsell during the session. I will mention my program once at the end for anyone who wants to go deeper. The briefing stands on its own.
 
-**Before April 11**, I am going to send you a few emails with content that will make the briefing more valuable. Think of them as pre-reading.
+**Before April 18**, I am going to send you a few emails with content that will make the briefing more valuable. Think of them as pre-reading.
 
 First up: a short video where I introduce myself and explain my approach. It is 7 minutes. Worth watching before the session.
 
@@ -442,7 +442,7 @@ See you on the 11th.
 
 1. **"Before the briefing: the 3 biggest mistakes"** — Numbered + "mistakes" framing. High open rate because people want to avoid errors.
 2. **"What IT professionals get wrong about cybersecurity careers"** — Positions DJ as the corrective authority.
-3. **"Read this before April 11"** — Creates assignment-like urgency. Feels preparatory, not promotional.
+3. **"Read this before April 18"** — Creates assignment-like urgency. Feels preparatory, not promotional.
 
 ### Preview Text
 These 3 mistakes cost IT professionals months and thousands of dollars. I see them constantly.
@@ -459,7 +459,7 @@ Before the briefing, I want to share the three biggest mistakes I see IT profess
 
 **Mistake 3: Ignoring the hidden job market.** The majority of cybersecurity hires at the senior level happen through referrals and network placement, not Indeed or LinkedIn job postings. If you are only applying online, you are competing in the smallest and most crowded pool.
 
-I cover all three of these in depth on April 11.
+I cover all three of these in depth on April 18.
 
 -- DJ
 
@@ -491,7 +491,7 @@ I want to tell you about Rob G.
 
 Rob came to me with zero technical background. He was a chef. No IT certifications. No networking experience. No security background whatsoever.
 
-I walked him through the same framework I will cover on April 11. We identified his transferable skills — analytical thinking, process discipline, attention to detail under pressure. We mapped those to a specific cybersecurity domain. We built his certification path and his positioning strategy.
+I walked him through the same framework I will cover on April 18. We identified his transferable skills — analytical thinking, process discipline, attention to detail under pressure. We mapped those to a specific cybersecurity domain. We built his certification path and his positioning strategy.
 
 Rob is now a cybersecurity analyst earning $120,000 a year.
 
@@ -499,12 +499,12 @@ Here is why I am telling you this: your IT background puts you significantly ahe
 
 Rob's path took longer because he was building from scratch. Your path is shorter because you are building from a foundation.
 
-On April 11, I break down exactly how that repositioning works.
+On April 18, I break down exactly how that repositioning works.
 
 -- DJ
 
 ### CTA
-**Button Text:** I Will Be There — April 11
+**Button Text:** I Will Be There — April 18
 **Link:** [ZOOM_LINK]
 
 ---
@@ -537,19 +537,19 @@ The result: IT roles are compressing. Cybersecurity roles are expanding. There a
 
 This is not a scare tactic. It is Bureau of Labor Statistics data and FBI reporting. The question is not whether the shift is happening. It is whether you position yourself on the right side of it.
 
-That is what April 11 is about.
+That is what April 18 is about.
 
 -- DJ
 
 ### CTA
-**Button Text:** See You on April 11
+**Button Text:** See You on April 18
 **Link:** [ZOOM_LINK]
 
 ---
 
 ## Email 4E — Morning of Briefing
 
-**Send Date:** April 11, 8:00 AM EST (3 hours before start)
+**Send Date:** April 18, 8:00 AM EST (3 hours before start)
 **Segment:** Contacts tagged `tqa-briefing-registrant`
 **GHL Tag to Apply:** `tqa-briefing-morning-reminder`
 
@@ -560,7 +560,7 @@ That is what April 11 is about.
 3. **"Briefing is today, {{First Name}}"** — Personal. Short. High open rate.
 
 ### Preview Text
-April 11 career briefing starts at 11 AM EST. Your Zoom link is below. Bring your LinkedIn open.
+April 18 career briefing starts at 11 AM EST. Your Zoom link is below. Bring your LinkedIn open.
 
 ### Body
 
@@ -585,13 +585,13 @@ I will be on 5 minutes early. See you in the room.
 
 ---
 
-# PHASE 5: POST-BRIEFING (April 11-18)
+# PHASE 5: POST-BRIEFING (April 18-18)
 
 ---
 
 ## Email 5A — Same Day, Attendees Only
 
-**Send Date:** April 11, 1:30 PM EST (within 2 hours of end)
+**Send Date:** April 18, 1:30 PM EST (within 2 hours of end)
 **Segment:** Contacts tagged `tqa-briefing-attended`
 **GHL Tag to Apply:** `tqa-post-briefing-sent`
 
@@ -780,7 +780,7 @@ When you are ready, I will be here.
 
 1. **"You registered but could not make it"** — No guilt. Acknowledges without judging. Keeps the door open.
 2. **"One takeaway from yesterday's briefing"** — Gives them value despite not attending. Builds goodwill.
-3. **"Missed April 11? Here is the key insight."** — Direct. Rewards them for opening.
+3. **"Missed April 18? Here is the key insight."** — Direct. Rewards them for opening.
 
 ### Preview Text
 No worries about missing it. Here is the one thing attendees said was most valuable.
@@ -849,11 +849,11 @@ If you want to know about the next one, reply to this email and I will make sure
 
 **Workflow 4: Pre-Briefing Drip (Phase 4)**
 - Trigger: Tagged `tqa-briefing-registrant`
-- 5 emails on delay: immediate, +24h, +48h, +72h, morning of April 11
-- Note: Email 4E (morning of) should fire on calendar date, not delay — set to April 11, 8 AM EST regardless of when they registered
+- 5 emails on delay: immediate, +24h, +48h, +72h, morning of April 18
+- Note: Email 4E (morning of) should fire on calendar date, not delay — set to April 18, 8 AM EST regardless of when they registered
 
 **Workflow 5: Post-Briefing (Phase 5)**
-- Trigger: April 11 end of session
+- Trigger: April 18 end of session
 - Branch by: attended vs. no-show
 - Attendees: 4 emails over 5 days (same day, +1, +3, +5)
 - No-shows: 1 email on April 12
@@ -873,6 +873,6 @@ If you want to know about the next one, reply to this email and I will make sure
 | `[BRIEFING_LINK]` | Registration/payment page URL |
 | `[ACCELERATOR_LINK]` | Cybersecurity Accelerator application page URL |
 | `[INSIDER_BRIEF_LINK]` | Insider Brief ($97/mo) membership page URL |
-| `[ZOOM_LINK]` | April 11 Zoom meeting link |
+| `[ZOOM_LINK]` | April 18 Zoom meeting link |
 | `[TRUST_VIDEO_LINK]` | DJ's pre-briefing trust video URL |
 | `[CALENDAR_LINK]` | Google Calendar / .ics add-to-calendar link |

@@ -177,7 +177,7 @@ No pressure. If the timing doesn't work, I do these monthly.
 
 **Personalization rules:**
 - `[Name]` = first name
-- `[date]` = next briefing date (e.g., "April 11")
+- `[date]` = next briefing date (e.g., "April 18")
 - `[video/article]` = reference whichever content you shared in Message 2
 - `[link to briefing page]` = thequantumachievers.com/briefing (or wherever the briefing registration lives)
 

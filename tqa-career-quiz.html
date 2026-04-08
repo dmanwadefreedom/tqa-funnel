@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Career Assessment | The Quantum Achievers</title>
+<meta name="description" content="How ready are you for a cybersecurity career? Take the free 2-minute assessment. Get your readiness score and domain recommendation instantly.">
+<meta property="og:title" content="How Ready Are You for a Cybersecurity Career?">
+<meta property="og:description" content="Free 2-minute assessment. Get your readiness score and domain recommendation instantly. Built by DJ Naronikar, 28-year CISO.">
+<meta property="og:image" content="https://thequantumachievers.com/wp-content/uploads/2025/12/Dhananjay-Naronikar-The-Quantum-Achivers.webp">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #0a0e1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2234;
+  --border-card: #1f2937;
+  --gold: #d4a84b;
+  --gold-dark: #b8912e;
+  --gold-glow: rgba(212, 168, 75, 0.15);
+  --teal: #4ecdc4;
+  --teal-glow: rgba(78, 205, 196, 0.15);
+  --text-primary: #e0e0e0;
+  --text-muted: #9ca3af;
+  --text-dark: #0a0e1a;
+  --red: #ef4444;
+  --green: #34d399;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.25; }
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { cursor: pointer; font-family: inherit; }
+
+/* ── HERO ── */
+.hero {
+  padding: 72px 0 56px;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(78, 205, 196, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero-sub {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+  background: var(--bg-card);
+}
+
+.trust-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.trust-text strong {
+  color: var(--text-primary);
+  display: block;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 18px 44px;
+  border: none;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  min-height: 56px;
+  min-width: 44px;
+}
+
+.hero-cta:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 168, 75, 0.3);
+  text-decoration: none;
+}
+
+.hero-cta svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ── QUIZ WRAPPER ── */
+.quiz-section {
+  padding: 24px 0 64px;
+}
+
+.quiz-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .quiz-card { padding: 28px 20px; }
+}
+
+/* ── PROGRESS BAR ── */
+.progress-wrapper {
+  margin-bottom: 32px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-count {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+/* ── QUESTION SLIDES ── */
+.question-slide {
+  display: none;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.question-slide.active {
+  display: block;
+}
+
+.question-slide.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.question-slide.exit-left {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.question-number {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: clamp(20px, 3vw, 26px);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 28px;
+  line-height: 1.3;
+}
+
+/* ── DROPDOWN (Q1) ── */
+.select-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 16px 48px 16px 18px;
+  background: var(--bg-deep);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-height: 56px;
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--text-muted);
+  pointer-events: none;
+}
+
+/* ── BUTTON OPTIONS (Q2, Q5) ── */
+.btn-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-option {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--bg-deep);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.2s ease;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-option:hover {
+  border-color: var(--gold);
+  background: var(--bg-card-hover);
+}
+
+.btn-option.selected {
+  border-color: var(--gold);
+  background: var(--gold-glow);
+  color: #fff;
+}
+
+.btn-option.selected::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* ── MULTI-SELECT (Q3) ── */
+.checkbox-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 500px) {
+  .checkbox-options { grid-template-columns: 1fr; }
+}
+
+.checkbox-option {
+  padding: 14px 16px;
+  background: var(--bg-deep);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.2s ease;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-option:hover {
+  border-color: var(--teal);
+  background: var(--bg-card-hover);
+}
+
+.checkbox-option.selected {
+  border-color: var(--teal);
+  background: var(--teal-glow);
+}
+
+.check-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-card);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.checkbox-option.selected .check-box {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.check-box svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.checkbox-option.selected .check-box svg { opacity: 1; }
+
+/* ── PATH CARDS (Q4) ── */
+.path-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .path-cards { grid-template-columns: 1fr; }
+}
+
+.path-card {
+  padding: 18px 16px;
+  background: var(--bg-deep);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.2s ease;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.path-card:hover {
+  border-color: var(--gold);
+  background: var(--bg-card-hover);
+}
+
+.path-card.selected {
+  border-color: var(--gold);
+  background: var(--gold-glow);
+}
+
+.path-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.path-card.selected .path-card-title { color: var(--gold); }
+
+.path-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── NAVIGATION ── */
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  gap: 12px;
+}
+
+.nav-back {
+  padding: 14px 24px;
+  background: transparent;
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s;
+  min-height: 48px;
+  min-width: 44px;
+}
+
+.nav-back:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+.nav-next {
+  padding: 14px 32px;
+  background: var(--gold);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-dark);
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.2s;
+  min-height: 48px;
+  min-width: 44px;
+  margin-left: auto;
+}
+
+.nav-next:hover {
+  background: var(--gold-dark);
+  transform: translateY(-1px);
+}
+
+.nav-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-next.submit-btn {
+  padding: 16px 40px;
+  font-size: 17px;
+}
+
+/* ── RESULTS SECTION ── */
+.results-section {
+  display: none;
+  padding: 24px 0 64px;
+}
+
+.results-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .results-card { padding: 36px 20px; }
+}
+
+.results-header {
+  margin-bottom: 40px;
+}
+
+.results-label {
+  font-size: 13px;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Score Circle */
+.score-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px;
+}
+
+.score-ring svg {
+  width: 180px;
+  height: 180px;
+  transform: rotate(-90deg);
+}
+
+.score-ring-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.06);
+  stroke-width: 8;
+}
+
+.score-ring-fill {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 452;
+  stroke-dashoffset: 452;
+  transition: stroke-dashoffset 1.5s ease;
+}
+
+.score-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.score-number .big {
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  display: block;
+  line-height: 1;
+}
+
+.score-number .of {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.score-level {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.score-tagline {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Domain Recommendation */
+.domain-rec {
+  background: var(--bg-deep);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  margin: 32px 0;
+  text-align: left;
+}
+
+.domain-rec-label {
+  font-size: 12px;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.domain-rec-title {
+  font-size: clamp(18px, 3vw, 22px);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.domain-rec-why {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Locked Preview */
+.locked-section {
+  margin: 40px 0;
+  text-align: left;
+}
+
+.locked-heading {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.locked-subhead {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.locked-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .locked-items { grid-template-columns: 1fr; }
+}
+
+.locked-item {
+  padding: 20px 16px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.locked-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 26, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  pointer-events: none;
+}
+
+.locked-item-content {
+  filter: blur(2px);
+}
+
+.locked-item-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.locked-item-preview {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.locked-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.locked-badge svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* Result CTAs */
+.result-ctas {
+  margin: 36px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 17px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-height: 56px;
+  min-width: 44px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.cta-primary:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 168, 75, 0.3);
+  text-decoration: none;
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 32px;
+  border: 2px solid var(--teal);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  min-width: 44px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.cta-secondary:hover {
+  background: var(--teal-glow);
+  text-decoration: none;
+}
+
+.cta-price {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
+/* ── LEAD CAPTURE ── */
+.lead-section {
+  display: none;
+  padding: 0 0 64px;
+}
+
+.lead-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .lead-card { padding: 28px 20px; }
+}
+
+.lead-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  background: var(--teal-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--teal);
+}
+
+.lead-heading {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.lead-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.lead-form input {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--bg-deep);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  min-height: 50px;
+}
+
+.lead-form input::placeholder { color: var(--text-muted); }
+
+.lead-form input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.lead-form .optional-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: left;
+  margin-top: -6px;
+  margin-bottom: -4px;
+}
+
+.lead-submit {
+  padding: 16px 32px;
+  background: var(--teal);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 52px;
+  margin-top: 4px;
+}
+
+.lead-submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.lead-success {
+  display: none;
+  padding: 24px;
+  text-align: center;
+}
+
+.lead-success-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  background: rgba(52, 211, 153, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-success-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--green);
+}
+
+.lead-success h3 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.lead-success p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  padding: 32px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-card);
+}
+
+.footer-creds {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.footer-brand {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── UTILITY ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 48px 0 40px; }
+  .hero-cta { width: 100%; padding: 18px 24px; }
+  .quiz-nav { flex-wrap: wrap; }
+  .nav-next { width: 100%; text-align: center; justify-content: center; }
+  .nav-back { width: 100%; text-align: center; justify-content: center; order: 2; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="trust-bar">
+      <img
+        src="https://thequantumachievers.com/wp-content/uploads/2025/12/Dhananjay-Naronikar-The-Quantum-Achivers.webp"
+        alt="DJ Naronikar"
+        class="trust-photo"
+        width="56"
+        height="56"
+        loading="eager"
+      >
+      <div class="trust-text">
+        Built by <strong>DJ Naronikar</strong>
+        28-Year CISO &middot; Deloitte, EY, Shell
+      </div>
+    </div>
+
+    <h1>How Ready Are You for a <span>Cybersecurity Career</span>?</h1>
+    <p class="hero-sub">Take the 2-minute assessment. Get your score instantly.</p>
+
+    <a href="#quiz" class="hero-cta" id="startBtn">
+      Start Your Assessment
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════ QUIZ ═══════════════ -->
+<section class="quiz-section" id="quiz" style="display:none;">
+  <div class="container">
+    <div class="quiz-card">
+
+      <!-- Progress -->
+      <div class="progress-wrapper">
+        <div class="progress-header">
+          <span class="progress-label">Your Assessment</span>
+          <span class="progress-count" id="progressCount">1 of 5</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Q1: Current Role -->
+      <div class="question-slide active" id="q1" data-q="1">
+        <div class="question-number">Question 1</div>
+        <div class="question-text">What is your current role?</div>
+        <div class="select-wrapper">
+          <select id="q1Select" aria-label="Select your current role">
+            <option value="" disabled selected>Select your role...</option>
+            <option value="it-support">IT Support / Help Desk</option>
+            <option value="sysadmin">Systems Administrator</option>
+            <option value="network">Network Administrator / Engineer</option>
+            <option value="cloud">Cloud Engineer</option>
+            <option value="devops">DevOps Engineer</option>
+            <option value="dba">Database Administrator</option>
+            <option value="pm">IT Project Manager</option>
+            <option value="dev">Software Developer</option>
+            <option value="other-it">Other IT Role</option>
+            <option value="not-it">Not currently in IT</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Q2: Years in IT -->
+      <div class="question-slide" id="q2" data-q="2">
+        <div class="question-number">Question 2</div>
+        <div class="question-text">How many years have you been in IT?</div>
+        <div class="btn-options" id="q2Options">
+          <button type="button" class="btn-option" data-value="lt2">Less than 2</button>
+          <button type="button" class="btn-option" data-value="2-4">2 &ndash; 4 years</button>
+          <button type="button" class="btn-option" data-value="5-7">5 &ndash; 7 years</button>
+          <button type="button" class="btn-option" data-value="8-12">8 &ndash; 12 years</button>
+          <button type="button" class="btn-option" data-value="13+">13+ years</button>
+        </div>
+      </div>
+
+      <!-- Q3: Certifications -->
+      <div class="question-slide" id="q3" data-q="3">
+        <div class="question-number">Question 3</div>
+        <div class="question-text">Which certifications do you currently hold?</div>
+        <p style="font-size:13px;color:var(--text-muted);margin:-16px 0 20px;">Select all that apply.</p>
+        <div class="checkbox-options" id="q3Options">
+          <button type="button" class="checkbox-option" data-value="a-plus">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            CompTIA A+
+          </button>
+          <button type="button" class="checkbox-option" data-value="net-plus">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            CompTIA Network+
+          </button>
+          <button type="button" class="checkbox-option" data-value="sec-plus">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            CompTIA Security+
+          </button>
+          <button type="button" class="checkbox-option" data-value="ccna">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            CCNA / CCNP
+          </button>
+          <button type="button" class="checkbox-option" data-value="cloud-cert">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            AWS / Azure / GCP
+          </button>
+          <button type="button" class="checkbox-option" data-value="cissp">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            CISSP
+          </button>
+          <button type="button" class="checkbox-option" data-value="ceh">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            CEH
+          </button>
+          <button type="button" class="checkbox-option" data-value="none">
+            <span class="check-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#0a0e1a"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
+            None yet
+          </button>
+        </div>
+      </div>
+
+      <!-- Q4: Path Interest -->
+      <div class="question-slide" id="q4" data-q="4">
+        <div class="question-number">Question 4</div>
+        <div class="question-text">What cybersecurity path interests you most?</div>
+        <div class="path-cards" id="q4Options">
+          <button type="button" class="path-card" data-value="grc">
+            <div class="path-card-title">GRC</div>
+            <div class="path-card-desc">Governance, Risk, Compliance. Write policies, manage compliance, assess risk. Easiest entry point.</div>
+          </button>
+          <button type="button" class="path-card" data-value="soc">
+            <div class="path-card-title">SOC Analyst</div>
+            <div class="path-card-desc">Monitor threats in real-time. The front line of defense.</div>
+          </button>
+          <button type="button" class="path-card" data-value="pentest">
+            <div class="path-card-title">Penetration Testing</div>
+            <div class="path-card-desc">Authorized hacking. Break into systems to find weaknesses.</div>
+          </button>
+          <button type="button" class="path-card" data-value="architecture">
+            <div class="path-card-title">Security Architecture</div>
+            <div class="path-card-desc">Design secure systems and networks from the ground up.</div>
+          </button>
+          <button type="button" class="path-card" data-value="ir">
+            <div class="path-card-title">Incident Response</div>
+            <div class="path-card-desc">Respond to active attacks. Digital forensics.</div>
+          </button>
+          <button type="button" class="path-card" data-value="not-sure">
+            <div class="path-card-title">Not Sure Yet</div>
+            <div class="path-card-desc">Help me figure it out.</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q5: Timeline -->
+      <div class="question-slide" id="q5" data-q="5">
+        <div class="question-number">Question 5</div>
+        <div class="question-text">How soon do you want to make the move?</div>
+        <div class="btn-options" id="q5Options">
+          <button type="button" class="btn-option" data-value="now">Already looking for roles</button>
+          <button type="button" class="btn-option" data-value="3mo">Within 3 months</button>
+          <button type="button" class="btn-option" data-value="6mo">Within 6 months</button>
+          <button type="button" class="btn-option" data-value="1yr">Within a year</button>
+          <button type="button" class="btn-option" data-value="exploring">Just exploring</button>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="quiz-nav" id="quizNav">
+        <button type="button" class="nav-back" id="backBtn" style="visibility:hidden;">
+          Back
+        </button>
+        <button type="button" class="nav-next" id="nextBtn" disabled>
+          Next
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RESULTS ═══════════════ -->
+<section class="results-section" id="results">
+  <div class="container">
+    <div class="results-card">
+
+      <div class="results-header">
+        <div class="results-label">Your Readiness Score</div>
+
+        <div class="score-ring">
+          <svg viewBox="0 0 180 180">
+            <circle class="score-ring-bg" cx="90" cy="90" r="72"/>
+            <circle class="score-ring-fill" id="scoreCircle" cx="90" cy="90" r="72"/>
+          </svg>
+          <div class="score-number">
+            <span class="big" id="scoreValue">0</span>
+            <span class="of">out of 100</span>
+          </div>
+        </div>
+
+        <div class="score-level" id="scoreLevel">Calculating...</div>
+        <div class="score-tagline" id="scoreTagline"></div>
+      </div>
+
+      <!-- Domain Recommendation -->
+      <div class="domain-rec">
+        <div class="domain-rec-label">Recommended Path</div>
+        <div class="domain-rec-title" id="domainTitle">--</div>
+        <div class="domain-rec-why" id="domainWhy">--</div>
+      </div>
+
+      <!-- Locked Preview Items -->
+      <div class="locked-section">
+        <div class="locked-heading">Your Full Career Scorecard Includes</div>
+        <div class="locked-subhead">Unlock the complete picture for $47</div>
+
+        <div class="locked-items">
+          <div class="locked-item">
+            <div class="locked-item-content">
+              <div class="locked-item-title">Your Certification Roadmap</div>
+              <div class="locked-item-preview">Security+ within 90 days, then CISM...</div>
+            </div>
+            <div class="locked-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              Locked
+            </div>
+          </div>
+          <div class="locked-item">
+            <div class="locked-item-content">
+              <div class="locked-item-title">Salary Projection for Your Metro</div>
+              <div class="locked-item-preview">GRC Analyst average: $112K in your area...</div>
+            </div>
+            <div class="locked-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              Locked
+            </div>
+          </div>
+          <div class="locked-item">
+            <div class="locked-item-content">
+              <div class="locked-item-title">3 This-Week Action Items</div>
+              <div class="locked-item-preview">Step 1: Register for Security+ exam...</div>
+            </div>
+            <div class="locked-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              Locked
+            </div>
+          </div>
+          <div class="locked-item">
+            <div class="locked-item-content">
+              <div class="locked-item-title">Top Employers in Your Area</div>
+              <div class="locked-item-preview">12 companies hiring GRC analysts now...</div>
+            </div>
+            <div class="locked-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              Locked
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="result-ctas">
+        <a href="#leadCapture" class="cta-primary" id="checkoutLink" onclick="document.getElementById('leadCapture').scrollIntoView({behavior:'smooth'});return false;">
+          Get Your Full Career Scorecard
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <span class="cta-price">Enter your details below &mdash; personalized Scorecard delivered within 24 hours</span>
+        <a href="https://dmanwadefreedom.github.io/tqa-jumpstart/" class="cta-secondary" id="webinarLink">
+          See the Full 90-Day Accelerator Program
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LEAD CAPTURE ═══════════════ -->
+<section class="lead-section" id="leadCapture">
+  <div class="container">
+    <div class="lead-card">
+
+      <div id="leadFormView">
+        <div class="lead-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+          </svg>
+        </div>
+        <h3 class="lead-heading">Save Your Score</h3>
+        <p class="lead-sub">Enter your email to save your results and get a free cybersecurity career tip from DJ.</p>
+
+        <form class="lead-form" id="leadForm" novalidate>
+          <input type="text" name="firstName" placeholder="First Name" required autocomplete="given-name" aria-label="First Name">
+          <input type="email" name="email" placeholder="Email Address" required autocomplete="email" aria-label="Email Address">
+          <span class="optional-label">Optional</span>
+          <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" aria-label="Phone Number (optional)">
+
+          <!-- Hidden fields for score data -->
+          <input type="hidden" name="readinessScore" id="hiddenScore">
+          <input type="hidden" name="scoreLevel" id="hiddenLevel">
+          <input type="hidden" name="recommendedDomain" id="hiddenDomain">
+          <input type="hidden" name="currentRole" id="hiddenRole">
+          <input type="hidden" name="yearsIT" id="hiddenYears">
+          <input type="hidden" name="certifications" id="hiddenCerts">
+          <input type="hidden" name="interestPath" id="hiddenPath">
+          <input type="hidden" name="timeline" id="hiddenTimeline">
+
+          <button type="submit" class="lead-submit">Save My Score</button>
+        </form>
+      </div>
+
+      <div class="lead-success" id="leadSuccess">
+        <div class="lead-success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <h3>You're all set.</h3>
+        <p>Check your inbox for a career tip from DJ. Your score has been saved.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-creds">DJ Naronikar &middot; CISSP-ISSMP &middot; 28-Year CISO &middot; Deloitte, EY, Shell</p>
+    <p class="footer-brand"><a href="https://thequantumachievers.com" target="_blank" rel="noopener">The Quantum Achievers</a> &middot; thequantumachievers.com</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ─── STATE ───
+  var currentQuestion = 1;
+  var totalQuestions = 5;
+  var answers = {
+    role: '',
+    years: '',
+    certs: [],
+    path: '',
+    timeline: ''
+  };
+
+  // ─── DOM REFS ───
+  var quizSection = document.getElementById('quiz');
+  var resultsSection = document.getElementById('results');
+  var leadSection = document.getElementById('leadCapture');
+  var heroSection = document.querySelector('.hero');
+  var progressFill = document.getElementById('progressFill');
+  var progressCount = document.getElementById('progressCount');
+  var nextBtn = document.getElementById('nextBtn');
+  var backBtn = document.getElementById('backBtn');
+  var startBtn = document.getElementById('startBtn');
+
+  // ─── START BUTTON ───
+  startBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    heroSection.style.display = 'none';
+    quizSection.style.display = 'block';
+    updateProgress();
+    showQuestion(1);
+    quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // ─── PROGRESS ───
+  function updateProgress() {
+    var pct = (currentQuestion / totalQuestions) * 100;
+    progressFill.style.width = pct + '%';
+    progressCount.textContent = currentQuestion + ' of ' + totalQuestions;
+  }
+
+  // ─── SHOW / HIDE QUESTIONS ───
+  function showQuestion(num) {
+    var slides = document.querySelectorAll('.question-slide');
+    slides.forEach(function(s) {
+      s.classList.remove('active', 'visible', 'exit-left');
+      s.style.display = 'none';
+    });
+
+    var target = document.getElementById('q' + num);
+    target.style.display = 'block';
+    target.classList.add('active');
+
+    // Trigger reflow for animation
+    void target.offsetWidth;
+    requestAnimationFrame(function() {
+      target.classList.add('visible');
+    });
+
+    // Navigation state
+    backBtn.style.visibility = num === 1 ? 'hidden' : 'visible';
+
+    if (num === totalQuestions) {
+      nextBtn.textContent = 'See My Score';
+      nextBtn.classList.add('submit-btn');
+    } else {
+      nextBtn.textContent = 'Next';
+      nextBtn.classList.remove('submit-btn');
+    }
+
+    validateCurrent();
+  }
+
+  // ─── VALIDATE CURRENT QUESTION ───
+  function validateCurrent() {
+    var valid = false;
+    switch (currentQuestion) {
+      case 1: valid = answers.role !== ''; break;
+      case 2: valid = answers.years !== ''; break;
+      case 3: valid = answers.certs.length > 0; break;
+      case 4: valid = answers.path !== ''; break;
+      case 5: valid = answers.timeline !== ''; break;
+    }
+    nextBtn.disabled = !valid;
+  }
+
+  // ─── Q1: DROPDOWN ───
+  document.getElementById('q1Select').addEventListener('change', function() {
+    answers.role = this.value;
+    validateCurrent();
+  });
+
+  // ─── Q2: BUTTON OPTIONS ───
+  document.getElementById('q2Options').addEventListener('click', function(e) {
+    var btn = e.target.closest('.btn-option');
+    if (!btn) return;
+    this.querySelectorAll('.btn-option').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    answers.years = btn.dataset.value;
+    validateCurrent();
+  });
+
+  // ─── Q3: MULTI-SELECT ───
+  document.getElementById('q3Options').addEventListener('click', function(e) {
+    var btn = e.target.closest('.checkbox-option');
+    if (!btn) return;
+
+    var val = btn.dataset.value;
+
+    // "None yet" deselects everything else
+    if (val === 'none') {
+      this.querySelectorAll('.checkbox-option').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      answers.certs = ['none'];
+    } else {
+      // Deselect "none" if selecting a cert
+      var noneBtn = this.querySelector('[data-value="none"]');
+      if (noneBtn) noneBtn.classList.remove('selected');
+      answers.certs = answers.certs.filter(function(c) { return c !== 'none'; });
+
+      btn.classList.toggle('selected');
+      if (btn.classList.contains('selected')) {
+        if (answers.certs.indexOf(val) === -1) answers.certs.push(val);
+      } else {
+        answers.certs = answers.certs.filter(function(c) { return c !== val; });
+      }
+    }
+
+    validateCurrent();
+  });
+
+  // ─── Q4: PATH CARDS ───
+  document.getElementById('q4Options').addEventListener('click', function(e) {
+    var card = e.target.closest('.path-card');
+    if (!card) return;
+    this.querySelectorAll('.path-card').forEach(function(c) { c.classList.remove('selected'); });
+    card.classList.add('selected');
+    answers.path = card.dataset.value;
+    validateCurrent();
+  });
+
+  // ─── Q5: TIMELINE BUTTONS ───
+  document.getElementById('q5Options').addEventListener('click', function(e) {
+    var btn = e.target.closest('.btn-option');
+    if (!btn) return;
+    this.querySelectorAll('.btn-option').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    answers.timeline = btn.dataset.value;
+    validateCurrent();
+  });
+
+  // ─── NEXT BUTTON ───
+  nextBtn.addEventListener('click', function() {
+    if (nextBtn.disabled) return;
+
+    if (currentQuestion === totalQuestions) {
+      showResults();
+      return;
+    }
+
+    var current = document.getElementById('q' + currentQuestion);
+    current.classList.remove('visible');
+    current.classList.add('exit-left');
+
+    setTimeout(function() {
+      currentQuestion++;
+      updateProgress();
+      showQuestion(currentQuestion);
+    }, 250);
+  });
+
+  // ─── BACK BUTTON ───
+  backBtn.addEventListener('click', function() {
+    if (currentQuestion <= 1) return;
+    currentQuestion--;
+    updateProgress();
+    showQuestion(currentQuestion);
+  });
+
+  // ─── SCORING ───
+  function calculateScore() {
+    var raw = 0;
+
+    // Q1: Role (max 20)
+    var roleScores = {
+      'network': 20, 'cloud': 20, 'devops': 20,
+      'sysadmin': 15, 'dev': 12, 'it-support': 10,
+      'dba': 12, 'pm': 12, 'other-it': 8, 'not-it': 5
+    };
+    raw += roleScores[answers.role] || 5;
+
+    // Q2: Years (max 20)
+    var yearScores = {
+      'lt2': 5, '2-4': 10, '5-7': 15, '8-12': 20, '13+': 20
+    };
+    raw += yearScores[answers.years] || 5;
+
+    // Q3: Certs (max 20)
+    var certTotal = 0;
+    var certScores = {
+      'a-plus': 5, 'net-plus': 5, 'sec-plus': 8, 'ccna': 5,
+      'cloud-cert': 5, 'cissp': 10, 'ceh': 5, 'none': 0
+    };
+    answers.certs.forEach(function(c) {
+      certTotal += (certScores[c] || 0);
+    });
+    raw += Math.min(certTotal, 20);
+
+    // Q4: Path (max 15 — adjusted for normalization)
+    raw += (answers.path === 'not-sure') ? 8 : 10;
+
+    // Q5: Timeline (max 15)
+    var timeScores = {
+      'now': 15, '3mo': 12, '6mo': 10, '1yr': 7, 'exploring': 5
+    };
+    raw += timeScores[answers.timeline] || 5;
+
+    // Normalize: max raw = 20+20+20+10+15 = 85, scale to 100
+    // Actually max raw = 20+20+20+10+15 = 85
+    var normalized = Math.round((raw / 85) * 100);
+    return Math.min(normalized, 100);
+  }
+
+  function getScoreLevel(score) {
+    if (score >= 85) return { label: 'Career Ready', tagline: 'You have a strong foundation. The right guidance will fast-track your move.' };
+    if (score >= 65) return { label: 'Strong Foundation', tagline: 'You are closer than you think. A focused plan will close the gap fast.' };
+    if (score >= 45) return { label: 'Almost There', tagline: 'You have real skills to build on. The right next steps will accelerate your path.' };
+    return { label: 'Getting Started', tagline: 'Everyone starts somewhere. A clear roadmap makes all the difference.' };
+  }
+
+  function getDomainRecommendation() {
+    var role = answers.role;
+    var path = answers.path;
+
+    // Direct path selections
+    if (path === 'pentest') return buildDomain('Penetration Testing', 'pentest');
+    if (path === 'ir') return buildDomain('Incident Response', 'ir');
+
+    if (path === 'architecture' && (role === 'cloud' || role === 'devops' || role === 'network')) {
+      return buildDomain('Security Architecture', 'architecture');
+    }
+    if (path === 'architecture') {
+      return buildDomain('Security Architecture', 'architecture');
+    }
+
+    if (path === 'soc' || (path === 'not-sure' && (role === 'network' || role === 'cloud'))) {
+      return buildDomain('SOC Analyst', 'soc');
+    }
+
+    if (path === 'grc' || path === 'not-sure') {
+      return buildDomain('GRC (Governance, Risk, Compliance)', 'grc');
+    }
+
+    // Fallback
+    return buildDomain('GRC (Governance, Risk, Compliance)', 'grc');
+  }
+
+  function buildDomain(name, key) {
+    var roleLabels = {
+      'it-support': 'IT Support', 'sysadmin': 'Systems Administrator',
+      'network': 'Network Administrator', 'cloud': 'Cloud Engineer',
+      'devops': 'DevOps Engineer', 'dba': 'Database Administrator',
+      'pm': 'IT Project Manager', 'dev': 'Software Developer',
+      'other-it': 'IT', 'not-it': 'current'
+    };
+
+    var roleLabel = roleLabels[answers.role] || 'IT';
+
+    var matchPct = {
+      'grc': { 'sysadmin': 70, 'pm': 75, 'it-support': 55, 'network': 60, 'cloud': 65, 'devops': 60, 'dba': 55, 'dev': 45, 'other-it': 50, 'not-it': 30 },
+      'soc': { 'network': 75, 'cloud': 70, 'sysadmin': 60, 'it-support': 50, 'devops': 65, 'dba': 45, 'pm': 40, 'dev': 50, 'other-it': 45, 'not-it': 25 },
+      'pentest': { 'dev': 70, 'network': 65, 'cloud': 60, 'devops': 65, 'sysadmin': 55, 'it-support': 40, 'dba': 45, 'pm': 30, 'other-it': 40, 'not-it': 20 },
+      'architecture': { 'cloud': 75, 'devops': 75, 'network': 70, 'sysadmin': 60, 'dev': 55, 'dba': 50, 'pm': 50, 'it-support': 35, 'other-it': 40, 'not-it': 20 },
+      'ir': { 'network': 65, 'sysadmin': 60, 'cloud': 60, 'devops': 55, 'it-support': 45, 'dev': 50, 'dba': 40, 'pm': 35, 'other-it': 40, 'not-it': 20 }
+    };
+
+    var pct = (matchPct[key] && matchPct[key][answers.role]) || 45;
+
+    return {
+      name: name,
+      key: key,
+      why: 'Your ' + roleLabel + ' experience gives you ' + pct + '% of what employers need for this path.'
+    };
+  }
+
+  // ─── SHOW RESULTS ───
+  function showResults() {
+    var score = calculateScore();
+    var level = getScoreLevel(score);
+    var domain = getDomainRecommendation();
+
+    // Hide quiz, show results + lead capture
+    quizSection.style.display = 'none';
+    resultsSection.style.display = 'block';
+    leadSection.style.display = 'block';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Animate score
+    var scoreEl = document.getElementById('scoreValue');
+    var circleEl = document.getElementById('scoreCircle');
+    var circumference = 2 * Math.PI * 72; // r=72
+
+    // Set initial dash
+    circleEl.style.strokeDasharray = circumference;
+    circleEl.style.strokeDashoffset = circumference;
+
+    // Set level color
+    if (score >= 85) {
+      circleEl.style.stroke = '#34d399';
+    } else if (score >= 65) {
+      circleEl.style.stroke = '#d4a84b';
+    } else if (score >= 45) {
+      circleEl.style.stroke = '#4ecdc4';
+    } else {
+      circleEl.style.stroke = '#ef4444';
+    }
+
+    // Trigger animation after a brief delay
+    setTimeout(function() {
+      var offset = circumference - (score / 100) * circumference;
+      circleEl.style.strokeDashoffset = offset;
+
+      // Count up number
+      animateNumber(scoreEl, 0, score, 1200);
+    }, 300);
+
+    document.getElementById('scoreLevel').textContent = level.label;
+    document.getElementById('scoreTagline').textContent = level.tagline;
+    document.getElementById('domainTitle').textContent = domain.name;
+    document.getElementById('domainWhy').textContent = domain.why;
+
+    // Populate hidden fields
+    document.getElementById('hiddenScore').value = score;
+    document.getElementById('hiddenLevel').value = level.label;
+    document.getElementById('hiddenDomain').value = domain.name;
+    document.getElementById('hiddenRole').value = answers.role;
+    document.getElementById('hiddenYears').value = answers.years;
+    document.getElementById('hiddenCerts').value = answers.certs.join(',');
+    document.getElementById('hiddenPath').value = answers.path;
+    document.getElementById('hiddenTimeline').value = answers.timeline;
+
+    // Store in window for potential webhook use
+    window.tqaQuizData = {
+      score: score,
+      level: level.label,
+      domain: domain.name,
+      domainKey: domain.key,
+      answers: JSON.parse(JSON.stringify(answers)),
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  function animateNumber(el, from, to, duration) {
+    var start = performance.now();
+    function tick(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(from + (to - from) * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ─── LEAD FORM ───
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var form = this;
+    var firstName = form.firstName.value.trim();
+    var email = form.email.value.trim();
+    var phone = form.phone.value.trim();
+
+    // Basic validation
+    if (!firstName) { form.firstName.focus(); return; }
+    if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) { form.email.focus(); return; }
+
+    // Build lead data object
+    var leadData = {
+      firstName: firstName,
+      email: email,
+      phone: phone,
+      readinessScore: document.getElementById('hiddenScore').value,
+      scoreLevel: document.getElementById('hiddenLevel').value,
+      recommendedDomain: document.getElementById('hiddenDomain').value,
+      currentRole: document.getElementById('hiddenRole').value,
+      yearsIT: document.getElementById('hiddenYears').value,
+      certifications: document.getElementById('hiddenCerts').value,
+      interestPath: document.getElementById('hiddenPath').value,
+      timeline: document.getElementById('hiddenTimeline').value,
+      timestamp: new Date().toISOString(),
+      source: 'tqa-career-quiz'
+    };
+
+    // Store for webhook integration
+    window.tqaLeadData = leadData;
+
+    // Log to console for development
+    console.log('[TQA Quiz] Lead captured:', JSON.stringify(leadData, null, 2));
+
+    // ──────────────────────────────────────────────
+    // WEBHOOK INTEGRATION POINT
+    // Uncomment and replace URL to send data to GHL, n8n, or any endpoint:
+    //
+    // fetch('https://your-webhook-url.com', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(leadData)
+    // }).then(function(r) {
+    //   console.log('[TQA Quiz] Webhook sent:', r.status);
+    // }).catch(function(err) {
+    //   console.error('[TQA Quiz] Webhook error:', err);
+    // });
+    // ──────────────────────────────────────────────
+
+    // Show success
+    document.getElementById('leadFormView').style.display = 'none';
+    document.getElementById('leadSuccess').style.display = 'block';
+  });
+
+})();
+</script>
+
+</body>
+</html>

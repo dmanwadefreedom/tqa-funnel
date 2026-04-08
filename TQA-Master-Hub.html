@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA Project Hub — All Deliverables</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #040D1A; color: #C8DDE8; min-height: 100vh; }
+
+  .topbar {
+    background: #0D1B3E;
+    border-bottom: 3px solid #00B4D8;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 16px; }
+  .badge {
+    background: #00B4D8;
+    color: #040D1A;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 5px 12px;
+  }
+  .topbar h1 { color: #fff; font-size: 20px; font-weight: 900; }
+  .topbar-right { color: #6B8FA8; font-size: 12px; }
+
+  .hero {
+    background: linear-gradient(135deg, #0D1B3E 0%, #091529 100%);
+    padding: 50px 40px 40px;
+    border-bottom: 1px solid #1A3A5C;
+  }
+  .hero h2 { color: #fff; font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+  .hero p { color: #6B8FA8; font-size: 14px; max-width: 700px; line-height: 1.6; }
+
+  .status-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .status-chip {
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .chip-done { background: rgba(34,197,94,0.15); color: #22C55E; border: 1px solid #22C55E; }
+  .chip-next { background: rgba(244,168,71,0.15); color: #F4A847; border: 1px solid #F4A847; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 48px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1A3A5C;
+  }
+  .section-num {
+    width: 36px; height: 36px;
+    background: #00B4D8;
+    color: #040D1A;
+    font-size: 16px;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title { color: #fff; font-size: 18px; font-weight: 900; }
+  .section-sub { color: #6B8FA8; font-size: 12px; margin-top: 2px; }
+
+  /* ── CARDS ── */
+  .cards { display: grid; gap: 14px; }
+  .cards-2 { grid-template-columns: 1fr 1fr; }
+  .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .card {
+    background: #0D1B3E;
+    border: 1px solid #1A3A5C;
+    border-left: 4px solid #1A3A5C;
+    padding: 20px 22px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-left-color: #00B4D8; }
+  .card.teal  { border-left-color: #00B4D8; }
+  .card.gold  { border-left-color: #F4A847; }
+  .card.green { border-left-color: #22C55E; }
+  .card.red   { border-left-color: #EF4444; }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .label-teal  { color: #00B4D8; }
+  .label-gold  { color: #F4A847; }
+  .label-green { color: #22C55E; }
+  .label-red   { color: #EF4444; }
+  .label-gray  { color: #6B8FA8; }
+
+  .card h3 { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .card p  { color: #6B8FA8; font-size: 12px; line-height: 1.6; margin-bottom: 14px; }
+
+  .btn {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-bottom: 4px;
+  }
+  .btn-teal  { background: #00B4D8; color: #040D1A; }
+  .btn-teal:hover { background: #00C8F0; }
+  .btn-outline { border: 1px solid #1A3A5C; color: #C8DDE8; background: transparent; }
+  .btn-outline:hover { border-color: #00B4D8; color: #00B4D8; }
+  .btn-gold  { background: #F4A847; color: #040D1A; }
+  .btn-green { background: #22C55E; color: #040D1A; }
+
+  /* ── NEXT STEPS ── */
+  .next-steps {
+    background: #0D1B3E;
+    border: 1px solid #1A3A5C;
+    border-top: 4px solid #F4A847;
+    padding: 28px 30px;
+    margin-top: 20px;
+  }
+  .next-steps h3 { color: #F4A847; font-size: 15px; font-weight: 900; margin-bottom: 16px; letter-spacing: 1px; }
+  .next-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1A3A5C;
+  }
+  .next-item:last-child { border-bottom: none; }
+  .next-num {
+    width: 24px; height: 24px;
+    background: #1A3A5C;
+    color: #00B4D8;
+    font-size: 12px;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .next-text strong { color: #fff; font-size: 13px; display: block; margin-bottom: 2px; }
+  .next-text span { color: #6B8FA8; font-size: 12px; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid #1A3A5C;
+    margin: 12px 0 24px;
+  }
+
+  /* ── OWNER TAGS ── */
+  .owners { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .owner-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    background: #091529;
+    border: 1px solid #1A3A5C;
+    color: #6B8FA8;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .cards-2, .cards-3 { grid-template-columns: 1fr; }
+    .container { padding: 20px; }
+    .topbar { padding: 14px 20px; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .hero { padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="badge">TQA</div>
+    <div>
+      <h1>Project Hub — The Quantum Achievers</h1>
+    </div>
+  </div>
+  <div class="topbar-right">Webinar: 19 March 2026 &nbsp;·&nbsp; All deliverables below</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Everything built. One place.</h2>
+  <p>All deliverables in order — from funnel strategy through to qualification system. Open, review, or download each item. Workflows and email sequences are next.</p>
+  <div class="status-row">
+    <div class="status-chip chip-done">✓ STRATEGY COMPLETE</div>
+    <div class="status-chip chip-done">✓ SLIDES COMPLETE</div>
+    <div class="status-chip chip-done">✓ LANDING PAGE COMPLETE</div>
+    <div class="status-chip chip-done">✓ QUALIFICATION SYSTEM COMPLETE</div>
+    <div class="status-chip chip-next">✓ GHL WORKFLOWS + EMAILS COMPLETE</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══ SECTION 1 — JOURNEY MAP ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Client Journey Map</div>
+        <div class="section-sub">8-stage funnel from Meta Ad through to enrolment — visual, interactive</div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card teal">
+        <div class="card-label label-teal">STRATEGY FOUNDATION</div>
+        <h3>TQA 8-Stage Journey Map v2</h3>
+        <p>Full funnel map: Meta Ad → GHL capture → WhatsApp warm-up → Webinar → Application → Score → Closer call → Enrol. Shows every touchpoint, metric benchmark, and decision node. Use this as the master reference for all automation builds.</p>
+        <a href="tqa-journey-map-v2.html" target="_blank" class="btn btn-teal">Open Map</a>
+        <div class="owners">
+          <span class="owner-tag">DYLAN — strategy ref</span>
+          <span class="owner-tag">AGRESH — build ref</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2 — LANDING PAGES ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Landing Pages</div>
+        <div class="section-sub">Three versions targeting Indian diaspora psychology — use v3 as primary, v1/v2 for split testing</div>
+      </div>
+    </div>
+    <div class="cards cards-3">
+      <div class="card green">
+        <div class="card-label label-green">PRIMARY — USE THIS</div>
+        <h3>Landing Page v3</h3>
+        <p>Identity-mirror approach. Reader as protagonist. H-1B visa anxiety, AI displacement, family pressure all addressed. Minimal "I" language — you-focused throughout. Apply CTA, no price shown.</p>
+        <a href="tqa-landing-v3.html" target="_blank" class="btn btn-teal">Open LP v3</a>
+      </div>
+      <div class="card">
+        <div class="card-label label-gray">SPLIT TEST A</div>
+        <h3>Landing Page v2</h3>
+        <p>H-1B job security angle. Leads with visa vulnerability and AI threat. More direct fear-based hook. Good for cold traffic that doesn't know TQA yet.</p>
+        <span class="btn btn-outline" style="opacity:0.4;cursor:not-allowed;">Coming Soon</span>
+      </div>
+      <div class="card">
+        <div class="card-label label-gray">SPLIT TEST B</div>
+        <h3>Landing Page v1</h3>
+        <p>Original redesign. Opportunity-led. "600K unfilled jobs" hook. Less emotionally specific — better for broader audiences outside the Indian diaspora.</p>
+        <span class="btn btn-outline" style="opacity:0.4;cursor:not-allowed;">Coming Soon</span>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <div class="card gold" style="padding: 16px 20px;">
+        <div class="card-label label-gold">WEBSITE SPLIT TEST COPY — FOR SHREYAS</div>
+        <h3 style="margin-bottom:4px">Website Copy Swaps (homepage)</h3>
+        <p style="margin-bottom:10px">Exact copy replacements for every section of thequantumachievers.com — hero, social proof, who-it's-for, program overview, CTA. Includes split test metrics and A/B instructions for Shreyas to implement.</p>
+        <span class="btn btn-gold" style="opacity:0.4;cursor:not-allowed;">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3 — SLIDES ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Webinar Slide Deck</div>
+        <div class="section-sub">18 slides — rebuilt from scratch, DJ photos embedded, ready for March 19</div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card teal">
+        <div class="card-label label-teal">FINAL VERSION — MARCH 19 WEBINAR</div>
+        <h3>TQA Webinar Deck v3 — Redesigned</h3>
+        <p>18 slides. DJ's CIO Choice podium photo on title slide. Full credibility slide with headshot, Deloitte/ANZ/Accenture/ISC²/CISO360 logos, stat pills. Dot-grid texture across all dark slides. Photo-driven CTA slide (slide 17) and full-bleed Q&A closing slide (slide 18). All original good content preserved — salary table, resume comparison, live exercise, career trajectory. Pricing removed from stage. Apply CTA replaces pushy close.</p>
+        <a href="TQA-Webinar-Redesigned.pptx" download class="btn btn-teal">Download PPTX</a>
+        <a href="TQA-Webinar-Final-Revision-Guide.docx" download class="btn btn-outline">Revision Guide</a>
+        <div class="owners">
+          <span class="owner-tag">DJ — present this</span>
+          <span class="owner-tag">SHREYAS — upload to webinar platform</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 4 — QUALIFICATION SYSTEM ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Lead Qualification &amp; Conversion System</div>
+        <div class="section-sub">Application form, scoring logic, GHL branches, email templates, implementation checklist</div>
+      </div>
+    </div>
+    <div class="cards cards-2">
+      <div class="card green">
+        <div class="card-label label-green">FULL BUILD DOC — FOR AGRESH</div>
+        <h3>Qualification System v1.0</h3>
+        <p>8 sections: system overview, DJ's verbal filter script (slide 17), price anchor copy for apply page, 9-question application form, GHL scoring logic (max score 12), three workflow branches (hot/warm/cold), 3 email templates copy-paste ready, and implementation checklist by owner.</p>
+        <a href="TQA-Qualification-System.docx" download class="btn btn-green">Download DOCX</a>
+        <div class="owners">
+          <span class="owner-tag">AGRESH — GHL build</span>
+          <span class="owner-tag">SHREYAS — apply page</span>
+          <span class="owner-tag">DJ — verbal filter</span>
+        </div>
+      </div>
+      <div class="card" style="border-left-color: #1A3A5C;">
+        <div class="card-label label-gray">QUALIFICATION LOGIC SUMMARY</div>
+        <h3>Score Buckets</h3>
+        <p style="margin-bottom: 8px;">Quick reference for DJ's fit review decisions on warm leads (score 5–8). Agresh monitors and escalates.</p>
+        <div style="display:grid; gap:8px; margin-top: 4px;">
+          <div style="background:#091529; padding:10px 14px; border-left: 3px solid #22C55E;">
+            <span style="color:#22C55E; font-weight:900; font-size:13px;">9 – 12 &nbsp;→&nbsp; PRIORITY</span><br>
+            <span style="color:#6B8FA8; font-size:11px;">Auto-book closer call within 24hrs</span>
+          </div>
+          <div style="background:#091529; padding:10px 14px; border-left: 3px solid #F4A847;">
+            <span style="color:#F4A847; font-weight:900; font-size:13px;">5 – 8 &nbsp;&nbsp;→&nbsp; WARM</span><br>
+            <span style="color:#6B8FA8; font-size:11px;">Notify DJ — 2-min fit review of Q9 + homework. Agresh monitors.</span>
+          </div>
+          <div style="background:#091529; padding:10px 14px; border-left: 3px solid #EF4444;">
+            <span style="color:#EF4444; font-weight:900; font-size:13px;">0 – 4 &nbsp;&nbsp;→&nbsp; NURTURE</span><br>
+            <span style="color:#6B8FA8; font-size:11px;">60-day email sequence, no call booked</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 5 — ADDITIONAL RESOURCES ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">Additional Resources</div>
+        <div class="section-sub">Re-engagement email sample + earlier landing page versions for reference</div>
+      </div>
+    </div>
+    <div class="cards cards-2">
+      <div class="card gold">
+        <div class="card-label label-gold">NURTURE — RE-ENGAGEMENT SAMPLE</div>
+        <h3>30-Day Re-Engagement Email</h3>
+        <p>The "Are you still thinking about this?" email from the cold nurture sequence. Sent at day 30 to leads who went cold. Simple yes/no reply mechanic — if they reply yes, Agresh is notified first, escalates to DJ if fit looks genuine.</p>
+        <a href="tqa-v2-reengage.html" target="_blank" class="btn btn-gold">View Email</a>
+      </div>
+      <div class="card">
+        <div class="card-label label-gray">REFERENCE — EARLIER VERSIONS</div>
+        <h3>Landing Page Iterations</h3>
+        <p>All earlier LP versions preserved for reference. V1-revised and V3-revised show the before/after of the "less I-language" edit.</p>
+        <span class="btn btn-outline" style="opacity:0.4;cursor:not-allowed;">LP v1 Final</span>
+        <span class="btn btn-outline" style="opacity:0.4;cursor:not-allowed;">LP v3 Final</span>
+        <span class="btn btn-outline" style="opacity:0.4;cursor:not-allowed;">LP v3 Revised</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 6 — GHL BUILD PACKAGE ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">GHL Emails &amp; Workflows — Agresh Build Package</div>
+        <div class="section-sub">5 workflows · 16 email templates · all SMS copy · build checklist — everything in one file</div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card green">
+        <div class="card-label label-green">COMPLETE BUILD PACKAGE — FOR AGRESH</div>
+        <h3>TQA GHL Emails &amp; Workflows</h3>
+        <p>Everything Agresh needs to build in GHL — no guessing required. Includes: 5 workflow diagrams with exact triggers and logic (Pre-Webinar Warm-Up, Post-Webinar Split, Branch A Hot, Branch B Warm, Branch C 60-Day Nurture), 16 email templates rendered and copy-paste ready, all SMS templates, re-score trigger rules, and a full build checklist with owner tags for Agresh / Shreyas / DJ.</p>
+        <a href="TQA-GHL-Emails-Workflows.html" target="_blank" class="btn btn-green">Open GHL Package</a>
+        <div class="owners">
+          <span class="owner-tag">AGRESH — build all workflows</span>
+          <span class="owner-tag">SHREYAS — /apply page embed</span>
+          <span class="owner-tag">DYLAN — warm lead review</span>
+          <span class="owner-tag">DJ — calendar + verbal filter</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px">
+      <div class="card" style="padding:16px 18px">
+        <div class="card-label label-teal">WORKFLOW 1</div>
+        <h3 style="font-size:13px;margin-bottom:4px">Pre-Webinar Warm-Up</h3>
+        <p style="font-size:12px;margin-bottom:0">Registration → 4 emails → day-of SMS + email → 1hr SMS. Goal: 8% → 30%+ show-up.</p>
+      </div>
+      <div class="card" style="padding:16px 18px">
+        <div class="card-label label-teal">WORKFLOW 2</div>
+        <h3 style="font-size:13px;margin-bottom:4px">Post-Webinar Split</h3>
+        <p style="font-size:12px;margin-bottom:0">Replay → apply nudge → last chance → routes to Branch A/B/C on score.</p>
+      </div>
+      <div class="card" style="padding:16px 18px">
+        <div class="card-label label-green">WORKFLOW 3 — BRANCH A</div>
+        <h3 style="font-size:13px;margin-bottom:4px">Hot Lead (Score 9–12)</h3>
+        <p style="font-size:12px;margin-bottom:0">Immediate confirm + SMS → 1hr follow-up → 24hr urgency → pre-call prep.</p>
+      </div>
+      <div class="card" style="padding:16px 18px">
+        <div class="card-label label-gold">WORKFLOW 4 — BRANCH B</div>
+        <h3 style="font-size:13px;margin-bottom:4px">Warm Lead (Score 5–8)</h3>
+        <p style="font-size:12px;margin-bottom:0">DJ notified for fit review → 30-min window → approve or route to nurture. Agresh escalates if DJ unavailable.</p>
+      </div>
+      <div class="card" style="padding:16px 18px">
+        <div class="card-label label-red">WORKFLOW 5 — BRANCH C</div>
+        <h3 style="font-size:13px;margin-bottom:4px">Cold Nurture (Score 0–4)</h3>
+        <p style="font-size:12px;margin-bottom:0">60-day value sequence. Day 3/7/14/30/45/60. Re-score on 3+ clicks.</p>
+      </div>
+      <div class="card" style="padding:16px 18px">
+        <div class="card-label label-gray">ALL 16 EMAIL TEMPLATES</div>
+        <h3 style="font-size:13px;margin-bottom:4px">Rendered + Copy-Paste Ready</h3>
+        <p style="font-size:12px;margin-bottom:0">Every email rendered as HTML preview with subject lines. Load directly into GHL.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NEXT STEPS ══ -->
+  <div class="next-steps">
+    <h3>→ WHAT NEEDS REAL LINKS BEFORE GOING LIVE</h3>
+    <div class="next-item">
+      <div class="next-num">1</div>
+      <div class="next-text">
+        <strong>Landing Page Form → GHL Webhook (Agresh)</strong>
+        <span>The registration form on LP v3 is built and styled. Agresh needs to connect the GHL form webhook so submissions capture in GHL and trigger the pre-webinar warm-up sequence.</span>
+      </div>
+    </div>
+    <div class="next-item">
+      <div class="next-num">2</div>
+      <div class="next-text">
+        <strong>Zoom Webinar Link → All Email Templates (Agresh)</strong>
+        <span>Replace all [zoom link] placeholders in the GHL email templates with the live Zoom registration/join URL once DJ creates the March 19 webinar room.</span>
+      </div>
+    </div>
+    <div class="next-item">
+      <div class="next-num">3</div>
+      <div class="next-text">
+        <strong>Closer Calendar Link → Branch A + B Emails (Agresh)</strong>
+        <span>Replace [calendar link] with the closer's Calendly or GHL booking page URL in the hot and warm lead email sequences.</span>
+      </div>
+    </div>
+    <div class="next-item">
+      <div class="next-num">4</div>
+      <div class="next-text">
+        <strong>WhatsApp Automation Templates (Agresh)</strong>
+        <span>WhatsApp group welcome sequence, webinar reminders, post-webinar nudge. GHL WhatsApp node triggers and message copy.</span>
+      </div>
+    </div>
+    <div class="next-item">
+      <div class="next-num">5</div>
+      <div class="next-text">
+        <strong>Closer Call Script (DJ / call taker)</strong>
+        <span>Question framework, objection responses (price, time, visa, "I need to think"), and close structure based on Trust / ROI / Will This Work For Me.</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div style="background:#0D1B3E; border-top:1px solid #1A3A5C; padding:16px 40px; text-align:center; color:#2A4A6A; font-size:11px; letter-spacing:1px;">
+  THE QUANTUM ACHIEVERS &nbsp;·&nbsp; PROJECT HUB &nbsp;·&nbsp; CONFIDENTIAL
+</div>
+
+</body>
+</html>

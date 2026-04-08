@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA Launch Hub — March 19, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#22c55e;--green-bg:#f0fdf4;--green-border:#bbf7d0;--yellow:#eab308;--yellow-bg:#fefce8;--yellow-border:#fef08a;--red:#ef4444;--red-bg:#fef2f2;--red-border:#fecaca;--blue:#3b82f6;--dark:#1e293b;--gray:#64748b;--light:#f8fafc;--border:#e2e8f0;--radius:8px}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--dark);line-height:1.6;font-size:15px}
+.container{max-width:960px;margin:0 auto;padding:0 20px 60px}
+
+/* Header */
+header{text-align:center;padding:40px 20px 24px;border-bottom:2px solid var(--border)}
+header h1{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px}
+header .subtitle{font-size:16px;color:var(--gray);font-weight:500}
+header .time{font-size:14px;color:var(--gray);margin-top:2px}
+#countdown{font-size:22px;font-weight:700;color:var(--blue);margin-top:12px;font-variant-numeric:tabular-nums}
+
+/* Status Dashboard */
+.status-dashboard{margin:24px 0;padding:20px;background:var(--light);border:1px solid var(--border);border-radius:var(--radius)}
+.status-dashboard h2{font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:12px}
+.status-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px}
+.status-item{display:flex;align-items:center;gap:8px;font-size:13px;padding:4px 0}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dot.green{background:var(--green)}.dot.yellow{background:var(--yellow)}.dot.red{background:var(--red)}
+.status-item .label{color:var(--dark)}.status-item .tag{font-weight:600;margin-left:auto;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:2px 6px;border-radius:4px}
+.tag.green{color:#166534;background:var(--green-bg)}.tag.yellow{color:#854d0e;background:var(--yellow-bg)}.tag.red{color:#991b1b;background:var(--red-bg)}
+
+/* Tabs */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-top:24px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-btn{padding:12px 20px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;color:var(--gray);white-space:nowrap;transition:all .15s}
+.tab-btn:hover{color:var(--dark)}.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-content{display:none;padding:24px 0}.tab-content.active{display:block}
+
+/* Cards / Sections */
+.priority-card{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.priority-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;user-select:none;background:var(--light);transition:background .15s}
+.priority-header:hover{background:#f1f5f9}
+.priority-header h3{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+.priority-header .est{font-size:12px;color:var(--gray);font-weight:500}
+.chevron{font-size:12px;color:var(--gray);transition:transform .2s}
+.priority-card.open .chevron{transform:rotate(180deg)}
+.priority-body{padding:0 18px 18px;display:none}
+.priority-card.open .priority-body{display:block}
+.priority-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:11px;font-weight:700}
+.priority-num.done{background:var(--green)}.priority-num.wait{background:var(--yellow)}
+
+/* Steps */
+ol.steps{padding-left:20px;margin:12px 0}
+ol.steps li{margin-bottom:8px;font-size:14px}
+ol.steps li strong{font-weight:600}
+.critical{background:var(--red-bg);border:1px solid var(--red-border);border-radius:6px;padding:10px 14px;margin:10px 0;font-size:13px;font-weight:600;color:#991b1b}
+.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:13px;color:#1e40af}
+
+/* Code block */
+pre.json{background:#1e293b;color:#e2e8f0;padding:14px;border-radius:6px;font-size:12px;overflow-x:auto;margin:12px 0;line-height:1.5}
+
+/* Checklist */
+.checklist{list-style:none;padding:0;margin:12px 0}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type="checkbox"]{width:18px;height:18px;margin-top:2px;accent-color:var(--blue);flex-shrink:0;cursor:pointer}
+
+/* Table */
+.file-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+.file-table th{text-align:left;padding:10px 12px;background:var(--light);border-bottom:2px solid var(--border);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray)}
+.file-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.file-table tr:hover td{background:#f8fafc}
+.file-table a{color:var(--blue);text-decoration:none;font-weight:500}
+.file-table a:hover{text-decoration:underline}
+
+/* Links list */
+.link-grid{display:grid;gap:10px;margin:12px 0}
+.link-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--light);border:1px solid var(--border);border-radius:var(--radius);font-size:14px}
+.link-row .link-label{font-weight:600;min-width:140px;flex-shrink:0}
+.link-row a{color:var(--blue);text-decoration:none;word-break:break-all}
+.link-row a:hover{text-decoration:underline}
+.link-row code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-size:12px}
+
+/* Subheading */
+h4.section{font-size:14px;font-weight:700;margin:18px 0 8px;color:var(--dark)}
+
+/* Bullet list */
+ul.bullets{padding-left:20px;margin:8px 0}
+ul.bullets li{margin-bottom:6px;font-size:14px}
+
+/* Timeline */
+.timeline{margin:12px 0}
+.timeline-item{display:flex;gap:12px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--border)}
+.timeline-item:last-child{border-bottom:none}
+.timeline-day{font-weight:700;min-width:60px;color:var(--blue)}
+
+footer{text-align:center;padding:32px 20px;color:var(--gray);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+
+@media(max-width:600px){
+header h1{font-size:22px}
+#countdown{font-size:18px}
+.status-grid{grid-template-columns:1fr}
+.tab-btn{padding:10px 14px;font-size:12px}
+.link-row{flex-direction:column;gap:4px}
+.link-row .link-label{min-width:0}
+.file-table{font-size:12px}
+.file-table th,.file-table td{padding:8px 6px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>TQA LAUNCH HUB</h1>
+<div class="subtitle">March 19, 2026 Webinar</div>
+<div class="time">11:00 AM EST / 9:30 PM IST</div>
+<div id="countdown"></div>
+</header>
+
+<div class="container">
+
+<!-- STATUS DASHBOARD -->
+<div class="status-dashboard">
+<h2>Launch Readiness</h2>
+<div class="status-grid">
+<div class="status-item"><span class="dot green"></span><span class="label">Pre-webinar automation</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">GHL timezone EST</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Zoom Pro</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Zoom link</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">GHL form on website</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Reminders (24hr/1hr/10min)</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Scoring workflow</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Landing page V4</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Re-engagement page</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Email templates in GHL</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Custom fields in GHL</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Testimonials replaced (Indian)</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Re-engagement webhook URL</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">Re-engagement page deployed</span><span class="tag green">Done</span></div>
+<div class="status-item"><span class="dot green"></span><span class="label">WF1 Meta Lead Registration</span><span class="tag green">Published</span></div>
+<div class="status-item"><span class="dot red"></span><span class="label">Verify email timing (Agresh)</span><span class="tag red">Critical</span></div>
+<div class="status-item"><span class="dot red"></span><span class="label">Fix scoring double-tag bug</span><span class="tag red">Bug</span></div>
+<div class="status-item"><span class="dot yellow"></span><span class="label">Publish "Assign Webinar Date"</span><span class="tag yellow">Draft</span></div>
+<div class="status-item"><span class="dot yellow"></span><span class="label">GHL form redirect to Thank You</span><span class="tag yellow">Agresh</span></div>
+<div class="status-item"><span class="dot red"></span><span class="label">Build re-engage email sequence</span><span class="tag red">Not Done</span></div>
+<div class="status-item"><span class="dot red"></span><span class="label">Import 80 old leads</span><span class="tag red">Not Done</span></div>
+<div class="status-item"><span class="dot red"></span><span class="label">Fix testimonials heading</span><span class="tag red">Shreyas</span></div>
+<div class="status-item"><span class="dot yellow"></span><span class="label">Mobile responsiveness check</span><span class="tag yellow">Verify</span></div>
+<div class="status-item"><span class="dot yellow"></span><span class="label">Pixel fires on form submit</span><span class="tag yellow">Verify</span></div>
+<div class="status-item"><span class="dot red"></span><span class="label">Launch Meta ads</span><span class="tag red">Blocked</span></div>
+</div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+<button class="tab-btn active" data-tab="agresh">Agresh</button>
+<button class="tab-btn" data-tab="shreyas">Shreyas</button>
+<button class="tab-btn" data-tab="dj">DJ</button>
+<button class="tab-btn" data-tab="dylan">Dylan</button>
+<button class="tab-btn" data-tab="launch">Launch Checklist</button>
+<button class="tab-btn" data-tab="files">All Files</button>
+<button class="tab-btn" data-tab="links">Key Links</button>
+</div>
+
+<!-- ============ AGRESH TAB ============ -->
+<div class="tab-content active" id="tab-agresh">
+
+<div class="priority-card open">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num" style="background:var(--red)">!</span> Verify Email Timing in Reminder Workflow</h3>
+<span class="est">~15 min &mdash; DO FIRST</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<div class="critical">CRITICAL: Last time emails were added, the first email went out 5 DAYS LATE. That kills show-up rates. Triple check this.</div>
+<ol class="steps">
+<li>GHL &rarr; Automation &rarr; Workflows &rarr; <strong>"TQA &ndash; Webinar Confirmation &amp; Reminders"</strong></li>
+<li>Verify these emails exist with EXACT timings:</li>
+</ol>
+<table class="file-table">
+<thead><tr><th>Email</th><th>When</th><th>Subject</th></tr></thead>
+<tbody>
+<tr><td>Confirmation</td><td><strong>Immediately</strong> after registration</td><td>"You're in &mdash; March 19 Webinar Confirmed"</td></tr>
+<tr><td>Reminder 1</td><td><strong>24 hours before</strong> (March 18, 11 AM EST)</td><td>"Tomorrow: Your cybersecurity career webinar"</td></tr>
+<tr><td>Reminder 2</td><td><strong>1 hour before</strong> (March 19, 10 AM EST)</td><td>"Starting in 1 hour &mdash; here's your link"</td></tr>
+<tr><td>Reminder 3</td><td><strong>10 min before</strong> (March 19, 10:50 AM EST)</td><td>"We're live in 10 minutes &mdash; join now"</td></tr>
+</tbody>
+</table>
+<h4 class="section">Every email MUST include:</h4>
+<ul class="bullets">
+<li>Zoom link: <code>{{ custom_values.webinar_zoom_link }}</code></li>
+<li>Calendar link: <code>{{ custom_values.webinar_calendar_link }}</code></li>
+<li>Date/time: <code>{{ custom_values.webinar_date_and_time }}</code></li>
+</ul>
+<h4 class="section">Show-up rate boosters:</h4>
+<ul class="bullets">
+<li>Confirmation: "Add to Calendar" button using calendar link</li>
+<li>24hr reminder: "Here's what DJ will cover" + 3 bullet points</li>
+<li>1hr reminder: Short &amp; urgent &mdash; "DJ is prepping right now. See you in 60 minutes."</li>
+<li>10min reminder: Just the Zoom link, big and bold. Nothing else.</li>
+</ul>
+<div class="critical">SCREENSHOT the workflow steps + timing and SEND TO DYLAN on WhatsApp.</div>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num" style="background:var(--red)">!</span> Fix Scoring Double-Tag Bug</h3>
+<span class="est">~5 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<div class="critical">BUG FOUND: Test contact has BOTH "tqa-score-hot" AND "tqa-score-cold" tags. Scoring is adding tags without removing old ones.</div>
+<ol class="steps">
+<li>GHL &rarr; Automation &rarr; Workflows &rarr; <strong>"TQA &ndash; Score Registration"</strong></li>
+<li>In each scoring branch, add <strong>Remove Tag</strong> steps BEFORE the Add Tag step:</li>
+</ol>
+<ul class="bullets">
+<li>If HOT: remove <code>tqa-score-warm</code> + <code>tqa-score-cold</code>, then add <code>tqa-score-hot</code></li>
+<li>If WARM: remove <code>tqa-score-hot</code> + <code>tqa-score-cold</code>, then add <code>tqa-score-warm</code></li>
+<li>If COLD: remove <code>tqa-score-hot</code> + <code>tqa-score-warm</code>, then add <code>tqa-score-cold</code></li>
+</ul>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">3</span> Publish "Assign Webinar Date" Workflow</h3>
+<span class="est">~2 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li>GHL &rarr; Automation &rarr; Workflows &rarr; <strong>"TQA &ndash; Assign Webinar Date"</strong></li>
+<li>This is still in DRAFT. Check what it does.</li>
+<li>If it assigns the webinar date custom field &rarr; <strong>Publish it</strong></li>
+<li>If it&rsquo;s outdated or broken &rarr; leave in draft, tell Dylan</li>
+</ol>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">4</span> GHL Form Redirect to Thank You Page</h3>
+<span class="est">~30 seconds</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li>GHL &rarr; Sites &rarr; Forms &rarr; <strong>"TQA &ndash; Webinar Registration"</strong></li>
+<li>Click the form &rarr; Settings &rarr; After submission</li>
+<li>Redirect to URL: <code>https://thequantumachievers.com/thank-you/</code></li>
+<li>Save</li>
+</ol>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">5</span> Build Re-engagement Email Sequence</h3>
+<span class="est">~30 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li>New workflow &rarr; Trigger: <strong>Tag Applied</strong> &rarr; <code>old-lead</code></li>
+<li>Send Email 1 <strong>immediately</strong>: <strong>"Your cybersecurity seat is still open"</strong> &mdash; paste HTML from <code>email-1-day0-honesty.html</code></li>
+<li>Wait <strong>2 days</strong></li>
+<li>Send Email 2: <strong>"Still thinking about the switch?"</strong> &mdash; paste from <code>email-2-day2-quick-question.html</code></li>
+<li>Wait <strong>3 days</strong></li>
+<li>Send Email 3: <strong>"Last call &mdash; March 19"</strong> &mdash; paste from <code>email-3-day5-last-one.html</code></li>
+<li>All from: <strong>DJ Naronikar &lt;achieversquantum@gmail.com&gt;</strong></li>
+<li><strong>Publish</strong></li>
+</ol>
+<div class="note">Email HTML files are in the ALL FILES tab. Open in browser to preview, then copy source into GHL email builder (HTML mode).</div>
+<div class="critical">DO NOT import old leads (Task 6) until this workflow is published. Otherwise leads get tagged but no emails go out.</div>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">6</span> Import 80 Old Leads</h3>
+<span class="est">~15 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li>Get old leads CSV from Shreyas or DJ (first_name, last_name, email, phone)</li>
+<li>GHL &rarr; Contacts &rarr; <strong>Import</strong> &rarr; Upload CSV</li>
+<li>Map fields: first_name, last_name, email, phone</li>
+<li><strong>Add tag during import: <code>old-lead</code></strong></li>
+<li>This auto-triggers the re-engagement email sequence (Task 5)</li>
+</ol>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">7</span> Cleanup Old Workflows</h3>
+<span class="est">~5 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<p style="font-size:14px;margin-bottom:8px">Delete these 6 unused Dec 2025 template workflows (all in draft, never used):</p>
+<ul class="bullets">
+<li>"1. New Lead Nurture (Fast 5) - Claim Offer"</li>
+<li>"2. Appointment Confirmation + Reminders"</li>
+<li>"3. Appt No Show"</li>
+<li>"4. New Sale - Send Review Request"</li>
+<li>"5. Long-Term Nurture"</li>
+<li>"6. Stale Leads"</li>
+</ul>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num done">&#10003;</span> WF1 &mdash; Published</h3>
+<span class="est">DONE</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<div class="note">WF1 &ndash; Meta Lead Registration is PUBLISHED. Confirmed via API March 10.</div>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num done">&#10003;</span> Re-engagement Webhook</h3>
+<span class="est">DONE</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<div class="note">Published and tested. Re-engage page live at: <a href="https://fastidious-chaja-05bc07.netlify.app" target="_blank">fastidious-chaja-05bc07.netlify.app</a></div>
+</div>
+</div>
+
+</div>
+
+<!-- ============ SHREYAS TAB ============ -->
+<div class="tab-content" id="tab-shreyas">
+
+<div class="priority-card open">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num" style="background:var(--red)">!</span> Fix Testimonials Heading</h3>
+<span class="est">~2 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<div class="critical">The heading on the live site STILL says "Your Success Could Be the Next Story Here" &mdash; this was supposed to change with the testimonials.</div>
+<ol class="steps">
+<li>Login: <a href="https://thequantumachievers.com/extro" target="_blank">thequantumachievers.com/extro</a></li>
+<li>Open homepage in Elementor</li>
+<li>Change heading to: <strong>"From IT Professional to Cybersecurity Expert"</strong></li>
+<li>Change subtitle to: <strong>"Hear from professionals who made the switch with DJ's mentorship"</strong></li>
+<li>Save &amp; Publish</li>
+</ol>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">2</span> Mobile Responsiveness Check</h3>
+<span class="est">~10 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<p style="font-size:14px;margin-bottom:8px">Open thequantumachievers.com on your phone OR Chrome DevTools (F12 &rarr; mobile icon).</p>
+<ul class="checklist">
+<li><input type="checkbox" id="s1" onchange="saveChecks()"><label for="s1">Text readable without zooming</label></li>
+<li><input type="checkbox" id="s2" onchange="saveChecks()"><label for="s2">Buttons full-width on mobile</label></li>
+<li><input type="checkbox" id="s3" onchange="saveChecks()"><label for="s3">No horizontal scrolling</label></li>
+<li><input type="checkbox" id="s4" onchange="saveChecks()"><label for="s4">Images don't overflow</label></li>
+<li><input type="checkbox" id="s5" onchange="saveChecks()"><label for="s5">Registration form works on mobile</label></li>
+<li><input type="checkbox" id="s6" onchange="saveChecks()"><label for="s6">Countdown timer displays correctly</label></li>
+<li><input type="checkbox" id="s7" onchange="saveChecks()"><label for="s7">Testimonials stack properly</label></li>
+</ul>
+<p style="font-size:14px;margin-top:8px">Fix any issues in Elementor's responsive settings. <strong>Screenshot mobile view and send to Dylan.</strong></p>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">3</span> Verify Meta Pixel on Form Submit</h3>
+<span class="est">~5 min</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li>Install <strong>Facebook Pixel Helper</strong> Chrome extension</li>
+<li>Go to thequantumachievers.com</li>
+<li>Fill out the form with a test email</li>
+<li>Check Pixel Helper &mdash; should show:
+<ul class="bullets">
+<li><code>PageView</code> on page load &mdash; already confirmed working</li>
+<li><code>Lead</code> or <code>CompleteRegistration</code> on form submit &larr; <strong>THIS is what we need</strong></li>
+</ul>
+</li>
+<li>If NO event on submit: WordPress &rarr; PixelYourSite plugin &rarr; Events &rarr; Add new event &rarr; Form submission &rarr; <code>Lead</code> event</li>
+</ol>
+<div class="critical">Screenshot Pixel Helper showing the submit event and send to Dylan.</div>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">4</span> Launch Meta Ads</h3>
+<span class="est">Once Tasks 1-3 done</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ul class="bullets">
+<li>Budget: <strong>$40/day</strong> across both CBO campaigns</li>
+<li>Optimize for: <strong>REGISTRATIONS</strong> (not link clicks!)</li>
+<li>CTA: <strong>"Reserve My Seat"</strong></li>
+<li>Landing: <strong>thequantumachievers.com</strong></li>
+<li>Pixel ID: <code>1589502282075800</code></li>
+</ul>
+<h4 class="section">Ad Timeline</h4>
+<div class="timeline">
+<div class="timeline-item"><span class="timeline-day">Day 1</span>Launch all creatives</div>
+<div class="timeline-item"><span class="timeline-day">Day 3</span>Kill 2 worst, scale winners</div>
+<div class="timeline-item"><span class="timeline-day">Day 7</span>Lookalike audience</div>
+<div class="timeline-item"><span class="timeline-day">Day 9</span>March 18 &mdash; Max budget on top performer</div>
+</div>
+<div class="critical">DO NOT launch until:<br>
+&bull; Agresh confirms email timing is correct (his Task 1)<br>
+&bull; Form redirect goes to Thank You page (Agresh Task 4)<br>
+&bull; Mobile looks good (your Task 2)<br>
+&bull; Pixel fires on submit (your Task 3)</div>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">5</span> Build More Creatives</h3>
+<span class="est">Ongoing</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<p style="font-size:14px;margin-bottom:10px">Ad strategy doc in shared Drive (<strong>TQA-Meta-Ads-March9.md</strong>):</p>
+<ul class="bullets">
+<li>4 static ad copy angles</li>
+<li>Hook fixes for existing video ads</li>
+<li>Targeting audiences</li>
+<li>Budget split strategy</li>
+</ul>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">6</span> Split Test at Ad Level (after launch)</h3>
+<span class="est">Optional &mdash; do later</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li>Duplicate your best-performing ad set</li>
+<li>Change landing URL on the duplicate to V4 Netlify page (Dylan will send URL once webhook is wired)</li>
+<li>Run both at same budget</li>
+<li>Compare registration rates after 3 days</li>
+</ol>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num done">&#10003;</span> Website Fixes &mdash; Completed</h3>
+<span class="est">DONE</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ol class="steps">
+<li><strong>Remove all pricing</strong> &mdash; <span style="color:#22c55e;font-weight:700">DONE</span></li>
+<li><strong>Replace fake testimonials with Indian ones</strong> &mdash; <span style="color:#22c55e;font-weight:700">DONE</span></li>
+</ol>
+<div class="note">Testimonials: Rajesh Menon (Bangalore), Priya Sharma (NJ), Amit Kulkarni (London)</div>
+</div>
+</div>
+
+</div>
+
+<!-- ============ DJ TAB ============ -->
+<div class="tab-content" id="tab-dj">
+
+<div class="priority-card open">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num done">&#10003;</span> Key Resources</h3>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<div class="link-grid">
+<div class="link-row"><span class="link-label">Webinar Slides</span><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA Webinar Presentation_FINAL.pptx (in Drive)</a></div>
+<div class="link-row"><span class="link-label">Closer Script</span><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-Closer-Script.pdf (in Drive)</a></div>
+<div class="link-row"><span class="link-label">Qualification System</span><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-Qualification-System.pdf (in Drive)</a></div>
+</div>
+</div>
+</div>
+
+<div class="priority-card open">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">&#9733;</span> Prep Checklist</h3>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ul class="checklist">
+<li><input type="checkbox" id="dj1" onchange="saveChecks()"><label for="dj1">Review webinar slides</label></li>
+<li><input type="checkbox" id="dj2" onchange="saveChecks()"><label for="dj2">Test Zoom + screen sharing</label></li>
+<li><input type="checkbox" id="dj3" onchange="saveChecks()"><label for="dj3">Review qualification system</label></li>
+<li><input type="checkbox" id="dj4" onchange="saveChecks()"><label for="dj4">Review closer script</label></li>
+<li><input type="checkbox" id="dj5" onchange="saveChecks()"><label for="dj5">Rehearse: The #1 mistake IT pros make</label></li>
+<li><input type="checkbox" id="dj6" onchange="saveChecks()"><label for="dj6">Rehearse: Which certs matter vs waste money</label></li>
+<li><input type="checkbox" id="dj7" onchange="saveChecks()"><label for="dj7">Rehearse: IT experience = 60% of what employers want</label></li>
+<li><input type="checkbox" id="dj8" onchange="saveChecks()"><label for="dj8">Rehearse: 70% of cyber jobs never posted publicly</label></li>
+<li><input type="checkbox" id="dj9" onchange="saveChecks()"><label for="dj9">Rehearse: Your 14-week roadmap</label></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<!-- ============ DYLAN TAB ============ -->
+<div class="tab-content" id="tab-dylan">
+
+<div class="priority-card open">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num done">&#10003;</span> Re-engagement Webhook Wired</h3>
+<span class="est">DONE</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<p style="font-size:14px">Webhook URL wired into tqa-reengage-v2.html and deployed to: <a href="https://fastidious-chaja-05bc07.netlify.app/" target="_blank">fastidious-chaja-05bc07.netlify.app</a></p>
+<p style="font-size:14px;margin-top:8px">Agresh's webhook: <code>https://services.leadconnectorhq.com/hooks/cv0yehFtVK84960e2GsO/webhook-trigger/90b5cdb3-71d1-4026-9172-948fdd6e5828</code></p>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">2</span> Monitor Ad Performance</h3>
+<span class="est">Ongoing</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<ul class="bullets">
+<li>Check GHL contacts daily for new registrations</li>
+<li>Confirm scoring/tags are applying correctly</li>
+<li>Review Shreyas' ad metrics on Day 3 &mdash; decide what to kill</li>
+</ul>
+</div>
+</div>
+
+<div class="priority-card">
+<div class="priority-header" onclick="toggleCard(this)">
+<h3><span class="priority-num">3</span> Find a Closer</h3>
+<span class="est">Before March 19</span>
+<span class="chevron">&#9660;</span>
+</div>
+<div class="priority-body">
+<p style="font-size:14px">Need a human closer for high-ticket sales calls post-webinar. AI handles basic qualification, human handles final close.</p>
+</div>
+</div>
+
+</div>
+
+<!-- ============ LAUNCH CHECKLIST TAB ============ -->
+<div class="tab-content" id="tab-launch">
+
+<div class="critical" style="margin-bottom:16px">DO THESE IN ORDER. Ads do NOT launch until every item is green. 9 days to webinar.</div>
+
+<h4 class="section" style="margin-top:0">Agresh &mdash; Do First</h4>
+<ul class="checklist">
+<li><input type="checkbox" id="l1" onchange="saveChecks()"><label for="l1"><strong>Verify email timing</strong> in "Webinar Confirmation &amp; Reminders" &mdash; confirmation IMMEDIATELY, 24hr/1hr/10min reminders. <span style="color:var(--red);font-weight:700">CRITICAL: last time was 5 days late.</span> Every email must include Zoom link, calendar link, date. Screenshot timing &rarr; send to Dylan.</label></li>
+<li><input type="checkbox" id="l2" onchange="saveChecks()"><label for="l2"><strong>Fix scoring double-tag bug</strong> in "Score Registration" &mdash; each branch must REMOVE other score tags before adding new one (HOT removes warm+cold, etc.)</label></li>
+<li><input type="checkbox" id="l3" onchange="saveChecks()"><label for="l3"><strong>Publish "Assign Webinar Date"</strong> workflow (still in draft). Check what it does first &mdash; if it assigns the date field, publish it.</label></li>
+<li><input type="checkbox" id="l4" onchange="saveChecks()"><label for="l4"><strong>GHL form redirect</strong> &rarr; Sites &rarr; Forms &rarr; "TQA &ndash; Webinar Registration" &rarr; After submission &rarr; Redirect to: <code>https://thequantumachievers.com/thank-you/</code></label></li>
+<li><input type="checkbox" id="l5" onchange="saveChecks()"><label for="l5"><strong>Build re-engage email sequence</strong> &mdash; New workflow, trigger: Tag Applied &rarr; <code>old-lead</code>. Email 1 immediately, wait 2 days, Email 2, wait 3 days, Email 3. HTML in Drive files. From: DJ &lt;achieversquantum@gmail.com&gt;. PUBLISH before importing leads.</label></li>
+<li><input type="checkbox" id="l6" onchange="saveChecks()"><label for="l6"><strong>Import 80 old leads</strong> &mdash; CSV with first_name, last_name, email, phone. Tag with <code>old-lead</code> during import. DO NOT import until email sequence (above) is published.</label></li>
+<li><input type="checkbox" id="l7" onchange="saveChecks()"><label for="l7"><strong>Delete 6 old workflows</strong> &mdash; "1. New Lead Nurture", "2. Appointment Confirmation", "3. Appt No Show", "4. New Sale", "5. Long-Term Nurture", "6. Stale Leads" (all Dec 2025 drafts, never used)</label></li>
+</ul>
+
+<h4 class="section">Shreyas &mdash; After Agresh Confirms Emails</h4>
+<ul class="checklist">
+<li><input type="checkbox" id="l8" onchange="saveChecks()"><label for="l8"><strong>Fix testimonials heading</strong> &mdash; Still says "Your Success Could Be the Next Story Here" on live site. Change to: "From IT Professional to Cybersecurity Expert" / subtitle: "Hear from professionals who made the switch with DJ's mentorship"</label></li>
+<li><input type="checkbox" id="l9" onchange="saveChecks()"><label for="l9"><strong>Mobile responsiveness check</strong> &mdash; test on phone or Chrome DevTools. Text readable, buttons full-width, no horizontal scroll, images fit, form works, countdown works, testimonials stack. Screenshot mobile &rarr; send to Dylan.</label></li>
+<li><input type="checkbox" id="l10" onchange="saveChecks()"><label for="l10"><strong>Verify Pixel fires on form SUBMIT</strong> &mdash; Facebook Pixel Helper extension. Submit test form. Must show Lead or CompleteRegistration event (not just PageView). If missing: PixelYourSite &rarr; Events &rarr; Form submission &rarr; Lead. Screenshot &rarr; send to Dylan.</label></li>
+<li><input type="checkbox" id="l11" onchange="saveChecks()"><label for="l11"><strong>Launch Meta Ads</strong> &mdash; $40/day, 2 CBO campaigns, optimize for REGISTRATIONS, CTA "Reserve My Seat", landing: thequantumachievers.com. Day 1: launch all. Day 3: kill worst 2. Day 7: lookalike. Day 9: max budget on winner.</label></li>
+</ul>
+
+<h4 class="section">DJ &mdash; Prep</h4>
+<ul class="checklist">
+<li><input type="checkbox" id="l12" onchange="saveChecks()"><label for="l12">Review webinar slides (FINAL.pptx in Drive)</label></li>
+<li><input type="checkbox" id="l13" onchange="saveChecks()"><label for="l13">Test Zoom + screen sharing</label></li>
+<li><input type="checkbox" id="l14" onchange="saveChecks()"><label for="l14">Review Closer Script + Qualification System</label></li>
+<li><input type="checkbox" id="l15" onchange="saveChecks()"><label for="l15">Rehearse key talking points (IT mistake, certs, 60% advantage, hidden jobs, 14-week roadmap)</label></li>
+</ul>
+
+<h4 class="section">What's NOT Ready Yet (post-webinar &mdash; fine for now)</h4>
+<ul class="bullets">
+<li><strong>Application form</strong> &mdash; "Applied" pipeline stage exists but no form</li>
+<li><strong>Payment page</strong> &mdash; "Paid 1:1" stage exists but no checkout</li>
+<li><strong>Onboarding automation</strong> &mdash; "Students" pipeline has stages but no workflow</li>
+<li><strong>Post-webinar follow-up</strong> &mdash; no attended vs no-show automation (Zoom tracking blocker)</li>
+<li><strong>Closer</strong> &mdash; no one assigned for high-ticket sales calls</li>
+</ul>
+<div class="note">This is fine for launch. Webinar drives registrations. Post-webinar sales can be manual &mdash; DJ calls leads directly. Build automation after March 19.</div>
+
+</div>
+
+<!-- ============ ALL FILES TAB ============ -->
+<div class="tab-content" id="tab-files">
+
+<p style="font-size:14px;color:var(--gray);margin-bottom:12px">All files in the shared Drive folder. Click to open.</p>
+
+<table class="file-table">
+<thead>
+<tr><th>File</th><th>What</th><th>For</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-MASTER-LAUNCH-PLAN-March19.md</a></td><td>Full plan (text version of this hub)</td><td>Everyone</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">tqa-landing-v4-final.html</a></td><td>New landing page (split test)</td><td>Agresh</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">tqa-reengage-v2.html</a></td><td>Re-engagement page</td><td>Dylan</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">email-1-day0-honesty.html</a></td><td>Email 1 body</td><td>Agresh</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">email-2-day2-switch.html</a></td><td>Email 2 body</td><td>Agresh</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">email-3-day5-last-call.html</a></td><td>Email 3 body</td><td>Agresh</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1yHTa3uP2fFdXxSK8LuXjlGZzvhqiDXYY" target="_blank">TQA-Meta-Ads-March9.md</a></td><td>Ad copy + strategy</td><td>Shreyas</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-Avatar-Profile.md</a></td><td>Target audience research</td><td>Everyone</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-Closer-Script.pdf</a></td><td>Sales closer script</td><td>DJ</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-Qualification-System.pdf</a></td><td>Lead scoring system</td><td>DJ / Agresh</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA Webinar Presentation_FINAL.pptx</a></td><td>Webinar slides</td><td>DJ</td></tr>
+<tr><td><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">TQA-Webinar-Redesigned.pptx</a></td><td>Alternate slides</td><td>DJ</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ============ KEY LINKS TAB ============ -->
+<div class="tab-content" id="tab-links">
+
+<div class="link-grid">
+<div class="link-row"><span class="link-label">Live Website</span><a href="https://thequantumachievers.com" target="_blank">thequantumachievers.com</a></div>
+<div class="link-row"><span class="link-label">Landing V4 (Netlify)</span><a href="https://genuine-parfait-373179.netlify.app" target="_blank">genuine-parfait-373179.netlify.app</a></div>
+<div class="link-row"><span class="link-label">Re-engage Page</span><a href="https://fastidious-chaja-05bc07.netlify.app" target="_blank">fastidious-chaja-05bc07.netlify.app</a></div>
+<div class="link-row"><span class="link-label">GHL Location ID</span><code>cv0yehFtVK84960e2GsO</code></div>
+<div class="link-row"><span class="link-label">GHL Form</span><a href="https://api.leadconnectorhq.com/widget/form/SPVKhYWoL6gnMklMR1Qi" target="_blank">api.leadconnectorhq.com/widget/form/SPVKhYWoL6gnMklMR1Qi</a></div>
+<div class="link-row"><span class="link-label">Meta Pixel</span><code>1589502282075800</code></div>
+<div class="link-row"><span class="link-label">Email From</span><code>achieversquantum@gmail.com</code></div>
+<div class="link-row"><span class="link-label">DJ Drive Folder</span><a href="https://drive.google.com/drive/folders/1NVZSK9hG60hgxzGiZPy8_jbeLXFmpKIj" target="_blank">Open in Drive</a></div>
+<div class="link-row"><span class="link-label">Ads Folder</span><a href="https://drive.google.com/drive/folders/1yHTa3uP2fFdXxSK8LuXjlGZzvhqiDXYY" target="_blank">Open in Drive</a></div>
+<div class="link-row"><span class="link-label">Ads Strategy Doc</span><a href="https://docs.google.com/document/d/1_EyzPvLQFznffkk_vWi8FA7DYgjuDYVsNVSbPP2vS_U/edit" target="_blank">Open in Google Docs</a></div>
+</div>
+
+</div>
+
+</div><!-- .container -->
+
+<footer>
+TQA Launch Hub &mdash; Built by Dylan &nbsp;|&nbsp; Questions? Message the group chat.
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+btn.classList.add('active');
+document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+});
+});
+
+// Collapsible cards
+function toggleCard(header){
+header.parentElement.classList.toggle('open');
+}
+
+// Countdown
+function updateCountdown(){
+const target=new Date('2026-03-19T11:00:00-05:00').getTime();
+const now=Date.now();
+const diff=target-now;
+if(diff<=0){document.getElementById('countdown').textContent='WEBINAR IS LIVE';return;}
+const d=Math.floor(diff/86400000);
+const h=Math.floor((diff%86400000)/3600000);
+const m=Math.floor((diff%3600000)/60000);
+const s=Math.floor((diff%60000)/1000);
+document.getElementById('countdown').textContent=d+'d '+h+'h '+m+'m '+s+'s until launch';
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// Checkbox persistence
+function saveChecks(){
+const state={};
+document.querySelectorAll('.checklist input[type="checkbox"]').forEach(cb=>{
+state[cb.id]=cb.checked;
+});
+try{localStorage.setItem('tqa-hub-checks',JSON.stringify(state));}catch(e){}
+}
+function loadChecks(){
+try{
+const state=JSON.parse(localStorage.getItem('tqa-hub-checks')||'{}');
+Object.keys(state).forEach(id=>{
+const el=document.getElementById(id);
+if(el)el.checked=state[id];
+});
+}catch(e){}
+}
+loadChecks();
+</script>
+</body>
+</html>

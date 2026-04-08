@@ -1,6 +1,6 @@
 # TQA WhatsApp + SMS + Trust Video Package
 ## DJ Naronikar | April 2026
-## Event: April 11 Career Briefing ($27 entry)
+## Event: April 18 Career Briefing ($27 entry)
 
 ---
 ---
@@ -135,7 +135,7 @@
 
 ### Variant 1: Short (Individual DMs — under 100 words)
 
-> I'm running a live Cybersecurity Career Briefing on April 11 at 11:00 AM EST. No fluff — I'll walk through the exact career path from IT to cybersecurity with real salary data, a certification roadmap, and a live LinkedIn audit exercise.
+> I'm running a live Cybersecurity Career Briefing on April 18 at 11:00 AM EST. No fluff — I'll walk through the exact career path from IT to cybersecurity with real salary data, a certification roadmap, and a live LinkedIn audit exercise.
 >
 > 28 years as a CISO at Deloitte, EY, and Shell. This is what I'd tell my own team.
 >
@@ -147,7 +147,7 @@
 
 > For anyone here working in IT who's thought about moving into cybersecurity:
 >
-> I'm hosting a live Career Briefing on April 11, 11:00 AM EST. I'll cover the real career path — not motivational content, but the salary data, the certification roadmap that actually matters, how the hidden job market works, and I'll do a live LinkedIn audit exercise with attendees.
+> I'm hosting a live Career Briefing on April 18, 11:00 AM EST. I'll cover the real career path — not motivational content, but the salary data, the certification roadmap that actually matters, how the hidden job market works, and I'll do a live LinkedIn audit exercise with attendees.
 >
 > Background on me: 28-year CISO. Deloitte, EY, Shell. Wrote AI policy for a Middle East central bank. I've sat on the hiring side of cybersecurity for three decades. This briefing is what I'd share with someone I personally wanted to see succeed.
 >
@@ -163,7 +163,7 @@
 >
 > I wanted to reach out because I'm running something I think might be relevant to you — or someone in your network.
 >
-> On April 11 at 11:00 AM EST, I'm hosting a live Cybersecurity Career Briefing. Not a webinar pitch. An actual briefing where I walk through the career transition framework I've built over 28 years as a CISO.
+> On April 18 at 11:00 AM EST, I'm hosting a live Cybersecurity Career Briefing. Not a webinar pitch. An actual briefing where I walk through the career transition framework I've built over 28 years as a CISO.
 >
 > What I'll cover:
 > - The real career path from IT to cybersecurity, with current salary data at each level
@@ -191,7 +191,7 @@
 ## Registration Confirmation (Immediately After Signup)
 
 ```
-[First name], you're confirmed for the Cybersecurity Career Briefing with DJ Naronikar on April 11, 11:00 AM EST. You'll receive a prep video before the session. — DJ
+[First name], you're confirmed for the Cybersecurity Career Briefing with DJ Naronikar on April 18, 11:00 AM EST. You'll receive a prep video before the session. — DJ
 ```
 **Characters:** 160
 
@@ -255,11 +255,11 @@ Starting now. Join here: [ZOOM_LINK]
 
 "You just registered for the Career Briefing. Good.
 
-Before we meet live on April 11, there's something I want you to know — about me, and about what you're walking into.
+Before we meet live on April 18, there's something I want you to know — about me, and about what you're walking into.
 
 I'm DJ Naronikar. I've spent 28 years in cybersecurity. Not selling courses about it — doing it. As a CISO. At organizations most people in our industry would recognize.
 
-I'm recording this because I want you to show up on April 11 already knowing three things: who I am, what the briefing actually covers, and why I charge $27 for it.
+I'm recording this because I want you to show up on April 18 already knowing three things: who I am, what the briefing actually covers, and why I charge $27 for it.
 
 Let me take those one at a time."
 
@@ -283,7 +283,7 @@ I built this briefing because I was tired of watching good people waste years on
 
 ### 3:00 — 5:00 | WHAT THE BRIEFING COVERS
 
-"Here is exactly what happens on April 11.
+"Here is exactly what happens on April 18.
 
 I'm going to walk you through the cybersecurity career path — not in theory, with real salary data at every level. Entry analyst roles. Mid-level engineering. Architecture. Leadership. CISO track. You'll see the actual numbers and know which path fits your background.
 
@@ -307,7 +307,7 @@ If a chef can make that transition, your IT background puts you significantly ah
 
 And this isn't just teaching. I'm still active in the field. Earlier this year, one of my team members stopped a $300,000 fraudulent wire transfer. That's what cybersecurity professionals do every day. And that's what I train people to do.
 
-I've worked at Deloitte. EY. Shell. I serve as ISC2 Chapter President and sit on their Global Advisory Board. I received the CIO Choice Award this year. I don't say any of this to impress you. I say it so you know that what you're going to hear on April 11 comes from someone who's still in the room — not someone who read about it."
+I've worked at Deloitte. EY. Shell. I serve as ISC2 Chapter President and sit on their Global Advisory Board. I received the CIO Choice Award this year. I don't say any of this to impress you. I say it so you know that what you're going to hear on April 18 comes from someone who's still in the room — not someone who read about it."
 
 ---
 
@@ -321,7 +321,7 @@ Bring one thing: a laptop or tablet with LinkedIn open. That's it.
 
 One more thing. This briefing costs $27. That's deliberate. I've run free sessions before. 200 people register, 24 show up. When people invest even a small amount, they take it seriously. They do the exercises. They ask better questions. The $27 is not about revenue — it's about making sure everyone in the room actually wants to be there.
 
-See you on April 11."
+See you on April 18."
 
 ---
 

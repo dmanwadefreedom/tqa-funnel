@@ -17,7 +17,7 @@ Call these 6 applicants. They applied 18-21 days ago, scored HOT, attended the w
 | Sonny Pierre | +15619168802 | sjdfinancial@gmail.com | Mar 19 |
 
 **Script:**
-"Hey [name], this is Jay calling from The Quantum Achievers. You applied to DJ's program a few weeks back and I owe you an apology. We dropped the ball on getting back to you. If you're still thinking about the move into cybersecurity, DJ's running a live career briefing on April 11. I'd love to get you a seat. Are you still interested?"
+"Hey [name], this is Jay calling from The Quantum Achievers. You applied to DJ's program a few weeks back and I owe you an apology. We dropped the ball on getting back to you. If you're still thinking about the move into cybersecurity, DJ's running a live career briefing on April 18. I'd love to get you a seat. Are you still interested?"
 
 If they say they can't afford it: "I hear you. The briefing itself is just $47 for 90 minutes with DJ. No commitment beyond that. It's designed to give you the full picture before you decide anything."
 
@@ -50,7 +50,7 @@ File ready: `~/Documents/TQA/Client Files/tqa-contacts-meta-upload.csv`
 - Retarget (Audience A): AUD $15/day
 - Lookalike (Audience B): AUD $20/day
 - Cold (Audience C): AUD $15/day
-- Total: AUD $50/day = ~$250 for 5 days before April 11
+- Total: AUD $50/day = ~$250 for 5 days before April 18
 
 ### Step 5: Ad Creative
 Landing page: https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
@@ -66,9 +66,9 @@ Landing page: https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
 3. Assign 6 applicants (listed above) to Jay
 4. Move 6 applicants to "Applied" stage in Webinar pipeline
 
-### Workflow Updates (ALL of these before April 11)
-5. **Webinar Confirmation** workflow: Update all dates from March 19 to April 11, new Zoom link
-6. **Webinar Reminders** workflow: Update March 19 to April 11 (24h, 1h, 15min reminders)
+### Workflow Updates (ALL of these before April 18)
+5. **Webinar Confirmation** workflow: Update all dates from March 19 to April 18, new Zoom link
+6. **Webinar Reminders** workflow: Update March 19 to April 18 (24h, 1h, 15min reminders)
 7. **PUBLISH** these draft workflows:
    - New Lead Nurture (Fast 5) — CRITICAL
    - Meta Lead Registration — CRITICAL (or new ad leads get nothing)
@@ -76,23 +76,23 @@ Landing page: https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
    - Appointment Confirmation
    - Post Call Payment Follow Up
 
-### Email Sequence for April 11 (5-day countdown)
+### Email Sequence for April 18 (5-day countdown)
 Build these as a new workflow triggered by tag: `tqa-april11-funnel`
 
-**Day 1 (April 6):** "DJ here. April 11 is 5 days away."
+**Day 1 (April 6):** "DJ here. April 18 is 5 days away."
 **Day 2 (April 7):** Share one educational insight (certification path or salary data)
 **Day 3 (April 8):** Short personal video from DJ (30-60 sec, "here's what we'll cover")
 **Day 4 (April 9):** Social proof / Cyber Caffeine podcast episode link
 **Day 5 (April 10):** Final reminder + logistics (Zoom link, time, what to have ready)
-**Day of (April 11, 9 AM EST):** "We start in 2 hours. Here's your link."
-**Day of (April 11, 10:45 AM EST):** "15 minutes. See you inside."
+**Day of (April 18, 9 AM EST):** "We start in 2 hours. Here's your link."
+**Day of (April 18, 10:45 AM EST):** "15 minutes. See you inside."
 
 ---
 
 ## FOR DJ — DO THIS WEEK
 
-### Trust Content (creates before April 11)
-1. **30-60 second personal video greeting** — "Hey, I'm DJ. Here's what to expect on April 11." Film on phone, upload unlisted to YouTube. Agresh puts in confirmation email.
+### Trust Content (creates before April 18)
+1. **30-60 second personal video greeting** — "Hey, I'm DJ. Here's what to expect on April 18." Film on phone, upload unlisted to YouTube. Agresh puts in confirmation email.
 2. **Share a Cyber Caffeine episode** relevant to career transitions. Link in Day 4 email.
 3. **One LinkedIn post** this week about the current threat landscape (use the fresh stats: 514K unfilled, 86% breached, AI 4x faster). End with briefing mention.
 
@@ -119,7 +119,7 @@ I'll be straight with you. You applied to The Quantum Achievers a few weeks ago,
 
 If you're still thinking about the move into cybersecurity, I want you to know the door is open.
 
-Here's what's happening: I'm running a live Career Briefing on April 11 at 11 AM EST. 90 minutes. I'll walk through the exact career path, the certification roadmap that matters, salary data at every level, and how the hidden job market works. I'll also do a live LinkedIn audit for one attendee.
+Here's what's happening: I'm running a live Career Briefing on April 18 at 11 AM EST. 90 minutes. I'll walk through the exact career path, the certification roadmap that matters, salary data at every level, and how the hidden job market works. I'll also do a live LinkedIn audit for one attendee.
 
 You already took the step of applying. That tells me you're serious. I'd like to get you in the room.
 
@@ -139,7 +139,7 @@ This handles the "can't afford" crowd without being a pushover. $47 is the filte
 | Segment | Tag | Count | Action | Email Angle |
 |---------|-----|-------|--------|-------------|
 | Applicants (HOT) | tqa-applied | 6 | Jay calls + re-engage email above | "We owe you an apology" |
-| Hot no-shows | tqa-reactivate-hot-noshow | 54 | Email sequence | "You registered. Life happened. April 11 is your shot." |
+| Hot no-shows | tqa-reactivate-hot-noshow | 54 | Email sequence | "You registered. Life happened. April 18 is your shot." |
 | Attended webinar | webinar-attended | 12 | Email + personal touch | "You were in the room. Here's what changed since March." |
 | Warm leads | tqa-reactivate-warm | 7 | Email sequence | "Still thinking about cybersecurity?" |
 | Old/stale | old-lead + cleanup | 51 | Long-term nurture | Weekly value email, no hard sell |
@@ -149,7 +149,7 @@ This handles the "can't afford" crowd without being a pushover. $47 is the filte
 
 ## PRE-QUALIFICATIONS CHECKLIST
 
-Before April 11, verify:
+Before April 18, verify:
 - [ ] Zoom link works and is in all workflows
 - [ ] Confirmation email sends immediately on registration
 - [ ] SMS reminders: 24h, 1h, 15 min before

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ | Full Plan - Start to Finish</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--r:#ef4444;--o:#f97316;--gold:#f59e0b;--t:#e2e8f0;--m:#94a3b8;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.65}
+.w{max-width:880px;margin:0 auto;padding:2rem 1.5rem}
+.hero{text-align:center;padding:2rem 0 1.5rem;border-bottom:1px solid var(--b);margin-bottom:2rem}
+.badge{display:inline-block;background:rgba(59,130,246,0.15);color:var(--a);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.8rem;border-radius:100px;border:1px solid rgba(59,130,246,0.25);margin-bottom:0.6rem}
+.hero h1{font-size:1.7rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.hero p{color:var(--m);font-size:0.85rem}
+
+/* Steps */
+.step{margin-bottom:2rem;position:relative;padding-left:3.5rem}
+.step::before{content:attr(data-num);position:absolute;left:0;top:0;width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem}
+.step.blue::before{background:rgba(59,130,246,0.15);color:var(--a);border:2px solid rgba(59,130,246,0.3)}
+.step.purple::before{background:rgba(139,92,246,0.15);color:var(--p);border:2px solid rgba(139,92,246,0.3)}
+.step.gold::before{background:rgba(245,158,11,0.15);color:var(--gold);border:2px solid rgba(245,158,11,0.3)}
+.step.orange::before{background:rgba(249,115,22,0.15);color:var(--o);border:2px solid rgba(249,115,22,0.3)}
+.step.green::before{background:rgba(16,185,129,0.15);color:var(--g);border:2px solid rgba(16,185,129,0.3)}
+.step h2{font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:0.15rem}
+.step .price{font-size:0.75rem;font-weight:700;margin-bottom:0.5rem}
+.step .price.free{color:var(--g)}.step .price.paid{color:var(--gold)}
+.step p,.step li{font-size:0.83rem}
+.step ul{list-style:none;padding:0;margin-top:0.4rem}
+.step li{padding:0.15rem 0 0.15rem 1.1rem;position:relative}
+.step li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--a)}
+
+.card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1rem 1.2rem;margin:0.6rem 0}
+.card h3{font-size:0.88rem;font-weight:600;color:var(--w);margin-bottom:0.35rem}
+
+/* Product mockup */
+.pdf-mock{background:var(--s);border:1px solid var(--b);border-radius:10px;overflow:hidden;margin:0.75rem 0}
+.pdf-header{background:linear-gradient(135deg,rgba(59,130,246,0.12),rgba(139,92,246,0.12));padding:1rem 1.2rem;border-bottom:1px solid var(--b)}
+.pdf-header h4{color:var(--w);font-size:0.85rem;margin-bottom:0.15rem}
+.pdf-header p{color:var(--m);font-size:0.72rem}
+.pdf-pages{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;padding:1rem}
+.pdf-page{background:var(--c);border:1px solid var(--b);border-radius:6px;padding:0.6rem;min-height:100px}
+.pdf-page .pg-num{font-size:0.6rem;color:var(--a);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.25rem}
+.pdf-page .pg-title{font-size:0.72rem;font-weight:600;color:var(--w);margin-bottom:0.2rem}
+.pdf-page .pg-desc{font-size:0.65rem;color:var(--m);line-height:1.4}
+@media(max-width:640px){.pdf-pages{grid-template-columns:repeat(2,1fr)}}
+
+/* Timeline */
+.timeline{margin:0.75rem 0}
+.tl-row{display:grid;grid-template-columns:100px 1fr;gap:0.75rem;padding:0.5rem 0;border-bottom:1px solid rgba(42,58,78,0.5)}
+.tl-when{font-size:0.72rem;font-weight:700;color:var(--a);text-transform:uppercase;letter-spacing:0.04em}
+.tl-what{font-size:0.82rem}
+.tl-what strong{color:var(--w)}
+@media(max-width:640px){.tl-row{grid-template-columns:1fr}}
+
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{text-align:left;padding:0.5rem 0.7rem;background:rgba(59,130,246,0.08);color:var(--a);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--b)}
+td{padding:0.5rem 0.7rem;border-bottom:1px solid var(--b)}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin:0.75rem 0}
+.stat{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:0.8rem;text-align:center}
+.stat-v{font-size:1.3rem;font-weight:800;color:var(--w)}
+.stat-v.g{color:var(--g)}.stat-v.gold{color:var(--gold)}.stat-v.a{color:var(--a)}
+.stat-l{font-size:0.62rem;color:var(--m);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.15rem}
+@media(max-width:640px){.stat-row{grid-template-columns:1fr}}
+
+.alert{border-radius:10px;padding:1rem 1.2rem;margin:0.75rem 0}
+.alert-g{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25)}
+.alert-r{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25)}
+.alert h3{font-size:0.88rem;margin-bottom:0.35rem}
+.alert-g h3{color:var(--g)}.alert-r h3{color:var(--r)}
+.alert li{font-size:0.82rem;padding:0.15rem 0 0.15rem 1.1rem;position:relative;list-style:none}
+.alert li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%}
+.alert-g li::before{background:var(--g)}.alert-r li::before{background:var(--r)}
+.alert ul{padding:0}
+
+.footer{text-align:center;padding:1.5rem 0;border-top:1px solid var(--b);margin-top:2rem;color:var(--m);font-size:0.7rem}
+.sep{border:none;border-top:1px solid var(--b);margin:2rem 0}
+</style>
+</head>
+<body>
+<div class="w">
+
+<div class="hero">
+  <div class="badge">The Full Plan - In Order</div>
+  <h1>From Recording to Revenue</h1>
+  <p>Every step DJ takes, what it looks like, what it costs the viewer, and where it leads. Start at Step 1. Follow it down.</p>
+</div>
+
+<!-- STEP 1 -->
+<div class="step blue" data-num="1">
+  <h2>YouTube Content (DJ records, we handle the rest)</h2>
+  <div class="price free">FREE for viewers</div>
+  <p>DJ records one video a week. 10-20 minutes. Real topics backed by real data. He teaches from 28 years of experience. Not theory. Things he actually did.</p>
+
+  <div class="card">
+    <h3>What the videos do</h3>
+    <ul>
+      <li>Teach something genuinely useful. Not a tease. Real value.</li>
+      <li>Use real numbers: salary data, job market stats, case studies from DJ's career.</li>
+      <li>Viewer watches 3-5 videos over a few weeks. Starts thinking: "This guy knows what he's talking about."</li>
+      <li>Every video ends the same way: "I built a tool that creates your personal career roadmap. $47. Link in the description."</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>First 5 video topics (from search data)</h3>
+    <ul>
+      <li><strong>Week 1:</strong> "IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</li>
+      <li><strong>Week 2:</strong> "How Much Do Cybersecurity Professionals Really Make?"</li>
+      <li><strong>Week 3:</strong> "I Stopped a $300K Wire Fraud. Here's How."</li>
+      <li><strong>Week 4:</strong> "AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</li>
+      <li><strong>Week 5:</strong> "My Student Went From Chef to $120K Cybersecurity Analyst"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>What happens with the recording</h3>
+    <ul>
+      <li>Long video goes on YouTube</li>
+      <li>3-5 Shorts get cut from it and posted to YouTube + IG Reels</li>
+      <li>Video topic becomes a LinkedIn post (DJ's 9K followers + 1K newsletter)</li>
+      <li>Audio gets stripped and uploaded as a podcast episode</li>
+      <li>One recording. Four channels. DJ's time: 1-2 hours on Monday.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step purple" data-num="2">
+  <h2>$47 Career Assessment (the filter)</h2>
+  <div class="price paid">$47 one-time</div>
+  <p>The viewer watched a few videos. They're thinking about making a move. The YouTube CTA sends them here. They pay $47 and answer 10-12 questions about their background. Within 24 hours, they get back a personalized career document.</p>
+
+  <div class="pdf-mock">
+    <div class="pdf-header">
+      <h4>Your Cybersecurity Career Roadmap</h4>
+      <p>Personalized for [Name] | Generated [Date] | Based on 28 years of CISO experience</p>
+    </div>
+    <div class="pdf-pages">
+      <div class="pdf-page">
+        <div class="pg-num">Page 1-2</div>
+        <div class="pg-title">Your Score</div>
+        <div class="pg-desc">Where you stand today. Your strengths, your gaps, and what's holding you back. Based on your quiz answers.</div>
+      </div>
+      <div class="pdf-page">
+        <div class="pg-num">Page 3-4</div>
+        <div class="pg-title">Your Path</div>
+        <div class="pg-desc">The specific certification order for YOUR background. Not generic. A sysadmin gets a different path than a network engineer. Includes timeline.</div>
+      </div>
+      <div class="pdf-page">
+        <div class="pg-num">Page 5-6</div>
+        <div class="pg-title">Your Numbers</div>
+        <div class="pg-desc">Real salary data for your current role vs your target role. Job openings in your metro area. The dollar gap you're leaving on the table every month you wait.</div>
+      </div>
+      <div class="pdf-page">
+        <div class="pg-num">Page 7-8</div>
+        <div class="pg-title">Your 90-Day Plan</div>
+        <div class="pg-desc">Exactly what to do in months 1, 2, and 3. Which cert to study for. Which skills to build. Which roles to target. A complete plan they could execute alone.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>What we need from DJ's courseware to build this</h3>
+    <ul>
+      <li><strong>His recommendation logic.</strong> When someone has X background, what path does DJ recommend? The "if sysadmin, do this / if network engineer, do that" decision tree. Probably 5-10 pages from his 130-page courseware.</li>
+      <li><strong>His certification order.</strong> Which certs matter for which background type. Not all of them. The ones that get people hired.</li>
+      <li><strong>His timeline estimates.</strong> How long does each transition path typically take?</li>
+    </ul>
+    <p style="margin-top:0.5rem;color:var(--m);font-size:0.8rem;">The salary data, job market numbers, and metro-level stats come from CyberSeek, BLS, and ISC2. We already have that research. DJ's expertise is the recommendation engine. Everything else is public data.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why this doesn't feel like a pitch</h3>
+    <ul>
+      <li>The document does NOT mention CISO 360. It doesn't sell anything.</li>
+      <li>It gives them a complete plan they could follow on their own. Every cert, every step, every timeline.</li>
+      <li>At the very bottom, one line: "If you want help executing this plan, you can apply here."</li>
+      <li>The person who can do it alone does it alone. Got their money's worth.</li>
+      <li>The person who reads the plan and thinks "I need someone to walk me through this" applies.</li>
+      <li>Both people are happy. Nobody feels used.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Why it works as a filter</h3>
+    <ul>
+      <li>Anyone who pays $47 for a career assessment is actively planning a move. Not browsing.</li>
+      <li>The last webinar was free. 180 registered. 0 paid. Free attracts the wrong people.</li>
+      <li>$47 is small enough that serious people pay without overthinking it.</li>
+      <li>$47 is big enough that freebie collectors skip it.</li>
+      <li>Every person who buys this is a qualified lead for CISO 360.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step gold" data-num="3">
+  <h2>Application Form (who's serious)</h2>
+  <div class="price free">FREE</div>
+  <p>The assessment PDF ends with an apply link. They've already paid $47 and read their personalized plan. They know exactly what the gap is. Now they decide if they want help closing it.</p>
+
+  <div class="card">
+    <h3>The application asks 5-8 questions</h3>
+    <ul>
+      <li>Current role and years of experience</li>
+      <li>Target role and salary goal</li>
+      <li>When do you want to make the switch? (This month / This quarter / This year / Someday)</li>
+      <li>Are you ready to invest in your career transition? (Yes / Not yet)</li>
+      <li>How did you find DJ?</li>
+    </ul>
+    <p style="margin-top:0.5rem;color:var(--m);font-size:0.8rem;">GHL auto-scores every application (0-12 points). Hot leads (9-12) get flagged to DJ within 24 hours. Warm leads (5-8) get an email sequence. Cold leads (0-4) get the newsletter.</p>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step orange" data-num="4">
+  <h2>15-Minute Strategy Call (DJ decides)</h2>
+  <div class="price free">FREE for qualified applicants</div>
+  <p>Only people who scored 9+ on the application get a call with DJ. This is not a sales pitch. DJ reviews their application, asks a few questions, and gives honest advice.</p>
+
+  <div class="card">
+    <h3>How the call goes</h3>
+    <ul>
+      <li>"I saw your application. Tell me about where you are right now."</li>
+      <li>"Based on what you've told me, here's what I'd recommend."</li>
+      <li>If they're a fit: "I run a 14-week program called CISO 360. I think you'd be a good fit. Here's how it works."</li>
+      <li>If they're not ready: "Here's what I'd do first. When you're ready, come back."</li>
+      <li>15 minutes. DJ has already seen their quiz score, their assessment results, and their application. He knows who he's talking to before the call starts.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step green" data-num="5">
+  <h2>CISO 360 Accelerator (the program)</h2>
+  <div class="price paid">$4,997 PIF or $1,897 x 3</div>
+  <p>14 weeks. 15 student cap. By the time someone gets here, they've watched DJ's content for weeks, paid $47 for their assessment, filled out an application, and spoken to DJ on a call. They're ready.</p>
+
+  <div class="card">
+    <h3>What's inside (already built)</h3>
+    <ul>
+      <li>120+ pages of courseware on Google Drive</li>
+      <li>Weekly live sessions with DJ</li>
+      <li>Personal career assistant (AI, available 24/7)</li>
+      <li>Custom task list built for their background</li>
+      <li>WhatsApp group with DJ</li>
+      <li>Certification roadmap and study plan</li>
+      <li>LinkedIn profile and resume optimization</li>
+      <li>Placement support with employer introductions</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- THE 180 LEADS -->
+<h2 style="font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:2px solid var(--o);">Re-Engaging the 180 Cold Leads</h2>
+
+<p style="font-size:0.83rem;margin-bottom:0.75rem;">These people already raised their hand. They registered for DJ's webinar. Then nobody followed up. They're not dead. They're just waiting to hear from him again.</p>
+
+<div class="timeline">
+  <div class="tl-row">
+    <div class="tl-when">Day 1</div>
+    <div class="tl-what"><strong>Email all 180:</strong> "DJ recorded something new." Link to the first YouTube video. Warm, personal, not salesy. Just value.</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">Day 3</div>
+    <div class="tl-what"><strong>Email the 12 who applied:</strong> Personal message from DJ. "I saw your application from the webinar. I want to follow up with you." These are the hottest leads. Invite them straight to a call.</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">Day 5</div>
+    <div class="tl-what"><strong>Second email to all 180:</strong> Link to the $47 Career Assessment. "I built something since we last talked. It creates a personalized roadmap based on your background."</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">Day 7-14</div>
+    <div class="tl-what"><strong>Anyone who watches the video or buys the assessment</strong> gets tagged in GHL as re-engaged. They enter the funnel at Step 2 or Step 3.</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">Week 3</div>
+    <div class="tl-what"><strong>Invite to new webinar ($27 entry).</strong> Only send to the re-engaged segment. These people have now seen DJ's YouTube content AND got the re-engage emails. Much warmer than last time.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>The new webinar ($27 entry fee)</h3>
+  <ul>
+    <li>$27 kills freebie seekers. Last time was free. 12.5% show rate. $27 should push that above 50%.</li>
+    <li>DJ does the webinar live. New content, not the March 19 replay.</li>
+    <li>Webinar ends with "Apply for CISO 360." Not a payment link. An application.</li>
+    <li>Post-webinar: GHL workflows finally published. Automated follow-up runs. Applicants get calls.</li>
+  </ul>
+</div>
+
+<hr class="sep">
+
+<!-- SOCIALS -->
+<h2 style="font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:2px solid var(--p);">DJ's Social Media (one identity, four channels)</h2>
+
+<div class="card">
+  <h3>The brand</h3>
+  <ul>
+    <li><strong>Name:</strong> DJ Naronikar (personal brand, your face, your name)</li>
+    <li><strong>Tagline:</strong> "28-Year CISO. Helping IT pros break into cybersecurity."</li>
+    <li><strong>Program name:</strong> CISO 360 Accelerator</li>
+    <li><strong>"The Quantum Achievers"</strong> goes in the footer. Not the headline. Not the brand.</li>
+  </ul>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead><tr><th>Channel</th><th>What happens</th><th>DJ's effort</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">YouTube</td>
+        <td>1 long video/week + 3-5 Shorts. Channel renamed "DJ Naronikar | CISO Career Coach." Every description links to the $47 assessment.</td>
+        <td>1-2 hrs/week (recording)</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Instagram</td>
+        <td>YouTube Shorts reposted as Reels. 1-2 carousels/week. Bio links to YouTube.</td>
+        <td>0 (we handle)</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">LinkedIn</td>
+        <td>3-4 posts/week from video topics. Weekly newsletter "Quantum AI Cyber Articles." Every post links to YouTube.</td>
+        <td>15 min/week (approve posts)</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Podcast</td>
+        <td>Audio stripped from YouTube video, uploaded as episode. New name needed. Distributed to Spotify + Apple.</td>
+        <td>0 (we handle)</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Telegram</td>
+        <td>Students only. Not marketing. Keep for CISO 360 enrolled students.</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Facebook Group</td>
+        <td>1,700 members in CISO360 group. Cross-post YouTube videos. Free audience already there.</td>
+        <td>0 (we handle)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="sep">
+
+<!-- REVENUE MATH -->
+<h2 style="font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:2px solid var(--g);">Revenue Math</h2>
+
+<div class="stat-row">
+  <div class="stat"><div class="stat-v gold">$47</div><div class="stat-l">Career Assessment</div></div>
+  <div class="stat"><div class="stat-v a">$27</div><div class="stat-l">Webinar Entry</div></div>
+  <div class="stat"><div class="stat-v g">$4,997</div><div class="stat-l">CISO 360 Accelerator</div></div>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead><tr><th></th><th>Month 1</th><th>Month 2</th><th>Month 3</th></tr></thead>
+    <tbody>
+      <tr><td>YouTube videos live</td><td>4</td><td>8</td><td>12</td></tr>
+      <tr><td>$47 assessments sold</td><td>5-10</td><td>15-25</td><td>25-40</td></tr>
+      <tr><td>Applications received</td><td>3-5</td><td>8-15</td><td>15-25</td></tr>
+      <tr><td>Strategy calls</td><td>2-3</td><td>5-10</td><td>10-15</td></tr>
+      <tr><td>CISO 360 students</td><td>0-1</td><td>1-2</td><td>2-4</td></tr>
+      <tr><td style="font-weight:700;color:var(--w)">Total revenue</td><td>$235-$5,467</td><td>$5,702-$11,169</td><td style="font-weight:700;color:var(--g)">$11,169-$21,868</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <p>Two students a month is $10K. Plus $47 assessments stacking up. Victoria Shearing books calls from 315 YouTube subs. DJ starts with more credibility and a bigger existing audience than she has.</p>
+</div>
+
+<hr class="sep">
+
+<!-- DJ TIME -->
+<h2 style="font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:2px solid var(--a);">DJ's Weekly Time</h2>
+
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead><tr><th>Day</th><th>Task</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:600;color:var(--w)">Monday</td><td>Record 1 video + cut short clips</td><td>1-2 hours</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Tuesday</td><td>Approve uploads and descriptions</td><td>15 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Wednesday</td><td>Approve LinkedIn post</td><td>15 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Friday</td><td>Review applications, book calls</td><td>30 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">As needed</td><td>15-min strategy calls</td><td>15 min each</td></tr>
+      <tr><td style="font-weight:600;color:var(--g)">Total</td><td></td><td style="font-weight:700;color:var(--g)">4-5 hours/week</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="sep">
+
+<!-- DECISIONS -->
+<div class="alert alert-r">
+  <h3>DJ decides today</h3>
+  <ul>
+    <li><strong>1. Yes to 1 video/week?</strong> Everything starts here.</li>
+    <li><strong>2. Yes to 15-min calls?</strong> Not sales. Fit checks. You already know who they are before the call.</li>
+    <li><strong>3. Pick a podcast name.</strong> "Cyber Caffeine" is taken. Options: "The CISO Path" / "From IT to CISO"</li>
+    <li><strong>4. Brand = DJ Naronikar.</strong> Your face. Your name. The program is CISO 360.</li>
+    <li><strong>5. Tell Agresh:</strong> publish the 7 GHL workflows. They've been sitting since March 17.</li>
+  </ul>
+</div>
+
+<div class="alert alert-g">
+  <h3>Already built (DJ doesn't touch these)</h3>
+  <ul>
+    <li>Stripe products ($47 assessment, $4,997 PIF, $1,897x3 plan)</li>
+    <li>GHL CRM with lead scoring and pipelines</li>
+    <li>Quiz and landing pages on GitHub Pages</li>
+    <li>3 VAPI voice assistants</li>
+    <li>120+ pages CISO 360 courseware</li>
+    <li>90-day content calendar with weekly topics</li>
+    <li>Full competitor research and Google Trends data</li>
+    <li>Team SOP for DJ, Agresh, Shreyas, and Dylan</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <p>DJ Naronikar | CISO 360 Accelerator | Full Plan</p>
+  <p>Prepared by Dylan Ewing | April 7, 2026</p>
+</div>
+
+</div>
+</body>
+</html>

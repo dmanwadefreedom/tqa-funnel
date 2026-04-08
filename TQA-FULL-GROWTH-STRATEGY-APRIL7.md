@@ -23,7 +23,7 @@ TQA has the right offer (career transition program), the right founder (28-year 
 **This plan fixes all three problems in 90 days.**
 
 ### Immediate Revenue Targets
-- **Days 1-30:** Reactivate existing 197 contacts + April 11 webinar → target 20-25 paid ($47 briefing registrations) = $940-$1,175 revenue
+- **Days 1-30:** Reactivate existing 197 contacts + April 18 webinar → target 20-25 paid ($47 briefing registrations) = $940-$1,175 revenue
 - **Days 31-60:** Launch YouTube content + warm nurture sequences → grow to 400+ total contacts = $2,000+ revenue
 - **Days 61-90:** $997 Accelerator cohort starts → convert 8-12 attendees = $8,000-$12,000 revenue
 
@@ -359,7 +359,7 @@ As soon as a contact enters GHL:
 
 ## SECTION 4: THE PRESELL & POSTSELL EMAIL SEQUENCES
 
-### Pre-April 11 Presell Sequence (April 6-10)
+### Pre-April 18 Presell Sequence (April 6-10)
 
 This is already written. Send to all 79 pre-qualified contacts (6 applicants + 54 hot no-shows + 12 attended + 7 warm):
 
@@ -389,7 +389,7 @@ This is already written. Send to all 79 pre-qualified contacts (6 applicants + 5
 **Email 4 (April 9, Wednesday):** "4 minutes of my actual thinking"
 - DJ's short video or Cyber Caffeine podcast episode
 - Demonstrates expertise and thought process
-- First mention of April 11 briefing with price ($47)
+- First mention of April 18 briefing with price ($47)
 - Positioned as "proof of my value"
 - Click target: 20%+ (video view)
 
@@ -410,7 +410,7 @@ This is already written. Send to all 79 pre-qualified contacts (6 applicants + 5
 
 ### Post-Webinar Postsell Sequence (April 12+)
 
-After the April 11 briefing, attendees fall into categories:
+After the April 18 briefing, attendees fall into categories:
 
 **For attendees who apply immediately for Accelerator:**
 - Automate a welcome email with checklist (by Day 1 of cohort)
@@ -728,7 +728,7 @@ By July 1, 2026, target 400+ total contacts with sources:
 | Meta Ads (retarget) | 25 | $300 | $12 | 10 | 8 | 7 |
 | LinkedIn DM (Sales Navigator) | 45 | $300 | $6.67 | 10 | 15 | 20 |
 | YouTube (organic) | 60 | $0 | $0 | 5 | 15 | 40 |
-| Webinar (April 11) | 35 | $0 | $0 | 35 | 0 | 0 |
+| Webinar (April 18) | 35 | $0 | $0 | 35 | 0 | 0 |
 | Presell sequence (existing) | 25 | $0 | $0 | 25 | 0 | 0 |
 | Cyber Caffeine podcast | 40 | $0 | $0 | 5 | 10 | 25 |
 | **TOTAL** | **320** | **$2,100** | **$6.56** | **120** | **78** | **122** |
@@ -752,10 +752,10 @@ This is healthy if:
 
 ## SECTION 9: 90-DAY MILESTONES & SUCCESS METRICS
 
-### Phase 1: Reactivation & April 11 Webinar (Days 1-30)
+### Phase 1: Reactivation & April 18 Webinar (Days 1-30)
 
 **Milestones:**
-- [ ] April 11 briefing scheduled, Zoom link confirmed
+- [ ] April 18 briefing scheduled, Zoom link confirmed
 - [ ] 5-email presell sequence sent to 79 pre-qualified contacts
 - [ ] Meta ads retargeting 197 existing contacts (AUD $15/day)
 - [ ] Sales Navigator activated, 100+ connection requests sent
@@ -763,14 +763,14 @@ This is healthy if:
 - [ ] All platform bios updated to unified messaging
 - [ ] GHL workflows published: Webinar Confirmation, Reminders, Post-Webinar Follow-up
 
-**Target Results (by April 11):**
+**Target Results (by April 18):**
 - Webinar registrations: 40-50 (from presell + ads + navigator)
 - Webinar attendees: 20-25 show-up rate 50%+)
 - Strategy call applications: 3-5 (15-20% of attendees)
 - Paid ($47 briefing): 10-15 (25-30% of attendees buy)
 
 **Key Success Metric:**
-- At least 1 Accelerator enrollment from April 11 webinar = proving the funnel works
+- At least 1 Accelerator enrollment from April 18 webinar = proving the funnel works
 
 ---
 
@@ -923,7 +923,7 @@ This is healthy if:
 1. [ ] Update GHL timezone: America/Detroit → America/New_York
 2. [ ] Update GHL from-email: extromarketingagency → achieversquantum@gmail.com
 3. [ ] Publish presell email sequence (April 6-10 emails) + apply `tqa-presell-april11` tag to 79 contacts
-4. [ ] Confirm Webinar Confirmation workflow is ready (updated to April 11)
+4. [ ] Confirm Webinar Confirmation workflow is ready (updated to April 18)
 5. [ ] Create "Post-Webinar Follow-up" workflow for attendees not applying same day
 6. [ ] Test full flow: fake registration → confirmation email → SMS reminder
 
@@ -940,7 +940,7 @@ This is healthy if:
 3. [ ] Coordinate with Agresh on repurposing workflow (YouTube → LinkedIn → Spotify)
 
 **Result by Day 14:**
-- April 11 webinar fully set up
+- April 18 webinar fully set up
 - Presell emails being sent to 79 contacts
 - Meta ads running on better targeting
 - Sales Navigator active and DJ sending connection requests
@@ -956,7 +956,7 @@ This is healthy if:
 2. [ ] Continue Sales Navigator DMs (20-25/day Tue-Thu)
 3. [ ] Reply to YouTube comments (Wed-Fri, 30 min/day)
 4. [ ] Reply to LinkedIn comments (Wed-Fri, 30 min/day)
-5. [ ] Hold April 11 briefing (90 minutes)
+5. [ ] Hold April 18 briefing (90 minutes)
 
 **For Agresh:**
 1. [ ] Monitor presell sequence engagement (opens, clicks) — report to Slack daily
@@ -976,7 +976,7 @@ This is healthy if:
 2. [ ] QA the post-webinar workflows (test registration → follow-up sequence)
 
 **Result by Day 30:**
-- April 11 webinar complete (25-35 attendees target)
+- April 18 webinar complete (25-35 attendees target)
 - 5-10 strategy call applications received
 - 10-15 paid briefing registrations ($47)
 - 100+ YouTube channel subscribers
@@ -1013,7 +1013,7 @@ This is healthy if:
 
 **Result by Day 60:**
 - YouTube: 200-300 subscribers, 4-5 videos published, consistent 500-1,000 views/week
-- Webinar: 30-40 total registrations (April 11 + ongoing Meta + DM)
+- Webinar: 30-40 total registrations (April 18 + ongoing Meta + DM)
 - Accelerator: Cohort 1 running with 3-5 students ($3,000-$5,000 revenue)
 - Sales Navigator: 1,000+ connection requests sent, 250+ connections, 40-50 DM responses, 8-10 applications
 - Meta ads: Consistent CPL $5-$6, retargeting working well
@@ -1062,7 +1062,7 @@ This is healthy if:
 
 ## SECTION 13: RISK & MITIGATION
 
-### Risk 1: April 11 Webinar Flops (Low Attendance/No Applications)
+### Risk 1: April 18 Webinar Flops (Low Attendance/No Applications)
 **Probability:** Medium (if presell sequence not sent or Meta not launched)
 **Impact:** Kills momentum, demoralizes team
 **Mitigation:**
@@ -1145,7 +1145,7 @@ This is healthy if:
 ## SECTION 14: SUCCESS CRITERIA & APPROVAL GATES
 
 ### 30-Day Gate (April 30)
-- [ ] April 11 webinar held with 20-30 attendees
+- [ ] April 18 webinar held with 20-30 attendees
 - [ ] 5-10 strategy call applications received
 - [ ] $1,000-$1,500 revenue from $47 briefing + early Accelerator enrollment
 - [ ] YouTube channel live with 1-2 videos, 50-100 subscribers
@@ -1240,7 +1240,7 @@ This is healthy if:
 6. **YouTube channel goes live** (bio, description, playlists, first video published)
 7. **Sales Navigator activated** (DJ starts sending connection requests)
 
-**This is a 5-day sprint to get ready for April 11.**
+**This is a 5-day sprint to get ready for April 18.**
 
 ### The Bet
 
@@ -1268,7 +1268,7 @@ At 30-40% conversion to $5,000 CISO Track, that's an additional $12,000-$20,000/
 
 | Asset | Location | Owner | Status |
 |-------|----------|-------|--------|
-| April 11 Presell Sequence | ~/Documents/TQA/Client Files/TQA-PRESELL-SEQUENCE-APRIL11.md | Written | Ready to copy to GHL |
+| April 18 Presell Sequence | ~/Documents/TQA/Client Files/TQA-PRESELL-SEQUENCE-APRIL11.md | Written | Ready to copy to GHL |
 | GHL Audit & Cleanup | ~/Documents/TQA/Client Files/TQA-GHL-FULL-AUDIT-APRIL2.md | Dylan | Ready |
 | Battle Plan | ~/Documents/TQA/Client Files/APRIL-11-BATTLE-PLAN.md | Dylan | Ready |
 | Avatar Profile | ~/Documents/TQA/Copy/TQA-Avatar-Profile.md | Dylan | Ready |
@@ -1300,7 +1300,7 @@ Quick thought: I've hired a lot of cybersecurity people. The best IT-to-cyber tr
 
 **Day 5-6 — Invitation Message (if still no response)**
 ```
-[name], one more thing. I'm running a live career briefing April 11 (90 minutes, real talk about what's possible). If you're even remotely thinking about the move, this might be worth 90 minutes of your time. Just $47 to hold a seat. Totally understand if now's not the time.
+[name], one more thing. I'm running a live career briefing April 18 (90 minutes, real talk about what's possible). If you're even remotely thinking about the move, this might be worth 90 minutes of your time. Just $47 to hold a seat. Totally understand if now's not the time.
 ```
 
 **Day 7 — Light Follow-up (if still no response)**

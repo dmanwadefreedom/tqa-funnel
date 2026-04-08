@@ -66,7 +66,7 @@
 | Old Lead Re-engagement | Sends re-engage emails | Sent March 26 blast — zero replies |
 | Re-engagement Webhook | Handles re-engage form submissions | Working |
 | Score Registration | Scores leads on signup (0-12 points) | Working — the lead scoring is solid |
-| Webinar Confirmation & Reminders | Sends confirmation + reminders for webinar | Still configured for March 19 — NEEDS UPDATE to April 11 |
+| Webinar Confirmation & Reminders | Sends confirmation + reminders for webinar | Still configured for March 19 — NEEDS UPDATE to April 18 |
 | Post Webinar Attendees | Follows up with people who attended | Running but has NO offer links, NO checkout URL |
 | Post Webinar No Show | Follows up with no-shows | Running but has NO offer links |
 | Temporary Reminder | Unknown purpose | Should audit and probably delete |
@@ -79,7 +79,7 @@
 | Appt No Show | Follow up on missed calls | Needed |
 | Long-Term Nurture | Ongoing email nurture | CRITICAL — leads that don't buy immediately need this |
 | Stale Leads | Re-engage or clean old leads | Needed for list hygiene |
-| Assign Webinar Date | Set webinar date on contact | Needs update for April 11 |
+| Assign Webinar Date | Set webinar date on contact | Needs update for April 18 |
 | Post Call Payment Follow Up | Follow up after strategy call | Needed once Jay starts taking calls |
 | Meta Lead Registration | Handle new Meta ad leads | CRITICAL — if Shreyas launches ads, new leads get nothing |
 | New Sale - Review Request | Ask for reviews after purchase | Premature — no sales yet |
@@ -150,7 +150,7 @@
 | Form | Status | Action |
 |------|--------|--------|
 | TQA-Strategy Application | Active — this is the post-briefing application form | KEEP — update CTA link |
-| TQA Webinar Registration | Active — still says March 19 | UPDATE to April 11 briefing |
+| TQA Webinar Registration | Active — still says March 19 | UPDATE to April 18 briefing |
 | Marketing Form - Claim Offer | Active — for Meta ad leads | KEEP — verify it works |
 | Form 2 | Unknown | AUDIT — probably delete |
 
@@ -191,8 +191,8 @@ Good data collection setup:
 4. Move 6 applicants to "Applied" pipeline stage
 
 ### THIS WEEK (2-3 hours)
-5. Update Webinar Registration form: March 19 → April 11
-6. Update Webinar Confirmation workflow: March 19 → April 11, new Zoom link
+5. Update Webinar Registration form: March 19 → April 18
+6. Update Webinar Confirmation workflow: March 19 → April 18, new Zoom link
 7. Build the 18-email sequence (Phase 1-5) as new workflows — use our provided copy
 8. Clean duplicate tags: remove space-separated versions, keep hyphenated
 9. Delete 6 unnecessary calendars (keep Strategy Call + DJ Personal)

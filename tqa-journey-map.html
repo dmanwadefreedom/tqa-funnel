@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA — Client Journey Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0e0f11;
+  --surface:  #16181c;
+  --border:   rgba(255,255,255,0.07);
+  --text:     #e8e6e1;
+  --muted:    #6b6e78;
+  --dim:      #2a2d35;
+
+  --s1: #3b82f6;  /* Awareness - blue */
+  --s2: #8b5cf6;  /* Landing - purple */
+  --s3: #f59e0b;  /* Nurture - amber */
+  --s4: #10b981;  /* Webinar - green */
+  --s5: #ef4444;  /* Survey - red */
+  --s6: #ec4899;  /* Sales Call - pink */
+  --s7: #06b6d4;  /* Enrolled - cyan */
+  --s8: #84cc16;  /* Community - lime */
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  padding: 48px 60px 40px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.header-left h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.header-left h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.header-left h2 span { color: var(--s1); }
+
+.header-right {
+  text-align: right;
+}
+
+.header-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.header-sub {
+  font-size: 16px;
+  color: rgba(232,230,225,0.5);
+  font-weight: 300;
+}
+
+/* ── STAGE LEGEND ── */
+.legend {
+  padding: 24px 60px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.legend-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.legend-item:hover { border-color: rgba(255,255,255,0.2); }
+
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-item span {
+  font-size: 13px;
+  color: rgba(232,230,225,0.6);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── MAIN GRID ── */
+.journey {
+  padding: 48px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* ── STAGE ROW ── */
+.stage-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3px;
+  position: relative;
+}
+
+/* connector line between stages */
+.stage-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 100px;
+  bottom: -24px;
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
+  z-index: 10;
+}
+
+.stage-label {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-label::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--stage-color, #fff);
+}
+
+.stage-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stage-color, var(--muted));
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+.stage-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.stage-timing {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.04);
+  padding: 3px 8px;
+  border-radius: 2px;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+/* ── CONTENT AREA ── */
+.stage-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3px;
+}
+
+.content-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 28px 22px;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-block:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: #1c1e24;
+}
+
+.content-block::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--stage-color, transparent);
+  opacity: 0.4;
+}
+
+.block-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.block-label-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--stage-color, var(--muted));
+  flex-shrink: 0;
+}
+
+.block-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.block-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.block-items li {
+  font-size: 13px;
+  color: rgba(232,230,225,0.55);
+  line-height: 1.5;
+  font-weight: 300;
+  padding-left: 12px;
+  position: relative;
+}
+
+.block-items li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--stage-color, var(--muted));
+  opacity: 0.6;
+  font-size: 10px;
+  top: 1px;
+}
+
+.block-items li strong {
+  color: rgba(232,230,225,0.85);
+  font-weight: 500;
+}
+
+/* Tools pill */
+.tools-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.tool-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.05);
+  color: var(--stage-color, var(--muted));
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Metric callout */
+.metric {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 14px;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.metric-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--stage-color, var(--text));
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* Warning tag */
+.warning-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.2);
+  padding: 4px 8px;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+/* ── NEXT STAGES BANNER ── */
+.next-stages {
+  padding: 40px 60px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.next-stages h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.next-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.next-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.next-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--card-color, #fff);
+}
+
+.next-num {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.next-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.next-desc {
+  font-size: 13px;
+  color: rgba(232,230,225,0.4);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 24px 60px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(232,230,225,0.3);
+}
+
+.footer-note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── ANIMATIONS ── */
+.fade {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade.in { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .stage-content { grid-template-columns: 1fr 1fr; }
+  .header { padding: 40px 32px 32px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .header-right { text-align: left; }
+  .legend { padding: 20px 32px; }
+  .journey { padding: 32px; }
+  .next-grid { grid-template-columns: 1fr 1fr; }
+  .next-stages { padding: 32px; }
+  .footer { padding: 24px 32px; }
+}
+
+@media (max-width: 700px) {
+  .stage-row { grid-template-columns: 1fr; }
+  .stage-content { grid-template-columns: 1fr; }
+  .next-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header fade">
+  <div class="header-left">
+    <h1>The Quantum Achievers</h1>
+    <h2>Client <span>Journey</span> Map</h2>
+  </div>
+  <div class="header-right">
+    <span class="header-tag">Full Funnel · End to End</span>
+    <span class="header-sub">Ad Impression → Enrolled Student → Alumni Community</span>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend fade">
+  <span class="legend-label">Stages</span>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s1)"></div><span>1. Awareness</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s2)"></div><span>2. Landing Page</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s3)"></div><span>3. Nurture</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s4)"></div><span>4. Webinar</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s5)"></div><span>5. Survey</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s6)"></div><span>6. Sales Call</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s7)"></div><span>7. Enrolled</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--s8)"></div><span>8. Community</span></div>
+</div>
+
+<!-- JOURNEY -->
+<div class="journey">
+
+
+<!-- ══ STAGE 1: AWARENESS ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s1)">
+  <div class="stage-label" style="--stage-color: var(--s1)">
+    <span class="stage-num">Stage 01</span>
+    <span class="stage-name">Awareness</span>
+    <span class="stage-timing">⏱ Day 0</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s1)">
+      <div class="block-label"><div class="block-label-dot"></div>What Happens</div>
+      <div class="block-title">DJ's pain story ad hits the feed</div>
+      <ul class="block-items">
+        <li>Raw, personal video — <strong>10 years wasted</strong></li>
+        <li>No pitch, no offer — just his story</li>
+        <li>Targets 25–40 IT professionals on Meta</li>
+        <li>Stops the scroll because it feels <strong>real</strong></li>
+      </ul>
+      <div class="warning-tag">⚡ This is what's already working — protect it</div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s1)">
+      <div class="block-label"><div class="block-label-dot"></div>Audience Targeting</div>
+      <div class="block-title">Who sees the ad</div>
+      <ul class="block-items">
+        <li><strong>Age:</strong> 25–40</li>
+        <li><strong>Job titles:</strong> IT Support, Sysadmin, Network Engineer</li>
+        <li><strong>Interests:</strong> CompTIA, LinkedIn Learning, cybersecurity</li>
+        <li><strong>Behaviour:</strong> Job seekers, career development content</li>
+        <li>Geo: US, UK, Australia</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s1)">
+      <div class="block-label"><div class="block-label-dot"></div>Ad Variants to Test</div>
+      <div class="block-title">3 hooks, same story</div>
+      <ul class="block-items">
+        <li><strong>V1:</strong> "I wasted 10 years figuring this out"</li>
+        <li><strong>V2:</strong> "Nobody tells you how cybersecurity actually works"</li>
+        <li><strong>V3:</strong> "The cybersecurity career nobody gives you"</li>
+        <li>All drive to matching landing page variant</li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">Meta Ads</span>
+        <span class="tool-pill">A/B Test</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s1)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">What success looks like</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s1)">3%+</div>
+        <div class="metric-label">Click-through rate on ad</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s1)">$8–15</div>
+        <div class="metric-label">Cost per landing page click</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 2: LANDING PAGE ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s2)">
+  <div class="stage-label" style="--stage-color: var(--s2)">
+    <span class="stage-num">Stage 02</span>
+    <span class="stage-name">Landing Page</span>
+    <span class="stage-timing">⏱ Day 0 — within minutes</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s2)">
+      <div class="block-label"><div class="block-label-dot"></div>What Happens</div>
+      <div class="block-title">Emotional thread continues from ad</div>
+      <ul class="block-items">
+        <li>Page tone <strong>matches the ad</strong> — same voice, same story</li>
+        <li>Single goal: capture email + 2 qualifier questions</li>
+        <li>No pricing, no program details, no distraction</li>
+        <li>Test V1 / V2 / V3 pages against each other</li>
+      </ul>
+      <div class="warning-tag">🚨 This is where the old funnel broke — tone switched</div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s2)">
+      <div class="block-label"><div class="block-label-dot"></div>Qualifier Questions</div>
+      <div class="block-title">Built-in self-selection</div>
+      <ul class="block-items">
+        <li>"Where are you in your career right now?"</li>
+        <li>"How long have you been thinking about this move?"</li>
+        <li>Answers feed directly into <strong>GHL CRM</strong></li>
+        <li>Segments lead before they even register</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s2)">
+      <div class="block-label"><div class="block-label-dot"></div>Tools</div>
+      <div class="block-title">Tech stack</div>
+      <ul class="block-items">
+        <li>Landing page hosted on <strong>GHL</strong> or WordPress</li>
+        <li>Meta pixel fires on form submit</li>
+        <li>Lead auto-enters <strong>GHL nurture sequence</strong></li>
+        <li>Business email via <strong>Google Workspace</strong> for deliverability</li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">GHL</span>
+        <span class="tool-pill">Meta Pixel</span>
+        <span class="tool-pill">Google Workspace</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s2)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Conversion benchmarks</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s2)">35%+</div>
+        <div class="metric-label">Landing page → registration rate</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s2)">3</div>
+        <div class="metric-label">Variants split tested simultaneously</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 3: NURTURE ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s3)">
+  <div class="stage-label" style="--stage-color: var(--s3)">
+    <span class="stage-num">Stage 03</span>
+    <span class="stage-name">Nurture Sequence</span>
+    <span class="stage-timing">⏱ Day 0 → Webinar Day</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s3)">
+      <div class="block-label"><div class="block-label-dot"></div>Why This Exists</div>
+      <div class="block-title">Keep the emotional fire alive</div>
+      <ul class="block-items">
+        <li>2–3 week gap = momentum killer</li>
+        <li>Emails must <strong>continue the story</strong> — not sell</li>
+        <li>Each email should feel like DJ writing personally</li>
+        <li>Goal: they show up feeling like they <strong>know him</strong></li>
+      </ul>
+      <div class="warning-tag">🚨 Old funnel had no real nurture — 77/80 ghosted</div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s3)">
+      <div class="block-label"><div class="block-label-dot"></div>Email Sequence</div>
+      <div class="block-title">5-email story arc</div>
+      <ul class="block-items">
+        <li><strong>Email 1 (Day 0):</strong> "Here's what I wish I'd known at your stage"</li>
+        <li><strong>Email 2 (Day 2):</strong> The hidden job market story</li>
+        <li><strong>Email 3 (Day 5):</strong> "The resume that cost me 3 years"</li>
+        <li><strong>Email 4 (Day 7):</strong> Pre-webinar — what to bring / ask</li>
+        <li><strong>Email 5 (Day -1):</strong> Reminder + what we'll cover live</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s3)">
+      <div class="block-label"><div class="block-label-dot"></div>WhatsApp Pre-Community</div>
+      <div class="block-title">Optional warm channel</div>
+      <ul class="block-items">
+        <li>Invite registrants to a <strong>pre-webinar WhatsApp channel</strong></li>
+        <li>DJ drops a short voice note or tip every few days</li>
+        <li>Creates intimacy and accountability to show up</li>
+        <li>Batch-labelled: <strong>"March Cohort"</strong></li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">GHL Email</span>
+        <span class="tool-pill">WhatsApp Channel</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s3)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Nurture health check</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s3)">45%+</div>
+        <div class="metric-label">Email open rate target</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s3)">50%+</div>
+        <div class="metric-label">Registered → webinar show rate</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 4: WEBINAR ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s4)">
+  <div class="stage-label" style="--stage-color: var(--s4)">
+    <span class="stage-num">Stage 04</span>
+    <span class="stage-name">Live Webinar</span>
+    <span class="stage-timing">⏱ Webinar Day — 60–75 mins</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s4)">
+      <div class="block-label"><div class="block-label-dot"></div>Structure</div>
+      <div class="block-title">Flow of the session</div>
+      <ul class="block-items">
+        <li><strong>0–10 min:</strong> DJ's story — raw, no slides yet</li>
+        <li><strong>10–30 min:</strong> Industry reality + pain showcase</li>
+        <li><strong>30–45 min:</strong> Live practical exercise (Agresh's idea)</li>
+        <li><strong>45–55 min:</strong> The path forward — no pitch, just map</li>
+        <li><strong>55–75 min:</strong> Open Q&A</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s4)">
+      <div class="block-label"><div class="block-label-dot"></div>The Close — No Price</div>
+      <div class="block-title">Survey CTA — not a sales pitch</div>
+      <ul class="block-items">
+        <li><strong>No pricing shown</strong> on webinar ever</li>
+        <li>"If this resonated — take 2 mins, fill the survey"</li>
+        <li>"We'll reach out personally based on your answers"</li>
+        <li>Survey link dropped in chat + emailed same day</li>
+        <li>Positions next step as <strong>their choice</strong>, not a push</li>
+      </ul>
+      <div class="warning-tag">🚨 Old deck showed price here — people left</div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s4)">
+      <div class="block-label"><div class="block-label-dot"></div>DJ's Role vs Team</div>
+      <div class="block-title">Who handles what live</div>
+      <ul class="block-items">
+        <li><strong>DJ:</strong> Story, education, Q&A — never sells</li>
+        <li><strong>Akshaya / team:</strong> Chat moderation, link drops</li>
+        <li>Team monitors survey responses in real time</li>
+        <li>High-intent responders flagged <strong>immediately</strong></li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">Zoom</span>
+        <span class="tool-pill">GHL</span>
+        <span class="tool-pill">WhatsApp</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s4)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Webinar performance</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s4)">60%</div>
+        <div class="metric-label">Attendees → survey completion</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s4)">75 min</div>
+        <div class="metric-label">Max session length — respect their time</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 5: SURVEY ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s5)">
+  <div class="stage-label" style="--stage-color: var(--s5)">
+    <span class="stage-num">Stage 05</span>
+    <span class="stage-name">Qualification Survey</span>
+    <span class="stage-timing">⏱ Within 24–48hrs post-webinar</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s5)">
+      <div class="block-label"><div class="block-label-dot"></div>Purpose</div>
+      <div class="block-title">Self-elimination + warm handoff</div>
+      <ul class="block-items">
+        <li>Serious buyer fills 10 questions — <strong>no problem</strong></li>
+        <li>Time-waster drops off at question 3 — <strong>good</strong></li>
+        <li>Answers arm the sales team before the call</li>
+        <li>Creates psychological commitment — "I invested time"</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s5)">
+      <div class="block-label"><div class="block-label-dot"></div>Survey Questions</div>
+      <div class="block-title">10 qualifying questions</div>
+      <ul class="block-items">
+        <li>Current role + years of experience</li>
+        <li>What's held you back until now?</li>
+        <li>Target salary / current salary</li>
+        <li>Timeline — when do you want to be working in cyber?</li>
+        <li>Have you tried before? What happened?</li>
+        <li><strong>Are you in a position to invest in yourself now?</strong></li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s5)">
+      <div class="block-label"><div class="block-label-dot"></div>Lead Scoring</div>
+      <div class="block-title">Hot / Warm / Not now</div>
+      <ul class="block-items">
+        <li><strong>🔥 Hot:</strong> IT background + clear timeline + can invest</li>
+        <li><strong>🌡️ Warm:</strong> Right profile, needs timeline nudge</li>
+        <li><strong>❄️ Not now:</strong> No budget or non-technical background</li>
+        <li>Hot leads called <strong>within 2 hours</strong> of completion</li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">GHL Survey</span>
+        <span class="tool-pill">Lead Score Tags</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s5)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Survey benchmarks</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s5)">40%+</div>
+        <div class="metric-label">Survey → booked sales call rate</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s5)">&lt;2 hrs</div>
+        <div class="metric-label">Response time for hot leads</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 6: SALES CALL ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s6)">
+  <div class="stage-label" style="--stage-color: var(--s6)">
+    <span class="stage-num">Stage 06</span>
+    <span class="stage-name">Sales Call</span>
+    <span class="stage-timing">⏱ Within 48–72hrs of survey</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s6)">
+      <div class="block-label"><div class="block-label-dot"></div>Call Structure</div>
+      <div class="block-title">45-min discovery + close</div>
+      <ul class="block-items">
+        <li><strong>0–10 min:</strong> Reference their survey answers specifically</li>
+        <li><strong>10–25 min:</strong> Dig into their pain — let them talk</li>
+        <li><strong>25–35 min:</strong> Map their situation to the program outcome</li>
+        <li><strong>35–45 min:</strong> Present investment + handle objections</li>
+        <li>Price revealed <strong>only here</strong> — never before</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s6)">
+      <div class="block-label"><div class="block-label-dot"></div>Objection Handling</div>
+      <div class="block-title">The 3 real objections</div>
+      <ul class="block-items">
+        <li><strong>"Too expensive"</strong> → ROI calc — $25K/yr salary jump</li>
+        <li><strong>"No time"</strong> → 10–15 hrs/week, working professionals designed</li>
+        <li><strong>"Not technical enough"</strong> → 60% of students came from IT, not cyber</li>
+        <li>Payment plan available — never lead with it</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s6)">
+      <div class="block-label"><div class="block-label-dot"></div>Who Takes the Call</div>
+      <div class="block-title">Team structure</div>
+      <ul class="block-items">
+        <li>Dedicated closer — not DJ (protects his credibility)</li>
+        <li>DJ joins for <strong>last 10 mins</strong> on hot leads if needed</li>
+        <li>All calls recorded + reviewed weekly</li>
+        <li>CRM notes updated immediately post-call</li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">Zoom</span>
+        <span class="tool-pill">GHL CRM</span>
+        <span class="tool-pill">Call Recording</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s6)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Close rate benchmarks</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s6)">30–40%</div>
+        <div class="metric-label">Sales call → enrolled (qualified leads)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s6)">24 hrs</div>
+        <div class="metric-label">Max follow-up window after no-decision</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 7: ENROLLED ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s7)">
+  <div class="stage-label" style="--stage-color: var(--s7)">
+    <span class="stage-num">Stage 07</span>
+    <span class="stage-name">Enrolled Student</span>
+    <span class="stage-timing">⏱ Week 1 → Week 14</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s7)">
+      <div class="block-label"><div class="block-label-dot"></div>Onboarding</div>
+      <div class="block-title">First 48 hours matter most</div>
+      <ul class="block-items">
+        <li>Welcome sequence triggers immediately on payment</li>
+        <li>Added to <strong>batch WhatsApp group</strong> (e.g. "March Batch 1")</li>
+        <li>1-on-1 kickoff call with DJ in Week 1</li>
+        <li>LinkedIn + resume audit begins immediately</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s7)">
+      <div class="block-label"><div class="block-label-dot"></div>Program Phases</div>
+      <div class="block-title">14-week structure</div>
+      <ul class="block-items">
+        <li><strong>Phase 1 (Wk 1–2):</strong> Career consult, LinkedIn, kickoff</li>
+        <li><strong>Phase 2 (Wk 3–10):</strong> Network security, GRC, Cloud, IR</li>
+        <li><strong>Phase 3 (Wk 11–12):</strong> Interview framework + mock interviews</li>
+        <li><strong>Phase 4 (Wk 12–14):</strong> Resume, job search, negotiation coaching</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s7)">
+      <div class="block-label"><div class="block-label-dot"></div>Touchpoints</div>
+      <div class="block-title">Ongoing engagement</div>
+      <ul class="block-items">
+        <li>Fortnightly group coaching calls</li>
+        <li>Weekly office hours (open Q&A)</li>
+        <li>Batch WhatsApp group — <strong>DJ active daily</strong></li>
+        <li>Progress check-in at Week 7 — catch dropoff early</li>
+        <li>Mock interview x3 minimum before job search</li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">Zoom</span>
+        <span class="tool-pill">WhatsApp Groups</span>
+        <span class="tool-pill">GHL</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s7)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Program outcomes</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s7)">92%</div>
+        <div class="metric-label">Completion rate target</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s7)">3–6 mo</div>
+        <div class="metric-label">Average time to first cybersecurity role</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ STAGE 8: COMMUNITY ══ -->
+<div class="stage-row fade" style="--stage-color: var(--s8)">
+  <div class="stage-label" style="--stage-color: var(--s8)">
+    <span class="stage-num">Stage 08</span>
+    <span class="stage-name">Alumni & Community</span>
+    <span class="stage-timing">⏱ Post-graduation → ongoing</span>
+  </div>
+  <div class="stage-content">
+
+    <div class="content-block" style="--stage-color: var(--s8)">
+      <div class="block-label"><div class="block-label-dot"></div>What This Becomes</div>
+      <div class="block-title">The 400+ network DJ already has</div>
+      <ul class="block-items">
+        <li>Graduates join a <strong>TQA alumni WhatsApp channel</strong></li>
+        <li>Job leads, referrals, introductions shared regularly</li>
+        <li>DJ makes introductions from his 400+ company network</li>
+        <li>Alumni become the <strong>best sales asset</strong> — real stories</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s8)">
+      <div class="block-label"><div class="block-label-dot"></div>Testimonial Engine</div>
+      <div class="block-title">Replace fake social proof with real</div>
+      <ul class="block-items">
+        <li>60-sec video testimonial request at job placement</li>
+        <li>LinkedIn recommendation campaign for graduates</li>
+        <li>Case study: before salary → after salary</li>
+        <li>Feed directly into <strong>next webinar's social proof</strong></li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s8)">
+      <div class="block-label"><div class="block-label-dot"></div>Referral Loop</div>
+      <div class="block-title">Alumni → new students</div>
+      <ul class="block-items">
+        <li>Structured referral program — alumni earn reward</li>
+        <li>Alumni invited back to <strong>speak at future webinars</strong></li>
+        <li>"Where are they now" stories used in ads</li>
+        <li>This closes the loop — <strong>best leads come from alumni</strong></li>
+      </ul>
+      <div class="tools-wrap">
+        <span class="tool-pill">WhatsApp</span>
+        <span class="tool-pill">LinkedIn</span>
+        <span class="tool-pill">GHL</span>
+      </div>
+    </div>
+
+    <div class="content-block" style="--stage-color: var(--s8)">
+      <div class="block-label"><div class="block-label-dot"></div>Target Metrics</div>
+      <div class="block-title">Community health</div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s8)">1 in 5</div>
+        <div class="metric-label">Alumni refer at least one new student</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num" style="color:var(--s8)">3+</div>
+        <div class="metric-label">Real video testimonials per cohort</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div><!-- end journey -->
+
+
+<!-- NEXT STAGES BANNER -->
+<div class="next-stages fade">
+  <h3>Immediate Next Actions — Before March 19</h3>
+  <div class="next-grid">
+
+    <div class="next-card" style="--card-color: var(--s1)">
+      <div class="next-num">Action 01</div>
+      <div class="next-title">Pick & deploy the landing page variant</div>
+      <div class="next-desc">Choose V1, V2 or V3 — or run all three split. Get it live ASAP. Every day without it is money left on the table from the ad spend.</div>
+    </div>
+
+    <div class="next-card" style="--card-color: var(--s3)">
+      <div class="next-num">Action 02</div>
+      <div class="next-desc">Write the 5-email nurture sequence in DJ's voice. Load into GHL. Set trigger: fires immediately on registration. This alone will 3x show rate.</div>
+      <div class="next-title">Build the nurture email sequence</div>
+    </div>
+
+    <div class="next-card" style="--card-color: var(--s5)">
+      <div class="next-num">Action 03</div>
+      <div class="next-title">Build the qualification survey</div>
+      <div class="next-desc">10 questions in GHL. Set up lead scoring tags (Hot / Warm / Not now). Connect to sales team notification — 2hr response window for hot leads.</div>
+    </div>
+
+    <div class="next-card" style="--card-color: var(--s4)">
+      <div class="next-num">Action 04</div>
+      <div class="next-title">Set up Google Workspace + domain email</div>
+      <div class="next-desc">All GHL emails need to send from a domain address — not Gmail. This alone will dramatically improve open rates and deliverability.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">TQA · Client Journey Map · 2026</div>
+  <div class="footer-note">Built for: Dylan Wade & The Quantum Achievers Team</div>
+</div>
+
+
+<script>
+  const els = document.querySelectorAll('.fade');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05 });
+  els.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

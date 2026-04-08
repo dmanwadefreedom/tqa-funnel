@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA — Revised Client Journey Map v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0b0c0e;--surface:#13151a;--s2:#1a1d24;--border:rgba(255,255,255,0.07);--text:#e8e6e1;--muted:#6b6e78}
+html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+.hdr{padding:44px 60px 32px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(139,92,246,.06),rgba(59,130,246,.04))}
+.hdr-inner{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end}
+.logo{display:flex;align-items:center;gap:14px}
+.mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:18px;color:#fff}
+.brand-name{font-family:"Syne",sans-serif;font-size:20px;font-weight:700}
+.brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.hdr-r{text-align:right}
+.hdr-title{font-family:"Syne",sans-serif;font-size:28px;font-weight:800}
+.hdr-title span{background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr-sub{font-size:12px;color:var(--muted);margin-top:5px}
+.vbar{background:linear-gradient(90deg,rgba(139,92,246,.12),rgba(59,130,246,.08));border-bottom:1px solid rgba(139,92,246,.2);padding:10px 60px;font-size:12px;color:#a78bfa}
+.vbar strong{color:#c4b5fd}
+.stats{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border)}
+.st{padding:16px 18px;border-right:1px solid var(--border);text-align:center}
+.st:last-child{border-right:none}
+.stn{font-family:"Syne",sans-serif;font-size:22px;font-weight:800}
+.stn.r{color:#ef4444}.stn.a{color:#f59e0b}.stn.g{color:#10b981}.stn.p{color:#8b5cf6}
+.stl{font-size:10px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+.std{font-size:10px;margin-top:2px}
+.std.up{color:#10b981}.std.dn{color:#ef4444}
+.main{max-width:1300px;margin:0 auto;padding:44px 60px 80px}
+.slabel{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:22px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.stage{display:grid;grid-template-columns:255px 1fr;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:18px;transition:border-color .2s}
+.stage:hover{border-color:rgba(255,255,255,.13)}
+.sbar{padding:26px 22px;border-right:1px solid var(--border)}
+.snum{font-family:"Syne",sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.stitle{font-family:"Syne",sans-serif;font-size:16px;font-weight:800;line-height:1.3;margin-bottom:9px}
+.sgoal{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.krow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:5px 9px;font-size:11px}
+.kpi span{font-weight:700;display:block;font-size:13px}
+.own{display:inline-flex;align-items:center;gap:5px;font-size:11px;background:rgba(255,255,255,.05);border-radius:6px;padding:4px 8px;color:var(--muted)}
+.sbody{padding:22px 26px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.ch{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px;font-weight:600}
+.tc{background:var(--s2);border-radius:10px;padding:11px 13px;margin-bottom:7px}
+.tl{font-size:11px;font-weight:600;margin-bottom:4px}
+.tt{font-size:12px;color:var(--muted);line-height:1.6}
+.tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:4px;margin:2px 2px 0 0}
+.te{background:rgba(59,130,246,.15);color:#93c5fd}
+.tw{background:rgba(16,185,129,.15);color:#6ee7b7}
+.tg{background:rgba(139,92,246,.15);color:#c4b5fd}
+.ta{background:rgba(245,158,11,.15);color:#fcd34d}
+.tm{background:rgba(239,68,68,.15);color:#fca5a5}
+.arr{text-align:center;color:var(--muted);font-size:18px;margin:-2px 0}
+.ins{background:rgba(139,92,246,.07);border-left:3px solid #8b5cf6;border-radius:0 8px 8px 0;padding:9px 13px;margin-top:11px;font-size:12px;color:#c4b5fd;line-height:1.55}
+.s1 .sbar{background:linear-gradient(180deg,rgba(59,130,246,.07),transparent)}.s1 .snum{color:#3b82f6}
+.s2 .sbar{background:linear-gradient(180deg,rgba(139,92,246,.07),transparent)}.s2 .snum{color:#8b5cf6}
+.s3 .sbar{background:linear-gradient(180deg,rgba(245,158,11,.07),transparent)}.s3 .snum{color:#f59e0b}
+.s4 .sbar{background:linear-gradient(180deg,rgba(16,185,129,.07),transparent)}.s4 .snum{color:#10b981}
+.s5 .sbar{background:linear-gradient(180deg,rgba(239,68,68,.07),transparent)}.s5 .snum{color:#ef4444}
+.s6 .sbar{background:linear-gradient(180deg,rgba(236,72,153,.07),transparent)}.s6 .snum{color:#ec4899}
+.s7 .sbar{background:linear-gradient(180deg,rgba(6,182,212,.07),transparent)}.s7 .snum{color:#06b6d4}
+.s8 .sbar{background:linear-gradient(180deg,rgba(132,204,22,.07),transparent)}.s8 .snum{color:#84cc16}
+.ftr{max-width:1300px;margin:0 auto;padding:0 60px 60px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px}
+.fc h4{font-family:"Syne",sans-serif;font-size:14px;font-weight:700;margin-bottom:13px}
+.lr{display:flex;align-items:flex-start;gap:9px;margin-bottom:8px;font-size:12px;color:var(--muted);line-height:1.5}
+.ld{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:3px}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="logo">
+      <div class="mark">TQA</div>
+      <div><div class="brand-name">The Quantum Achievers</div><div class="brand-sub">14-Week Cybersecurity Career Mentorship</div></div>
+    </div>
+    <div class="hdr-r">
+      <div class="hdr-title">Revised Client <span>Journey Map v2</span></div>
+      <div class="hdr-sub">February 2026 &middot; Pull-not-push &middot; Trust &rarr; ROI &rarr; Will it work for me</div>
+    </div>
+  </div>
+</div>
+<div class="vbar"><strong>v2 Changes:</strong> Indian IT professional lens &middot; Reader-as-protagonist &middot; Price off-stage until closer call &middot; Live practical exercise added &middot; Application filter protects DJ&rsquo;s time &middot; Closer model for all calls</div>
+<div class="stats">
+  <div class="st"><div class="stn r">8%</div><div class="stl">Old Show Rate</div><div class="std dn">&darr; vs 40&ndash;50% benchmark</div></div>
+  <div class="st"><div class="stn a">50%</div><div class="stl">Target Show Rate</div><div class="std up">&uarr; via nurture sequence</div></div>
+  <div class="st"><div class="stn a">40%</div><div class="stl">Apply Rate Target</div><div class="std up">&uarr; after mini-transformation</div></div>
+  <div class="st"><div class="stn g">35%</div><div class="stl">Close Rate Target</div><div class="std up">&uarr; pre-qualified + closer</div></div>
+  <div class="st"><div class="stn p">$4,999</div><div class="stl">Entry Price</div><div class="std">Revealed at Stage 6 only</div></div>
+  <div class="st"><div class="stn g">3&ndash;5</div><div class="stl">Closes/Webinar</div><div class="std up">&uarr; from 0 last run</div></div>
+  <div class="st"><div class="stn g">$15K+</div><div class="stl">Revenue/Webinar</div><div class="std up">&uarr; realistic w/ 80 leads</div></div>
+</div>
+<div class="main">
+  <div class="slabel">8-Stage Funnel &middot; Indian IT Professionals in US &amp; UK &middot; Group Mentorship + Dedicated Closer Model</div>
+
+  <div class="stage s1">
+    <div class="sbar">
+      <div class="snum">Stage 01 &middot; Awareness</div>
+      <div class="stitle">They See Themselves in the Ad</div>
+      <div class="sgoal">Indian IT professional in US/UK &mdash; helpdesk, network admin, IT support &mdash; sees a Meta ad that mirrors their exact anxiety. AI replacing their role. Visa tied to employment. Salary ceiling. Watching colleagues get laid off. Identity first, problem second.</div>
+      <div class="krow"><div class="kpi"><span>$35&ndash;40</span>Daily Ad Spend</div><div class="kpi"><span>$5</span>Target CPL</div><div class="kpi"><span>80+</span>Leads/Run</div></div>
+      <div class="own">&#128100; Shreyas &mdash; Meta Ads</div>
+      <div class="ins">Hook must name the fear specifically: "Indian IT professional in the US &mdash; worried your job won&rsquo;t survive the next 2 years?" Not generic cybersecurity. Identity-first.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Ad Creative</div>
+        <div class="tc"><div class="tl">Primary Hook</div><div class="tt">"If you&rsquo;re an Indian IT professional in the US or UK worried your job won&rsquo;t survive the next 2 years &mdash; this free live session is for you." DJ to camera, casual, direct. No production fluff.</div></div>
+        <div class="tc"><div class="tl">Pain Points</div><div class="tt">H-1B employment dependency &middot; AI automating helpdesk/support &middot; Salary stuck at $50&ndash;55K for years &middot; Watching colleagues get laid off &middot; Underqualified for senior IT roles</div></div>
+      </div>
+      <div>
+        <div class="ch">Targeting</div>
+        <div class="tc"><div class="tl">Audience Profile</div><div class="tt">Indian-origin professionals &middot; US + UK location &middot; Job titles: IT Support, Helpdesk Analyst, Network Admin, Systems Admin &middot; Age 25&ndash;42 &middot; Employed, not actively searching</div></div>
+        <div class="tc"><div class="tl">Retargeting Layer</div><div class="tt">Warm: 80 ghost leads from Jan &mdash; run V2 re-engagement page for them specifically. Cold: new lookalike from existing lead list. Two separate campaigns, different copy.</div></div>
+      </div>
+      <div>
+        <div class="ch">Landing Page (v2)</div>
+        <div class="tc"><div class="tl">Page Strategy</div><div class="tt">Reader-as-protagonist. Opens with "You&rsquo;re not stuck &mdash; you&rsquo;re under-positioned." Mirrors identity, names fear, shows path. Permission CTA: "Join a free live session" &mdash; not "buy now."</div></div>
+        <div class="tc"><div class="tl">Form Fields</div><div class="tt">Name &middot; Email &middot; WhatsApp number &middot; Current IT role &middot; Years in IT &middot; "What&rsquo;s your biggest career concern right now?" &mdash; feeds personalised follow-up copy.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s2">
+    <div class="sbar">
+      <div class="snum">Stage 02 &middot; Registration</div>
+      <div class="stitle">They Register &amp; Enter the Community</div>
+      <div class="sgoal">Lead submits form &rarr; GHL fires instantly &rarr; confirmation email + WhatsApp group link sent in under 2 minutes. They feel they&rsquo;ve joined something real, not just signed up for another webinar they&rsquo;ll forget about.</div>
+      <div class="krow"><div class="kpi"><span>&lt;2 min</span>First Touch</div><div class="kpi"><span>90%</span>WA Accept Rate</div></div>
+      <div class="own">&#9881;&#65039; Agresh &mdash; GHL Automation</div>
+      <div class="ins">Speed is trust. Under 2 minutes to first message is the benchmark. A 24-hour delay loses 40% of the emotional momentum from the ad click.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Immediate Triggers</div>
+        <div class="tc"><div class="tl">Email #1 &mdash; Confirmation <span class="tag te">Email</span><span class="tag ta">Auto</span></div><div class="tt">Subject: "You&rsquo;re in, [Name]. Here&rsquo;s what to expect." Warm, DJ&rsquo;s voice. Zoom link, date/time, WhatsApp group link. Sets expectation: "Come with your real questions."</div></div>
+        <div class="tc"><div class="tl">WhatsApp #1 <span class="tag tw">WhatsApp</span><span class="tag ta">Auto</span></div><div class="tt">"Hey [Name] &#128075; DJ here. You just registered &mdash; excited to have you. Join our private group where I&rsquo;ll share resources before the live session: [link]"</div></div>
+      </div>
+      <div>
+        <div class="ch">GHL Pipeline</div>
+        <div class="tc"><div class="tl">Tags Applied</div><div class="tt">WEBINAR-REGISTERED &middot; Source: Meta &middot; Role + years in IT from form &rarr; used to personalise all future email copy dynamically.</div></div>
+        <div class="tc"><div class="tl">Pipeline Bucket</div><div class="tt">Moves to: "Registered &mdash; Not Attended." Auto-shifts to "Attended" or stays in "No-Show" based on Zoom attendance trigger post-webinar.</div></div>
+      </div>
+      <div>
+        <div class="ch">WhatsApp Group</div>
+        <div class="tc"><div class="tl">Group Vibe</div><div class="tt">"TQA Live &mdash; [Month] Cohort" &mdash; not a broadcast. DJ posts 2&ndash;3x before webinar: a real stat, a question, a short tip. Feels like a community, not a mailing list.</div></div>
+        <div class="tc"><div class="tl">Pre-Webinar Homework</div><div class="tt">48hrs before: "What&rsquo;s the one thing about your current role that worries you most? Drop it in the chat." Creates investment &mdash; their answer shows up in the webinar.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s3">
+    <div class="sbar">
+      <div class="snum">Stage 03 &middot; Pre-Webinar Nurture</div>
+      <div class="stitle">5-Email Story Arc + WhatsApp Warmth</div>
+      <div class="sgoal">Over 7&ndash;14 days, 5 emails build trust through story (not credentials), establish ROI proof, and create identity-level desire. Goal: arrive at the webinar already believing &mdash; so the session confirms the decision rather than creating it from scratch.</div>
+      <div class="krow"><div class="kpi"><span>45%+</span>Open Rate</div><div class="kpi"><span>5</span>Emails</div><div class="kpi"><span>3</span>WA Touches</div></div>
+      <div class="own">&#9881;&#65039; Agresh &mdash; GHL Sequences</div>
+      <div class="ins">The old funnel had zero nurture. 77 of 80 ghosted. This sequence is the single biggest lever to improve show rate &mdash; more important than any other single change.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Email Sequence</div>
+        <div class="tc"><div class="tl">Day 0 &mdash; DJ&rsquo;s Story <span class="tag te">Email</span></div><div class="tt">Not a credential list &mdash; the human journey. Why DJ built TQA. Who he was before. Who he wanted to help. Trust through honesty, not authority.</div></div>
+        <div class="tc"><div class="tl">Day 2 &mdash; The Opportunity <span class="tag te">Email</span></div><div class="tt">"The cybersecurity job market is broken &mdash; in your favour." Talent shortage, salary jumps, how Indian IT background translates directly. Frames opportunity without hype.</div></div>
+        <div class="tc"><div class="tl">Day 5 &mdash; Student Story <span class="tag te">Email</span></div><div class="tt">"Rajesh was a helpdesk analyst in Texas for 6 years. 4 months later: SOC Analyst at $82K." Someone like them did this. The "will it work for me" email.</div></div>
+        <div class="tc"><div class="tl">Day 7 &mdash; The 3 Mistakes <span class="tag te">Email</span></div><div class="tt">"Why most IT professionals fail to break into cybersecurity &mdash; and it&rsquo;s not what you think." Bad resume, wrong certs, no network. Positions webinar as the solution.</div></div>
+        <div class="tc"><div class="tl">Day -1 &mdash; Tomorrow <span class="tag te">Email</span></div><div class="tt">"Here&rsquo;s exactly what we&rsquo;ll cover &mdash; and there&rsquo;s a live exercise I want you to try." Zoom link, what to prepare, teases the practical moment. Creates anticipation.</div></div>
+      </div>
+      <div>
+        <div class="ch">WhatsApp Sequence</div>
+        <div class="tc"><div class="tl">Day 3 &mdash; Value Drop <span class="tag tw">WhatsApp</span></div><div class="tt">"Quick tip: The #1 thing recruiters look for in a cybersecurity resume that most IT professionals never include... [insight]. More detail on Thursday."</div></div>
+        <div class="tc"><div class="tl">Day 6 &mdash; Social Proof <span class="tag tw">WhatsApp</span></div><div class="tt">Real quote from a past attendee. "Got this from [Name] after our last session." Unpolished = authentic. Trust through real, not produced.</div></div>
+        <div class="tc"><div class="tl">Day -1 &mdash; Reminder <span class="tag tw">WhatsApp</span></div><div class="tt">"Tomorrow at [time] &mdash; we go live &#128274; I&rsquo;ve got something practical you can use on your resume by the weekend. Don&rsquo;t miss it."</div></div>
+      </div>
+      <div>
+        <div class="ch">The Big Three Mapped</div>
+        <div class="tc"><div class="tl">Trust Built Via</div><div class="tt">Day 0 DJ story &middot; Day -1 personal tone &middot; WA posts that feel human &middot; Never selling, always giving</div></div>
+        <div class="tc"><div class="tl">ROI Built Via</div><div class="tt">Day 2 industry data &middot; Day 5 salary outcome &middot; Webinar career trajectory slides</div></div>
+        <div class="tc"><div class="tl">Will It Work For Me</div><div class="tt">Day 5 student story (someone like them) &middot; Day 7 mistakes they recognise in themselves &middot; Live exercise at webinar</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s4">
+    <div class="sbar">
+      <div class="snum">Stage 04 &middot; Live Webinar</div>
+      <div class="stitle">The Mini-Transformation Moment</div>
+      <div class="sgoal">60&ndash;75 min session. DJ teaches, tells stories, engineers ONE live practical moment where attendees feel "I can actually do this." No price revealed. No hard close. CTA is simply: "If tonight felt like a lightbulb &mdash; apply for a strategy session." Pull, not push.</div>
+      <div class="krow"><div class="kpi"><span>60&ndash;75</span>Minutes</div><div class="kpi"><span>50%+</span>Stay Rate</div><div class="kpi"><span>40%</span>Apply Rate</div></div>
+      <div class="own">&#127897;&#65039; DJ &mdash; Live Presenter</div>
+      <div class="ins">Conversion is won or lost 15&ndash;20 min before the CTA &mdash; at the "mini-transformation moment." When someone thinks "this could work for me," the apply CTA becomes a natural next step, not a pitch.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Revised Webinar Flow</div>
+        <div class="tc"><div class="tl">0&ndash;10 min: DJ&rsquo;s Real Story</div><div class="tt">Not credentials. The human journey. "28 years ago I was figuring this out too." Creates identity bridge: "He gets where I am."</div></div>
+        <div class="tc"><div class="tl">10&ndash;25 min: Why You&rsquo;re at Risk (and Why That&rsquo;s Good)</div><div class="tt">AI replacing helpdesk. Visa dependency. Salary ceiling. Then: cybersecurity as the logical next step for their exact background. Reframe anxiety into opportunity.</div></div>
+        <div class="tc"><div class="tl">25&ndash;45 min: Live Resume Exercise &#11088; THE MOMENT</div><div class="tt">DJ rewrites ONE bullet point of their current resume into cybersecurity language &mdash; live, in their notes, right now. "Try this. I&rsquo;ll wait." They experience the transformation, not just hear about it.</div></div>
+        <div class="tc"><div class="tl">45&ndash;55 min: The Path Forward</div><div class="tt">What 14 weeks looks like. Rajesh&rsquo;s story. Career trajectory. ROI question: "What would $25K more per year mean for your family?"</div></div>
+        <div class="tc"><div class="tl">55&ndash;65 min: Q&amp;A (Critical)</div><div class="tt">Open Q&amp;A. DJ handles objections live. 81% of high-converting webinars have substantial Q&amp;A &mdash; this is where same-day decisions are made.</div></div>
+        <div class="tc"><div class="tl">65&ndash;75 min: Apply CTA (No Price)</div><div class="tt">"If tonight felt like something clicked &mdash; fill out a short application. My team will reach out personally if it looks like a fit." Apply link only. No price, no timer, no pressure.</div></div>
+      </div>
+      <div>
+        <div class="ch">Day-Of Reminders</div>
+        <div class="tc"><div class="tl">8am Local Time <span class="tag te">Email</span><span class="tag tw">WhatsApp</span></div><div class="tt">"Today&rsquo;s the day. [Time] &mdash; we go live. I&rsquo;ve prepped something practical you can use this week. See you there."</div></div>
+        <div class="tc"><div class="tl">1 Hour Before <span class="tag tw">WhatsApp</span></div><div class="tt">"One hour to go. Zoom link: [link]. Come with your biggest career question &mdash; I&rsquo;ll answer it live."</div></div>
+        <div class="tc"><div class="tl">15 Min Before <span class="tag tw">WhatsApp</span></div><div class="tt">"Room&rsquo;s open &mdash; join now if you want a front row seat: [link]"</div></div>
+        <div class="tc"><div class="tl">Attendance Tag <span class="tag tg">GHL</span></div><div class="tt">Attended &rarr; apply sequence fires. No-show &rarr; replay sequence fires. Two completely separate paths from this point.</div></div>
+      </div>
+      <div>
+        <div class="ch">Slide Revision Notes</div>
+        <div class="tc"><div class="tl">Keep From Current Deck</div><div class="tt">Industry stats (Slides 4&ndash;7) &middot; Salary comparison (5) &middot; Career trajectory (7) &middot; Bad/Good resume examples (10&ndash;13) &middot; LinkedIn before/after (15) &middot; Mentorship comparison (14)</div></div>
+        <div class="tc"><div class="tl">Remove Entirely</div><div class="tt">Slides 18&ndash;23: All pricing ($14,999/$9,999/$4,999), 48hr offer, "Can you afford NOT to?" Replace with clean Apply CTA slide only.</div></div>
+        <div class="tc"><div class="tl">Add New Slides</div><div class="tt">Indian IT salary comparison &middot; Live resume exercise slide with blank space &middot; "What 14 weeks looks like" visual journey &middot; Single Apply CTA slide</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s5">
+    <div class="sbar">
+      <div class="snum">Stage 05 &middot; Application</div>
+      <div class="stitle">The Self-Qualifying Filter</div>
+      <div class="sgoal">8-question GHL application filters serious from curious. Only qualified applicants get booked for a strategy call. DJ never sees unqualified leads. The closer reviews applications and books calls within 24hrs. The application itself IS the first sales conversation.</div>
+      <div class="krow"><div class="kpi"><span>40%</span>Attend &rarr; Apply</div><div class="kpi"><span>&lt;24hr</span>Closer Books</div></div>
+      <div class="own">&#9881;&#65039; Agresh &mdash; GHL Form &middot; Closer &mdash; Review</div>
+      <div class="ins">Someone who fills out an 8-question application is 4x more likely to close than someone who cold-books a call. The effort signals genuine intent.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">The 8 Application Questions</div>
+        <div class="tc"><div class="tl">Questions</div><div class="tt">1. Current role &amp; years of experience<br>2. Current annual salary (USD/GBP range)<br>3. Biggest obstacle to moving into cybersecurity?<br>4. Tried to transition before? What happened?<br>5. What does success look like in 12 months?<br>6. Commitment level 1&ndash;10 and why?<br>7. Can you invest 10&ndash;15 hrs/week for 14 weeks?<br>8. How ready are you to invest in your career today?</div></div>
+      </div>
+      <div>
+        <div class="ch">Lead Scoring in GHL</div>
+        <div class="tc"><div class="tl">Hot &#128293; &rarr; Call &lt;2hrs</div><div class="tt">Commitment 8&ndash;10 &middot; Earning $45&ndash;65K &middot; Tried before &amp; failed &middot; Mentions family, visa, or job security pressure &middot; Clear vision of outcome</div></div>
+        <div class="tc"><div class="tl">Warm &#127796; &rarr; Call &lt;24hrs</div><div class="tt">Commitment 6&ndash;7 &middot; Good fit but questions about time/investment &middot; Has not tried before &mdash; needs education, not pressure</div></div>
+        <div class="tc"><div class="tl">Not Yet &#10052;&#65039; &rarr; Long Nurture</div><div class="tt">Under 5 commitment &middot; Unclear goals &middot; No time right now &rarr; 30/60/90 day sequence. First invite to next webinar.</div></div>
+      </div>
+      <div>
+        <div class="ch">Post-Apply Automations</div>
+        <div class="tc"><div class="tl">Confirmation <span class="tag te">Email</span><span class="tag tw">WhatsApp</span><span class="tag ta">Auto</span></div><div class="tt">"We received your application. A member of DJ&rsquo;s team will be in touch within 24 hours to schedule your personal strategy session."</div></div>
+        <div class="tc"><div class="tl">Closer Alert <span class="tag tg">GHL</span><span class="tag ta">Auto</span></div><div class="tt">GHL pings closer with full application + lead score. Closer reviews and reaches out personally &mdash; not automated. Human touch is critical here.</div></div>
+        <div class="tc"><div class="tl">No-Show Replay <span class="tag te">Email</span><span class="tag ta">Auto</span></div><div class="tt">Non-attendees get replay email 24hrs post-webinar. Timestamped highlights. Same apply CTA. Converts at 60&ndash;70% of live rate when nurtured.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s6">
+    <div class="sbar">
+      <div class="snum">Stage 06 &middot; Strategy Call</div>
+      <div class="stitle">The Closer Conversation</div>
+      <div class="sgoal">45-min call. Not a sales call in feel &mdash; a genuine strategy conversation. Closer diagnoses, not pitches. Price revealed naturally as part of the solution, for the first time. Pre-qualified applicants arrive already 70% decided &mdash; the call confirms what they already feel.</div>
+      <div class="krow"><div class="kpi"><span>45 min</span>Call Length</div><div class="kpi"><span>35%+</span>Close Rate</div><div class="kpi"><span>DJ</span>Not on calls</div></div>
+      <div class="own">&#128222; Closer &mdash; Dylan&rsquo;s network</div>
+      <div class="ins">DJ&rsquo;s time is protected. He never does these calls. The closer is trained on TQA&rsquo;s offer, handles objections with clarity not pressure, and knows when to pull back rather than push.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Call Framework (45 min)</div>
+        <div class="tc"><div class="tl">0&ndash;10 min: Diagnose</div><div class="tt">"Tell me about where you are right now." Let them talk. Closer listens for pain already in the application. Reflects back what they hear. Never interrupts.</div></div>
+        <div class="tc"><div class="tl">10&ndash;25 min: Vision Cast</div><div class="tt">"What does your life look like if you land that $80K role in 6 months &mdash; for your family, your visa situation, your confidence?" They sell themselves.</div></div>
+        <div class="tc"><div class="tl">25&ndash;35 min: Reveal the Path</div><div class="tt">Walk through 14 weeks. What they learn, what support they get. Price comes naturally as part of explaining the program &mdash; not as a sudden close moment.</div></div>
+        <div class="tc"><div class="tl">35&ndash;45 min: Handle &amp; Decide</div><div class="tt">Objections: "I need to think" / "Can I afford this?" / "Is now right?" Scripts prepared. Goal: help them make a clear decision, not pressure them into one they&rsquo;ll regret.</div></div>
+      </div>
+      <div>
+        <div class="ch">Offer Revealed Here</div>
+        <div class="tc"><div class="tl">Core &mdash; $4,999</div><div class="tt">14-Week Certified Cybersecurity Specialist &middot; Group bi-weekly calls &middot; Resume + LinkedIn + Interview prep &middot; Network access &middot; Real lab exercises &middot; TQA certification</div></div>
+        <div class="tc"><div class="tl">Mastermind Add-On</div><div class="tt">Smaller intimate group with DJ directly. Higher accountability, faster outcomes. Priced above core. Offered only after clear buy-in on core offer.</div></div>
+        <div class="tc"><div class="tl">Payment Plan</div><div class="tt">2-pay available if investment is the only sticking point. Closer never leads with it &mdash; full pay preferred as a commitment signal.</div></div>
+      </div>
+      <div>
+        <div class="ch">Post-Call Flows</div>
+        <div class="tc"><div class="tl">Enrolled &rarr; Onboarding <span class="tag tg">GHL</span></div><div class="tt">Tag: ENROLLED. Welcome email fires. Added to student WA community. Payment link (Stripe). Kick-off 1-on-1 call booked.</div></div>
+        <div class="tc"><div class="tl">Not Now &rarr; Nurture <span class="tag tg">GHL</span></div><div class="tt">Tag: CALL-DONE-NOT-NOW. 30/60/90 day re-engagement. Priority invite to next webinar. Closer makes one personal follow-up at 2 weeks.</div></div>
+        <div class="tc"><div class="tl">No-Show &rarr; Reschedule <span class="tag tw">WhatsApp</span><span class="tag tm">Manual</span></div><div class="tt">30 min after no-show: auto WA &mdash; "Looks like we missed each other." Closer follows up personally same day. One reschedule attempt only.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s7">
+    <div class="sbar">
+      <div class="snum">Stage 07 &middot; Enrolled</div>
+      <div class="stitle">Onboarding &amp; The First Win</div>
+      <div class="sgoal">First 7 days determine completion rate and referral rate. Students must feel they made the right decision within 48hrs. Early win = momentum = completion = testimonials that power the next funnel. This stage builds tomorrow&rsquo;s marketing today.</div>
+      <div class="krow"><div class="kpi"><span>90%</span>Completion Target</div><div class="kpi"><span>Week 1</span>First Win</div></div>
+      <div class="own">&#127891; DJ + Agresh &mdash; Delivery</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Onboarding Sequence</div>
+        <div class="tc"><div class="tl">Day 0 &mdash; Welcome Pack <span class="tag te">Email</span></div><div class="tt">Personal welcome from DJ. Portal access. Week 1 schedule. First task: "Write one sentence about why you&rsquo;re doing this &mdash; I&rsquo;ll read every single one." Creates commitment.</div></div>
+        <div class="tc"><div class="tl">Day 1 &mdash; Community Welcome <span class="tag tw">WhatsApp</span></div><div class="tt">Added to student community. DJ intro post. Quick 15-min exercise on Day 1. Feels like part of something immediately, not just enrolled in a course.</div></div>
+        <div class="tc"><div class="tl">Week 1 &mdash; 1-on-1 Kick-Off</div><div class="tt">Phase 1: DJ or team reviews resume + LinkedIn personally. Sets their personalised 14-week plan. They leave with 3 specific actions. First real "early win."</div></div>
+      </div>
+      <div>
+        <div class="ch">Retention Mechanics</div>
+        <div class="tc"><div class="tl">Bi-Weekly Group Calls</div><div class="tt">The mastermind cohort format. DJ facilitates. Peer accountability. The group is part of the product &mdash; it keeps people engaged through the hard weeks.</div></div>
+        <div class="tc"><div class="tl">Week 4 &mdash; Referral Ask</div><div class="tt">"If you know someone in IT who&rsquo;s ready for this change &mdash; just forward this message." Warm referrals close at 60%+. Best leads come from enrolled students.</div></div>
+      </div>
+      <div>
+        <div class="ch">Testimonial Engine</div>
+        <div class="tc"><div class="tl">Week 14 &mdash; Structured Ask</div><div class="tt">Guided request: "Where were you before? What changed? What would you tell someone hesitating?" Feeds directly into Day 5 nurture email for the next cohort.</div></div>
+        <div class="tc"><div class="tl">Job Placement Win</div><div class="tt">When a student lands a role &mdash; celebrate publicly (with permission). This is the most powerful ad in the next funnel. Proof over promise, always.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr">&darr;</div>
+
+  <div class="stage s8">
+    <div class="sbar">
+      <div class="snum">Stage 08 &middot; Long-Term Nurture</div>
+      <div class="stitle">Ghost Re-Engagement &amp; The Evergreen Loop</div>
+      <div class="sgoal">The 80 ghost leads + all future non-converters enter ongoing nurture. Not lost &mdash; not ready yet. Monthly touchpoints keep TQA top-of-mind. The next webinar invite lands in a warm room. The audience compounds every single run &mdash; it never starts from scratch.</div>
+      <div class="krow"><div class="kpi"><span>80</span>Ghost Leads Now</div><div class="kpi"><span>30/60/90</span>Day Touches</div></div>
+      <div class="own">&#9881;&#65039; Agresh &mdash; GHL Long-Term Sequences</div>
+      <div class="ins">25% of all coaching sales happen in post-event follow-up. The 80 ghost leads are warm, not dead. The right message at the right moment converts them. Do not abandon them.</div>
+    </div>
+    <div class="sbody">
+      <div>
+        <div class="ch">Re-Engagement Sequence</div>
+        <div class="tc"><div class="tl">24hr &mdash; Replay <span class="tag te">Email</span></div><div class="tt">"You missed the live session &mdash; sharing the replay for 48hrs." Timestamp highlights: "Jump to 32:00 for the live resume exercise." Replay converts at 60&ndash;70% of live rate when properly nurtured.</div></div>
+        <div class="tc"><div class="tl">30 Days &mdash; "What changed?" <span class="tag te">Email</span></div><div class="tt">"It&rsquo;s been a month since you registered. Has anything changed at work? If you&rsquo;re still thinking about this, I&rsquo;d love to talk." Personal, not promotional.</div></div>
+        <div class="tc"><div class="tl">60 Days &mdash; New Proof <span class="tag te">Email</span></div><div class="tt">"[Name] just landed a $78K SOC role after 14 weeks." Let the result speak. CTA: "Applications open for the next cohort."</div></div>
+        <div class="tc"><div class="tl">90 Days &mdash; Personal Invite <span class="tag te">Email</span><span class="tag tw">WhatsApp</span></div><div class="tt">"I&rsquo;m running the next live session &mdash; I&rsquo;d love to see you there. There&rsquo;s a new section I think will hit different for where you are now." Re-enters funnel at Stage 3.</div></div>
+      </div>
+      <div>
+        <div class="ch">80 Ghost Leads (Priority)</div>
+        <div class="tc"><div class="tl">V2 Re-Engagement Page</div><div class="tt">"You showed up before &mdash; something told you this mattered. It still does." Honest, not salesy. Acknowledges prior registration. Warm CTA to next webinar.</div></div>
+        <div class="tc"><div class="tl">Personal WA Outreach <span class="tag tw">WhatsApp</span><span class="tag tm">Manual</span></div><div class="tt">Agresh (or VA) sends individual WA to each of the 80 within 48hrs of next webinar announcement. Not a broadcast &mdash; individual messages. Personal touch converts at 2&ndash;3x broadcast rate.</div></div>
+      </div>
+      <div>
+        <div class="ch">The Evergreen Loop</div>
+        <div class="tc"><div class="tl">Biweekly Webinar Cadence</div><div class="tt">Every 2 weeks, new webinar runs. Non-converters from previous run auto-invited first. Each room is warmer than the last. Audience compounds &mdash; never starts from scratch.</div></div>
+        <div class="tc"><div class="tl">Monthly Value Email</div><div class="tt">Non-sales email to full list: a tip, industry update, student win. Keeps list warm between webinars. Open rates stay high because it&rsquo;s not always asking for something.</div></div>
+        <div class="tc"><div class="tl">Google Ads (Next Phase)</div><div class="tt">Scale lever once Meta CPL is proven and stable. Same landing pages, same journey. Shreyas noted: layer in when conversion rate is consistent.</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="ftr">
+  <div class="fc">
+    <h4>Tool Stack &amp; Ownership</h4>
+    <div class="lr"><div class="ld" style="background:#8b5cf6"></div><strong>GHL</strong> &mdash; CRM, pipelines, automations, email sequences, forms, lead scoring, payment links. Built and managed by Agresh.</div>
+    <div class="lr"><div class="ld" style="background:#10b981"></div><strong>WhatsApp</strong> &mdash; Community group + personal outreach. Group posts manual (not API). Agresh manages cadence and individual outreach to ghost leads.</div>
+    <div class="lr"><div class="ld" style="background:#f59e0b"></div><strong>Meta Ads</strong> &mdash; Lead gen forms &rarr; GHL via native integration. Two campaigns: cold LAL + warm ghost retarget. Shreyas manages creative + targeting.</div>
+    <div class="lr"><div class="ld" style="background:#3b82f6"></div><strong>Zoom</strong> &mdash; DJ&rsquo;s paid account, recurring webinar link, biweekly schedule. Attendance tracked for GHL automation trigger. DJ hosts live.</div>
+    <div class="lr"><div class="ld" style="background:#ef4444"></div><strong>Closer</strong> &mdash; Dylan&rsquo;s network contact. Trained on TQA offer + objection scripts. Handles all Stage 6 calls. DJ never on sales calls. Dylan sources and manages.</div>
+    <div class="lr"><div class="ld" style="background:#06b6d4"></div><strong>Calendly/GHL</strong> &mdash; Strategy call booking, reminders, no-show automation. Agresh sets up and maintains.</div>
+  </div>
+  <div class="fc">
+    <h4>The Big Three &mdash; Where Each Is Addressed</h4>
+    <div class="lr"><div class="ld" style="background:#8b5cf6"></div><strong>TRUST</strong> &mdash; Ad identity hook &middot; Day 0 email (DJ&rsquo;s human story, not credentials) &middot; WA community (real posts, not broadcasts) &middot; No pressure tactics anywhere &middot; Q&amp;A on webinar</div>
+    <div class="lr"><div class="ld" style="background:#10b981"></div><strong>ROI</strong> &mdash; Day 2 email (talent shortage data) &middot; Day 5 email (Rajesh &rarr; $82K) &middot; Webinar slides 5+7 (salary trajectory) &middot; Closer call vision cast &middot; "$25K more/year" question</div>
+    <div class="lr"><div class="ld" style="background:#f59e0b"></div><strong>WILL IT WORK FOR ME</strong> &mdash; Day 5 email (someone like you did this) &middot; Live resume exercise (you just did something) &middot; Indian IT professional framing throughout &middot; Closer mirrors their exact situation</div>
+    <div style="margin-top:13px;padding-top:13px;border-top:1px solid rgba(255,255,255,.06);font-size:12px;color:#6b6e78;line-height:1.6">
+      Price never mentioned until Stage 6. No countdown timers. No fake scarcity. No "limited spots." Real scarcity converts &mdash; fake scarcity destroys trust with this audience specifically.
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Cybersecurity Webinar — From IT to CISO | The Quantum Achievers</title>
+<meta name="description" content="Free live webinar with former Deloitte, EY & Shell CISO DJ Naronikar. Learn how to break into cybersecurity leadership — even if you're starting from IT. March 19, 2026.">
+<meta property="og:title" content="Free Webinar: I Wasted 10 Years So You Don't Have To">
+<meta property="og:description" content="Former CISO at Deloitte, EY & Shell shows you how to break into cybersecurity leadership. March 19, 2026 — 11:00 AM EST / 9:30 PM IST.">
+<meta property="og:image" content="https://thequantumachievers.com/wp-content/uploads/2025/12/Dhananjay-Naronikar-The-Quantum-Achivers.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thequantumachievers.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1589502282075800');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1589502282075800&ev=PageView&noscript=1"/></noscript>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-white: #ffffff;
+  --bg-warm: #f8f6f2;
+  --bg-dark: #1a1a22;
+  --text-primary: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --text-on-dark: #e0dbd3;
+  --gold: #c9a84c;
+  --gold-muted: #b8973a;
+  --gold-glow: rgba(201,168,76,0.12);
+  --red-muted: #c45c5c;
+  --green-muted: #5cb87a;
+  --muted-dark: #7a756e;
+  --border-light: rgba(0,0,0,0.06);
+  --border-dark: rgba(255,255,255,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--bg-white);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-size: 17px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── CTA BUTTON ── */
+.cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #1a1a1a;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  min-height: 56px;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.25);
+}
+
+.cta-btn:hover {
+  background: #d4b45a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+}
+
+.cta-micro {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── SECTION BASES ── */
+.section-white {
+  background: var(--bg-white);
+  color: var(--text-primary);
+  padding: 80px 24px;
+}
+
+.section-warm {
+  background: var(--bg-warm);
+  color: var(--text-primary);
+  padding: 80px 24px;
+}
+
+.section-dark {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  padding: 80px 24px;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 16px;
+}
+
+.section-white .section-heading,
+.section-warm .section-heading { color: var(--text-primary); }
+.section-dark .section-heading { color: var(--text-on-dark); }
+
+.section-subheading {
+  text-align: center;
+  font-size: 17px;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  font-weight: 400;
+}
+
+.section-white .section-subheading,
+.section-warm .section-subheading { color: var(--text-muted); }
+.section-dark .section-subheading { color: rgba(224,219,211,0.65); }
+
+/* ── TOP BAR ── */
+.top-bar {
+  background: var(--gold);
+  color: #1a1a1a;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 100;
+}
+
+/* ── HERO (white) ── */
+.hero {
+  padding: 80px 24px 100px;
+  text-align: center;
+  position: relative;
+  background: var(--bg-white);
+}
+
+.hero-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  margin-bottom: 32px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5.5vw, 56px);
+  max-width: 800px;
+  margin: 0 auto 20px;
+  color: var(--text-primary);
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 18px;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hero-cta-wrap {
+  margin-bottom: 16px;
+}
+
+/* ── TRUST BAR (warm) ── */
+.trust-bar {
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border-light);
+}
+
+.trust-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.trust-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.trust-logos img {
+  height: 32px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.trust-logos img:hover { opacity: 1; }
+
+/* ── PAIN SECTION (white) ── */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pain-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--gold-muted);
+  padding: 28px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: border-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.pain-card:hover {
+  border-left-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.pain-card .pain-icon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--gold-muted);
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* ── MID CTA (warm) ── */
+.mid-cta {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--bg-warm);
+}
+
+.mid-cta p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── CREDIBILITY (DARK accent section) ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+
+.stat-block {
+  text-align: center;
+  padding: 28px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--muted-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-dark);
+  transition: transform 0.3s;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
+}
+
+.story-text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: var(--text-on-dark);
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+/* ── WHAT YOU'LL LEARN (white) ── */
+.learn-list {
+  max-width: 750px;
+  margin: 0 auto;
+  list-style: none;
+  counter-reset: learn;
+}
+
+.learn-item {
+  counter-increment: learn;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.learn-item:last-child { border-bottom: none; }
+
+.learn-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--gold-muted);
+  min-width: 40px;
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.learn-text {
+  font-size: 17px;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+/* ── JOURNEY MAP (warm) ── */
+.journey-map {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.journey-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+
+.journey-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--border-light) 0%, var(--gold-muted) 50%, var(--border-light) 100%);
+  z-index: 0;
+}
+
+.journey-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.journey-num {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--gold-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px var(--gold-glow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.journey-step:hover .journey-num {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(201,168,76,0.25);
+}
+
+.journey-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.journey-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 140px;
+}
+
+.journey-arrow {
+  position: absolute;
+  top: 28px;
+  right: -8px;
+  color: var(--gold-muted);
+  font-size: 18px;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .journey-steps {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .journey-steps::before {
+    top: 0;
+    bottom: 0;
+    left: 31px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .journey-step {
+    flex-direction: row;
+    text-align: left;
+    gap: 20px;
+    padding: 16px 0;
+  }
+
+  .journey-num {
+    flex-shrink: 0;
+    margin-bottom: 0;
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+
+  .journey-desc {
+    max-width: none;
+  }
+
+  .journey-arrow {
+    display: none;
+  }
+
+  .journey-step {
+    padding-left: 8px;
+  }
+}
+
+/* ── TESTIMONIALS (warm) ── */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 32px 28px;
+  transition: border-color 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.testimonial-card:hover {
+  border-color: var(--gold-muted);
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.testimonial-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 15px;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.testimonial-author span {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── WHO THIS IS FOR (white) ── */
+.for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.for-col {
+  padding: 36px 28px;
+  border-radius: 10px;
+}
+
+.for-col.not-for {
+  background: var(--bg-warm);
+  border: 1px solid var(--border-light);
+}
+
+.for-col.is-for {
+  background: #ffffff;
+  border: 1px solid var(--gold-muted);
+  box-shadow: 0 0 30px var(--gold-glow);
+}
+
+.for-col h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.for-col.not-for h3 { color: var(--text-muted); }
+.for-col.is-for h3 { color: var(--gold); }
+
+.for-list {
+  list-style: none;
+}
+
+.for-list li {
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.for-list li::before {
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+.not-for .for-list li::before {
+  content: "\2715";
+  color: var(--red-muted);
+}
+
+.is-for .for-list li::before {
+  content: "\2713";
+  color: var(--green-muted);
+}
+
+/* ── COST TABLE (warm) ── */
+.cost-table-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cost-table th,
+.cost-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 16px;
+}
+
+.cost-table th {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.cost-table td:first-child { color: var(--text-primary); }
+.cost-table td:last-child { color: var(--red-muted); font-weight: 600; text-align: right; }
+
+.cost-table tr.cost-free td:last-child {
+  color: var(--gold-muted);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cost-table tr.cost-free td {
+  border-bottom: none;
+  padding-top: 24px;
+}
+
+.cost-compare {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 17px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── COUNTDOWN ── */
+.countdown-wrap {
+  text-align: center;
+  padding: 48px 24px 0;
+}
+
+.countdown-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.countdown-unit {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 16px 20px;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gold-muted);
+  display: block;
+  line-height: 1;
+}
+
+.countdown-text {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.countdown-expired {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--gold);
+  display: none;
+}
+
+/* ── FAQ (warm, same section as cost) ── */
+.faq-wrap {
+  max-width: 750px;
+  margin: 0 auto;
+  padding-top: 48px;
+  border-top: 1px solid var(--border-light);
+}
+
+.faq-list {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-family: 'Jost', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 24px 0;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-q::after {
+  content: "+";
+  font-size: 24px;
+  color: var(--gold-muted);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.faq-q.active::after {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-a-inner {
+  padding: 0 0 24px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── FORM (DARK accent section) ── */
+.form-section {
+  padding: 80px 24px;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #141418 50%, var(--bg-dark) 100%);
+}
+
+.form-wrap {
+  max-width: 540px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gold-muted);
+  border-radius: 12px;
+  padding: 48px 36px;
+  box-shadow: 0 0 60px var(--gold-glow);
+}
+
+.form-wrap h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 8px;
+  color: var(--text-on-dark);
+}
+
+.form-date {
+  text-align: center;
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted-dark);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  background: #141418;
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  color: var(--text-on-dark);
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  -webkit-appearance: none;
+}
+
+.form-group input::placeholder {
+  color: var(--muted-dark);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--gold-muted);
+}
+
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a756e' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-group select option {
+  background: #141418;
+  color: var(--text-on-dark);
+}
+
+.form-submit {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.form-fine {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted-dark);
+  font-style: italic;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.form-success h3 {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.form-success p {
+  color: var(--text-on-dark);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── STICKY MOBILE CTA ── */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26,26,34,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--gold-muted);
+  padding: 12px 16px;
+  z-index: 999;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sticky-cta-text {
+  font-size: 13px;
+  color: var(--text-on-dark);
+  font-weight: 500;
+}
+
+.sticky-cta .cta-btn {
+  font-size: 14px;
+  padding: 12px 24px;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+/* ── FOOTER (dark) ── */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-dark);
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--muted-dark);
+  margin-bottom: 8px;
+}
+
+.footer .disclaimer {
+  font-size: 11px;
+  color: #4a4540;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── TRUST TEXT LOGOS ── */
+.trust-text-logo {
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  opacity: 0.6;
+  letter-spacing: 1px;
+  transition: opacity 0.3s;
+}
+
+.trust-text-logo:hover { opacity: 0.9; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { padding: 50px 20px 70px; }
+  .hero-portrait { width: 140px; height: 140px; }
+  .section-white, .section-warm, .section-dark { padding: 50px 20px; }
+  .for-grid { grid-template-columns: 1fr; }
+  .photo-grid img { height: 180px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-wrap { padding: 36px 24px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .sticky-cta.visible {
+    display: flex;
+  }
+
+  .footer { padding-bottom: 80px; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .top-bar { font-size: 11px; letter-spacing: 1px; padding: 10px 12px; }
+  .hero h1 { font-size: 28px; }
+  .hero-sub { font-size: 16px; }
+  .cta-btn { font-size: 16px; padding: 16px 32px; width: 100%; text-align: center; }
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-number { font-size: 28px; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-grid img { height: 200px; }
+  .countdown-unit { min-width: 65px; padding: 12px 14px; }
+  .countdown-num { font-size: 28px; }
+  .for-col { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ TOP BAR ═══════════ -->
+<div class="top-bar">
+  FREE LIVE WEBINAR &middot; MARCH 19 &middot; 11:00 AM EST / 9:30 PM IST &middot; LIMITED SEATS
+</div>
+
+<!-- ═══════════ 1. HERO (white) ═══════════ -->
+<section class="hero" id="top">
+  <img
+    src="https://thequantumachievers.com/wp-content/uploads/2025/12/Dhananjay-Naronikar-The-Quantum-Achivers.webp"
+    alt="DJ Naronikar — Former CISO at Deloitte, EY & Shell"
+    class="hero-portrait"
+    width="180" height="180"
+    loading="eager"
+  >
+  <h1>&ldquo;I Wasted 10 Years<br><em>So You Don&rsquo;t Have To.</em>&rdquo;</h1>
+  <p class="hero-sub">A free live class with a former CISO at Deloitte, EY, and Shell. He&rsquo;ll show you how to break into cybersecurity leadership &mdash; even if you&rsquo;re starting from IT.</p>
+  <div class="hero-cta-wrap">
+    <a href="#register" class="cta-btn">Reserve My Free Seat &rarr;</a>
+  </div>
+  <span class="cta-micro">Free. No credit card. No spam.</span>
+</section>
+
+<!-- ═══════════ 2. TRUST BAR (warm) ═══════════ -->
+<div class="trust-bar">
+  <p class="trust-label">DJ has led cybersecurity at</p>
+  <div class="trust-logos">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/deloitte.webp" alt="Deloitte" width="100" height="28" loading="lazy">
+    <span class="trust-text-logo">EY</span>
+    <span class="trust-text-logo">Shell</span>
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/accenture.webp" alt="Accenture" width="100" height="28" loading="lazy">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/anz.webp" alt="ANZ" width="60" height="28" loading="lazy">
+  </div>
+  <div class="trust-logos" style="margin-top:16px;">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/melbourne-isc2.webp" alt="ISC2" width="90" height="28" loading="lazy">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/ec-council.webp" alt="EC-Council" width="90" height="28" loading="lazy">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/rmit-university.webp" alt="RMIT University" width="80" height="28" loading="lazy">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/ciso-360-logo.webp" alt="CISO 360" width="80" height="28" loading="lazy">
+    <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/ascend-international.webp" alt="Ascend International" width="80" height="28" loading="lazy">
+  </div>
+</div>
+
+<!-- ═══════════ 3. PAIN SECTION (white) ═══════════ -->
+<section class="section-white">
+  <div class="container">
+    <h2 class="section-heading">Sound Familiar?</h2>
+    <p class="section-subheading">You&rsquo;re not alone. We hear these every single week.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="pain-icon"></span>You&rsquo;ve been in IT for years. Your pay barely moves.
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon"></span>Every cybersecurity job wants experience you can&rsquo;t get without the job.
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon"></span>You spent money on courses that didn&rsquo;t lead anywhere.
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon"></span>AI is coming for the work you do today.
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon"></span>One layoff could start your visa clock ticking.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 4. MID CTA (warm) ═══════════ -->
+<div class="mid-cta">
+  <p>If any of that hit home &mdash; this class is for you.</p>
+  <a href="#register" class="cta-btn">Reserve My Free Seat &rarr;</a>
+</div>
+
+<!-- ═══════════ 5. CREDIBILITY + PHOTOS (DARK) ═══════════ -->
+<section class="section-dark" id="credibility">
+  <div class="container">
+    <h2 class="section-heading">Who Is DJ Naronikar?</h2>
+    <p class="section-subheading">28 years. 4 continents. One mission: clear the path for you.</p>
+    <div class="stat-grid">
+      <div class="stat-block">
+        <span class="stat-number">28+</span>
+        <span class="stat-label">Years in Cybersecurity</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-number">CISO</span>
+        <span class="stat-label">Deloitte, EY &amp; Shell</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-number">400+</span>
+        <span class="stat-label">Companies Helped</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Continents</span>
+      </div>
+      <div class="stat-block" style="grid-column: span 2;">
+        <span class="stat-number">CIO CHOICE 2026</span>
+        <span class="stat-label">Winner</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-bottom:32px;">
+      <span style="display:inline-block; background:var(--gold-glow); border:1px solid var(--gold-muted); border-radius:24px; padding:10px 24px; font-size:14px; color:var(--gold); letter-spacing:1px; text-transform:uppercase; font-weight:500;">🏆 CIO CHOICE 2026 Award Winner & Keynote Speaker</span>
+    </div>
+
+    <div class="photo-grid">
+      <img src="https://thequantumachievers.com/wp-content/uploads/2026/01/Giving-Speech-in-CIO-CHOICE-2026.webp" alt="DJ Naronikar speaking at CIO CHOICE 2026" width="340" height="220" loading="lazy">
+      <img src="https://thequantumachievers.com/wp-content/uploads/2026/01/Award-at-CIO-CHOICE-2026.webp" alt="DJ receiving CIO CHOICE 2026 Award" width="340" height="220" loading="lazy">
+      <img src="https://thequantumachievers.com/wp-content/uploads/2025/12/cyber-secuity-talk-by-Dhananjay-N.webp" alt="DJ Naronikar cybersecurity talk" width="340" height="220" loading="lazy">
+      <img src="https://thequantumachievers.com/wp-content/uploads/2026/01/CIO-CHOICE-2026.webp" alt="CIO CHOICE 2026 event" width="340" height="220" loading="lazy">
+    </div>
+
+    <p class="story-text">
+      DJ started where you are &mdash; in IT, wondering if the leap was worth it. He made it to CISO at Deloitte. Then EY. Then Shell. Across 400+ companies on 4 continents, he saw the same thing: talented IT people stuck because nobody showed them the path.<br><br>He spent 10 years learning what nobody in cybersecurity would say out loud. The path to the top isn&rsquo;t about collecting certificates. It&rsquo;s about positioning, visibility, and knowing which doors to walk through.<br><br>Now he teaches that path &mdash; live, for free. No slides. No theory. Just the playbook that works.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ 6. WHAT YOU'LL LEARN (white) ═══════════ -->
+<section class="section-white" id="learn">
+  <div class="container">
+    <h2 class="section-heading">What You&rsquo;ll Walk Away With</h2>
+    <p class="section-subheading">90 minutes that could change the next 10 years of your career.</p>
+    <ol class="learn-list">
+      <li class="learn-item">
+        <span class="learn-num">01</span>
+        <span class="learn-text">The #1 mistake IT pros make when switching to cybersecurity &mdash; and what it costs you.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-num">02</span>
+        <span class="learn-text">Which certifications actually matter &mdash; and which ones waste your money.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-num">03</span>
+        <span class="learn-text">How your IT background is already 60% of what employers want.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-num">04</span>
+        <span class="learn-text">The hidden job market &mdash; 70% of cyber roles are never posted online.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-num">05</span>
+        <span class="learn-text">DJ&rsquo;s step-by-step plan to go from IT to cybersecurity leader.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════ YOUR JOURNEY (warm) ═══════════ -->
+<section class="section-warm">
+  <div class="container">
+    <h2 class="section-heading">Your Path From Here</h2>
+    <p class="section-subheading">Five steps. One clear direction. No guesswork.</p>
+    <div class="journey-map">
+      <ul class="journey-steps">
+        <li class="journey-step">
+          <div class="journey-num">1</div>
+          <div>
+            <div class="journey-title">Register Free</div>
+            <div class="journey-desc">Save your seat in 30 seconds. No card needed.</div>
+          </div>
+        </li>
+        <li class="journey-step">
+          <div class="journey-num">2</div>
+          <div>
+            <div class="journey-title">Attend Live</div>
+            <div class="journey-desc">Join March 19. Get DJ's full playbook in 90 minutes.</div>
+          </div>
+        </li>
+        <li class="journey-step">
+          <div class="journey-num">3</div>
+          <div>
+            <div class="journey-title">Get Your Roadmap</div>
+            <div class="journey-desc">Walk away with a step-by-step plan built for your background.</div>
+          </div>
+        </li>
+        <li class="journey-step">
+          <div class="journey-num">4</div>
+          <div>
+            <div class="journey-title">Take Action</div>
+            <div class="journey-desc">Start the right certifications. Apply to hidden jobs.</div>
+          </div>
+        </li>
+        <li class="journey-step">
+          <div class="journey-num">5</div>
+          <div>
+            <div class="journey-title">Land Your Role</div>
+            <div class="journey-desc">Join the 36% who made the switch from IT to cybersecurity.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOCIAL PROOF (white) ═══════════ -->
+<section class="section-white">
+  <div class="container">
+    <h2 class="section-heading">What Others Are Saying</h2>
+    <p class="section-subheading">IT professionals who made the switch.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I was a sysadmin for 8 years making $95K. After DJ's program, I landed a Security Engineer role at $145K. The roadmap he gave me was exactly what I needed — no fluff, just the steps."</p>
+        <div class="testimonial-author">
+          <strong>Vikram S.</strong>
+          <span>Former Systems Administrator — Dallas, TX</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I spent $6,000 on certifications that didn't help me get interviews. DJ showed me the certifications that actually matter and how to position my IT experience. Got hired as a SOC Analyst within 3 months."</p>
+        <div class="testimonial-author">
+          <strong>Priya M.</strong>
+          <span>Former IT Support Lead — San Jose, CA</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"As someone on an H-1B, I was terrified to make a career move. DJ's webinar showed me the demand is so high that employers are fighting for talent. I got three offers in cybersecurity within 60 days."</p>
+        <div class="testimonial-author">
+          <strong>Arjun K.</strong>
+          <span>Former Network Engineer — Chicago, IL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 7. WHO THIS IS FOR (white) ═══════════ -->
+<section class="section-white">
+  <div class="container">
+    <h2 class="section-heading">Is This For You?</h2>
+    <p class="section-subheading">Be honest with yourself. This isn&rsquo;t for everyone.</p>
+    <div class="for-grid">
+      <div class="for-col not-for">
+        <h3>Not for you if&hellip;</h3>
+        <ul class="for-list">
+          <li>You want a get-rich-quick shortcut</li>
+          <li>You&rsquo;re not ready to put in the work</li>
+          <li>You&rsquo;re happy where you are in IT</li>
+        </ul>
+      </div>
+      <div class="for-col is-for">
+        <h3>Built for you if&hellip;</h3>
+        <ul class="for-list">
+          <li>You work in IT and want into cybersecurity</li>
+          <li>You have 3+ years of experience</li>
+          <li>You&rsquo;re ready to make the move &mdash; you just need the roadmap</li>
+          <li>You want to learn from someone who&rsquo;s done it at the top</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 8. COST OF WAITING + COUNTDOWN + FAQ (warm) ═══════════ -->
+<section class="section-warm">
+  <div class="container">
+    <h2 class="section-heading">The Cost of Waiting</h2>
+    <p class="section-subheading">Every year you stay in IT instead of cybersecurity costs you real money.</p>
+    <div class="cost-table-wrap">
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Timeline</th>
+            <th style="text-align:right">Opportunity Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Year 1 salary gap</td>
+            <td>-$40,000</td>
+          </tr>
+          <tr>
+            <td>Year 3 cumulative</td>
+            <td>-$120,000</td>
+          </tr>
+          <tr>
+            <td>Year 5 cumulative</td>
+            <td>-$200,000+</td>
+          </tr>
+          <tr>
+            <td>SANS training (1 course)</td>
+            <td>$8,000</td>
+          </tr>
+          <tr>
+            <td>SANS full degree</td>
+            <td>$54,000</td>
+          </tr>
+          <tr class="cost-free">
+            <td>This webinar</td>
+            <td>FREE</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="cost-compare">SANS training costs $8,000 per course. This webinar costs $0.</p>
+    </div>
+
+    <!-- ═══════════ COUNTDOWN ═══════════ -->
+    <div class="countdown-wrap">
+      <p class="countdown-label">Webinar starts in</p>
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-text">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-text">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-text">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-text">Seconds</span>
+        </div>
+      </div>
+      <p class="countdown-expired" id="cd-expired">The webinar has started! Join now if you&rsquo;ve registered.</p>
+    </div>
+
+    <!-- ═══════════ 9. FAQ (warm, same section) ═══════════ -->
+    <div class="faq-wrap" id="faq">
+      <h2 class="section-heading" style="margin-bottom:40px;">Frequently Asked Questions</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">I don&rsquo;t have a cybersecurity background. Can I still do this?</button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. 36% of people working in cybersecurity today came from IT &mdash; just like you.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">What if I&rsquo;m on an H-1B visa?</button>
+          <div class="faq-a"><div class="faq-a-inner">Good news. There are 750,000+ unfilled cybersecurity jobs in the US. Employers are actively looking &mdash; and sponsoring.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">How is this different from other courses?</button>
+          <div class="faq-a"><div class="faq-a-inner">DJ has been CISO at three of the Big 4 firms. This isn&rsquo;t someone reading slides. It&rsquo;s real experience from the top.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">Does it cost anything?</button>
+          <div class="faq-a"><div class="faq-a-inner">The webinar is 100% free. If DJ offers deeper training later, it&rsquo;s optional. No pressure.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">What time is it?</button>
+          <div class="faq-a"><div class="faq-a-inner">March 19 at 11:00 AM EST (that&rsquo;s 9:30 PM IST).</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">Will there be a recording?</button>
+          <div class="faq-a"><div class="faq-a-inner">Come live for the full experience. We can&rsquo;t guarantee a recording.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">My family has concerns about a career change.</button>
+          <div class="faq-a"><div class="faq-a-inner">Many people watch with their spouse. It&rsquo;s a smart move &mdash; big decisions are better made together.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10. REGISTRATION FORM (DARK) ═══════════ -->
+<section class="form-section" id="register">
+  <div class="form-wrap">
+    <div id="form-content">
+      <p style="text-align:center; font-size:14px; color:var(--gold); margin-bottom:8px; letter-spacing:1px; text-transform:uppercase;">147 professionals have registered</p>
+      <h2>Save Your Seat &mdash; March 19, 2026</h2>
+      <p class="form-date">11:00 AM EST / 9:30 PM IST</p>
+      <form id="reg-form" novalidate>
+        <input type="hidden" name="source" value="TQA Landing Page V4">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Raj" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Patel" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone (+1 or +91)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 555 123 4567" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Your Current Role</label>
+          <select id="role" name="currentRole" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="IT Support">IT Support / Helpdesk</option>
+            <option value="Sysadmin">System Administrator</option>
+            <option value="Network Engineer">Network Engineer</option>
+            <option value="Cloud/DevOps">Cloud / DevOps Engineer</option>
+            <option value="IT Manager">IT Manager</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="years">Years in IT</label>
+          <select id="years" name="yearsInIT" required>
+            <option value="" disabled selected>Select experience</option>
+            <option value="1-3">1 &ndash; 3 years</option>
+            <option value="3-5">3 &ndash; 5 years</option>
+            <option value="5-10">5 &ndash; 10 years</option>
+            <option value="10+">10+ years</option>
+          </select>
+        </div>
+        <button type="submit" class="cta-btn form-submit" id="submit-btn">Reserve My Free Seat &rarr;</button>
+      </form>
+      <p class="form-fine">Free. No credit card. No spam.</p>
+    </div>
+    <div class="form-success" id="form-success">
+      <h3>You&rsquo;re In.</h3>
+      <p>Check your email for the webinar link. See you March 19.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 11. FOOTER (dark) ═══════════ -->
+<footer class="footer">
+  <p>&copy; 2026 The Quantum Achievers. All rights reserved.</p>
+  <p class="disclaimer">This is a free educational webinar. Results vary based on individual effort and circumstances.</p>
+</footer>
+
+<!-- ═══════════ STICKY MOBILE CTA ═══════════ -->
+<div class="sticky-cta" id="sticky-cta">
+  <span class="sticky-cta-text">March 19 &mdash; Free Webinar</span>
+  <a href="#register" class="cta-btn">Reserve Seat</a>
+</div>
+
+<script>
+(function(){
+  // ── Countdown Timer ──
+  var target = new Date('2026-03-19T16:00:00Z'); // 11 AM EST = 16:00 UTC
+
+  function updateCountdown() {
+    var now = new Date();
+    var diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdown').style.display = 'none';
+      document.getElementById('cd-expired').style.display = 'block';
+      return;
+    }
+
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('cd-days').textContent = d < 10 ? '0' + d : d;
+    document.getElementById('cd-hours').textContent = h < 10 ? '0' + h : h;
+    document.getElementById('cd-mins').textContent = m < 10 ? '0' + m : m;
+    document.getElementById('cd-secs').textContent = s < 10 ? '0' + s : s;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── FAQ Accordion ──
+  var faqBtns = document.querySelectorAll('.faq-q');
+  faqBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var answer = this.nextElementSibling;
+      var isOpen = this.classList.contains('active');
+
+      // Close all
+      faqBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+
+      // Open clicked (if was closed)
+      if (!isOpen) {
+        this.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ── Sticky Mobile CTA ──
+  var stickyCta = document.getElementById('sticky-cta');
+  var hero = document.querySelector('.hero');
+
+  function checkSticky() {
+    if (window.innerWidth > 768) {
+      stickyCta.classList.remove('visible');
+      return;
+    }
+    var heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', checkSticky, { passive: true });
+  window.addEventListener('resize', checkSticky, { passive: true });
+
+  // ── Form Submission ──
+  var form = document.getElementById('reg-form');
+  var submitBtn = document.getElementById('submit-btn');
+  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/cv0yehFtVK84960e2GsO/webhook-trigger/94f87bb0-00ce-4062-aec8-6a0713605095';
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate
+    var fields = form.querySelectorAll('[required]');
+    var valid = true;
+    fields.forEach(function(f) {
+      if (!f.value.trim()) {
+        f.style.borderColor = '#c45c5c';
+        valid = false;
+      } else {
+        f.style.borderColor = '';
+      }
+    });
+
+    var emailField = document.getElementById('email');
+    if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+      emailField.style.borderColor = '#c45c5c';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Disable button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Reserving...';
+    submitBtn.style.opacity = '0.7';
+
+    // Collect data
+    var data = {
+      firstName: form.firstName.value.trim(),
+      lastName: form.lastName.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      currentRole: form.currentRole.value,
+      yearsInIT: form.yearsInIT.value,
+      source: 'TQA Landing Page V4'
+    };
+
+    // Send to webhook
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    }).then(function() {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+
+      // Fire Meta Pixel lead event
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'TQA Webinar Registration',
+          content_category: 'Cybersecurity Webinar'
+        });
+      }
+    }).catch(function() {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+  });
+
+  // Clear red border on input
+  form.querySelectorAll('input, select').forEach(function(el) {
+    el.addEventListener('input', function() {
+      this.style.borderColor = '';
+    });
+  });
+})();
+</script>
+</body>

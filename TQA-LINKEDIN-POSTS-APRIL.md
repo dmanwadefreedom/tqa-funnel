@@ -58,7 +58,7 @@ If you are an IT professional earning $85K-$120K and wondering whether the trans
 
 #Cybersecurity #CareerGrowth #SalaryData #ITCareers
 
-**Comment to post separately:** "If you are an IT professional considering the move to cybersecurity, I am running a live career briefing on April 11 where I walk through the transition framework. Link in my featured section."
+**Comment to post separately:** "If you are an IT professional considering the move to cybersecurity, I am running a live career briefing on April 18 where I walk through the transition framework. Link in my featured section."
 
 ---
 
@@ -110,7 +110,7 @@ Rob had further to go. He still got there. You have less distance to cover.
 
 #Cybersecurity #CareerChange #GRC #CyberCareers
 
-**Comment to post separately:** "I walk through the complete IT-to-cybersecurity transition framework in a live briefing on April 11. Details in my featured section."
+**Comment to post separately:** "I walk through the complete IT-to-cybersecurity transition framework in a live briefing on April 18. Details in my featured section."
 
 ---
 
@@ -136,7 +136,7 @@ Every new attack vector is a job posting.
 
 #Cybersecurity #AIThreats #Phishing #CyberDefense
 
-**Comment to post separately:** "I cover how AI is reshaping both the threat landscape and the career landscape in my April 11 career briefing. For IT professionals considering cybersecurity. Link in featured section."
+**Comment to post separately:** "I cover how AI is reshaping both the threat landscape and the career landscape in my April 18 career briefing. For IT professionals considering cybersecurity. Link in featured section."
 
 ---
 
@@ -190,12 +190,12 @@ For IT professionals, this regulatory wave is opening thousands of cybersecurity
 
 #Cybersecurity #Privacy #AIGovernance #Compliance #Regulation
 
-**Comment to post separately:** "Tomorrow I am hosting a live career briefing for IT professionals considering cybersecurity. Covers the transition framework, certification path, and hiring landscape. April 11, 11 AM EST. Link in my featured section."
+**Comment to post separately:** "Tomorrow I am hosting a live career briefing for IT professionals considering cybersecurity. Covers the transition framework, certification path, and hiring landscape. April 18, 11 AM EST. Link in my featured section."
 
 ---
 
 ## POST 8 — Career Proof
-**Date:** Friday, April 11 (day of briefing)
+**Date:** Friday, April 18 (day of briefing)
 **CTA:** No (the briefing is today — anyone interested already knows)
 
 ---
@@ -307,7 +307,7 @@ That is what I am building. The map.
 
 6. **Featured section:** Before April 2, update your LinkedIn Featured section to include the briefing registration link. All CTA comments reference "link in my featured section."
 
-7. **Post 10 (BTS) timing:** This post references the April 11 briefing as having happened "last Friday." Adjust the wording if the actual briefing date shifts.
+7. **Post 10 (BTS) timing:** This post references the April 18 briefing as having happened "last Friday." Adjust the wording if the actual briefing date shifts.
 
 ## DATA SOURCES REFERENCED
 

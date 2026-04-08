@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ | Funnel Tree</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--r:#ef4444;--o:#f97316;--gold:#f59e0b;--t:#e2e8f0;--m:#94a3b8;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+.hero{text-align:center;padding:2rem 0 1.5rem;margin-bottom:2rem}
+.hero h1{font-size:1.6rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.hero p{color:var(--m);font-size:0.85rem}
+
+/* Tree */
+.tree{display:flex;flex-direction:column;align-items:center;gap:0}
+.connector{width:3px;height:30px;background:var(--b)}
+.arrow{color:var(--b);font-size:1.2rem;margin:-4px 0}
+
+.stage{width:100%;max-width:680px;border-radius:14px;padding:1.5rem 1.75rem;position:relative;cursor:default;transition:transform 0.2s}
+.stage:hover{transform:translateY(-2px)}
+.stage-label{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem}
+.stage h2{font-size:1.1rem;font-weight:700;color:var(--w);margin-bottom:0.25rem}
+.stage p{font-size:0.82rem;margin-bottom:0.4rem}
+.stage .metric{font-size:0.72rem;color:var(--m);margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.06)}
+.stage .metric strong{color:var(--w)}
+
+/* TOF */
+.tof{background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(59,130,246,0.04));border:1px solid rgba(59,130,246,0.25)}
+.tof .stage-label{color:var(--a)}
+
+/* MOF */
+.mof{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(139,92,246,0.04));border:1px solid rgba(139,92,246,0.25)}
+.mof .stage-label{color:var(--p)}
+
+/* BOF */
+.bof{background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(16,185,129,0.04));border:1px solid rgba(16,185,129,0.25)}
+.bof .stage-label{color:var(--g)}
+
+/* Revenue */
+.rev{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.04));border:1px solid rgba(245,158,11,0.25)}
+.rev .stage-label{color:var(--gold)}
+
+/* Channel chips */
+.channels{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.5rem}
+.chip{font-size:0.68rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--t)}
+
+/* DJ time badge */
+.dj-time{position:absolute;top:1rem;right:1.25rem;font-size:0.65rem;font-weight:700;color:var(--gold);background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);padding:0.2rem 0.6rem;border-radius:6px}
+
+/* Links to detail pages */
+.detail-link{display:inline-block;margin-top:0.6rem;font-size:0.75rem;color:var(--a);text-decoration:none;font-weight:600;padding:0.3rem 0.8rem;border:1px solid rgba(59,130,246,0.3);border-radius:6px;transition:background 0.2s}
+.detail-link:hover{background:rgba(59,130,246,0.1)}
+.mof .detail-link{color:var(--p);border-color:rgba(139,92,246,0.3)}.mof .detail-link:hover{background:rgba(139,92,246,0.1)}
+.bof .detail-link{color:var(--g);border-color:rgba(16,185,129,0.3)}.bof .detail-link:hover{background:rgba(16,185,129,0.1)}
+
+.footer{text-align:center;padding:1.5rem 0;color:var(--m);font-size:0.7rem;margin-top:2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <h1>DJ's Funnel — Top to Bottom</h1>
+  <p>One recording a week feeds the entire machine. Each stage has its own detail page.</p>
+</div>
+
+<div class="tree">
+
+  <!-- TOF -->
+  <div class="stage tof">
+    <div class="dj-time">DJ: 1-2 hrs/week</div>
+    <div class="stage-label">Top of Funnel — Get Found</div>
+    <h2>DJ Records 1 Video Per Week</h2>
+    <p>That one recording gets repurposed across 4 channels automatically. DJ's only job is to press record and teach what he knows.</p>
+    <div class="channels">
+      <span class="chip">YouTube (1 long + 3-5 shorts)</span>
+      <span class="chip">IG Reels (cross-post shorts)</span>
+      <span class="chip">LinkedIn (3-4 posts/week)</span>
+      <span class="chip">Podcast (strip audio)</span>
+      <span class="chip">FB Group (cross-post)</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> Strangers discover DJ. They watch 3-5 videos. They think "this guy knows what he's talking about."</div>
+    <a href="DJ-STAGE-1-CONTENT.html" class="detail-link">Open: What DJ Records + Content Calendar</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- MOF -->
+  <div class="stage mof">
+    <div class="dj-time">DJ: 15 min/week</div>
+    <div class="stage-label">Middle of Funnel — Capture + Qualify</div>
+    <h2>$47 Career Assessment + $27 Webinar</h2>
+    <p>Viewers who are serious pay $47 for a personalized career roadmap PDF. Or they pay $27 to attend a live webinar with DJ. Both are filters — anyone who pays is a qualified lead.</p>
+    <div class="channels">
+      <span class="chip">$47 Assessment (quiz → PDF)</span>
+      <span class="chip">$27 Webinar (live, no replay)</span>
+      <span class="chip">Email Nurture (GHL auto)</span>
+      <span class="chip">180 Re-Engage Sequence</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> Separate serious people from browsers. Everyone who pays is thinking about making a move.</div>
+    <a href="DJ-STAGE-2-CAPTURE.html" class="detail-link">Open: Assessment + Webinar + Email Sequences</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- BOF -->
+  <div class="stage bof">
+    <div class="dj-time">DJ: 15 min/call</div>
+    <div class="stage-label">Bottom of Funnel — Apply + Close</div>
+    <h2>Application → 15-Min Call → $4,997</h2>
+    <p>They fill out a 5-question application. GHL auto-scores them (0-12). Hot leads (9+) get a 15-minute call with DJ. Not a sales pitch — a fit check. DJ's credibility does the closing.</p>
+    <div class="channels">
+      <span class="chip">Application Form (5 questions)</span>
+      <span class="chip">GHL Lead Scoring (0-12)</span>
+      <span class="chip">15-Min Zoom Call (DJ)</span>
+      <span class="chip">Stripe: $4,997 PIF or $1,897x3</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> 2-4 students per month. $10K-$20K/month revenue.</div>
+    <a href="DJ-STAGE-3-CLOSE.html" class="detail-link">Open: Application + Call Script + Enrollment</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- REVENUE -->
+  <div class="stage rev">
+    <div class="stage-label">Revenue — The Math</div>
+    <h2>Month 3: $11K-$22K/month</h2>
+    <p>4 videos/month → 4,000 views → 40 assessments ($1,880) → 20 applications → 10 calls → 2-4 students ($10K-$20K). Plus $27 webinar revenue stacking.</p>
+    <div class="metric"><strong>Flywheel:</strong> Student gets hired → testimonial → new YouTube video → more proof → more applications. Repeat.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Each stage links to its own detail page. Start at the top. Get DJ's buy-in on each stage before moving down.</p>
+  <p style="margin-top:0.3rem;">DJ Naronikar | CISO 360 Accelerator | April 2026</p>
+</div>
+
+</div>
+</body>
+</html>

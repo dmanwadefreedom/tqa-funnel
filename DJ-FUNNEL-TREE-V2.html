@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Naronikar | Complete Funnel System</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--r:#ef4444;--o:#f97316;--gold:#f59e0b;--cyan:#06b6d4;--rose:#f43f5e;--t:#e2e8f0;--m:#94a3b8;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+
+/* Header */
+.hero{text-align:center;padding:2rem 0 1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--b)}
+.hero h1{font-size:1.5rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.hero p{color:var(--m);font-size:0.82rem;max-width:580px;margin:0 auto}
+.hero .version{font-size:0.6rem;color:var(--b);margin-top:0.5rem}
+
+/* Belief bar */
+.belief-bar{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem 1.25rem;margin-bottom:2rem}
+.belief-bar h3{font-size:0.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+.beliefs{display:flex;flex-wrap:wrap;gap:0.3rem}
+.belief{font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:5px;border:1px solid rgba(245,158,11,0.2);background:rgba(245,158,11,0.06);color:var(--gold);white-space:nowrap}
+
+/* Tree layout */
+.tree{display:flex;flex-direction:column;align-items:center;gap:0}
+.connector{width:3px;height:24px;background:var(--b)}
+.arrow{color:var(--b);font-size:1rem;margin:-3px 0}
+.split-connector{display:flex;justify-content:center;align-items:flex-start;gap:0;width:100%;max-width:680px;position:relative}
+.split-connector::before{content:"";position:absolute;top:0;left:25%;right:25%;height:3px;background:var(--b)}
+.split-connector .branch{display:flex;flex-direction:column;align-items:center;flex:1}
+.split-connector .branch .connector{height:20px}
+
+/* Stage cards */
+.stage{width:100%;max-width:680px;border-radius:14px;padding:1.4rem 1.5rem;position:relative;transition:transform 0.2s}
+.stage:hover{transform:translateY(-1px)}
+.stage-label{font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
+.stage h2{font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:0.2rem}
+.stage p{font-size:0.8rem;margin-bottom:0.3rem}
+.stage .metric{font-size:0.7rem;color:var(--m);margin-top:0.4rem;padding-top:0.4rem;border-top:1px solid rgba(255,255,255,0.06)}
+.stage .metric strong{color:var(--w)}
+
+/* Belief tags on stages */
+.belief-tags{display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.5rem}
+.belief-tag{font-size:0.58rem;font-weight:600;padding:0.15rem 0.4rem;border-radius:4px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);color:var(--gold)}
+
+/* DJ time badge */
+.dj-time{position:absolute;top:1rem;right:1.1rem;font-size:0.6rem;font-weight:700;color:var(--gold);background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);padding:0.15rem 0.5rem;border-radius:5px}
+
+/* Color variants */
+.awareness{background:linear-gradient(135deg,rgba(6,182,212,0.1),rgba(6,182,212,0.03));border:1px solid rgba(6,182,212,0.25)}
+.awareness .stage-label{color:var(--cyan)}
+.tof{background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(59,130,246,0.04));border:1px solid rgba(59,130,246,0.25)}
+.tof .stage-label{color:var(--a)}
+.mof{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(139,92,246,0.04));border:1px solid rgba(139,92,246,0.25)}
+.mof .stage-label{color:var(--p)}
+.vssl-stage{background:linear-gradient(135deg,rgba(249,115,22,0.1),rgba(249,115,22,0.04));border:1px solid rgba(249,115,22,0.25)}
+.vssl-stage .stage-label{color:var(--o)}
+.bof{background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(16,185,129,0.04));border:1px solid rgba(16,185,129,0.25)}
+.bof .stage-label{color:var(--g)}
+.precall{background:linear-gradient(135deg,rgba(244,63,94,0.1),rgba(244,63,94,0.04));border:1px solid rgba(244,63,94,0.25)}
+.precall .stage-label{color:var(--rose)}
+.rev{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(245,158,11,0.04));border:1px solid rgba(245,158,11,0.25)}
+.rev .stage-label{color:var(--gold)}
+.nurture{background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(139,92,246,0.02));border:1px dashed rgba(139,92,246,0.2)}
+.nurture .stage-label{color:var(--p)}
+
+/* Channels */
+.channels{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.4rem}
+.chip{font-size:0.62rem;font-weight:600;padding:0.15rem 0.5rem;border-radius:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);color:var(--t)}
+
+/* Side layers */
+.side-layers{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;width:100%;max-width:680px;margin-top:0.5rem}
+.side-layer{border-radius:10px;padding:1rem 1.1rem}
+.side-layer h3{font-size:0.8rem;font-weight:700;color:var(--w);margin-bottom:0.2rem}
+.side-layer p{font-size:0.72rem}
+.side-layer ul{list-style:none;padding:0;margin-top:0.3rem}
+.side-layer li{font-size:0.72rem;padding:0.1rem 0 0.1rem 0.9rem;position:relative}
+.side-layer li::before{content:"";position:absolute;left:0;top:0.45rem;width:4px;height:4px;border-radius:50%}
+.ig-layer{background:linear-gradient(135deg,rgba(244,63,94,0.06),rgba(244,63,94,0.02));border:1px solid rgba(244,63,94,0.15)}
+.ig-layer li::before{background:var(--rose)}
+.fb-layer{background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(59,130,246,0.02));border:1px solid rgba(59,130,246,0.15)}
+.fb-layer li::before{background:var(--a)}
+.email-layer{background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(139,92,246,0.02));border:1px solid rgba(139,92,246,0.15)}
+.email-layer li::before{background:var(--p)}
+.track-layer{background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(16,185,129,0.02));border:1px solid rgba(16,185,129,0.15)}
+.track-layer li::before{background:var(--g)}
+
+/* Detail links */
+.detail-link{display:inline-block;margin-top:0.5rem;font-size:0.7rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:5px;text-decoration:none;transition:background 0.2s}
+.tof .detail-link{color:var(--a);border:1px solid rgba(59,130,246,0.3)}.tof .detail-link:hover{background:rgba(59,130,246,0.1)}
+.mof .detail-link{color:var(--p);border:1px solid rgba(139,92,246,0.3)}.mof .detail-link:hover{background:rgba(139,92,246,0.1)}
+.vssl-stage .detail-link{color:var(--o);border:1px solid rgba(249,115,22,0.3)}.vssl-stage .detail-link:hover{background:rgba(249,115,22,0.1)}
+.bof .detail-link{color:var(--g);border:1px solid rgba(16,185,129,0.3)}.bof .detail-link:hover{background:rgba(16,185,129,0.1)}
+.precall .detail-link{color:var(--rose);border:1px solid rgba(244,63,94,0.3)}.precall .detail-link:hover{background:rgba(244,63,94,0.1)}
+
+/* Section dividers */
+.section-label{text-align:center;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--b);margin:1.25rem 0 0.75rem;position:relative}
+.section-label::before,.section-label::after{content:"";position:absolute;top:50%;width:calc(50% - 80px);height:1px;background:var(--b)}
+.section-label::before{left:0}
+.section-label::after{right:0}
+
+.footer{text-align:center;padding:1.5rem 0;color:var(--m);font-size:0.65rem;margin-top:2rem;border-top:1px solid var(--b)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <h1>DJ Naronikar — Complete Funnel System</h1>
+  <p>Every stage builds specific beliefs. Every belief moves toward one decision. Nothing is random.</p>
+  <div class="version">v2 — April 2026 | Victoria Framework + Belief Layer</div>
+</div>
+
+<!-- BELIEF REFERENCE BAR -->
+<div class="belief-bar">
+  <h3>The 7 Beliefs Raj Must Hold Before He Pays $4,997</h3>
+  <div class="beliefs">
+    <span class="belief">B1: Cyber is real, not hype</span>
+    <span class="belief">B2: I can make the switch</span>
+    <span class="belief">B3: The money is achievable</span>
+    <span class="belief">B4: AI won't kill this too</span>
+    <span class="belief">B5: DJ is THE guide</span>
+    <span class="belief">B6: Program &gt; self-study</span>
+    <span class="belief">B7: My spouse supports this</span>
+  </div>
+</div>
+
+<div class="tree">
+
+  <!-- ==================== AWARENESS ==================== -->
+  <div class="section-label">Awareness</div>
+
+  <div class="stage awareness">
+    <div class="stage-label">Discovery — Strangers Find DJ</div>
+    <h2>IG Catches Attention + LinkedIn Validates</h2>
+    <p>Short-form content (Reels, LinkedIn posts) gets DJ discovered. People check his profile. His bio answers: "Who is this? Is he credible? What does he do for people like me?"</p>
+    <p>Strong profile = they click through to YouTube. Weak profile = they scroll past.</p>
+    <div class="channels">
+      <span class="chip">IG Reels (shorts from YouTube)</span>
+      <span class="chip">LinkedIn Posts (3-4/week)</span>
+      <span class="chip">LinkedIn Newsletter</span>
+      <span class="chip">FB Group (cross-post)</span>
+      <span class="chip">Podcast (audio strip)</span>
+    </div>
+    <div class="belief-tags">
+      <span class="belief-tag">B1 B5 surface-level</span>
+    </div>
+    <div class="metric"><strong>Role:</strong> Get discovered. Signal credibility. Point to YouTube.</div>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- ==================== TOP OF FUNNEL ==================== -->
+  <div class="section-label">Trust Building</div>
+
+  <div class="stage tof">
+    <div class="dj-time">DJ: 1-2 hrs/week</div>
+    <div class="stage-label">Top of Funnel — YouTube Builds Deep Trust</div>
+    <h2>5 Planned Videos — Each Builds ONE Belief</h2>
+    <p>These are not random topics. Each video is engineered to build a specific belief, overcome a specific objection, and point to ONE next step.</p>
+    <table style="margin-top:0.5rem;font-size:0.72rem">
+      <tr><th style="width:55%">Video</th><th>Belief</th><th>CTA</th></tr>
+      <tr><td>1. IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap</td><td>B1: Demand is real</td><td>$47 assessment</td></tr>
+      <tr><td>2. How Much Do Cybersecurity Professionals Really Make?</td><td>B3: Money is real</td><td>$47 assessment</td></tr>
+      <tr><td>3. I Stopped a $300K Wire Fraud. Here's How.</td><td>B5: DJ is the guide</td><td>$47 assessment</td></tr>
+      <tr><td>4. AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe.</td><td>B4: AI-proof</td><td>$47 assessment</td></tr>
+      <tr><td>5. My Student Went From Chef to $120K Cybersecurity Analyst</td><td>B2: You can do this</td><td>$47 assessment</td></tr>
+    </table>
+    <div class="belief-tags">
+      <span class="belief-tag">B1</span>
+      <span class="belief-tag">B2</span>
+      <span class="belief-tag">B3</span>
+      <span class="belief-tag">B4</span>
+      <span class="belief-tag">B5</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> Viewer watches 3-5 videos and thinks "this guy knows exactly what I need." Every description links to $47 assessment.</div>
+    <a href="DJ-STAGE-1-CONTENT.html" class="detail-link">Open: Content Plan + Video Scripts</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- ==================== MIDDLE OF FUNNEL ==================== -->
+  <div class="section-label">Qualification</div>
+
+  <div class="stage mof">
+    <div class="dj-time">DJ: 0 hrs (automated)</div>
+    <div class="stage-label">Middle of Funnel — $47 Career Assessment</div>
+    <h2>Personalized PDF — Their Gap Becomes Undeniable</h2>
+    <p>They answer 10-12 questions about their background. Within 24 hours, they get a personalized 8-page PDF: their score, their gaps, their cert path, their salary projection, their 90-day action plan.</p>
+    <p>The PDF does NOT mention CISO 360. It's pure value. One line at the bottom: <em>"Want help executing this plan? Apply here."</em></p>
+    <div class="channels">
+      <span class="chip">Stripe: $47 one-time</span>
+      <span class="chip">Quiz (10-12 questions)</span>
+      <span class="chip">PDF delivery (24hrs)</span>
+      <span class="chip">GHL automation</span>
+    </div>
+    <div class="belief-tags">
+      <span class="belief-tag">B2: personalized to THEM</span>
+      <span class="belief-tag">B3: their salary projection</span>
+      <span class="belief-tag">B7: ROI math for spouse</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> Anyone who pays $47 is serious. The PDF makes their gap concrete — not abstract, PERSONAL. The "apply" link sends them to the VSSL page.</div>
+    <a href="DJ-STAGE-2-CAPTURE.html" class="detail-link">Open: Assessment Details + Email Sequences</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- ==================== VSSL ==================== -->
+  <div class="section-label">The Bridge</div>
+
+  <div class="stage vssl-stage">
+    <div class="dj-time">DJ: 1 hr (one-time recording)</div>
+    <div class="stage-label">VSSL Page — The Missing Piece</div>
+    <h2>15-18 Min Video Sales Letter + Application Form</h2>
+    <p>This is the bridge between "I've been watching DJ's content" and "I'm ready to apply." Not on YouTube. Lives on a dedicated page. Only reached by people who've already consumed free content or bought the $47 assessment.</p>
+    <p><strong>Structure:</strong> Problem (data) &rarr; Why most fail (self-study trap) &rarr; DJ's story &rarr; What CISO 360 is &rarr; Student results &rarr; ROI math &rarr; Apply.</p>
+    <p>Application form sits directly below the video on the same page. No separate link. They watch, they scroll, they apply.</p>
+    <div class="channels">
+      <span class="chip">Dedicated page (not YouTube)</span>
+      <span class="chip">Video + Application form</span>
+      <span class="chip">Student proof below</span>
+      <span class="chip">FAQ accordion</span>
+    </div>
+    <div class="belief-tags">
+      <span class="belief-tag">B6: program > self-study (PRIMARY)</span>
+      <span class="belief-tag">B5: DJ credibility</span>
+      <span class="belief-tag">B7: ROI math for spouse</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> Someone who watches 15 min of the VSSL and fills out the application is a highly qualified lead. If they apply, they're ready to buy.</div>
+    <a href="DJ-VSSL-SCRIPT.md" class="detail-link">Open: Full VSSL Script</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- ==================== BOTTOM OF FUNNEL ==================== -->
+  <div class="section-label">Close</div>
+
+  <div class="stage bof">
+    <div class="dj-time">DJ: 15 min/call</div>
+    <div class="stage-label">Bottom of Funnel — Application + Auto-Score + Call</div>
+    <h2>5-Question Application &rarr; GHL Scores &rarr; 15-Min Call</h2>
+    <p>They fill out 5 questions (role, target, salary, barrier, investment readiness). GHL auto-scores 0-12. Hot leads (9+) get booked immediately. DJ does a 15-minute "fit check" — not a sales pitch. His credibility does the closing.</p>
+    <div class="channels">
+      <span class="chip">Application (5 questions)</span>
+      <span class="chip">GHL auto-score (0-12)</span>
+      <span class="chip">Elliot calls hot leads (speed-to-contact)</span>
+      <span class="chip">15-min Zoom (DJ)</span>
+      <span class="chip">Stripe: $4,997 PIF or $1,897x3</span>
+    </div>
+    <div class="belief-tags">
+      <span class="belief-tag">B6: final confirmation</span>
+      <span class="belief-tag">B7: spouse objection handled live</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> 2-4 students per month. Close rate 20-40% of calls taken.</div>
+    <a href="DJ-STAGE-3-CLOSE.html" class="detail-link">Open: Application + Call Script + Enrollment</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- ==================== PRE-CALL PROCESS ==================== -->
+
+  <div class="stage precall">
+    <div class="stage-label">Pre-Call Process — Show-Up Rate Multiplier</div>
+    <h2>Between "Booked" and "Call" — Keep Momentum</h2>
+    <p>After they book, they're excited. Then doubt creeps in. The pre-call process keeps them committed.</p>
+    <table style="margin-top:0.5rem;font-size:0.72rem">
+      <tr><th>When</th><th>What</th><th>Purpose</th></tr>
+      <tr><td>Immediately</td><td>Confirmation page with DJ expectations video (2 min)</td><td>Reinforce the decision. "Here's what to expect."</td></tr>
+      <tr><td>Immediately</td><td>Prep doc email: "Have these ready for your call"</td><td>Current salary, target role, timeline, partner questions</td></tr>
+      <tr><td>24 hrs before</td><td>Email reminder + FAQ link</td><td>"See you tomorrow. Here are answers to common questions."</td></tr>
+      <tr><td>1 hr before</td><td>SMS reminder</td><td>"Your call with DJ is in 1 hour. Zoom link: [link]"</td></tr>
+      <tr><td>15 min before</td><td>SMS reminder</td><td>"Starting in 15 minutes."</td></tr>
+    </table>
+    <div class="belief-tags">
+      <span class="belief-tag">B5: DJ's expectations video</span>
+      <span class="belief-tag">B7: prep doc includes "share with partner" section</span>
+    </div>
+    <div class="metric"><strong>Goal:</strong> Push show-up rate from ~50% to 80%+. Pre-call prep = warmer, more qualified conversations.</div>
+    <a href="#" class="detail-link" style="color:var(--rose);border-color:rgba(244,63,94,0.3)">To Build: Pre-Call Sequence</a>
+  </div>
+
+  <div class="connector"></div>
+  <div class="arrow">&#9660;</div>
+  <div class="connector"></div>
+
+  <!-- ==================== REVENUE ==================== -->
+
+  <div class="stage rev">
+    <div class="stage-label">Revenue — The Math (Conservative, Month 3)</div>
+    <h2>$11K - $22K / month</h2>
+    <p>4 videos/month &rarr; 1K avg views each &rarr; 25-40 assessments at $47 ($1,175-$1,880) &rarr; 10-20 applications &rarr; 5-10 calls &rarr; 2-4 students at $4,997 ($9,994-$19,988)</p>
+    <div class="metric"><strong>Flywheel:</strong> Student gets hired &rarr; testimonial &rarr; new YouTube content &rarr; more proof &rarr; more applications. Each student makes the next sale easier.</div>
+  </div>
+
+</div><!-- end tree -->
+
+<!-- ==================== SUPPORT LAYERS ==================== -->
+<div class="section-label" style="margin-top:2rem">Support Layers (Running Alongside)</div>
+
+<div class="side-layers">
+
+  <div class="side-layer ig-layer">
+    <h3>IG Story Sequences</h3>
+    <p>Daily warmth between big content pieces. Victoria's model: Hook &rarr; Story &rarr; Proof &rarr; CTA.</p>
+    <ul>
+      <li>Each sequence maps to one belief</li>
+      <li>4-slide minimum per sequence</li>
+      <li>Highlights = pinned proof categories</li>
+      <li>Bio link &rarr; YouTube or $47 assessment</li>
+    </ul>
+    <div class="belief-tags" style="margin-top:0.3rem">
+      <span class="belief-tag">B1-B5 reinforcement</span>
+    </div>
+  </div>
+
+  <div class="side-layer fb-layer">
+    <h3>Nurture Community</h3>
+    <p>FB Group (1,700 members) as ongoing proof layer.</p>
+    <ul>
+      <li>After assessment &rarr; invite to group</li>
+      <li>DJ posts weekly value + student stories</li>
+      <li>Keeps leads warm between big content</li>
+      <li>Members see others applying = social proof</li>
+    </ul>
+    <div class="belief-tags" style="margin-top:0.3rem">
+      <span class="belief-tag">B2 B5 ongoing</span>
+    </div>
+  </div>
+
+  <div class="side-layer email-layer">
+    <h3>Email Nurture</h3>
+    <p>Post-assessment sequence. One belief per email.</p>
+    <ul>
+      <li>Email 1: Market data (B1)</li>
+      <li>Email 2: Student story (B2)</li>
+      <li>Email 3: Salary breakdown (B3)</li>
+      <li>Email 4: AI-proof roles (B4)</li>
+      <li>Email 5: DJ's war story (B5)</li>
+      <li>Email 6: Self-study trap (B6) &rarr; VSSL link</li>
+      <li>Email 7: ROI math (B7) &rarr; Apply</li>
+    </ul>
+    <div class="belief-tags" style="margin-top:0.3rem">
+      <span class="belief-tag">B1-B7 in sequence</span>
+    </div>
+  </div>
+
+  <div class="side-layer track-layer">
+    <h3>Tracking Dashboard</h3>
+    <p>Know what's working. Know what's leaking.</p>
+    <ul>
+      <li>Views &rarr; $47 purchases (front-end conversion)</li>
+      <li>Assessments &rarr; VSSL views (engagement rate)</li>
+      <li>VSSL views &rarr; Applications (VSSL conversion)</li>
+      <li>Applications &rarr; Calls booked (qualification rate)</li>
+      <li>Calls &rarr; Enrolled (close rate)</li>
+      <li>Revenue by source (which video drives $)</li>
+    </ul>
+    <div class="belief-tags" style="margin-top:0.3rem">
+      <span class="belief-tag">Fix bottlenecks, not guesswork</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== RE-ENGAGE ==================== -->
+<div class="section-label" style="margin-top:1.5rem">180 Cold Lead Re-Engage</div>
+
+<div class="stage nurture" style="max-width:680px;margin:0 auto">
+  <div class="stage-label">Re-Engage Sequence — 180 Cold Webinar Leads</div>
+  <h2>3-Email Sequence: Video &rarr; Assessment &rarr; Webinar</h2>
+  <table style="margin-top:0.5rem;font-size:0.72rem">
+    <tr><th>Email</th><th>Content</th><th>CTA</th></tr>
+    <tr><td>1 (Day 0)</td><td>"I made a video since we last connected" — DJ's first YouTube video</td><td>Watch video</td></tr>
+    <tr><td>2 (Day 3)</td><td>"I built something for IT professionals" — $47 career assessment</td><td>Get assessment</td></tr>
+    <tr><td>3 (Day 7)</td><td>"I'm doing a live session" — $27 paid webinar invite</td><td>Register ($27)</td></tr>
+  </table>
+  <p style="margin-top:0.4rem;font-size:0.72rem;color:var(--m)">No reply after 3 emails = archive. Clean the list. 40 engaged contacts &gt; 180 ghosts.</p>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <p>Each stage has its own detail page. Present ONE stage at a time to DJ. Get buy-in. Then next stage.</p>
+  <p style="margin-top:0.25rem;">DJ Naronikar | CISO 360 Accelerator | April 2026</p>
+  <p style="margin-top:0.25rem;font-size:0.58rem;color:var(--b)">Built on Victoria Shearing's organic funnel framework. Belief map drives every piece of content.</p>
+</div>
+
+</div>
+</body>
+</html>

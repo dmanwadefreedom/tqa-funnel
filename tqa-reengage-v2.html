@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Personal Note From DJ – The Quantum Achievers</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1589502282075800');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1589502282075800&ev=PageView&noscript=1"/></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0a0a;--bg2:#1a1a1a;--gold:#c9a84c;--gold-dark:#a07e2e;
+--cream:#f7f5f0;--cream-dim:#c8c4bc;--surface:#141414;
+--surface2:#1e1e1e;--border:#2a2a2a;--border-gold:rgba(201,168,76,.25);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* TOP BAR */
+.topbar{
+background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));
+text-align:center;padding:12px 24px;
+font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;
+letter-spacing:2.5px;text-transform:uppercase;color:var(--bg)
+}
+
+/* CONTAINER */
+.container{max-width:640px;margin:0 auto;padding:0 24px}
+
+/* LETTER */
+.letter{padding:56px 0 40px}
+.dj-photo{
+width:120px;height:120px;border-radius:50%;
+border:3px solid var(--gold);object-fit:cover;
+display:block;margin:0 auto 36px;
+box-shadow:0 0 30px rgba(201,168,76,.15)
+}
+.salutation{
+font-family:'Cormorant Garamond',serif;font-size:22px;
+color:var(--cream);margin-bottom:28px;font-weight:400;font-style:italic
+}
+.letter-body p{
+font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.85;
+color:var(--cream-dim);margin-bottom:20px;font-weight:400
+}
+.letter-body p strong{color:var(--cream);font-weight:600}
+.letter-body p em{color:var(--gold);font-style:italic}
+.letter-body .callout{
+border-left:3px solid var(--gold);
+background:rgba(201,168,76,.06);
+padding:18px 22px;margin:28px 0;
+font-family:'Cormorant Garamond',serif;
+font-size:18px;line-height:1.7;color:var(--gold);font-style:italic
+}
+.letter-sign{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:18px;color:var(--cream-dim);margin-top:32px
+}
+.letter-sign strong{color:var(--cream);font-weight:600;font-style:normal}
+
+/* DIVIDER */
+.divider{
+width:60px;height:1px;background:var(--gold);
+margin:0 auto;opacity:.4
+}
+
+/* FORM SECTION */
+.form-section{padding:48px 0 40px}
+.form-title{
+font-family:'Cormorant Garamond',serif;font-size:26px;
+text-align:center;color:var(--cream);margin-bottom:8px;font-weight:500
+}
+.form-sub{
+text-align:center;font-size:14px;color:var(--cream-dim);
+margin-bottom:40px;opacity:.7
+}
+
+/* QUESTIONS */
+.q-group{margin-bottom:36px}
+.q-label{
+font-family:'Cormorant Garamond',serif;font-size:17px;
+color:var(--cream);margin-bottom:14px;display:block;font-weight:500
+}
+.q-number{
+display:inline-block;width:24px;height:24px;border-radius:50%;
+background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;
+font-size:12px;font-weight:600;text-align:center;line-height:24px;
+margin-right:8px;vertical-align:middle
+}
+.radio-group{display:flex;flex-direction:column;gap:10px}
+.radio-option{
+display:flex;align-items:center;gap:12px;
+padding:12px 16px;border-radius:8px;
+background:var(--surface);border:1px solid var(--border);
+cursor:pointer;transition:all .2s
+}
+.radio-option:hover{border-color:var(--border-gold);background:var(--surface2)}
+.radio-option.selected{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.radio-option input[type="radio"]{
+appearance:none;-webkit-appearance:none;width:18px;height:18px;
+border-radius:50%;border:2px solid var(--border);flex-shrink:0;
+position:relative;cursor:pointer;transition:all .2s
+}
+.radio-option input[type="radio"]:checked{border-color:var(--gold)}
+.radio-option input[type="radio"]:checked::after{
+content:'';position:absolute;top:3px;left:3px;
+width:8px;height:8px;border-radius:50%;background:var(--gold)
+}
+.radio-option span{font-size:15px;color:var(--cream-dim)}
+
+textarea{
+width:100%;background:var(--surface);border:1px solid var(--border);
+border-radius:8px;padding:14px 16px;color:var(--cream);
+font-family:'Jost',sans-serif;font-size:15px;resize:vertical;
+min-height:100px;transition:border-color .2s;outline:none
+}
+textarea::placeholder{color:var(--cream-dim);opacity:.4}
+textarea:focus{border-color:var(--gold)}
+
+/* CONTACT FIELDS */
+.contact-section{margin-top:44px;margin-bottom:36px}
+.contact-title{
+font-family:'Cormorant Garamond',serif;font-size:19px;
+color:var(--cream);margin-bottom:20px;font-weight:500
+}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.field-full{margin-bottom:14px}
+.field-row input,.field-full input{
+width:100%;background:var(--surface);border:1px solid var(--border);
+border-radius:8px;padding:13px 16px;color:var(--cream);
+font-family:'Jost',sans-serif;font-size:15px;outline:none;transition:border-color .2s
+}
+.field-row input::placeholder,.field-full input::placeholder{color:var(--cream-dim);opacity:.4}
+.field-row input:focus,.field-full input:focus{border-color:var(--gold)}
+.field-hint{font-size:12px;color:var(--cream-dim);opacity:.5;margin-top:4px}
+
+/* SUBMIT */
+.submit-btn{
+display:block;width:100%;padding:16px 32px;
+background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+border:none;border-radius:8px;cursor:pointer;
+font-family:'Jost',sans-serif;font-size:16px;font-weight:600;
+color:var(--bg);letter-spacing:.5px;
+transition:all .3s;position:relative;overflow:hidden
+}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,168,76,.25)}
+.submit-btn:active{transform:translateY(0)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ERROR */
+.field-error{border-color:#8a2a2a !important}
+.error-msg{color:#c45c5c;font-size:13px;margin-top:6px;display:none}
+
+/* STEPS */
+.steps-section{padding:48px 0 40px}
+.steps-title{
+font-family:'Cormorant Garamond',serif;font-size:22px;
+text-align:center;color:var(--cream);margin-bottom:36px;font-weight:500
+}
+.step{
+display:flex;gap:16px;align-items:flex-start;
+margin-bottom:24px;padding:16px;
+border-radius:8px;background:var(--surface);border:1px solid var(--border)
+}
+.step-num{
+width:32px;height:32px;border-radius:50%;flex-shrink:0;
+background:rgba(201,168,76,.12);border:1px solid var(--border-gold);
+font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;
+color:var(--gold);display:flex;align-items:center;justify-content:center
+}
+.step-text{font-size:15px;color:var(--cream-dim);line-height:1.6;padding-top:4px}
+.step-text strong{color:var(--cream);font-weight:500}
+
+/* SUCCESS STATE */
+.success-state{
+display:none;text-align:center;padding:48px 0
+}
+.success-check{
+width:64px;height:64px;border-radius:50%;
+background:rgba(201,168,76,.12);border:2px solid var(--gold);
+display:flex;align-items:center;justify-content:center;
+margin:0 auto 24px;font-size:28px
+}
+.success-heading{
+font-family:'Cormorant Garamond',serif;font-size:24px;
+color:var(--cream);margin-bottom:12px;font-weight:500
+}
+.success-text{
+font-size:15px;color:var(--cream-dim);line-height:1.7;
+margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto
+}
+.cal-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cal-link{
+display:inline-flex;align-items:center;gap:8px;
+padding:10px 20px;border-radius:6px;
+background:var(--surface);border:1px solid var(--border);
+color:var(--cream-dim);font-size:14px;text-decoration:none;
+transition:all .2s
+}
+.cal-link:hover{border-color:var(--gold);color:var(--cream)}
+
+/* FOOTER */
+.footer{
+text-align:center;padding:32px 24px;
+border-top:1px solid var(--border);
+font-size:13px;color:var(--cream-dim);opacity:.5
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+.container{padding:0 18px}
+.letter{padding:40px 0 32px}
+.dj-photo{width:100px;height:100px;margin-bottom:28px}
+.letter-body p{font-size:17px}
+.form-title{font-size:23px}
+.field-row{grid-template-columns:1fr}
+.cal-links{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">A Personal Note From DJ Naronikar</div>
+
+<!-- LETTER -->
+<div class="container">
+<section class="letter">
+<img
+  src="https://thequantumachievers.com/wp-content/uploads/2025/12/Dhananjay-Naronikar-The-Quantum-Achivers.webp"
+  alt="DJ Naronikar"
+  class="dj-photo"
+  width="120" height="120"
+  loading="eager"
+>
+
+<div class="salutation">Dear friend,</div>
+
+<div class="letter-body">
+<p>You signed up for my cybersecurity webinar a while back. Life happened — I get it. Maybe work got hectic, maybe you forgot, maybe the timing just didn't line up. I'm not writing to chase you down.</p>
+
+<p>But I know the question doesn't just go away: <em>"Is a move into cybersecurity actually possible for someone like me?"</em></p>
+
+<p>I've been in this industry for over 20 years. I've watched hundreds of IT professionals make this exact transition — many of them on H-1B visas, many of them wondering if it was too late. <strong>It wasn't.</strong></p>
+
+<div class="callout">I'm running another live session on <strong>March 19 at 11:00 AM EST (9:30 PM IST)</strong>. Before I add you, I want to understand where you actually are right now.</div>
+
+<p>3 quick questions. 2 minutes. No sales call at the end.</p>
+</div>
+
+<div class="letter-sign">
+Warmly,<br>
+<strong>DJ Naronikar</strong>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FORM -->
+<section class="form-section" id="formSection">
+<h2 class="form-title">Quick Check-In</h2>
+<p class="form-sub">Takes about 2 minutes. Your answers stay between us.</p>
+
+<form id="reengageForm" novalidate>
+
+<!-- Q1 -->
+<div class="q-group">
+<label class="q-label"><span class="q-number">1</span> What got in the way last time?</label>
+<div class="radio-group" id="q1Group">
+<label class="radio-option">
+<input type="radio" name="reengage_q1_why_missed" value="Forgot about it" required>
+<span>Forgot about it</span>
+</label>
+<label class="radio-option">
+<input type="radio" name="reengage_q1_why_missed" value="Timing didn't work">
+<span>Timing didn't work</span>
+</label>
+<label class="radio-option">
+<input type="radio" name="reengage_q1_why_missed" value="Wasn't sure it was right for me">
+<span>Wasn't sure it was right for me</span>
+</label>
+<label class="radio-option">
+<input type="radio" name="reengage_q1_why_missed" value="Something else came up">
+<span>Something else came up</span>
+</label>
+</div>
+<div class="error-msg" id="q1Error">Please select an option</div>
+</div>
+
+<!-- Q2 -->
+<div class="q-group">
+<label class="q-label"><span class="q-number">2</span> Where does cybersecurity sit for you right now?</label>
+<div class="radio-group" id="q2Group">
+<label class="radio-option">
+<input type="radio" name="reengage_q2_interest_level" value="Ready to make the move" required>
+<span>Ready to make the move</span>
+</label>
+<label class="radio-option">
+<input type="radio" name="reengage_q2_interest_level" value="Still exploring my options">
+<span>Still exploring my options</span>
+</label>
+<label class="radio-option">
+<input type="radio" name="reengage_q2_interest_level" value="Interested but not right now">
+<span>Interested but not right now</span>
+</label>
+<label class="radio-option">
+<input type="radio" name="reengage_q2_interest_level" value="I've moved on">
+<span>I've moved on</span>
+</label>
+</div>
+<div class="error-msg" id="q2Error">Please select an option</div>
+</div>
+
+<!-- Q3 -->
+<div class="q-group">
+<label class="q-label"><span class="q-number">3</span> If DJ could answer one question for you live, what would it be?</label>
+<textarea name="reengage_q3_question_for_dj" placeholder="Type your question here..."></textarea>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section">
+<div class="contact-title">Your details</div>
+<div class="field-row">
+<div>
+<input type="text" name="first_name" placeholder="First Name" required>
+<div class="error-msg" id="fnError">First name is required</div>
+</div>
+<div>
+<input type="text" name="last_name" placeholder="Last Name" required>
+<div class="error-msg" id="lnError">Last name is required</div>
+</div>
+</div>
+<div class="field-full">
+<input type="email" name="email" placeholder="Email address" required>
+<div class="error-msg" id="emError">Valid email is required</div>
+</div>
+<div class="field-full">
+<input type="tel" name="phone" placeholder="Phone (+1 or +91)">
+<div class="field-hint">Include country code — +1 for US, +91 for India</div>
+</div>
+<input type="hidden" name="source" value="TQA Re-engagement Page">
+</div>
+
+<button type="submit" class="submit-btn" id="submitBtn">Submit &amp; Reserve My Seat &rarr;</button>
+</form>
+</section>
+
+<div class="divider"></div>
+
+<!-- STEPS -->
+<section class="steps-section" id="stepsSection">
+<h3 class="steps-title">What Happens Next</h3>
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-text"><strong>DJ personally reviews</strong> your answers</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-text">You get a <strong>confirmation email</strong> with the webinar link</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-text"><strong>March 19</strong> — join live at 11:00 AM EST / 9:30 PM IST</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-text">No sales call. No pressure. Just <strong>clarity on your next step</strong></div>
+</div>
+</section>
+
+<!-- SUCCESS STATE -->
+<section class="success-state" id="successState">
+<div class="success-check">&#10003;</div>
+<h2 class="success-heading">Thank you.</h2>
+<p class="success-text">DJ will review your answers personally. Check your email for the March 19 webinar link.</p>
+<div class="cal-links">
+<a class="cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Quantum+Achievers+%E2%80%94+Free+Cybersecurity+Webinar&dates=20260319T160000Z/20260319T170000Z&details=Join+DJ+Naronikar+live+for+a+free+cybersecurity+career+transition+session.&location=Online" target="_blank" rel="noopener">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+Google Calendar
+</a>
+<a class="cal-link" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ADTSTART%3A20260319T160000Z%0ADTEND%3A20260319T170000Z%0ASUMMARY%3AThe%20Quantum%20Achievers%20%E2%80%94%20Free%20Cybersecurity%20Webinar%0ADESCRIPTION%3AJoin%20DJ%20Naronikar%20live%20for%20a%20free%20cybersecurity%20career%20transition%20session.%0ALOCATION%3AOnline%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="TQA-Webinar-March19.ics">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+Outlook / iCal
+</a>
+</div>
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">&copy; 2026 The Quantum Achievers</footer>
+
+<script>
+(function(){
+  const WEBHOOK='https://services.leadconnectorhq.com/hooks/cv0yehFtVK84960e2GsO/webhook-trigger/90b5cdb3-71d1-4026-9172-948fdd6e5828';
+  const form=document.getElementById('reengageForm');
+  const btn=document.getElementById('submitBtn');
+
+  // Radio selection styling
+  document.querySelectorAll('.radio-option').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      var name=opt.querySelector('input').name;
+      document.querySelectorAll('input[name="'+name+'"]').forEach(function(r){
+        r.closest('.radio-option').classList.remove('selected');
+      });
+      opt.querySelector('input').checked=true;
+      opt.classList.add('selected');
+      // Clear error
+      var group=opt.closest('.q-group');
+      if(group)group.querySelector('.error-msg').style.display='none';
+    });
+  });
+
+  function validate(){
+    var ok=true;
+    var q1=form.querySelector('input[name="reengage_q1_why_missed"]:checked');
+    var q2=form.querySelector('input[name="reengage_q2_interest_level"]:checked');
+    var fn=form.querySelector('input[name="first_name"]');
+    var ln=form.querySelector('input[name="last_name"]');
+    var em=form.querySelector('input[name="email"]');
+
+    if(!q1){document.getElementById('q1Error').style.display='block';ok=false;}
+    else{document.getElementById('q1Error').style.display='none';}
+
+    if(!q2){document.getElementById('q2Error').style.display='block';ok=false;}
+    else{document.getElementById('q2Error').style.display='none';}
+
+    if(!fn.value.trim()){fn.classList.add('field-error');document.getElementById('fnError').style.display='block';ok=false;}
+    else{fn.classList.remove('field-error');document.getElementById('fnError').style.display='none';}
+
+    if(!ln.value.trim()){ln.classList.add('field-error');document.getElementById('lnError').style.display='block';ok=false;}
+    else{ln.classList.remove('field-error');document.getElementById('lnError').style.display='none';}
+
+    var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRe.test(em.value.trim())){em.classList.add('field-error');document.getElementById('emError').style.display='block';ok=false;}
+    else{em.classList.remove('field-error');document.getElementById('emError').style.display='none';}
+
+    return ok;
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!validate())return;
+    btn.disabled=true;
+    btn.textContent='Submitting...';
+
+    var data={
+      first_name:form.first_name.value.trim(),
+      last_name:form.last_name.value.trim(),
+      email:form.email.value.trim(),
+      phone:form.phone.value.trim(),
+      source:'TQA Re-engagement Page',
+      reengage_q1_why_missed:form.querySelector('input[name="reengage_q1_why_missed"]:checked').value,
+      reengage_q2_interest_level:form.querySelector('input[name="reengage_q2_interest_level"]:checked').value,
+      reengage_q3_question_for_dj:(form.querySelector('textarea[name="reengage_q3_question_for_dj"]').value||'').trim()
+    };
+
+    fetch(WEBHOOK,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    }).then(function(){
+      showSuccess();
+    }).catch(function(){
+      // Still show success — webhook might return non-JSON
+      showSuccess();
+    });
+
+    fbq('track','Lead');
+  });
+
+  function showSuccess(){
+    document.getElementById('formSection').style.display='none';
+    document.getElementById('stepsSection').style.display='none';
+    document.getElementById('successState').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+})();
+</script>
+</body>
+</html>

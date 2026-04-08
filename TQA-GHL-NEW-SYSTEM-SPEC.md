@@ -9,7 +9,7 @@
 1. **Dashboard:** Pipeline with real numbers — 6 Applied ($30K), 7 Attended ($35K), 53 No Shows ($27 briefing registrants)
 2. **Contacts:** Everyone tagged, segmented, assigned. No mystery leads.
 3. **Workflows:** Clean automation running — new leads get nurtured, briefing registrants get prepped, post-briefing gets followed up. All automatic.
-4. **Calendar:** Two options — Career Briefing (April 11) and Strategy Call (for DJ). Nothing else.
+4. **Calendar:** Two options — Career Briefing (April 18) and Strategy Call (for DJ). Nothing else.
 5. **Social:** LinkedIn connected. Posts scheduling from GHL.
 
 DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pipeline, or extromarketingagency in the from field.
@@ -62,8 +62,8 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 | Stage | What it means | Value | Who owns |
 |-------|--------------|-------|----------|
 | New Lead | Just entered system (Meta ad, LinkedIn, organic) | $0 | Automation |
-| Briefing Registered | Registered for April 11 ($27) | $27 | Automation |
-| Briefing Attended | Showed up on April 11 | $0 | DJ |
+| Briefing Registered | Registered for April 18 ($27) | $27 | Automation |
+| Briefing Attended | Showed up on April 18 | $0 | DJ |
 | Briefing No Show | Registered but didn't attend | $0 | Automation |
 | Accelerator Applied | Applied for $4,997 Cybersecurity Accelerator | $4,997 | DJ |
 | Accelerator Enrolled | Paid $4,997 (or started payment plan) | $4,997 | DJ |
@@ -95,7 +95,7 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 - "TQA-Temporary Reminder" — delete (unknown purpose)
 
 ### Update these published workflows:
-- **"TQA – Webinar Confirmation & Reminders"** → Change March 19 → April 11. Update Zoom link. Update from "masterclass" to "Career Briefing."
+- **"TQA – Webinar Confirmation & Reminders"** → Change March 19 → April 18. Update Zoom link. Update from "masterclass" to "Career Briefing."
 - **"TQA-Post Webinar — Attendees"** → Add Accelerator link (dmanwadefreedom.github.io/tqa-funnel/accelerator.html). Add Stripe checkout link when DJ creates it.
 - **"TQA-Post Webinar — No Show"** → Add next briefing invite. Remove guilt language.
 
@@ -115,7 +115,7 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 - Wait 2 days
 - Email 2B: "What a hiring CISO sees on your LinkedIn"
 - Wait 2 days
-- Email 3A: "April 11: Cybersecurity Career Briefing"
+- Email 3A: "April 18: Cybersecurity Career Briefing"
 - Tag: tqa-briefing-invited
 
 **Workflow C: Briefing Registration (trigger: form submission or tag tqa-briefing-registrant)**
@@ -125,7 +125,7 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 - Day 1: Email 4B (3 mistakes email)
 - Day 2: Email 4C (Rob G case study)
 - Day 3: Email 4D (AI urgency)
-- Morning of April 11: Email 4E (we're live) + SMS
+- Morning of April 18: Email 4E (we're live) + SMS
 - -1 hour: SMS reminder
 - -5 min: SMS "starting now"
 
@@ -155,7 +155,7 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 ## STEP 5: FORMS UPDATE (Agresh — 15 min)
 
 ### Update "TQA – Webinar Registration":
-- Change all March 19 references to April 11
+- Change all March 19 references to April 18
 - Change "masterclass" to "Career Briefing"
 - Add phone + SMS consent field
 - Redirect after submit: Confirmation page ($27 payment via Stripe, then confirmation)

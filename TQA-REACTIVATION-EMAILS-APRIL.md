@@ -1,5 +1,5 @@
 # TQA Reactivation Emails -- April 2026
-## Target: April 11 $27 Career Briefing
+## Target: April 18 $27 Career Briefing
 ## Registration Link: https://dmanwadefreedom.github.io/tqa-funnel/
 
 ---
@@ -28,11 +28,11 @@ I reviewed your application personally. You took a step most people won't. I don
 
 Here's what I want to do about it.
 
-On April 11, I'm running a live career briefing where I'll break down the exact framework I've used across 400+ organizations to build cybersecurity careers from scratch -- the same one that helped a former chef land a $120K analyst role.
+On April 18, I'm running a live career briefing where I'll break down the exact framework I've used across 400+ organizations to build cybersecurity careers from scratch -- the same one that helped a former chef land a $120K analyst role.
 
 You're getting priority access before anyone else sees this.
 
-**$27 reserves your seat:** [Register for April 11 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
+**$27 reserves your seat:** [Register for April 18 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
 
 And if you want to talk before then -- reply to this email. I'll personally make time.
 
@@ -76,9 +76,9 @@ Here's what changed:
 - **The Rob G. case study in full** -- a former chef, zero tech background, now a $120K/year cybersecurity analyst. I'll walk through every step he took.
 - **Live Q&A built into the session** -- not tacked on at the end
 
-April 11 is the improved version. It's just $27 to attend -- because I want to make sure everyone who's serious gets access.
+April 18 is the improved version. It's just $27 to attend -- because I want to make sure everyone who's serious gets access.
 
-**Claim your seat:** [Register for April 11 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
+**Claim your seat:** [Register for April 18 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
 
 You already proved you're serious once. This is the next step.
 
@@ -116,11 +116,11 @@ But the reason you signed up hasn't gone away.
 
 The math: cybersecurity professionals earn $150K+ on average. General IT sits around $105K. Over 10 years, that gap is roughly $800,000 in lost earnings. That's not a motivational line -- it's Bureau of Labor Statistics data.
 
-On **April 11**, I'm running a $27 live career briefing breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and the Central Bank of India.
+On **April 18**, I'm running a $27 live career briefing breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and the Central Bank of India.
 
 Companies pay me $2,000-$3,000 a day for this. I'm opening it up for just $27 because I want the right people in the room -- people who are ready to move.
 
-**50 seats. $27 entry:** [Register for April 11 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
+**50 seats. $27 entry:** [Register for April 18 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
 
 You already raised your hand once. This is me holding the door open.
 
@@ -160,10 +160,10 @@ One fact, then two buttons:
 
 **Cybersecurity job openings are projected to grow 33% through 2033.** The talent shortage is real. If you have IT experience and want to make the jump, the window is wide open.
 
-On **April 11**, I'm hosting a $27 live career briefing where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
+On **April 18**, I'm hosting a $27 live career briefing where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
 
 If you're in:
-**[Yes -- Register for April 11 ($27)](https://dmanwadefreedom.github.io/tqa-funnel/)**
+**[Yes -- Register for April 18 ($27)](https://dmanwadefreedom.github.io/tqa-funnel/)**
 
 If you're out:
 **[Remove me from this list]({{unsubscribe_link}})**

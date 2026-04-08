@@ -200,7 +200,7 @@ Two Paths:
 
 Path A (Alone): 70% fail, 6-12 month search, wrong certs, resume rejected, no hidden job market
 
-Path B (CISO 360): **[VERIFY THIS]** placement rate, 3-6 months to first role, clear roadmap, cyber resume, employer intros
+Path B (Cybersecurity Accelerator): **[VERIFY THIS]** placement rate, 3-6 months to first role, clear roadmap, cyber resume, employer intros
 
 **CRITICAL:** The "92% placement rate" must be verified with data. If DJ can prove it: put it in BOLD. If he can't: replace with verifiable numbers (e.g., "X students placed in 202X" or "Y% interview rate").
 
@@ -216,7 +216,7 @@ One fake stat kills credibility with analytical Indian IT professionals. They wi
 - Personalized 8-page PDF delivered within 24 hours
 - Your readiness score, recommended cert path, salary projection, and 90-day action plan
 - Stands alone — no obligation, no sales call
-- "If you want help executing the plan, you can apply for CISO 360 from there."
+- "If you want help executing the plan, you can apply for the Cybersecurity Accelerator from there."
 
 **Why add this:** Gives fence-sitters an action. They leave with something to do. $47 buyers are qualified leads for the next cohort.
 
@@ -228,7 +228,7 @@ One fake stat kills credibility with analytical Indian IT professionals. They wi
 **NEW:**
 Two options:
 
-1. **Apply for CISO 360** — 15 seats, next cohort starts [DATE]
+1. **Apply for the Cybersecurity Accelerator** — 15 seats, next cohort starts [DATE]
    [Application URL — DJ's domain]
 
 2. **Start with the $47 Career Assessment** — Get your personalized roadmap
@@ -247,7 +247,7 @@ Questions — drop them in the chat.
 
 ## PRODUCTION NOTES FOR DJ
 
-1. **Remove ALL "The Quantum Achievers" branding** — replace with "DJ Naronikar | CISO 360"
+1. **Remove ALL "The Quantum Achievers" branding** — replace with "DJ Naronikar | Cybersecurity Accelerator"
 2. **Update the deck template colors** — keep dark/professional, but align with DJ's personal brand, not TQA
 3. **Add DJ's headshot to the footer of every slide** — personal brand reinforcement
 4. **Every slide should map to a belief** — see DJ-BELIEF-MAP.md

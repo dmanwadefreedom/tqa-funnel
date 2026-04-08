@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA — Complete Funnel Architecture</title>
+<style>
+  /* Global 20% scale-up */
+  html { font-size: 120%; }
+
+  :root {
+    --bg: #0a0e1a;
+    --card: #131929;
+    --border: #1e2a42;
+    --accent: #3b82f6;
+    --gold: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --orange: #f97316;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+    font-size: 1.2rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.75rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* Funnel Sections */
+  .funnel-section {
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .label-traffic { background: rgba(139,92,246,0.15); color: var(--purple); }
+  .label-capture { background: rgba(59,130,246,0.15); color: var(--accent); }
+  .label-nurture { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .label-qualify { background: rgba(236,72,153,0.15); color: var(--pink); }
+  .label-convert { background: rgba(16,185,129,0.15); color: var(--green); }
+  .label-ascend { background: rgba(239,68,68,0.15); color: var(--red); }
+
+  /* Node Grid */
+  .node-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .node {
+    flex: 1;
+    min-width: 180px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .node-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .node-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .node-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .node-body {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .node-body strong { color: var(--text); }
+
+  .node-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-proven { background: rgba(16,185,129,0.15); color: var(--green); }
+  .tag-boyd { background: rgba(139,92,246,0.15); color: var(--purple); }
+  .tag-victoria { background: rgba(236,72,153,0.15); color: var(--pink); }
+  .tag-dj { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .tag-new { background: rgba(59,130,246,0.15); color: var(--accent); }
+
+  .icon-purple { background: rgba(139,92,246,0.2); color: var(--purple); }
+  .icon-blue { background: rgba(59,130,246,0.2); color: var(--accent); }
+  .icon-gold { background: rgba(245,158,11,0.2); color: var(--gold); }
+  .icon-green { background: rgba(16,185,129,0.2); color: var(--green); }
+  .icon-pink { background: rgba(236,72,153,0.2); color: var(--pink); }
+  .icon-red { background: rgba(239,68,68,0.2); color: var(--red); }
+  .icon-orange { background: rgba(249,115,22,0.2); color: var(--orange); }
+
+  /* Flow arrows */
+  .flow-arrow {
+    text-align: center;
+    color: var(--border);
+    font-size: 1.5rem;
+    margin: 0.25rem 0;
+    line-height: 1;
+  }
+
+  .flow-arrow.split {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  /* Decision diamond */
+  .decision {
+    background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(236,72,153,0.1));
+    border: 1px dashed var(--gold);
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .decision-text {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .decision-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .opt-yes { color: var(--green); }
+  .opt-no { color: var(--red); }
+
+  /* Metric boxes */
+  .metrics-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  .metric strong { color: var(--green); }
+
+  /* Section divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  /* Proof bar */
+  .proof-bar {
+    background: rgba(16,185,129,0.06);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .proof-bar strong { color: var(--green); }
+
+  /* Notes */
+  .notes {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 2rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .notes h3 {
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .notes ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .notes li {
+    padding: 0.3rem 0;
+    font-size: 0.8rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .notes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid { grid-template-columns: repeat(2, 1fr); }
+    .node-row { flex-direction: column; }
+  }
+
+  .content-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+  }
+
+  .content-card .cc-pct {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .content-card .cc-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .content-card .cc-desc {
+    font-size: 0.75rem;
+    color: var(--text);
+    margin-top: 0.25rem;
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<h1>TQA Funnel Architecture</h1>
+<p class="subtitle">DJ Naronikar &mdash; Cybersecurity Career Authority | Based on proven models (Boyd Clewis, Victoria, Hormozi)</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple);"></div> Traffic</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent);"></div> Capture</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div> Nurture</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--pink);"></div> Qualify</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div> Convert</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red);"></div> Ascend</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div> Reactivate</div>
+</div>
+
+<!-- ============== STAGE 1: TRAFFIC ============== -->
+<div class="funnel-section">
+  <span class="section-label label-traffic">Stage 1 &mdash; Traffic (Get Eyeballs)</span>
+
+  <div class="node-row">
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-purple">YT</div>
+        <div class="node-title">YouTube (Primary)</div>
+      </div>
+      <div class="node-body">
+        <strong>80% viral fear content</strong> &mdash; AI cyber attacks, scam breakdowns, breach news, "your IT job isn't safe"<br><br>
+        <strong>20% career content</strong> &mdash; "How I went from helpdesk to CISO", salary comparisons, cert paths, day-in-the-life<br><br>
+        Every description + pinned comment &rarr; Career Briefing link
+      </div>
+      <span class="node-tag tag-boyd">Boyd model</span>
+      <span class="node-tag tag-proven">Proven: 320K subs</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-purple">LI</div>
+        <div class="node-title">LinkedIn (Authority)</div>
+      </div>
+      <div class="node-body">
+        <strong>DJ's strongest platform</strong> (9K followers, 18 recs, 1K newsletter subs)<br><br>
+        Daily posts: industry insights + career pivot hooks<br>
+        Newsletter: weekly deep-dive (repurpose from YT)<br>
+        Every post ends with CTA &rarr; Career Briefing link
+      </div>
+      <span class="node-tag tag-dj">DJ's lane</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-purple">MA</div>
+        <div class="node-title">Meta Ads (Paid)</div>
+      </div>
+      <div class="node-body">
+        <strong>NEW audience:</strong> LinkedIn scrape of Info/Cyber/IT Security Managers uploaded to Meta<br><br>
+        <strong>NOT targeting:</strong> broke IT helpdesk workers<br><br>
+        Ad creative: fear hook ("AI will cause the biggest cyber attacks in history") &rarr; Career Briefing
+      </div>
+      <span class="node-tag tag-new">Fix: wrong audience</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-purple">PC</div>
+        <div class="node-title">Podcast &mdash; Cyber Caffeine</div>
+      </div>
+      <div class="node-body">
+        <strong>Audio version of YouTube content</strong><br>
+        Strip audio from YT &rarr; Spotify<br>
+        1 recording = YouTube + podcast + LinkedIn clips + Shorts<br><br>
+        Every episode: "Link in description for the Career Briefing"
+      </div>
+      <span class="node-tag tag-victoria">Victoria model</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-purple">DM</div>
+        <div class="node-title">LinkedIn DM (Outbound)</div>
+      </div>
+      <div class="node-body">
+        <strong>GHL workflow targets IT Security Managers on LinkedIn</strong><br><br>
+        DJ connects, sends value-first DM sequence<br>
+        No pitch in DM &mdash; drives to Career Briefing link<br><br>
+        <strong>DJ's 9K followers + 18 recs = warm outreach advantage</strong>
+      </div>
+      <span class="node-tag tag-dj">DJ's GHL workflow</span>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-card">
+      <div class="cc-pct">50%</div>
+      <div class="cc-label">Fear / News</div>
+      <div class="cc-desc">AI attacks, breaches, scams, "your job is at risk"</div>
+    </div>
+    <div class="content-card">
+      <div class="cc-pct">25%</div>
+      <div class="cc-label">Career Proof</div>
+      <div class="cc-desc">Salary reveals, success stories, "chef to $120K"</div>
+    </div>
+    <div class="content-card">
+      <div class="cc-pct">15%</div>
+      <div class="cc-label">DJ Authority</div>
+      <div class="cc-desc">Central Bank policy, Shell, EY, case studies</div>
+    </div>
+    <div class="content-card">
+      <div class="cc-pct">10%</div>
+      <div class="cc-label">Behind Scenes</div>
+      <div class="cc-desc">DJ's day, students, live Q&A, personality</div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">&darr;</div>
+
+<!-- ============== STAGE 2: CAPTURE ============== -->
+<div class="funnel-section">
+  <span class="section-label label-capture">Stage 2 &mdash; Capture (Get Contact Info)</span>
+
+  <div class="node-row">
+    <div class="node" style="flex:2;">
+      <div class="node-header">
+        <div class="node-icon icon-blue">MC</div>
+        <div class="node-title">Paid Career Briefing &mdash; $27</div>
+      </div>
+      <div class="node-body">
+        <strong>ONE link everywhere:</strong> thequantumachievers.com/briefing<br><br>
+        <strong>Headline:</strong> "How IT Professionals Are Landing $150K+ Cybersecurity Roles in 90 Days &mdash; Without Starting From Scratch"<br><br>
+        <strong>Captures:</strong> Name, Email, Phone (+SMS consent), Current role, Years in IT<br><br>
+        <strong>Paid entry ($27)</strong> filters for serious leads. Boyd uses free because he has 320K subs. DJ doesn't yet &mdash; paid = quality.<br><br>
+        <strong>Scarcity:</strong> "Next live briefing: April 11 &mdash; limited to 50 seats"<br>
+        <strong>Urgency:</strong> "No replay available"
+      </div>
+      <span class="node-tag tag-proven">Boyd + DJ hybrid</span>
+      <div class="metrics-row">
+        <div class="metric">Boyd CPL: <strong>~$4</strong></div>
+        <div class="metric">DJ best CPL: <strong>$4.11</strong></div>
+        <div class="metric">Target show rate: <strong>50%+</strong> (paid)</div>
+      </div>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-blue">QZ</div>
+        <div class="node-title">Quiz (Secondary Entry)</div>
+      </div>
+      <div class="node-body">
+        <strong>"Is Your IT Career AI-Proof?"</strong><br><br>
+        8 questions &rarr; readiness score<br>
+        Captures email on Q1<br><br>
+        Score result page: "Your score is X. Here's what to do next" &rarr; Career Briefing CTA<br><br>
+        <strong>For people not ready to pay yet</strong> &mdash; warms them up, then drives to Career Briefing
+      </div>
+      <span class="node-tag tag-dj">Already built</span>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">&darr;</div>
+
+<!-- ============== STAGE 3: NURTURE ============== -->
+<div class="funnel-section">
+  <span class="section-label label-nurture">Stage 3 &mdash; Nurture (Build Trust Before the Class)</span>
+
+  <div class="node-row">
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-gold">EM</div>
+        <div class="node-title">Pre-Class Email Sequence</div>
+      </div>
+      <div class="node-body">
+        <strong>Day 0:</strong> Confirmation + "What to expect" + DJ's story (60 seconds)<br>
+        <strong>Day 1:</strong> "The 3 biggest mistakes IT pros make when pivoting" (value email)<br>
+        <strong>Day 2:</strong> Rob G case study &mdash; chef to $120K cybersecurity analyst<br>
+        <strong>Day 3:</strong> "Why AI makes this MORE urgent, not less" (fear + opportunity)<br>
+        <strong>Day of:</strong> Reminder + Zoom link + "Your seat is confirmed"
+      </div>
+      <span class="node-tag tag-proven">Standard webinar nurture</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-gold">VD</div>
+        <div class="node-title">Pre-Class Trust Video (VSL)</div>
+      </div>
+      <div class="node-body">
+        <strong>7-min video sent before the Career Briefing</strong><br><br>
+        DJ on camera: "Here's who I am, here's what I've done, here's what you'll learn in the class"<br><br>
+        Includes: Central Bank story, $300K wire fraud save, Rob G transformation<br><br>
+        <strong>This is the Victoria insight</strong> &mdash; they watch, self-qualify, and come to the class already trusting DJ
+      </div>
+      <span class="node-tag tag-victoria">Victoria model</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-gold">SM</div>
+        <div class="node-title">SMS Reminders</div>
+      </div>
+      <div class="node-body">
+        <strong>Day -1:</strong> "Tomorrow at 11AM EST &mdash; your class with DJ. Bring questions."<br>
+        <strong>Day 0, -1hr:</strong> "Starting in 1 hour. Here's your link: [zoom]"<br>
+        <strong>Day 0, -5min:</strong> "We're live now. Join: [zoom]"<br><br>
+        <strong>Boyd captures phone + SMS consent</strong> on signup. 10x more effective than email for show rate.
+      </div>
+      <span class="node-tag tag-boyd">Boyd model</span>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">&darr;</div>
+
+<!-- ============== STAGE 4: THE CLASS ============== -->
+<div class="funnel-section">
+  <span class="section-label label-qualify">Stage 4 &mdash; The Career Briefing (Qualify + Pitch)</span>
+
+  <div class="node-row">
+    <div class="node" style="flex:2;">
+      <div class="node-header">
+        <div class="node-icon icon-pink">WB</div>
+        <div class="node-title">Live Career Briefing &mdash; 60-90 Minutes</div>
+      </div>
+      <div class="node-body">
+        <strong>Structure (Brunson Perfect Webinar framework):</strong><br><br>
+        <strong>0-5 min:</strong> Hook &mdash; "Your IT job is safe. Your IT career is NOT." + DJ credentials in 60 sec<br>
+        <strong>5-20 min:</strong> The opportunity &mdash; 600K unfilled cyber jobs, salary data, AI making it urgent<br>
+        <strong>20-35 min:</strong> The 3 secrets &mdash; (1) You don't need coding, (2) GRC is the fastest path, (3) Certifications alone won't get you hired<br>
+        <strong>35-50 min:</strong> The stack &mdash; reveal the Accelerator offer piece by piece<br>
+        <strong>50-60 min:</strong> The close &mdash; price reveal, payment plan, Q&A<br>
+        <strong>60-90 min:</strong> Live Q&A (people who stay are the hottest leads)<br><br>
+        <strong>Offer at briefing: $997 Accelerator</strong> (not $4,999 &mdash; save that for qualified calls)<br>
+        <strong>Briefing-only bonus:</strong> 1-on-1 career audit with DJ (first 10 who enroll)
+      </div>
+      <span class="node-tag tag-proven">Brunson Perfect Webinar</span>
+      <span class="node-tag tag-boyd">Boyd price point</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-pink">LN</div>
+        <div class="node-title">Live LinkedIn Exercise</div>
+      </div>
+      <div class="node-body">
+        <strong>DJ's unique move:</strong> During the class, he does a LIVE audit of an attendee's LinkedIn profile<br><br>
+        Shows exactly what a hiring manager sees<br>
+        Demonstrates DJ's expertise in real-time<br>
+        Creates "I need this" moment<br><br>
+        <strong>Boyd doesn't do this</strong> &mdash; it's DJ's differentiator
+      </div>
+      <span class="node-tag tag-dj">DJ's advantage</span>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">&darr;</div>
+
+<!-- ============== DECISION POINT ============== -->
+<div class="funnel-section">
+  <div class="decision">
+    <div class="decision-text">Did they buy the $997 Accelerator at the Career Briefing?</div>
+    <div class="decision-options">
+      <span class="opt-yes">&larr; YES &mdash; Onboard immediately</span>
+      <span class="opt-no">NO &mdash; Follow-up sequence &rarr;</span>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow split"><span>&swarr;</span><span>&searr;</span></div>
+
+<!-- ============== STAGE 5A: CONVERT (BUYERS) ============== -->
+<div class="funnel-section">
+  <span class="section-label label-convert">Stage 5A &mdash; Convert (Buyers &rarr; Onboard)</span>
+
+  <div class="node-row">
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-green">$</div>
+        <div class="node-title">$997 CyberHero Accelerator</div>
+      </div>
+      <div class="node-body">
+        <strong>12-week program</strong> (DJ's 14-week compressed)<br>
+        PCI DSS / GRC focus (legally required = job security)<br><br>
+        <strong>Includes:</strong><br>
+        &bull; 5 core video modules (DJ's courseware)<br>
+        &bull; Weekly live group calls with DJ<br>
+        &bull; AI career assistant (DJ's brain)<br>
+        &bull; LinkedIn profile audit<br>
+        &bull; Resume + interview prep<br>
+        &bull; WhatsApp community access<br>
+        &bull; Certificate of completion<br><br>
+        <strong>Payment plan:</strong> 3x $367 or 6x $197<br>
+        <strong>Guarantee:</strong> "Land 3 interviews in 90 days or we work with you free until you do"
+      </div>
+      <span class="node-tag tag-boyd">Boyd price point</span>
+      <span class="node-tag tag-proven">$997 converts at 3-5%</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-green">CI</div>
+        <div class="node-title">$4,999&ndash;$7,000 CISO Track</div>
+      </div>
+      <div class="node-body">
+        <strong>For security managers targeting CISO roles</strong><br><br>
+        14-week mentorship with DJ<br>
+        1-on-1 sessions + board presentation coaching<br>
+        Executive leadership skills<br>
+        DJ's network introductions<br>
+        Placement guarantee + executive resume service<br><br>
+        <strong>Upsell path:</strong> $997 students upgrade at weeks 4-6 when they want personal guidance, OR direct entry for qualified senior professionals
+      </div>
+      <span class="node-tag tag-dj">DJ's premium tier</span>
+      <span class="node-tag tag-new">Active offer</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-green">WC</div>
+        <div class="node-title">Welcome Call with DJ</div>
+      </div>
+      <div class="node-body">
+        <strong>DJ does VIP welcome calls</strong> (not sales calls)<br><br>
+        15-min onboarding:<br>
+        &bull; Confirm their goals<br>
+        &bull; Assign first week tasks<br>
+        &bull; Set expectations<br>
+        &bull; Plant seed for $4,999 upgrade<br><br>
+        <strong>This is where high-ticket upsell begins naturally</strong>
+      </div>
+      <span class="node-tag tag-dj">DJ's preference</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-green">SK</div>
+        <div class="node-title">Community (WhatsApp/Skool)</div>
+      </div>
+      <div class="node-body">
+        <strong>Included with $997</strong> (not separate)<br><br>
+        &bull; Peer accountability<br>
+        &bull; Weekly DJ voice notes<br>
+        &bull; Job posting alerts<br>
+        &bull; Cert study groups<br>
+        &bull; Success story sharing<br><br>
+        <strong>Boyd model:</strong> community is INCLUDED in course, not sold separately. Keeps retention high.
+      </div>
+      <span class="node-tag tag-boyd">Boyd model</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== STAGE 5B: FOLLOW-UP (NON-BUYERS) ============== -->
+<div class="funnel-section">
+  <span class="section-label label-nurture">Stage 5B &mdash; Follow-Up (Didn't Buy at Briefing)</span>
+
+  <div class="node-row">
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">48</div>
+        <div class="node-title">48-Hour Urgency Sequence</div>
+      </div>
+      <div class="node-body">
+        <strong>Email 1 (0h):</strong> "Replay expires in 48h" + checkout link<br>
+        <strong>Email 2 (12h):</strong> Rob G testimonial + "this was him 6 months ago"<br>
+        <strong>Email 3 (24h):</strong> DJ personal video &mdash; "I noticed you stayed for Q&A"<br>
+        <strong>Email 4 (36h):</strong> Last call + bonus disappearing<br>
+        <strong>SMS (24h):</strong> "Your Career Briefing replay expires tomorrow &mdash; did you have questions?"
+      </div>
+      <span class="node-tag tag-proven">Standard post-webinar</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">AP</div>
+        <div class="node-title">Application Form</div>
+      </div>
+      <div class="node-body">
+        <strong>For people who need a call</strong> (price-sensitive or have questions)<br><br>
+        <strong>Form fields:</strong><br>
+        &bull; Current role + years experience<br>
+        &bull; Target role in cybersecurity<br>
+        &bull; Timeline (30/60/90 days)<br>
+        &bull; Budget range<br>
+        &bull; "Why now?"<br><br>
+        <strong>This pre-qualifies before anyone gets on a call</strong>
+      </div>
+      <span class="node-tag tag-victoria">Victoria model</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">PC</div>
+        <div class="node-title">Pre-Call Video</div>
+      </div>
+      <div class="node-body">
+        <strong>After application, before call:</strong><br><br>
+        5-min video from DJ showing:<br>
+        &bull; "Here's what we'll cover on the call"<br>
+        &bull; Quick success story<br>
+        &bull; "Come prepared with your LinkedIn open"<br><br>
+        <strong>Weeds out tire-kickers.</strong> If they won't watch a 5-min video, they won't pay $997.
+      </div>
+      <span class="node-tag tag-victoria">Victoria model</span>
+    </div>
+  </div>
+
+  <div class="flow-arrow">&darr;</div>
+
+  <div class="decision">
+    <div class="decision-text">Do they book + watch the pre-call video?</div>
+    <div class="decision-options">
+      <span class="opt-yes">&larr; YES &mdash; Strategy call with DJ (warm, pre-qualified)</span>
+      <span class="opt-no">NO &mdash; Long-term nurture sequence &rarr;</span>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">&darr;</div>
+
+<!-- ============== STAGE 6: ASCEND ============== -->
+<div class="funnel-section">
+  <span class="section-label label-ascend">Stage 6 &mdash; Ascend (Back-End Revenue)</span>
+
+  <div class="node-row">
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-red">CI</div>
+        <div class="node-title">$4,999&ndash;$7,000 CISO Track</div>
+      </div>
+      <div class="node-body">
+        <strong>For $997 graduates and qualified senior professionals</strong><br><br>
+        14-week mentorship with DJ<br>
+        1-on-1 sessions + board presentation coaching<br>
+        Executive leadership skills<br>
+        DJ's network introductions<br>
+        Placement guarantee + executive resume service<br>
+        Mock interviews with hiring managers<br><br>
+        <strong>Upsell happens naturally</strong> during week 4-6 of Accelerator, or direct entry for security managers earning $120K+ targeting CISO roles
+      </div>
+      <span class="node-tag tag-dj">DJ's premium tier</span>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-red">CO</div>
+        <div class="node-title">$400/hr Consulting</div>
+      </div>
+      <div class="node-body">
+        <strong>Boyd charges $400/session on Intro.co</strong><br><br>
+        DJ's rate: $2,000-$3,000/day consulting<br><br>
+        Offer 1-hr career strategy sessions at $300-$500<br>
+        For people who don't want a program &mdash; just want DJ's brain for an hour<br><br>
+        <strong>Zero effort revenue</strong> &mdash; just show up and talk
+      </div>
+      <span class="node-tag tag-boyd">Boyd model: Intro.co</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ============== REACTIVATION ============== -->
+<div class="funnel-section">
+  <span class="section-label" style="background:rgba(249,115,22,0.15);color:var(--orange);">Reactivation &mdash; 197 Existing Leads</span>
+
+  <div class="node-row">
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">6</div>
+        <div class="node-title">6 Applicants (HOT)</div>
+      </div>
+      <div class="node-body">
+        <strong>Personal WhatsApp from DJ:</strong><br>
+        "Hey [name], you applied after the Career Briefing. I wanted to reach out personally &mdash; are you still interested in making the switch?"<br><br>
+        These people raised their hand. <strong>This is the fastest money.</strong>
+      </div>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">12</div>
+        <div class="node-title">12 Attended (Warm)</div>
+      </div>
+      <div class="node-body">
+        <strong>Email: "You showed up &mdash; most didn't"</strong><br>
+        Value their time, share the trust video, invite to next Career Briefing (free for returning attendees)
+      </div>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">63</div>
+        <div class="node-title">63 Hot No-Shows</div>
+      </div>
+      <div class="node-body">
+        <strong>Email: "I saved your seat"</strong><br>
+        Send the pre-class trust video (VSL)<br>
+        Invite to April 11 Career Briefing<br>
+        SMS follow-up 24h later
+      </div>
+    </div>
+
+    <div class="node">
+      <div class="node-header">
+        <div class="node-icon icon-orange">LT</div>
+        <div class="node-title">116 Cold / Old Leads</div>
+      </div>
+      <div class="node-body">
+        <strong>Cleanup email:</strong><br>
+        "Are you still interested in cybersecurity? Reply YES or I'll remove you."<br><br>
+        Responders &rarr; nurture sequence<br>
+        Non-responders &rarr; remove after 7 days
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ============== THE MATH ============== -->
+<div class="notes">
+  <h3>The Math &mdash; Why This Works</h3>
+  <ul>
+    <li><strong>100 paid Career Briefing registrants</strong> at $27 = <strong>$2,700</strong> (covers ad spend)</li>
+    <li><strong>50% show rate</strong> (paid entry) = 50 attend (vs 12.5% when free)</li>
+    <li><strong>5% briefing close rate</strong> on $997 = 2-3 sales = <strong>$2,000-$3,000</strong></li>
+    <li><strong>Follow-up sequence</strong> closes another 2-3 in 7 days = <strong>$2,000-$3,000</strong></li>
+    <li><strong>Monthly Career Briefing</strong> &times; 12 = <strong>$48,000-$72,000/year from briefings alone</strong></li>
+    <li><strong>20% of $997 students upsell</strong> to $4,999-$7,000 CISO Track = <strong>$5,000-$14,000/year</strong></li>
+    <li><strong>YouTube + LinkedIn + LinkedIn DM</strong> grow organically, reducing ad spend over time</li>
+    <li><strong>Year 1 conservative target: $60,000-$100,000</strong></li>
+    <li><strong>Year 2 with 50K+ YouTube subs:</strong> simplify to Boyd's model (free briefing &rarr; $2,997)</li>
+  </ul>
+</div>
+
+<!-- ============== KEY PRINCIPLES ============== -->
+<div class="notes" style="margin-top:1rem;">
+  <h3>Key Principles (Proven, Not Made Up)</h3>
+  <ul>
+    <li><strong>Paid entry filters quality.</strong> Boyd can do free because 320K subs self-filter. DJ needs $27 to keep unqualified leads out. (DJ: "Anything that comes free has no value")</li>
+    <li><strong>Pre-call video weeds out tire-kickers.</strong> Victoria's insight: if they watch your YouTube and still want to talk, they're serious. A 5-min pre-call video does the same thing at scale.</li>
+    <li><strong>$997 is the sweet spot.</strong> Boyd's core offer is $997, not $2,997 (we were wrong). This is serious enough to filter, affordable enough for employed IT pros. Save $4,999-$7,000 for the CISO Track upsell.</li>
+    <li><strong>One funnel, not five.</strong> Boyd has ONE path: content &rarr; Career Briefing &rarr; $997. No quiz, no $47 tripwire, no $97/mo subscription. DJ should simplify the same way.</li>
+    <li><strong>Community is included, not sold.</strong> Boyd includes Skool in the $997. No separate $37/mo community. This kills the cannibalization problem DJ flagged.</li>
+    <li><strong>CISO Track is the back-end.</strong> Boyd runs Wealth EngineX as a separate back-end offer. DJ's $4,999-$7,000 CISO Track serves the same role for security managers targeting executive roles.</li>
+    <li><strong>Content creates demand, not ads.</strong> Boyd's 320K YouTube subs are his real moat. DJ should invest 80% of effort in YouTube + LinkedIn, 20% in ads. Reverse the current ratio.</li>
+    <li><strong>Fear sells, career content converts.</strong> Boyd's viral content is scam breakdowns and threat news. His career content is where the money comes from. Use fear to get attention, career proof to get purchases.</li>
+    <li><strong>LinkedIn DM is DJ's unfair advantage.</strong> 9K followers, 18 recommendations, and a GHL workflow for outbound DMs to IT Security Managers. No competitor is doing this systematically.</li>
+  </ul>
+</div>
+
+<div class="proof-bar">
+  <strong>Sources:</strong> Boyd Clewis funnel (walked March 31, 2026) &bull; Victoria Shearing call (March 30) &bull; DJ Naronikar calls (March 24 + 26) &bull; Russell Brunson Perfect Webinar &bull; Alex Hormozi $100M Offers &bull; GHL pipeline data (197 contacts, 0 sales)
+</div>
+
+<hr class="divider">
+
+<!-- ============== CONTENT HOOKS ============== -->
+<div class="notes">
+  <h3>Viral Fear Hooks (TOFU &mdash; Get Views)</h3>
+  <ul>
+    <li><strong>The $25M Deepfake Video Call:</strong> Arup (UK firm). Employee joined a video call, recognized the CFO and 4 colleagues. Approved 15 wire transfers = $25M. Every person on the call was a deepfake AI. <strong>This is DJ's anchor story.</strong> (Source: WEF, Trend Micro)</li>
+    <li><strong>"AI-powered cyberattacks up 89% in 2025"</strong> &mdash; CrowdStrike Global Threat Report 2026</li>
+    <li><strong>"400% increase in phishing scams"</strong> due to AI tools writing personalized spear-phishing at scale</li>
+    <li><strong>September 2025:</strong> First autonomous AI executed a large-scale cyberattack with minimal human oversight (Google Threat Intelligence Group)</li>
+    <li><strong>16 billion credentials leaked</strong> from Google, Facebook, Apple accounts &mdash; largest breach cluster ever</li>
+    <li><strong>$10.22 million:</strong> average cost of a US data breach in 2025 (IBM)</li>
+    <li><strong>4.8 million unfilled cybersecurity jobs globally</strong> (ISC2, up 19% YoY). 700K in the US alone.</li>
+    <li><strong>David Holmes (Thales CTO):</strong> "In 2026, we'll see the largest volumetric attack ever recorded and the highest requests-per-second rate in history."</li>
+  </ul>
+</div>
+
+<div class="notes" style="margin-top:1rem;">
+  <h3>DJ's First 5 YouTube Videos (Ready to Record)</h3>
+  <ul>
+    <li><strong>Video 1 (TOFU):</strong> "The $25 Million Video Call That Never Happened &mdash; How AI Deepfakes Just Changed Cybersecurity Forever" &mdash; Arup story, DJ's reaction as a 28-year CISO. End with: "This is why I'm training the next generation."</li>
+    <li><strong>Video 2 (MOFU):</strong> "I Wrote Cybersecurity Policy for a Central Bank. Here's What I'd Do If I Were Starting Over in 2026." &mdash; DJ's career path, the GRC shortcut, salary ladder ($70K &rarr; $200K+). CTA: Career Briefing link.</li>
+    <li><strong>Video 3 (TOFU):</strong> "AI Just Ran Its First Fully Autonomous Cyberattack &mdash; Here's What That Means for Your IT Career" &mdash; Google TIG event, what it means, why cybersecurity pros are now more valuable, not less.</li>
+    <li><strong>Video 4 (MOFU):</strong> "My Student Went From Chef to $120K Cybersecurity Analyst in 11 Months" &mdash; Rob G story. Exact steps. Cert path. What DJ taught him. CTA: Career Briefing.</li>
+    <li><strong>Video 5 (BOFU):</strong> "What Deloitte and EY Clients Always Fail at During Cybersecurity Audits" &mdash; Insider knowledge no other YouTuber has. Positions DJ as the guy who audits the companies you want to work for. CTA: "Apply for the Accelerator."</li>
+  </ul>
+</div>
+
+<div class="notes" style="margin-top:1rem;">
+  <h3>Competitors Proving the Model Works</h3>
+  <ul>
+    <li><strong>Boyd Clewis</strong> &mdash; 320K YouTube subs, $3M/year (documented on Sold With Webinars podcast). Free masterclass &rarr; $997 accelerator &rarr; Wealth EngineX back-end. Former IT helpdesk.</li>
+    <li><strong>Gerald Auger / SimplyCyber</strong> &mdash; 4M+ YouTube views, PhD in Cyber Ops. Built the GRC Masterclass (de facto standard). Free YouTube &rarr; SimplyCyber Academy.</li>
+    <li><strong>Shon Gerber / CISSP Cyber Training</strong> &mdash; Former CISO. Podcast &rarr; Silver self-paced program &rarr; Gold (1:1 mentoring + career coaching). Two separate podcasts feeding the funnel.</li>
+    <li><strong>DJ's advantage over ALL of them:</strong> "I'm not a career coach who studied cybersecurity. I'm a 28-year CISO veteran who built the programs you're trying to get hired into." None of them have Central Bank policy + Deloitte/EY + Shell + CISSP + PCI DSS combined.</li>
+  </ul>
+</div>
+
+<div class="notes" style="margin-top:1rem;">
+  <h3>What Only DJ Can Say (Content Nobody Else Can Make)</h3>
+  <ul>
+    <li><strong>Central Bank:</strong> "What it's like to write cybersecurity policy that governs an entire country's banking system" &mdash; regulatory cyber is the fastest-growing GRC specialty</li>
+    <li><strong>Deloitte/EY:</strong> "What Big 4 clients always fail at during cybersecurity audits" &mdash; insider knowledge from auditing hundreds of organizations</li>
+    <li><strong>Shell:</strong> "Why hacking an oil company is different from hacking a bank &mdash; and why OT/ICS security pays $200K+" &mdash; critical infrastructure is a $200K+ niche nobody talks about</li>
+    <li><strong>GRC:</strong> "GRC search interest has spiked 1,000% in 5 years" &mdash; DJ literally wrote the frameworks people are trying to learn</li>
+    <li><strong>The Master Line:</strong> "I spent 28 years building the cybersecurity programs you're trying to get hired into. I know exactly what gets you in the door &mdash; because I'm the one who made the door."</li>
+  </ul>
+</div>
+
+<div class="proof-bar">
+  <strong>Research Sources:</strong> CrowdStrike 2026 Threat Report &bull; ISC2 2025 Workforce Study (4.8M gap) &bull; IBM Data Breach Cost Report ($10.22M avg) &bull; WEF Arup Deepfake Case &bull; Google Threat Intelligence Group &bull; Boyd Clewis / Sold With Webinars ($3M/yr) &bull; SimplyCyber Academy &bull; CISSP Cyber Training &bull; BLS 33% job growth &bull; Forrester GRC 13% growth
+</div>
+
+<div class="footer">
+  TQA Funnel Architecture &mdash; Built for DJ Naronikar by Dylan Ewing &mdash; April 2026<br>
+  Based on proven funnels, not theory. Every element sourced from working models.
+</div>
+
+</body>
+</html>

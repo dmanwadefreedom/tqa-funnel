@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 1 | DJ's Content + Channels</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--gold:#f59e0b;--o:#f97316;--r:#ef4444;--t:#e2e8f0;--m:#94a3b8;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:2rem 1.5rem}
+.back{color:var(--a);text-decoration:none;font-size:0.75rem;font-weight:600}
+.hero{padding:1.5rem 0;border-bottom:1px solid var(--b);margin-bottom:1.5rem}
+.badge{display:inline-block;background:rgba(59,130,246,0.15);color:var(--a);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:100px;border:1px solid rgba(59,130,246,0.25);margin-bottom:0.5rem}
+.hero h1{font-size:1.4rem;font-weight:800;color:var(--w);margin-bottom:0.2rem}
+.hero p{color:var(--m);font-size:0.85rem}
+
+.card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:0.75rem}
+.card h3{font-size:0.9rem;font-weight:600;color:var(--w);margin-bottom:0.35rem}
+.card p,.card li{font-size:0.82rem}
+.card ul{list-style:none;padding:0}
+.card li{padding:0.15rem 0 0.15rem 1.1rem;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--a)}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{text-align:left;padding:0.5rem 0.7rem;background:rgba(59,130,246,0.08);color:var(--a);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--b)}
+td{padding:0.5rem 0.7rem;border-bottom:1px solid var(--b);vertical-align:top}
+
+/* Channel blocks */
+.channel{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.channel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid var(--b)}
+.channel-name{font-size:1rem;font-weight:700;color:var(--w)}
+.channel-stat{font-size:0.72rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:6px}
+.ch-live{background:rgba(16,185,129,0.1);color:var(--g);border:1px solid rgba(16,185,129,0.2)}
+.ch-setup{background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.2)}
+.ch-new{background:rgba(59,130,246,0.1);color:var(--a);border:1px solid rgba(59,130,246,0.2)}
+.channel-link{font-size:0.72rem;color:var(--a);margin-bottom:0.5rem;display:block}
+.channel-followers{font-size:0.75rem;color:var(--m);margin-bottom:0.6rem}
+.bio-box{background:var(--c);border:1px solid var(--b);border-radius:8px;padding:0.9rem 1.1rem;margin:0.5rem 0;font-size:0.82rem;line-height:1.6}
+.bio-label{font-size:0.62rem;font-weight:700;color:var(--a);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem}
+.banner-spec{font-size:0.72rem;color:var(--m);background:rgba(0,0,0,0.2);padding:0.5rem 0.8rem;border-radius:6px;margin-top:0.5rem}
+.channel-posts{margin-top:0.5rem}
+.channel-posts p{font-size:0.78rem;color:var(--m)}
+.channel-posts strong{color:var(--t)}
+
+/* Video script */
+.script-block{background:var(--c);border-left:3px solid var(--gold);padding:1rem 1.25rem;margin:0.5rem 0;border-radius:0 8px 8px 0}
+.script-block .label{font-size:0.62rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem}
+.script-block p{font-size:0.82rem}
+
+.thumb-mock{background:linear-gradient(135deg,#0f172a,#1e293b);border:2px solid var(--b);border-radius:8px;padding:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center;margin:0.75rem 0}
+.thumb-text{text-align:center}
+.thumb-text .big-num{font-size:2rem;font-weight:900;color:var(--gold)}
+.thumb-text .title{font-size:0.85rem;font-weight:700;color:var(--w);margin-top:0.2rem}
+.thumb-face{text-align:center}
+.thumb-face .circle{width:80px;height:80px;border-radius:50%;background:var(--b);display:inline-flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--m)}
+.thumb-dim{text-align:center;font-size:0.65rem;color:var(--m);margin-top:0.3rem}
+
+hr.sep{border:none;border-top:1px solid var(--b);margin:1.75rem 0}
+.footer{text-align:center;padding:1rem 0;color:var(--m);font-size:0.7rem;margin-top:1.5rem;border-top:1px solid var(--b)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a href="DJ-FUNNEL-TREE.html" class="back">&larr; Back to Funnel Tree</a>
+
+<div class="hero">
+  <div class="badge">Stage 1 — Top of Funnel</div>
+  <h1>DJ's Content + Every Channel</h1>
+  <p>One recording feeds everything below. Each channel has its bio, banner, and posting plan ready.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- THE CONCEPT -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card">
+  <h3>The system</h3>
+  <p>DJ records one video on Monday. 10-20 minutes. Phone or webcam is fine. That recording gets cut into shorts, cross-posted as reels, turned into LinkedIn text posts, stripped for podcast audio, and shared to the Facebook group. One recording, six channels, 4-5 hours/week total.</p>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 1: YOUTUBE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">YouTube</span>
+    <span class="channel-stat ch-setup">Needs Setup</span>
+  </div>
+  <a class="channel-link" href="https://youtube.com/@dhananjayanaronikar" target="_blank">youtube.com/@dhananjayanaronikar</a>
+  <div class="channel-followers">Current: channel exists, minimal content. Handle: @dhananjayanaronikar</div>
+
+  <div class="bio-label">New Channel Name</div>
+  <div class="bio-box">DJ Naronikar | CISO Career Coach</div>
+
+  <div class="bio-label">Channel Description (under 1,000 chars)</div>
+  <div class="bio-box">
+    I help IT professionals break into cybersecurity careers.<br><br>
+    28 years as a CISO. Deloitte, EY, Shell. Wrote cybersecurity policy for a Central Bank — it became law across every bank in the country. CIO Choice Award 2026.<br><br>
+    On this channel: career transition roadmaps, real salary data, what hiring managers look for, and the stories they don't teach in courses.<br><br>
+    New video every week.<br><br>
+    Ready to make the move? thequantumachievers.com/apply
+  </div>
+
+  <div class="bio-label">Video Description Template (paste into every upload)</div>
+  <div class="bio-box" style="font-size:0.78rem;">
+    Ready to make the switch? Apply for CISO 360: [APPLICATION LINK]<br>
+    Get your personalized career roadmap ($47): [ASSESSMENT LINK]<br><br>
+    About DJ Naronikar:<br>
+    28-year CISO veteran. Deloitte, EY, Shell. Wrote cybersecurity policy for a Central Bank. Helped a chef land a $120K cybersecurity analyst role. Now helping experienced IT pros land $150K-$400K+ security careers.<br><br>
+    #cybersecurity #ITcareer #CISO #careerchange #cybersecurityjobs
+  </div>
+
+  <div class="banner-spec">
+    <strong>Banner:</strong> 2560 x 1440px (safe zone 1546 x 423px center). DJ's headshot left, "DJ Naronikar" center, credential logos bottom (Deloitte, EY, ISC2), "New videos weekly" right. Dark navy + gold. Use <code>assets/dj-main-headshot.webp</code>. Create in Canva → "YouTube Channel Art" template.
+  </div>
+
+  <div class="channel-posts">
+    <p><strong>Posts:</strong> 1 long video (10-20 min) + 3-5 Shorts per week. Team edits and uploads. DJ only records.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 2: LINKEDIN -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">LinkedIn (Personal)</span>
+    <span class="channel-stat ch-live">9K Followers</span>
+  </div>
+  <a class="channel-link" href="https://linkedin.com/in/dhananjayanaronikar" target="_blank">linkedin.com/in/dhananjayanaronikar</a>
+  <div class="channel-followers">DJ's strongest existing channel. 9K followers + 1K newsletter subscribers. This is where his audience lives.</div>
+
+  <div class="bio-label">Headline (220 chars)</div>
+  <div class="bio-box">
+    I help IT professionals break into cybersecurity careers in 90 days | 28-Year CISO (Deloitte, EY, Shell) | 400+ orgs across 8 countries | Founder, The Quantum Achievers
+  </div>
+
+  <div class="bio-label">About Section</div>
+  <div class="bio-box" style="font-size:0.8rem;">
+    If you're an IT professional wondering whether cybersecurity is the right move — it is. And the path is more structured than you think.<br><br>
+    I've spent 28 years in cybersecurity leadership. CISO at Deloitte, EY, Shell. Across 400+ organizations in 8 countries. I wrote cybersecurity policy for a Central Bank that became law. I've hired hundreds of cybersecurity professionals. I know exactly what gets someone from IT into a security career.<br><br>
+    That's why I built The Quantum Achievers — a 90-day career transition program specifically for IT professionals ready to move into cybersecurity.<br><br>
+    WHO THIS IS FOR:<br>
+    - Sysadmins, network engineers, cloud engineers, DevOps, IT project managers with 5-15 years experience<br>
+    - IT professionals earning $85K-$140K who know they're capable of more<br>
+    - Anyone who keeps hearing "cybersecurity is the future" but doesn't know how to start<br><br>
+    WHO THIS IS NOT FOR:<br>
+    - Career changers with zero IT background<br>
+    - People looking for a certificate mill<br>
+    - Anyone not willing to put in focused work for 90 days<br><br>
+    "DJ doesn't just teach cybersecurity — he gives you the career intelligence to actually land in the right role." — Rob G.<br><br>
+    Apply: thequantumachievers.com
+  </div>
+
+  <div class="banner-spec">
+    <strong>Banner:</strong> 1584 x 396px. "Helping IT Pros Land $150K+ Cybersecurity Careers" left, "CISO 360" + URL right. Same dark navy + gold palette. Canva → "LinkedIn Banner" template.
+  </div>
+
+  <div class="channel-posts">
+    <p><strong>Posts:</strong> 3-4 text posts/week from video topics. AI-generated via VPS LinkedIn engine, DJ approves in 15 min. Every post ends with video link in comments.</p>
+    <p><strong>Newsletter:</strong> "Quantum AI Cyber Articles" — 1/week, repurpose video script.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 3: INSTAGRAM -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">Instagram</span>
+    <span class="channel-stat ch-setup">Needs Setup</span>
+  </div>
+  <div class="channel-followers">DJ's IG presence needs to be established or optimized. IG catches scrollers and sends them to YouTube.</div>
+
+  <div class="bio-label">Bio (150 chars)</div>
+  <div class="bio-box">
+    DJ Naronikar | 28-Year CISO<br>
+    Helping IT pros land $150K+ cybersecurity careers<br>
+    Free career roadmap on YouTube ↓<br>
+    [YOUTUBE LINK]
+  </div>
+
+  <div class="bio-label">Profile Photo</div>
+  <div class="bio-box" style="font-size:0.78rem;">Use <code>assets/dj-main-headshot.webp</code> — same photo across all platforms. Crop to face visible, professional.</div>
+
+  <div class="channel-posts">
+    <p><strong>Reels:</strong> YouTube Shorts cross-posted as Reels. Zero extra work.</p>
+    <p><strong>Carousels:</strong> 1-2/week. "5 Signs Your IT Career Has a Ceiling," salary comparisons, cert roadmaps.</p>
+    <p><strong>Stories:</strong> Behind-the-scenes when DJ feels like it. Not required.</p>
+    <p><strong>Every Reel ends with:</strong> "Full breakdown on YouTube, link in bio."</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 4: FACEBOOK GROUP -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">Facebook Group — CISO360</span>
+    <span class="channel-stat ch-live">1,700 Members</span>
+  </div>
+  <div class="channel-followers">CISO360 Cybersecurity & Data Protection. Already has an audience. Cross-post YouTube videos here.</div>
+
+  <div class="bio-label">Group Description</div>
+  <div class="bio-box" style="font-size:0.8rem;">
+    A community for IT professionals exploring or advancing in cybersecurity careers.<br><br>
+    Run by DJ Naronikar — 28-year CISO veteran (Deloitte, EY, Shell). CIO Choice Award winner.<br><br>
+    What this group is for: cybersecurity career questions, industry news, job market insights, networking, weekly posts from DJ.<br><br>
+    What it's NOT for: spam, link dumps, selling courses.<br><br>
+    Program: thequantumachievers.com<br>
+    YouTube: youtube.com/@dhananjayanaronikar<br>
+    Podcast: Cyber Caffeine on Spotify
+  </div>
+
+  <div class="banner-spec">
+    <strong>Banner:</strong> 1640 x 856px. Already built → <code>ciso360-fb-banner.html</code>. Screenshot at full size and upload. Dark navy with gold accents, NIST framework visual, credential strip.
+  </div>
+
+  <div class="channel-posts">
+    <p><strong>Posts:</strong> Cross-post YouTube video 1x/week. Team handles it.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 5: FACEBOOK PAGE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">Facebook Page — CISO360</span>
+    <span class="channel-stat ch-setup">Needs Update</span>
+  </div>
+
+  <div class="bio-label">About (255 chars)</div>
+  <div class="bio-box">
+    Cybersecurity career intelligence from DJ Naronikar — 28-year CISO (Deloitte, EY, Shell). Industry briefings, career strategies, and hiring insights for IT professionals. Home of the Cyber Caffeine podcast.
+  </div>
+
+  <div class="banner-spec">
+    <strong>Banner:</strong> 820 x 312px (mobile safe 640 x 312 center). Same as group banner but cropped. Canva → "Facebook Cover."
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 6: PODCAST -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">Podcast</span>
+    <span class="channel-stat ch-setup">Name Needed</span>
+  </div>
+  <div class="channel-followers">"Cyber Caffeine" is TAKEN on Spotify (SISAP, 30 episodes, Spanish). DJ needs a new name.</div>
+
+  <div class="bio-label">Name Options</div>
+  <div class="bio-box">
+    Option A: <strong>The CISO Path</strong> — clean, searchable, says what it is<br>
+    Option B: <strong>CISO 360 Podcast</strong> — ties directly to the program<br>
+    Option C: <strong>From IT to CISO with DJ Naronikar</strong> — SEO-friendly, describes the audience
+  </div>
+
+  <div class="bio-label">Show Description (Spotify/Apple)</div>
+  <div class="bio-box" style="font-size:0.8rem;">
+    Weekly cybersecurity career briefing from DJ Naronikar — 28-year CISO who's worked across Deloitte, EY, Shell, and 400+ organizations in 8 countries.<br><br>
+    Each episode: career strategies for IT professionals making the transition, industry shifts, what hiring managers look for, real talk on certifications, and interviews with people who've made the switch.<br><br>
+    For IT professionals with 5-15 years of experience exploring cybersecurity as the next move.<br><br>
+    Apply to DJ's 90-day program: thequantumachievers.com
+  </div>
+
+  <div class="channel-posts">
+    <p><strong>Episodes:</strong> Audio stripped from the YouTube video. Same content, zero extra recording. Upload via Buzzsprout or Anchor → auto-distributes to Spotify + Apple.</p>
+    <p><strong>Intro/Outro:</strong> "If you're an experienced IT pro ready to make the switch to cybersecurity, apply at thequantumachievers.com."</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 7: TELEGRAM -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">Telegram — TQA Community</span>
+    <span class="channel-stat ch-live">75 Subscribers</span>
+  </div>
+
+  <div class="bio-label">Channel Description</div>
+  <div class="bio-box" style="font-size:0.8rem;">
+    The Quantum Achievers — Cybersecurity Career Transition Community<br><br>
+    Live updates, career briefings, and insider content from DJ Naronikar (28-year CISO, Deloitte/EY/Shell).<br><br>
+    Early access to new content. Career transition tips. Direct updates on CISO 360 openings.<br><br>
+    Apply: thequantumachievers.com<br>
+    YouTube: youtube.com/@dhananjayanaronikar
+  </div>
+
+  <div class="channel-posts">
+    <p><strong>Use:</strong> Students + inner circle only. Not a marketing channel. Keep it exclusive.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CHANNEL 8: TWITTER/X -->
+<!-- ═══════════════════════════════════════ -->
+<div class="channel">
+  <div class="channel-head">
+    <span class="channel-name">Twitter/X (Personal + CISO360)</span>
+    <span class="channel-stat ch-setup">Needs Update</span>
+  </div>
+
+  <div class="bio-label">Personal Bio (160 chars)</div>
+  <div class="bio-box">
+    I help IT pros break into cybersecurity in 90 days. 28-yr CISO (Deloitte, EY, Shell). 400+ orgs, 8 countries. Founder, The Quantum Achievers.
+  </div>
+
+  <div class="bio-label">CISO360 Bio (160 chars)</div>
+  <div class="bio-box">
+    Cybersecurity career intelligence. Industry briefings. Hiring insights. From 28-yr CISO DJ Naronikar. Program: thequantumachievers.com
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FIRST YOUTUBE VIDEO — FULL SCRIPT -->
+<!-- ═══════════════════════════════════════ -->
+<h2 style="font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);">The Video Journey — Each One Moves Them Forward</h2>
+
+<div class="card">
+  <h3>Each video does 3 things</h3>
+  <p>Every 15-minute video builds <strong>awareness</strong> (the opportunity is real), <strong>trust</strong> (DJ did this, not just teaches it), and overcomes <strong>one specific objection</strong>. Each video ends with ONE next step — not the same CTA every time.</p>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden;">
+  <table>
+    <thead><tr><th>Video</th><th>Builds</th><th>Objection Killed</th><th>CTA (One Next Step)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--w);font-weight:600;">1. IT to Cybersecurity Roadmap</td>
+        <td><span style="color:var(--a);">Awareness</span> — the market is massive, the path exists</td>
+        <td>"I don't know where to start"</td>
+        <td style="color:var(--gold);font-weight:600;">"Watch my salary breakdown next" → Video 2</td>
+      </tr>
+      <tr>
+        <td style="color:var(--w);font-weight:600;">2. Real Salary Data</td>
+        <td><span style="color:var(--p);">Trust</span> — real numbers, not hype</td>
+        <td>"Is it actually worth switching?"</td>
+        <td style="color:var(--gold);font-weight:600;">"Get your personalized roadmap" → $47 Assessment</td>
+      </tr>
+      <tr>
+        <td style="color:var(--w);font-weight:600;">3. $300K Wire Fraud Story</td>
+        <td><span style="color:var(--p);">Deep trust</span> — DJ isn't a course seller, he did this</td>
+        <td>"Can I trust this guy?"</td>
+        <td style="color:var(--gold);font-weight:600;">"Get your career roadmap" → $47 Assessment</td>
+      </tr>
+      <tr>
+        <td style="color:var(--w);font-weight:600;">4. AI Replacing IT Jobs</td>
+        <td><span style="color:var(--a);">Urgency</span> — the window is now</td>
+        <td>"Maybe I should wait" / "AI will replace cyber too"</td>
+        <td style="color:var(--gold);font-weight:600;">"Apply for CISO 360" → Application</td>
+      </tr>
+      <tr>
+        <td style="color:var(--w);font-weight:600;">5. Chef to $120K Analyst</td>
+        <td><span style="color:var(--g);">Proof</span> — someone less qualified did it</td>
+        <td>"Am I good enough?" / "Too late for me"</td>
+        <td style="color:var(--gold);font-weight:600;">"Apply for CISO 360" → Application</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h3>The viewer journey</h3>
+  <p style="font-size:0.82rem;">A viewer watches Video 1 and learns the market exists. Video 2 shows them the money. Video 3 makes them trust DJ. Video 4 creates urgency. Video 5 removes the last doubt. By the time they've watched 3-5 videos, applying for CISO 360 feels like the obvious next step — not a sales pitch.</p>
+  <p style="margin-top:0.4rem;font-size:0.82rem;">The first video also doubles as a YouTube ad. Once it has 500+ organic views, put $20-50/day behind it targeting "cybersecurity career" and "IT career change." Viewers who watch 75%+ get retargeted with the $47 assessment.</p>
+</div>
+
+<hr class="sep">
+
+<h2 style="font-size:1.05rem;font-weight:700;color:var(--w);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);">Video 1 — Full Script</h2>
+
+<div class="card">
+  <h3>"IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</h3>
+  <p>Targets #1 search term. Google Trends avg 35, peaked 100. This is the entry point for 90% of new viewers.</p>
+</div>
+
+<div class="thumb-mock">
+  <div class="thumb-text">
+    <div class="big-num">$150K+</div>
+    <div class="title">IT to Cybersecurity<br>The Honest Roadmap</div>
+    <div style="font-size:0.65rem;color:var(--m);margin-top:0.3rem;">2026 | Real Data</div>
+  </div>
+  <div class="thumb-face">
+    <div class="circle">DJ's Face<br>(headshot)</div>
+    <div style="font-size:0.65rem;color:var(--m);margin-top:0.4rem;">Bold expression.<br>Looking at camera.</div>
+  </div>
+</div>
+<div class="thumb-dim">Thumbnail: 1280 x 720px. DJ's face + one big number + bold title. High contrast. Copy Josh Madakor's thumbnail style. Make in Canva.</div>
+
+<div class="script-block">
+  <div class="label">Hook (0:00-0:30)</div>
+  <p>"750,000 cybersecurity jobs are sitting empty in the US right now. I've been a CISO for 28 years — Deloitte, EY, Shell — and I'm going to tell you exactly how an IT professional makes this transition. No theory. No certification sales pitch. Just the path that actually works, from someone who's been the hiring manager."</p>
+</div>
+
+<div class="script-block">
+  <div class="label">Context — The Market (0:30-3:00)</div>
+  <p>Screen share salary comparison table. Walk through the numbers: IT Support $42-58K vs SOC Analyst $65-95K. Network Admin $55-72K vs Security Engineer $85-130K. IT Manager $70-90K vs CISO $180-250K. "Same years of experience. Same work ethic. Different title, different zeroes."</p>
+</div>
+
+<div class="script-block">
+  <div class="label">The 3 Paths (3:00-10:00) — This Is the Value</div>
+  <p><strong>Path 1: GRC</strong> (3 min) — Best for IT managers, PMs, business analysts. Least technical. Fastest entry. Start with: Security+ or CISA. Target: $90-150K.</p>
+  <p style="margin-top:0.3rem;"><strong>Path 2: SOC / Security Operations</strong> (3 min) — Best for sysadmins, network admins, help desk. Technical but structured. Start with: Security+ then CySA+. Target: $65-130K.</p>
+  <p style="margin-top:0.3rem;"><strong>Path 3: Security Architecture / Engineering</strong> (3 min) — Best for cloud engineers, DevOps, senior sysadmins. Highest ceiling. Start with: CCSP or AWS Security. Target: $120-250K+.</p>
+  <p style="margin-top:0.3rem;font-size:0.78rem;color:var(--m);">DJ speaks from experience for each path. Names real people he's hired or mentored in each category. Specific, not generic.</p>
+</div>
+
+<div class="script-block">
+  <div class="label">The Story — $300K Wire Fraud (10:00-13:00)</div>
+  <p>"Let me tell you what cybersecurity looks like in practice. I caught a $300,000 wire fraud in progress at [company]. Here's exactly what happened and how we stopped it." Tell it as a story. No slides. Just DJ talking to camera. This is the moment viewers realize he's not a course seller — he did the thing.</p>
+</div>
+
+<div class="script-block">
+  <div class="label">Close + CTA (13:00-15:00)</div>
+  <p>"If you're an IT professional with 5+ years of experience and you're thinking about making this move — the market has never been better. 750K unfilled jobs and the gap is growing. I built a tool that creates your personalized career roadmap based on your background. $47. It tells you exactly which path, which certs, and what your 90-day plan looks like. Link in the description. And if you want to go deeper — I'll see you in the next video."</p>
+</div>
+
+<div class="card">
+  <h3>Why this video works as a trust-builder AND an ad</h3>
+  <ul>
+    <li>Targets the highest-volume search term in the space</li>
+    <li>Teaches real value — viewers can act on the 3 paths without paying anything</li>
+    <li>The $300K story is proof nobody else can copy</li>
+    <li>CTA is soft — $47 assessment, not $5K program</li>
+    <li>Once it has 500+ organic views, run it as a YouTube ad ($20-50/day) targeting "cybersecurity career" and "IT career change"</li>
+    <li>Viewers who watch 75%+ get retargeted with the $47 assessment ad</li>
+  </ul>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- WEEKLY SCHEDULE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card">
+  <h3>DJ's weekly time — 4-5 hours total</h3>
+  <table>
+    <thead><tr><th>Day</th><th>Task</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:600;color:var(--w)">Monday</td><td>Record 1 video (phone or webcam, quiet room)</td><td>1-2 hrs</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Tuesday</td><td>Approve uploads + descriptions</td><td>15 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Wednesday</td><td>Approve LinkedIn posts (AI-generated, DJ reviews)</td><td>15 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Friday</td><td>Review applications, book calls</td><td>30 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--g)">Total</td><td></td><td style="font-weight:700;color:var(--g)">4-5 hrs/week</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p><a href="DJ-FUNNEL-TREE.html" style="color:var(--a);text-decoration:none;font-weight:600;">&larr; Funnel Tree</a> &nbsp;|&nbsp; <a href="DJ-STAGE-2-CAPTURE.html" style="color:var(--p);text-decoration:none;font-weight:600;">Stage 2: Capture + Qualify &rarr;</a></p>
+</div>
+
+</div>
+</body>
+</html>

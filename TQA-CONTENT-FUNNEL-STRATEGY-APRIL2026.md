@@ -211,7 +211,7 @@ Title format for podcast: Same as YouTube, but add "| Cyber Caffeine Ep. [X]" to
 
 March 19 webinar: 197 registered, 24 showed (12.5%), 0 paid. The people who registered were cold. They signed up because a Meta ad said "free." They had no relationship with DJ. Half probably forgot about it.
 
-For April 11: Registered leads need to arrive WARM. They need to already trust DJ before the webinar starts. The webinar then CONFIRMS what they already believe and gives them the push to buy.
+For April 18: Registered leads need to arrive WARM. They need to already trust DJ before the webinar starts. The webinar then CONFIRMS what they already believe and gives them the push to buy.
 
 ### The Pre-Webinar Video (Send Immediately After Registration)
 
@@ -248,7 +248,7 @@ For April 11: Registered leads need to arrive WARM. They need to already trust D
 
 One more thing. This webinar costs $7 to attend. That's on purpose. I've done free webinars. 200 people register, 24 show up. The people who invest even $7 take it seriously. That's who I want in the room.
 
-See you on April 11."
+See you on April 18."
 
 ### Delivery Mechanics
 
@@ -292,7 +292,7 @@ INTEREST (Quiz Funnel)
     + $47 Career Blueprint upsell (for people who want immediate action)
 
 CONVERSION (Webinar or Direct)
-  $7 Webinar (April 11 + recurring monthly)
+  $7 Webinar (April 18 + recurring monthly)
     Pre-webinar: VSL trust video sent
     Live: DJ delivers the full pitch
     Post-webinar: $47 Blueprint + $499 course offer
@@ -329,7 +329,7 @@ Why the quiz:
 1. **Quiz page** (5 questions: current role, years in IT, current salary, target role, biggest challenge)
 2. **Score page** with personalized result: "Your Cybersecurity Readiness Score: 47/100"
 3. **On the score page, two paths:**
-   - "Join our next free live session" (webinar registration for April 11)
+   - "Join our next free live session" (webinar registration for April 18)
    - "Get your full Career Blueprint now for $47" (for impatient people)
 4. **Email capture happens on question 1** -- even if they abandon, you have their email
 5. **GHL automation fires:** tag based on score (hot/warm/cold), enter into nurture sequence
@@ -375,7 +375,7 @@ Why the quiz:
 |-----|----------|---------|------------|
 | **Mon Apr 7** | LinkedIn | Text post: "I wrote the AI policy for a Middle East central bank. That policy now governs every bank in the country. Here's what GRC is and why you should care." | 8:00 AM |
 | **Mon Apr 7** | YouTube | Upload Video 3: "From IT Support to $200K+ Cybersecurity Leader" | 11:00 AM |
-| **Tue Apr 8** | LinkedIn | Post: Direct invite to April 11 webinar. "I'm doing a live session Saturday. $7. Bring a laptop." | 8:00 AM |
+| **Tue Apr 8** | LinkedIn | Post: Direct invite to April 18 webinar. "I'm doing a live session Saturday. $7. Bring a laptop." | 8:00 AM |
 | **Tue Apr 8** | YouTube Shorts | 60-sec clip from Video 3 (the salary progression visual) | 12:00 PM |
 | **Tue Apr 8** | Facebook Group | Webinar invite: "This Saturday, 11 AM EST. Link in comments." | 10:00 AM |
 | **Wed Apr 9** | LinkedIn Newsletter | Article version of Video 3 + webinar invite at the end | 8:00 AM |
@@ -389,7 +389,7 @@ Why the quiz:
 | **Sat Apr 12** | Spotify | Episode 4: Audio of Video 4 + webinar recap | Anytime |
 | **Sun Apr 13** | -- | Review webinar data. Plan next 2 weeks based on what worked. | -- |
 
-**NOTE ON APRIL 11:** The prompt says April 11 webinar. If April 11 is a Friday, the webinar happens Friday. If Saturday is preferred (per avatar profile recommendation for Indian professionals + spouse), move to Saturday April 12. The content calendar above assumes Friday; adjust dates if Saturday.
+**NOTE ON APRIL 11:** The prompt says April 18 webinar. If April 18 is a Friday, the webinar happens Friday. If Saturday is preferred (per avatar profile recommendation for Indian professionals + spouse), move to Saturday April 12. The content calendar above assumes Friday; adjust dates if Saturday.
 
 ### Repurposing Flow (One Recording = 6 Outputs)
 
@@ -413,9 +413,9 @@ DJ records 15-min YouTube video
 | Segment | Size | Last Touch | Temperature | Strategy |
 |---------|------|------------|-------------|----------|
 | Webinar attended, applied | 6 | March 19 | HOT | Personal outreach from DJ |
-| Webinar attended, no apply | 18 | March 19 | WARM | $47 Blueprint + April 11 invite |
+| Webinar attended, no apply | 18 | March 19 | WARM | $47 Blueprint + April 18 invite |
 | Hot-scored no-shows (9-12 pts) | 63 | March 18 (last reminder) | WARM-COLD | VSL + $47 Blueprint |
-| Warm-scored no-shows (5-8 pts) | ~55 | March 18 | COLD | Nurture sequence + April 11 invite |
+| Warm-scored no-shows (5-8 pts) | ~55 | March 18 | COLD | Nurture sequence + April 18 invite |
 | Cold-scored leads (0-4 pts) | ~28 | March 18 | ICE COLD | One re-engage email, then archive |
 | Old leads (pre-webinar) | ~27 | Varies | UNKNOWN | Re-engage or purge |
 
@@ -455,11 +455,11 @@ It's $47. Takes 5 minutes. You get the full PDF within 24 hours.
 
 [Get Your Career Blueprint]
 
-I also want to let you know -- I'm running another live session on April 11. Same format, going deeper on a topic people asked about: how to get your first cybersecurity interview within 60 days using only your IT background.
+I also want to let you know -- I'm running another live session on April 18. Same format, going deeper on a topic people asked about: how to get your first cybersecurity interview within 60 days using only your IT background.
 
 Seats are $7 this time. Serious people only.
 
-[Register for April 11]
+[Register for April 18]
 
 -- DJ"
 
@@ -507,7 +507,7 @@ After you watch, two options:
 
 1. Grab your Career Blueprint ($47) -- a personalized roadmap based on your IT background. [Get Blueprint]
 
-2. Register for the next live session (April 11, $7). I'm going deeper on getting your first cybersecurity interview within 60 days. [Register]
+2. Register for the next live session (April 18, $7). I'm going deeper on getting your first cybersecurity interview within 60 days. [Register]
 
 Either way, your spot is held.
 
@@ -538,12 +538,12 @@ Subject: The one thing most IT professionals get wrong about cybersecurity
 
 Send NURTURE-VALUE-1 from the existing email template bank (the one about "thinking like a defender"). It's already written and ready in the GHL templates doc.
 
-At the bottom, add: "P.S. -- I'm running another live session April 11. $7 to attend. Link: [registration]"
+At the bottom, add: "P.S. -- I'm running another live session April 18. $7 to attend. Link: [registration]"
 
 **Email 2 (Send April 7):**
 Subject: 3 cybersecurity certifications that actually lead to jobs
 
-Send NURTURE-VALUE-2 from the existing templates (the cert breakdown). Add April 11 invite at the bottom.
+Send NURTURE-VALUE-2 from the existing templates (the cert breakdown). Add April 18 invite at the bottom.
 
 That is it for this segment. Two value emails with soft webinar invites. If they engage, they move up. If not, they enter the 60-day nurture sequence that already exists.
 
@@ -576,13 +576,13 @@ This cleans the database. 197 "leads" is a vanity number. The REAL number is who
 
 ---
 
-### Should Reactivated Leads Go to the April 11 Webinar or Directly to the VSL?
+### Should Reactivated Leads Go to the April 18 Webinar or Directly to the VSL?
 
 **Both. Here is the logic:**
 
 - Segments A and B (24 people who attended or applied): Send directly to $47 Blueprint. They already saw the webinar. A second webinar is redundant for them. Get them to BUY.
-- Segment C (63 hot no-shows): Send the VSL FIRST, then invite to April 11. The VSL warms them up. The webinar closes them.
-- Segments D and E (82 cold/old leads): Invite to April 11 with value emails. No hard sell. The webinar IS the sales event for them.
+- Segment C (63 hot no-shows): Send the VSL FIRST, then invite to April 18. The VSL warms them up. The webinar closes them.
+- Segments D and E (82 cold/old leads): Invite to April 18 with value emails. No hard sell. The webinar IS the sales event for them.
 
 ---
 
@@ -626,7 +626,7 @@ Based on what went wrong March 19:
 | 4 | Segment all 197 leads in GHL by the 5 segments above | Agresh | Apr 1 |
 | 5 | YouTube Video 1 recorded and uploaded | DJ | Mar 31 |
 | 6 | LinkedIn scrape -> Meta custom audience upload | Dylan + Shreyas | Apr 3 |
-| 7 | April 11 webinar registration page ($7 paid) | Dylan | Apr 3 |
+| 7 | April 18 webinar registration page ($7 paid) | Dylan | Apr 3 |
 | 8 | Reactivation Email 1 fires to Segments B + C | Agresh (GHL) | Apr 1 |
 | 9 | Update ALL bios/descriptions with unified brand message | DJ (LinkedIn), Agresh (GHL), Dylan (YouTube, podcast) | Apr 2 |
 | 10 | YouTube Video 2 recorded and uploaded | DJ | Apr 3 |
@@ -643,7 +643,7 @@ Based on what went wrong March 19:
 - [ ] $47 checkout live
 
 ### Week 2 (Apr 7-13)
-- [ ] 40+ registrations for April 11 webinar
+- [ ] 40+ registrations for April 18 webinar
 - [ ] 60%+ show rate (target: 24+ attendees from 40 registrations -- $7 filter should get this)
 - [ ] At least 5 $47 Blueprint sales from reactivation sequence
 - [ ] Video 2 + 3 uploaded to YouTube
@@ -652,7 +652,7 @@ Based on what went wrong March 19:
 ### Month 1 (April)
 - [ ] 10+ $47 Blueprint sales ($470+ revenue)
 - [ ] 5+ webinar attendees book strategy calls
-- [ ] 1+ $4,999 enrollment from April 11 webinar
+- [ ] 1+ $4,999 enrollment from April 18 webinar
 - [ ] YouTube has 4+ videos
 - [ ] Podcast has 4+ episodes
 - [ ] All platform bios unified

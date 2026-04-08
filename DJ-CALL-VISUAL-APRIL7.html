@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ | The Plan</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--r:#ef4444;--o:#f97316;--gold:#f59e0b;--t:#e2e8f0;--m:#94a3b8;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+.w{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.hero{text-align:center;padding:2.5rem 0 2rem;border-bottom:1px solid var(--b);margin-bottom:2rem}
+.hero h1{font-size:1.8rem;font-weight:800;color:var(--w);margin-bottom:0.4rem}
+.hero p{color:var(--m);font-size:0.9rem}
+.badge{display:inline-block;background:rgba(59,130,246,0.15);color:var(--a);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.8rem;border-radius:100px;border:1px solid rgba(59,130,246,0.25);margin-bottom:0.75rem}
+h2{font-size:1.05rem;font-weight:700;color:var(--w);margin:2rem 0 0.75rem;padding-bottom:0.4rem;border-bottom:2px solid var(--a)}
+h2.p{border-color:var(--p)}h2.g{border-color:var(--g)}h2.gold{border-color:var(--gold)}h2.r{border-color:var(--r)}
+.card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:0.75rem}
+.card h3{font-size:0.9rem;font-weight:600;color:var(--w);margin-bottom:0.4rem}
+.card p,.card li{font-size:0.82rem}
+.card ul{list-style:none;padding:0}
+.card ul li{padding:0.15rem 0 0.15rem 1.1rem;position:relative}
+.card ul li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--a)}
+
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-bottom:1rem}
+.stat{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:0.9rem;text-align:center}
+.stat-v{font-size:1.5rem;font-weight:800;color:var(--w)}
+.stat-v.g{color:var(--g)}.stat-v.r{color:var(--r)}.stat-v.gold{color:var(--gold)}.stat-v.a{color:var(--a)}
+.stat-l{font-size:0.65rem;color:var(--m);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.2rem}
+@media(max-width:640px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+
+.funnel{margin:1rem 0}
+.f-step{display:grid;grid-template-columns:120px 1fr;gap:0.75rem;background:var(--c);border:1px solid var(--b);border-radius:10px;padding:0.9rem 1.2rem;margin-bottom:0.5rem;align-items:center}
+.f-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;font-weight:700;padding:0.25rem 0.6rem;border-radius:6px;text-align:center}
+.fl1{background:rgba(59,130,246,0.15);color:var(--a)}
+.fl2{background:rgba(139,92,246,0.15);color:var(--p)}
+.fl3{background:rgba(245,158,11,0.15);color:var(--gold)}
+.fl4{background:rgba(249,115,22,0.15);color:var(--o)}
+.fl5{background:rgba(16,185,129,0.15);color:var(--g)}
+.f-step p{font-size:0.82rem}
+.f-step strong{color:var(--w)}
+@media(max-width:640px){.f-step{grid-template-columns:1fr}}
+
+table{width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:0.75rem}
+th{text-align:left;padding:0.5rem 0.7rem;background:rgba(59,130,246,0.08);color:var(--a);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--b)}
+td{padding:0.5rem 0.7rem;border-bottom:1px solid var(--b);vertical-align:top}
+
+.alert{border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:0.75rem}
+.alert-g{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25)}
+.alert-g h3{color:var(--g);font-size:0.9rem;margin-bottom:0.4rem}
+.alert-r{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25)}
+.alert-r h3{color:var(--r);font-size:0.9rem;margin-bottom:0.4rem}
+.alert ul{list-style:none;padding:0}.alert li{padding:0.15rem 0 0.15rem 1.1rem;position:relative;font-size:0.82rem}
+.alert-g li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--g)}
+.alert-r li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--r)}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin:0.75rem 0}
+.cmp-old,.cmp-new{border-radius:10px;padding:1rem 1.2rem}
+.cmp-old{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2)}
+.cmp-new{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2)}
+.cmp h4{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem}
+.cmp-old h4{color:var(--r)}.cmp-new h4{color:var(--g)}
+.cmp p,.cmp li{font-size:0.8rem}
+.cmp ul{list-style:none;padding:0}.cmp li{padding:0.1rem 0}
+@media(max-width:640px){.cmp{grid-template-columns:1fr}}
+
+.footer{text-align:center;padding:1.5rem 0;border-top:1px solid var(--b);margin-top:1.5rem;color:var(--m);font-size:0.7rem}
+</style>
+</head>
+<body>
+<div class="w">
+
+<div class="hero">
+  <div class="badge">Call Brief - April 7, 2026</div>
+  <h1>DJ, Here's the Plan</h1>
+  <p>The numbers, what we're doing, and why it will work this time.</p>
+</div>
+
+<!-- WHY THIS MATTERS -->
+<h2>The Market Right Now</h2>
+<div class="stat-row">
+  <div class="stat"><div class="stat-v a">750K</div><div class="stat-l">Unfilled US Cyber Jobs</div></div>
+  <div class="stat"><div class="stat-v g">$185K</div><div class="stat-l">Avg Cyber Manager Salary</div></div>
+  <div class="stat"><div class="stat-v gold">1.33M</div><div class="stat-l">Cyber Pros Employed</div></div>
+  <div class="stat"><div class="stat-v r">26%</div><div class="stat-l">Positions Still Unfilled</div></div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-v a">514K</div><div class="stat-l">Job Postings (Last 12mo)</div></div>
+  <div class="stat"><div class="stat-v g">$105K>$185K</div><div class="stat-l">IT to Cyber Salary Jump</div></div>
+  <div class="stat"><div class="stat-v gold">318K</div><div class="stat-l">Boyd Clewis YT Subs</div></div>
+  <div class="stat"><div class="stat-v a">220K</div><div class="stat-l">Josh Madakor YT Subs</div></div>
+</div>
+<div class="card">
+  <h3>What these numbers mean for you</h3>
+  <p>People are actively searching "IT to cybersecurity" on YouTube and Google every single day. Google Trends shows that phrase peaked at 100 (max interest) in November 2025 and is still strong. Two creators with less experience than you have 220K-318K subscribers teaching this exact topic. The audience is there. Nobody with your credentials is making content for them.</p>
+</div>
+
+<!-- WHAT HAPPENED LAST TIME -->
+<h2 class="r">What Happened Last Time (March 19 Webinar)</h2>
+<div class="stat-row">
+  <div class="stat"><div class="stat-v a">$1,205</div><div class="stat-l">Ad Spend (Meta)</div></div>
+  <div class="stat"><div class="stat-v gold">197</div><div class="stat-l">Leads Generated</div></div>
+  <div class="stat"><div class="stat-v r">12.5%</div><div class="stat-l">Show Rate (target: 35%+)</div></div>
+  <div class="stat"><div class="stat-v r">$0</div><div class="stat-l">Revenue</div></div>
+</div>
+<div class="card">
+  <h3>Why zero buyers</h3>
+  <ul>
+    <li>Free webinar attracted people who sign up for free things. Not buyers.</li>
+    <li>180 people registered and never heard from you again after the webinar. No follow-up emails. No calls.</li>
+    <li>12 people actually applied. Nobody called them. Jay quit.</li>
+    <li>Asking someone to pay $5K after watching one free webinar with no prior relationship is too big a jump.</li>
+    <li>5 of 6 email nurture sequences were never published. 7 GHL workflows still sitting in draft.</li>
+  </ul>
+</div>
+
+<!-- WHAT CHANGES -->
+<h2 class="g">What Changes</h2>
+<div class="cmp">
+  <div class="cmp-old">
+    <h4>Last time</h4>
+    <ul>
+      <li>Cold Meta ads straight to free webinar</li>
+      <li>Free attracts freebie seekers</li>
+      <li>One touchpoint before asking for $5K</li>
+      <li>No follow-up after webinar</li>
+      <li>Jay was the closer. Jay quit.</li>
+      <li>Selling to everyone who registers</li>
+    </ul>
+  </div>
+  <div class="cmp-new">
+    <h4>This time</h4>
+    <ul>
+      <li>Weeks of YouTube content warming them up first</li>
+      <li>$47 Career Assessment filters real buyers</li>
+      <li>5-10 videos watched before they see an application</li>
+      <li>Automated email sequences (GHL workflows published)</li>
+      <li>DJ does 15-min fit checks. Not sales calls.</li>
+      <li>Selling only to people who apply AND qualify</li>
+    </ul>
+  </div>
+</div>
+
+<!-- THE FUNNEL -->
+<h2 class="p">The Funnel</h2>
+<div class="funnel">
+  <div class="f-step">
+    <div><div class="f-label fl1">YouTube</div></div>
+    <p><strong>Free content.</strong> 1 video/week + 3-5 Shorts. Teaches with real data. Builds trust over weeks. "IT to cybersecurity" is the #1 search term in this space. DJ adds his 28 years on top.</p>
+  </div>
+  <div class="f-step">
+    <div><div class="f-label fl1">IG + LinkedIn</div></div>
+    <p><strong>Repurpose.</strong> Shorts become IG Reels. Video topics become LinkedIn posts. Newsletter goes to 1K existing subscribers. DJ already has 9K LinkedIn followers. Zero extra recording needed.</p>
+  </div>
+  <div class="f-step">
+    <div><div class="f-label fl2">$47 Assessment</div></div>
+    <p><strong>Career Briefing.</strong> Personalized PDF based on their quiz answers. Their score, their gaps, their certification path, real salary data for their role, ROI math, and a timeline. This filters buyers from browsers. If they won't spend $47, they won't spend $4,997.</p>
+  </div>
+  <div class="f-step">
+    <div><div class="f-label fl3">Application</div></div>
+    <p><strong>5-8 questions.</strong> Current role, years of experience, salary goal, timeline, investment readiness. GHL auto-scores them. Only qualified applicants get a call.</p>
+  </div>
+  <div class="f-step">
+    <div><div class="f-label fl4">15-min Call</div></div>
+    <p><strong>DJ does a fit check.</strong> Not a sales pitch. Review their application, give an honest assessment. If they're a fit: "I'd like to invite you to CISO 360." If not: "Here's what to do first." Your credibility does the selling.</p>
+  </div>
+  <div class="f-step">
+    <div><div class="f-label fl5">$4,997</div></div>
+    <p><strong>CISO 360 Accelerator.</strong> 14 weeks. 15 student cap. Pay in full or $1,897 x 3. By the time they get here, they've watched your content, paid $47, filled out an application, and talked to you. They're ready.</p>
+  </div>
+</div>
+
+<!-- SOCIALS PLAN -->
+<h2 class="gold">What We Do With Your Socials</h2>
+
+<div class="card">
+  <h3>Your Brand (one identity everywhere)</h3>
+  <ul>
+    <li><strong>Name:</strong> DJ Naronikar (personal brand, not a company name)</li>
+    <li><strong>Tagline:</strong> "28-Year CISO. Helping IT pros break into cybersecurity."</li>
+    <li><strong>Program:</strong> CISO 360 Accelerator ($4,997)</li>
+    <li><strong>Kill:</strong> "The Quantum Achievers" as a front-facing brand. Your face and name sell this. Not a logo.</li>
+  </ul>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead><tr><th>Channel</th><th>What We Do</th><th>Start</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">YouTube</td>
+        <td>1 long video/week (10-20 min) + 3-5 Shorts. Topics based on real search data. Every description links to the $47 Career Assessment. Channel renamed to "DJ Naronikar | CISO Career Coach."</td>
+        <td style="color:var(--g)">Week 1</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Instagram</td>
+        <td>Repost YouTube Shorts as Reels. 1-2 carousels/week. Bio links to YouTube. Zero extra recording. Every Reel ends with "full breakdown on YouTube."</td>
+        <td style="color:var(--g)">Week 1</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">LinkedIn</td>
+        <td>3-4 posts/week from video topics. Weekly newsletter through "Quantum AI Cyber Articles" (1K subs already). Every post points to YouTube video in comments.</td>
+        <td style="color:var(--g)">Week 1</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Podcast</td>
+        <td>Strip audio from YouTube video, upload as podcast episode. New name needed ("Cyber Caffeine" is taken on Spotify). Distribute via Buzzsprout to Spotify + Apple.</td>
+        <td style="color:var(--gold)">Week 2-3</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--w)">Telegram</td>
+        <td>Students only. Not a marketing channel. Keep for enrolled CISO 360 students and the team.</td>
+        <td>Stays as is</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h3>Your first 5 YouTube videos (data-backed topics)</h3>
+  <ul>
+    <li><strong>Week 1:</strong> "IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap" (targets #1 search term)</li>
+    <li><strong>Week 2:</strong> "How Much Do Cybersecurity Professionals Really Make?" (targets #2 search term, Madakor's money content got 64K views)</li>
+    <li><strong>Week 3:</strong> "I Stopped a $300K Wire Fraud. Here's How." (your real case study, nobody can copy this)</li>
+    <li><strong>Week 4:</strong> "AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe." (AI is a breakout trend right now)</li>
+    <li><strong>Week 5:</strong> "My Student Went From Chef to $120K Cybersecurity Analyst" (Rob G's story, social proof)</li>
+  </ul>
+</div>
+
+<!-- DJ'S TIME -->
+<h2>What This Costs DJ (Time)</h2>
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead><tr><th>Day</th><th>What</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:600;color:var(--w)">Monday</td><td>Record 1 video. Cut 3-5 short clips from it.</td><td>1-2 hours</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Tuesday</td><td>Approve uploads and descriptions.</td><td>15 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Wednesday</td><td>Write or approve a LinkedIn post.</td><td>15 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">Friday</td><td>Review applications. Schedule strategy calls.</td><td>30 min</td></tr>
+      <tr><td style="font-weight:600;color:var(--w)">As needed</td><td>15-min strategy calls with qualified applicants.</td><td>15 min each</td></tr>
+      <tr><td style="font-weight:600;color:var(--g)">Total</td><td></td><td style="font-weight:700;color:var(--g)">4-5 hours/week</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- THE MATH -->
+<h2 class="g">The Revenue Math (Conservative)</h2>
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead><tr><th>Metric</th><th>Month 1</th><th>Month 2</th><th>Month 3</th></tr></thead>
+    <tbody>
+      <tr><td>Videos published</td><td>4</td><td>8</td><td>12</td></tr>
+      <tr><td>Avg views per video</td><td>200-500</td><td>500-1,500</td><td>1,000-3,000</td></tr>
+      <tr><td>$47 Career Assessments sold</td><td>5-10</td><td>15-25</td><td>25-40</td></tr>
+      <tr><td>Applications received</td><td>3-5</td><td>8-15</td><td>15-25</td></tr>
+      <tr><td>Strategy calls booked</td><td>2-3</td><td>5-10</td><td>10-15</td></tr>
+      <tr><td>Students enrolled</td><td>0-1</td><td>1-2</td><td>2-4</td></tr>
+      <tr>
+        <td style="font-weight:700;color:var(--w)">Revenue</td>
+        <td>$235-$5,467</td>
+        <td>$5,702-$11,169</td>
+        <td style="font-weight:700;color:var(--g)">$11,169-$21,868</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <p>Two students a month at $4,997 is $10K/month. Plus $47 assessments stacking up. Victoria Shearing books sales calls from 315 YouTube subscribers and 2,200 views on a single video. You have 28 years, real case studies, and 9K LinkedIn followers already. You start with more than she has.</p>
+</div>
+
+<!-- 180 LEADS -->
+<h2>The 180 Cold Leads</h2>
+<div class="card">
+  <h3>They're not dead. They just got ignored.</h3>
+  <p>180 people registered for your webinar. They raised their hand. Then nobody followed up. Here's what we do with them:</p>
+  <ul>
+    <li>Send a re-engage email: "DJ recorded something new for you." Link to your first YouTube video.</li>
+    <li>The 12 who applied get a personal email from DJ: "I saw your application. I want to follow up."</li>
+    <li>Anyone who watches the video and clicks gets tagged hot in GHL. Agresh routes them to the application.</li>
+    <li>This is free pipeline. No ad spend. Just follow-up that should have happened in March.</li>
+  </ul>
+</div>
+
+<!-- WHAT DJ DECIDES TODAY -->
+<h2 class="r">What DJ Decides Today</h2>
+<div class="alert alert-r">
+  <h3>5 decisions. Everything else is handled.</h3>
+  <ul>
+    <li><strong>1. Will you record 1 video per week?</strong> Everything depends on this. 1-2 hours on Monday. The rest is handled.</li>
+    <li><strong>2. Will you do 15-min strategy calls?</strong> Not sales calls. Fit checks. You review their application, give honest advice, invite the right ones in.</li>
+    <li><strong>3. Pick a podcast name.</strong> "Cyber Caffeine" is taken on Spotify. Options: "The CISO Path" or "From IT to CISO with DJ Naronikar."</li>
+    <li><strong>4. Branding: DJ Naronikar, not TQA.</strong> Your face and name are the brand. The program is CISO 360. The company name goes in the footer.</li>
+    <li><strong>5. Tell Agresh to publish the GHL workflows.</strong> 7 drafts sitting since March 17. The follow-up automation doesn't work until those are live.</li>
+  </ul>
+</div>
+
+<!-- WHAT'S ALREADY DONE -->
+<div class="alert alert-g">
+  <h3>What's already built (you don't need to touch these)</h3>
+  <ul>
+    <li>Stripe products on your account ($47, $4,997 PIF, $1,997/mo plan)</li>
+    <li>GHL CRM with lead scoring (0-12 pts) and pipelines</li>
+    <li>Quiz and landing pages on GitHub Pages</li>
+    <li>3 VAPI voice assistants (Priya, Webinar Confirm, Re-Engage)</li>
+    <li>Schema markup on your sales page</li>
+    <li>5 SEO blog articles written for WordPress</li>
+    <li>LinkedIn 30-day content calendar drafted</li>
+    <li>120+ pages CISO 360 courseware on Google Drive</li>
+    <li>Full competitor research (Madakor, Auger, Clewis, CyLife)</li>
+    <li>Google Trends + YouTube search data for all target keywords</li>
+    <li>90-day content calendar with weekly topics</li>
+    <li>Team SOP with tasks for DJ, Agresh, Shreyas, and Dylan</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <p>Prepared by Dylan Ewing | April 7, 2026</p>
+  <p>Data: Google Trends, CyberSeek, ISC2, BLS, YouTube competitor analysis</p>
+</div>
+
+</div>
+</body>
+</html>

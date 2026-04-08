@@ -119,17 +119,17 @@ I've also HIRED hundreds of cybersecurity professionals. I know what gets someon
 
 And two years ago, I started taking everything I learned from 28 years of hiring, managing, and leading security teams... and I built a program that gives people the positioning, the language, the network, and the roadmap that a certification alone will never provide.
 
-That program is called CISO 360."
+That program is called the Cybersecurity Accelerator."
 
 ---
 
-## SECTION 5: WHAT CISO 360 ACTUALLY IS (9:00 - 12:00)
+## SECTION 5: WHAT THE CYBERSECURITY ACCELERATOR ACTUALLY IS (9:00 - 12:00)
 
 **Goal:** Make the program concrete. Specifics > vague promises.
 
 ---
 
-"CISO 360 is a 14-week accelerator. Here's exactly what happens:
+"The Cybersecurity Accelerator is a 14-week program. Here's exactly what happens:
 
 **Weeks 1-4: Foundation + Positioning**
 We assess where you are. Not just technically — your communication skills, your business acumen, your professional network. Then we build your positioning. How you talk about yourself. How your resume reads. How your LinkedIn signals 'security professional' to recruiters.
@@ -181,7 +181,7 @@ I've also worked with H-1B holders specifically. The visa dynamics add a layer o
 
 ---
 
-"So let me break down what you actually get in CISO 360 — because I want to be transparent about the value here.
+"So let me break down what you actually get in the Cybersecurity Accelerator — because I want to be transparent about the value here.
 
 First — you get 14 weeks of one-on-one mentorship with me. Not group coaching where you're one of 500. Direct access. If you hired a CISO consultant privately — which is what I am — you'd pay $500 an hour. Over 14 weeks, that's roughly $7,000 in mentorship alone.
 
@@ -207,7 +207,7 @@ If you add all of that up: mentorship, roadmap, resume, interviews, network acce
 
 "Now let me show you the math. Because I know this is a real investment, and I know for many of you, this is a conversation you'll have with your partner.
 
-Everything I just described — $20,000+ in value — CISO 360 is $4,997. That's it. Or $1,997 per month for three months if that's more comfortable.
+Everything I just described — $20,000+ in value — the Cybersecurity Accelerator is $4,997. That's it. Or $1,997 per month for three months if that's more comfortable.
 
 Here's what you're comparing that against:
 
