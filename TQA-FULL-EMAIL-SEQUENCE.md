@@ -3,9 +3,10 @@
 ## Ready for Agresh to Build in GHL
 
 **Briefing:** April 11, 2026 | 11 AM EST | $27 Entry
-**Accelerator:** $997 | **CISO Track:** $4,999-$7,000
+**Cybersecurity Accelerator:** $4,997 | **Insider Brief:** $97/mo
 **Registration Link:** [BRIEFING_LINK]
 **Accelerator Application:** [ACCELERATOR_LINK]
+**Insider Brief ($97/mo):** [INSIDER_BRIEF_LINK]
 
 ---
 
@@ -57,7 +58,7 @@ I reviewed your application. You took a step that most IT professionals think ab
 
 Here is where things stand. On April 11, I am running a live career briefing — 90 minutes on the cybersecurity transition framework I have built across 28 years and 400+ organizations. I cover the hiring process from the inside, because I have been the one making hiring decisions at Deloitte, EY, and Shell.
 
-Because you already applied, I want you in that room. $27 holds your seat.
+Because you already applied, I want you in that room. Registration is $27.
 
 If you want to talk before then, reply to this email. I will make time.
 
@@ -99,7 +100,7 @@ Second, I walk through the Rob G. case study in full. He was a chef with zero te
 
 Third, the Q&A is built into the session, not tacked on at the end. You will get your questions answered.
 
-April 11. 11 AM EST. $27.
+April 11. 11 AM EST. $27 to attend.
 
 You already proved you are serious. This is the next step.
 
@@ -139,7 +140,7 @@ The Bureau of Labor Statistics data is clear: cybersecurity professionals earn $
 
 On April 11, I am running a live career briefing. Ninety minutes. The cybersecurity transition framework I have built across 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
 
-$27 to attend. Not because the content is worth $27 — organizations pay me $2,000-$3,000 a day for this. The $27 is a filter. It keeps the room to people who are ready to move.
+$27 to attend. Organizations pay me $2,000-$3,000 a day for this kind of strategic guidance. I am offering this for $27 because I want you to see the framework before you decide anything.
 
 You already raised your hand once.
 
@@ -177,10 +178,10 @@ You expressed interest in cybersecurity career transitions at some point. I do n
 
 One data point: there are 470,000 unfilled cybersecurity positions in the United States right now. The average salary is $136,000 and growing 8% year over year. If you have IT experience, the transition window is wide open.
 
-On April 11, I am running a live career briefing. $27. Ninety minutes of the transition framework I have built across 28 years as a CISO.
+On April 11, I am running a live career briefing — $27. Ninety minutes of the transition framework I have built across 28 years as a CISO.
 
 If you are in:
-**[Yes — Reserve My Seat ($27)][BRIEFING_LINK]**
+**[Yes — Reserve My Seat — $27][BRIEFING_LINK]**
 
 If you are out:
 **[Remove me from this list]({{unsubscribe_link}})**
@@ -390,7 +391,7 @@ I will be on 5 minutes early. See you there.
 
 ## Email 4A — Confirmation (Immediate)
 
-**Trigger:** Immediately after payment confirmation
+**Trigger:** Immediately after registration confirmation
 **GHL Tag to Apply:** `tqa-briefing-confirmed`
 
 ### Subject Line Options
@@ -617,21 +618,24 @@ Here is a quick recap of what we covered:
 - **The resume translation:** How to reframe IT experience in security language
 - **The LinkedIn positioning:** What hiring CISOs actually look for
 
-If you want to do this transition with me — structured, guided, with a clear 90-day path — I have two programs.
+If you want to do this transition with me — structured, guided, with a clear 90-day path — here are two ways to keep going.
 
-**The Accelerator ($997):** 90-day structured program. Weekly assignments. AI career assistant. Community access. Resume and LinkedIn rewrite. Certification roadmap. For IT professionals ready to make the move.
+**The Cybersecurity Accelerator ($4,997):** 90-day structured program. Weekly assignments. AI career assistant. Community access. Resume and LinkedIn rewrite. Certification roadmap. Direct mentorship with me. For IT professionals ready to make the move. Payment plan available ($1,997 x 3).
 
-**The CISO Track ($4,999-$7,000):** Everything in the Accelerator plus direct mentorship with me, employer introductions, and placement support. For professionals targeting senior roles.
+**The Insider Brief ($97/mo):** Monthly membership with ongoing cybersecurity career intelligence, job market updates, community access, and monthly live Q&A with me. For professionals who want to stay in the loop and move at their own pace.
 
-If either sounds right for your situation, apply here:
+If the Cybersecurity Accelerator sounds right for your situation, apply here:
 **[ACCELERATOR_LINK]**
 
-No pressure. No deadline today. Just the link if you want it.
+If you want to start with the Insider Brief:
+**[INSIDER_BRIEF_LINK]**
+
+No pressure. No deadline today. Just the links if you want them.
 
 -- DJ
 
 ### CTA
-**Button Text:** Apply to the Accelerator
+**Button Text:** Apply to the Cybersecurity Accelerator
 **Link:** [ACCELERATOR_LINK]
 
 ---
@@ -663,14 +667,16 @@ Here is why this matters to you specifically. If you are planning to pursue CISS
 
 I am not telling you this to create urgency. I am telling you because this is the kind of change that most IT professionals will not hear about until it costs them six months.
 
-If you want structured guidance through this transition — the certification path, the resume rewrite, the positioning strategy — the Accelerator is designed for exactly that.
+If you want structured guidance through this transition — the certification path, the resume rewrite, the positioning strategy — the Cybersecurity Accelerator ($4,997) is designed for exactly that. Payment plan available ($1,997 x 3).
+
+Not ready for the full program? The Insider Brief ($97/mo) keeps you connected with monthly career intelligence and live Q&A.
 
 **[ACCELERATOR_LINK]**
 
 -- DJ
 
 ### CTA
-**Button Text:** Learn About the Accelerator
+**Button Text:** Learn About the Cybersecurity Accelerator
 **Link:** [ACCELERATOR_LINK]
 
 ---
@@ -688,26 +694,28 @@ If you want structured guidance through this transition — the certification pa
 3. **"I am closing the April group on Friday"** — Personal. First-person. Feels like a direct communication, not a blast.
 
 ### Preview Text
-The April Accelerator cohort closes Friday. After that, the next one starts in 6 weeks.
+The April Cybersecurity Accelerator cohort closes Friday. After that, the next one starts in 6 weeks.
 
 ### Body
 
 {{First Name}},
 
-I am closing enrollment for the April Accelerator cohort on Friday.
+I am closing enrollment for the April Cybersecurity Accelerator cohort on Friday.
 
 This is not a marketing tactic. I cap each cohort because I personally review every member's career plan, certification roadmap, and LinkedIn profile. I cannot do that effectively with 200 people. The April group is small by design.
 
-Here is what the Accelerator includes:
+Here is what the Cybersecurity Accelerator includes:
 - 90-day structured career transition plan (week by week)
 - AI-powered career assistant for real-time guidance
 - Resume translation from IT to cybersecurity language
 - LinkedIn profile audit and rewrite framework
 - Certification roadmap (personalized to your background)
 - Community of IT professionals making the same transition
-- Direct access to me via the program platform
+- Direct mentorship with me
 
-$997. Payment plans available.
+$4,997. Payment plan available ($1,997 x 3).
+
+Not ready for the full Cybersecurity Accelerator? The Insider Brief ($97/mo) gives you monthly career intelligence, community access, and a live Q&A with me every month.
 
 If this is the right time for you, apply before Friday:
 **[ACCELERATOR_LINK]**
@@ -735,21 +743,22 @@ If the timing is not right, I understand. The next cohort starts in approximatel
 3. **"Next cohort starts in June"** — Informational. No pressure. Just the timeline.
 
 ### Preview Text
-The April Accelerator cohort is full. Here is how to be first for the next one.
+The April Cybersecurity Accelerator cohort is full. Here is how to be first for the next one.
 
 ### Body
 
 {{First Name}},
 
-The April Accelerator cohort is now closed.
+The April Cybersecurity Accelerator cohort is now closed.
 
 If you were on the fence, I understand. A career transition is not a small decision, and I would rather you join when you are ready than rush into it.
 
 Here is what happens next: the next cohort starts in approximately 6 weeks. If you want to be first to know when applications open, reply to this email with "NEXT" and I will add you to the priority list.
 
-In the meantime, two things you can do right now that cost nothing:
+In the meantime, three things you can do right now:
 1. Start studying for Security+ (Professor Messer's free YouTube course is excellent)
 2. Rewrite your LinkedIn headline using the framework from the briefing
+3. Join the Insider Brief ($97/mo) for monthly career intelligence, community access, and a live Q&A with me — so you stay in the loop while you decide on the full Cybersecurity Accelerator
 
 When you are ready, I will be here.
 
@@ -807,7 +816,7 @@ If you want to know about the next one, reply to this email and I will make sure
 | `tqa-reactivation-april-sent` | Any Phase 1 email sent |
 | `tqa-value-sequence-sent` | Any Phase 2 email sent |
 | `tqa-briefing-invite-sent` | Phase 3 invite sent |
-| `tqa-briefing-registrant` | Contact pays $27 and registers |
+| `tqa-briefing-registrant` | Contact pays $27 |
 | `tqa-briefing-confirmed` | Confirmation email sent |
 | `tqa-prebriefing-day1` | Pre-briefing email 1 sent |
 | `tqa-prebriefing-day2` | Pre-briefing email 2 sent |
@@ -820,7 +829,7 @@ If you want to know about the next one, reply to this email and I will make sure
 | `tqa-post-briefing-day3` | Day 3 scarcity email sent |
 | `tqa-post-briefing-closed` | Doors closed email sent |
 | `tqa-briefing-noshow` | Registered but did not attend |
-| `tqa-accelerator-applied` | Contact applied to Accelerator |
+| `tqa-accelerator-applied` | Contact applied to Cybersecurity Accelerator |
 | `tqa-inactive-remove` | No engagement after Phase 1 — candidate for list removal |
 
 ## Workflow Structure
@@ -862,7 +871,8 @@ If you want to know about the next one, reply to this email and I will make sure
 | Placeholder | Replace With |
 |-------------|-------------|
 | `[BRIEFING_LINK]` | Registration/payment page URL |
-| `[ACCELERATOR_LINK]` | Accelerator application page URL |
+| `[ACCELERATOR_LINK]` | Cybersecurity Accelerator application page URL |
+| `[INSIDER_BRIEF_LINK]` | Insider Brief ($97/mo) membership page URL |
 | `[ZOOM_LINK]` | April 11 Zoom meeting link |
 | `[TRUST_VIDEO_LINK]` | DJ's pre-briefing trust video URL |
 | `[CALENDAR_LINK]` | Google Calendar / .ics add-to-calendar link |

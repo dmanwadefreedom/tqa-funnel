@@ -6,10 +6,10 @@
 
 ## WHAT DJ SHOULD SEE WHEN HE OPENS GHL
 
-1. **Dashboard:** Pipeline with real numbers — 6 Applied ($15K), 7 Attended ($7K), 53 No Shows ($1.4K in briefing potential)
+1. **Dashboard:** Pipeline with real numbers — 6 Applied ($30K), 7 Attended ($35K), 53 No Shows ($27 briefing registrants)
 2. **Contacts:** Everyone tagged, segmented, assigned. No mystery leads.
 3. **Workflows:** Clean automation running — new leads get nurtured, briefing registrants get prepped, post-briefing gets followed up. All automatic.
-4. **Calendar:** Two options — Career Briefing (April 11) and Strategy Call (for Jay). Nothing else.
+4. **Calendar:** Two options — Career Briefing (April 11) and Strategy Call (for DJ). Nothing else.
 5. **Social:** LinkedIn connected. Posts scheduling from GHL.
 
 DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pipeline, or extromarketingagency in the from field.
@@ -31,14 +31,14 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 
 ### Website
 - **Current:** blank
-- **Change to:** https://dmanwadefreedom.github.io/tqa-jumpstart/
+- **Change to:** https://dmanwadefreedom.github.io/tqa-funnel/
 
 ---
 
 ## STEP 2: SIMPLIFY CALENDARS (Agresh — 10 min)
 
 ### Keep:
-- **TQA Strategy Call** (id: 7c8TNv6D52KfbWXwPybk) — Jay books these after briefings
+- **TQA Strategy Call** (id: 7c8TNv6D52KfbWXwPybk) — DJ books these after briefings
 - **DJ's Personal Calendar** (id: 4ST14Q1ZC2o2w52seU96) — DJ's availability
 
 ### Delete:
@@ -62,22 +62,20 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 | Stage | What it means | Value | Who owns |
 |-------|--------------|-------|----------|
 | New Lead | Just entered system (Meta ad, LinkedIn, organic) | $0 | Automation |
-| Briefing Registered | Paid $27, registered for April 11 | $27 | Automation |
-| Briefing Attended | Showed up on April 11 | $27 | Jay |
-| Briefing No Show | Registered but didn't attend | $27 | Automation |
-| Accelerator Applied | Applied for $997 program | $997 | Jay |
-| Accelerator Enrolled | Paid $997 (or started payment plan) | $997 | DJ |
-| CISO Track Applied | Applied for $4,999+ tier | $4,999 | DJ |
-| CISO Track Enrolled | Paid $4,999+ | $4,999 | DJ |
+| Briefing Registered | Registered for April 11 ($27) | $27 | Automation |
+| Briefing Attended | Showed up on April 11 | $0 | DJ |
+| Briefing No Show | Registered but didn't attend | $0 | Automation |
+| Accelerator Applied | Applied for $4,997 Cybersecurity Accelerator | $4,997 | DJ |
+| Accelerator Enrolled | Paid $4,997 (or started payment plan) | $4,997 | DJ |
 | Not a Fit | Disqualified or not interested | $0 | Archive |
 
 ### Keep the "Students" pipeline as-is — it will be used once people actually enroll.
 ### Delete or archive the "Marketing Pipeline" — it's empty and redundant.
 
 ### Current Pipeline Status (already cleaned via API):
-- 6 contacts in "Applied" ($2,500 each — Sprint offer)
-- 7 contacts in "Webinar Attended" ($997 each)
-- 53 contacts in "Webinar No Show" ($27 each)
+- 6 contacts in "Applied" ($4,997 each — Cybersecurity Accelerator)
+- 7 contacts in "Webinar Attended" ($4,997 each)
+- 53 contacts in "Webinar No Show" ($27 each — paid briefing registrants)
 - Remaining contacts in "New Lead"
 
 ---
@@ -98,7 +96,7 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 
 ### Update these published workflows:
 - **"TQA – Webinar Confirmation & Reminders"** → Change March 19 → April 11. Update Zoom link. Update from "masterclass" to "Career Briefing."
-- **"TQA-Post Webinar — Attendees"** → Add Accelerator link (dmanwadefreedom.github.io/tqa-jumpstart/accelerator.html). Add Stripe checkout link when DJ creates it.
+- **"TQA-Post Webinar — Attendees"** → Add Accelerator link (dmanwadefreedom.github.io/tqa-funnel/accelerator.html). Add Stripe checkout link when DJ creates it.
 - **"TQA-Post Webinar — No Show"** → Add next briefing invite. Remove guilt language.
 
 ### Build these NEW workflows (using the 18-email copy from TQA-FULL-EMAIL-SEQUENCE.md):
@@ -160,13 +158,13 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 - Change all March 19 references to April 11
 - Change "masterclass" to "Career Briefing"
 - Add phone + SMS consent field
-- Redirect after submit: Stripe $27 payment link (DJ creates this)
+- Redirect after submit: Confirmation page ($27 payment via Stripe, then confirmation)
 - On submit: tag tqa-briefing-registrant, enter Workflow C
 
 ### Update "TQA-Strategy Application":
-- Change CTA link to: dmanwadefreedom.github.io/tqa-jumpstart/accelerator.html
+- Change CTA link to: dmanwadefreedom.github.io/tqa-funnel/accelerator.html
 - On submit: tag tqa-accelerator-applied, move to "Accelerator Applied" pipeline stage
-- Notify Jay + DJ
+- Notify DJ
 
 ### Audit "Form 2":
 - If unused → delete
@@ -178,9 +176,9 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 
 | Segment | Assigned To | Pipeline Stage |
 |---------|-------------|---------------|
-| 6 Applicants | DJ (WhatsApp outreach) | Applied ($2,500) |
-| 7 Attended | Jay (Strategy call) | Webinar Attended ($997) |
-| 53 Hot No-Shows | Automation (email sequence) | No Show ($27) |
+| 6 Applicants | DJ (WhatsApp outreach) | Applied ($4,997) |
+| 7 Attended | DJ (Strategy call) | Webinar Attended ($4,997) |
+| 53 Hot No-Shows | Automation (email sequence) | No Show ($0) |
 | 24 Old/Cleanup | Automation (cleanup email) | New Lead ($0) |
 | 10 Other | Automation | New Lead ($0) |
 
@@ -190,7 +188,7 @@ DJ should NOT see: 10 calendars, 11 draft workflows, unassigned contacts, $0 pip
 
 In GHL Settings → Social Planner:
 1. Connect LinkedIn (DJ's personal profile)
-2. Connect Facebook (CISO360 page)
+2. Connect Facebook (Cybersecurity Accelerator page)
 3. Optional: Connect Twitter/X
 
 Once connected, the 10 LinkedIn posts we wrote can be scheduled directly from GHL.
@@ -200,16 +198,16 @@ Once connected, the 10 LinkedIn posts we wrote can be scheduled directly from GH
 ## STEP 8: STRIPE INTEGRATION (DJ — 10 min)
 
 DJ creates these Stripe payment links:
-1. **$27 Career Briefing** — one-time payment
-2. **$997 Accelerator** — one-time payment
-3. **$347 x 3** — Accelerator payment plan
-4. **$2,500 Sprint** — one-time (for the 6 applicants)
+1. **$27 Career Briefing** — one-time payment (briefing registration)
+2. **$47 Scorecard** — one-time payment
+3. **$97/mo Insider Brief** — recurring monthly subscription
+4. **$4,997 Cybersecurity Accelerator (PIF)** — one-time payment in full
+5. **$1,997 x 3 Cybersecurity Accelerator (Payment Plan)** — 3 monthly payments
 
 Then paste the links into:
-- Briefing registration form (redirect after submit)
 - Accelerator offer page (application form redirect)
 - Post-webinar emails (CTA buttons)
-- WhatsApp messages (Sprint offer)
+- WhatsApp messages (Accelerator offer)
 
 ---
 
@@ -231,7 +229,7 @@ Registers ($27) → Confirmation + Trust Video + SMS
 Pre-briefing nurture (4 emails + SMS reminders)
         |
         v
-APRIL 11 BRIEFING (DJ teaches, Jay is in chat)
+APRIL 11 BRIEFING (DJ teaches)
         |
     +---+---+
     |       |
@@ -242,21 +240,18 @@ Post-briefing   "Missed you" email
 follow-up       + next briefing invite
 (5 emails +
 VAPI call +
-Jay strategy calls)
+DJ strategy calls)
     |
     v
-Accelerator Applied → Jay qualifies → Enrolled ($997)
+Accelerator Applied → DJ qualifies → Enrolled ($4,997)
     |
     v
 90-day program → success → testimonial
-    |
-    v
-Optional: CISO Track upgrade ($4,999+)
 ```
 
 **Every step is automated except:**
 - DJ's WhatsApp messages to applicants (personal touch)
 - DJ's briefing presentation (live, can't automate)
-- Jay's strategy calls (human closes better than bots for $997+)
+- DJ's strategy calls (human closes better than bots for $4,997+)
 
 Everything else runs on GHL workflows. DJ opens his dashboard and sees leads moving through the pipeline. No manual email sending. No guessing who to follow up with. The system handles it.

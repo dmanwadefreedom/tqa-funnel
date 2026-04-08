@@ -45,7 +45,7 @@ Slide 6: CTA — "Want your personalized career path? Link in comments."
 
 **Body:** I had networking experience. Systems knowledge. And a willingness to learn faster than threats evolved. The cybersecurity industry didn't have a "path" back then. You figured it out. Today, the path exists — but most people overthink it. They spend 18 months researching certifications instead of 90 days executing a plan. The fastest career transitions I've seen? People who picked a direction and moved. Not the ones who studied every option first.
 
-**CTA:** Free Career Briefing — 30 min to map your transition. Link in comments. $47.
+**CTA:** $27 Career Briefing — 30 min to map your transition. Link in comments.
 
 ---
 
@@ -106,7 +106,7 @@ Skip: Vendor-specific certs until you know your specialization. Skip OSCP unless
 
 **Body:** Here's what changed: He stopped studying randomly and started following a plan. Month 1-2: Security+ while still in his IT role. Month 3-5: CySA+ and built a home lab. Month 6-8: Started applying to security roles. Positioned his 8 years of networking as "deep infrastructure security knowledge." Month 9: Hired. Month 12: Promoted. The skills were always there. He just needed someone to show him how to package them.
 
-**CTA:** This is exactly what the Career Briefing does. 30 minutes. $47. Link in comments.
+**CTA:** This is exactly what the Career Briefing does. 30 minutes. $27. Link in comments.
 
 ---
 
@@ -169,7 +169,7 @@ Slide 5: Your IT visa experience + Security+ = you're already more qualified tha
 
 **Body:** I've seen resumes with 8 certifications and zero security experience. I've seen resumes with 1 certification and a portfolio of real security projects. Guess who gets hired? Certifications open doors. But your ability to THINK about security, communicate risk, and solve real problems — that's what keeps you employed and promoted. The best investment isn't another $500 cert. It's 90 days of focused, guided practice with someone who's been doing this for 28 years.
 
-**CTA:** Career Briefing — $47. The best $47 you'll spend on your career this year. Link in comments.
+**CTA:** Career Briefing — $27. The best $27 you'll spend on your career this year. Link in comments.
 
 ---
 
@@ -178,7 +178,7 @@ Slide 5: Your IT visa experience + Security+ = you're already more qualified tha
 
 **Body:** Same desk. Same salary. Same ceiling. Or: New title. New salary bracket. New career trajectory. The difference isn't talent — every IT professional I've worked with had the raw skills. The difference is direction. A clear plan. Someone who's walked the path showing you the shortcuts and the pitfalls. I've done this for 28 years. I've seen what works. I've seen what doesn't. And I can tell you in 30 minutes exactly what YOUR next move should be.
 
-**CTA:** $47 Career Briefing. Your career roadmap, built by a CISO who's hired hundreds. Link in bio.
+**CTA:** $27 Career Briefing. Your career roadmap, built by a CISO who's hired hundreds. Link in bio.
 
 ---
 

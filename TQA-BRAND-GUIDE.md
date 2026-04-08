@@ -271,6 +271,25 @@ This is a strategic choice:
 
 ---
 
+## 12. Product Ladder (Official Names)
+
+| Product | Price | Official Name | Notes |
+|---------|-------|--------------|-------|
+| Free Quiz | $0 | Cybersecurity Readiness Score | Lead capture, 7 questions |
+| Career Briefing | $27 | Career Briefing | Live webinar, 30 min |
+| Career Scorecard | $47 | Career Scorecard | Personalized 8-page PDF |
+| Membership | $97/mo | Insider Brief | Weekly email, monthly Q&A, community |
+| Main Program | $4,997 | Cybersecurity Accelerator | 14-week cohort (payment plan: $1,997 x 3) |
+| Premium Program | $10,000 | CISO Executive Program | Separate funnel, build later |
+
+**Naming rules:**
+- "CISO" as a PRODUCT name belongs only to the $10K tier
+- The $4,997 program is "Cybersecurity Accelerator" — never "CISO 360"
+- "CISO360" as a content/thought leadership brand is fine (YouTube, podcast branding)
+- Use "Apply" not "Enroll" or "Buy" when referencing the Accelerator
+
+---
+
 ## Quick Reference Card
 
 Print this or keep it open when creating content:

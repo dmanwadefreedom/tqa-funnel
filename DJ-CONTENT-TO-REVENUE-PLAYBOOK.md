@@ -9,7 +9,7 @@
 Victoria Shearing runs this with 315 YouTube subs and already books calls. We're stealing the framework.
 
 ```
-IG (catch attention) > YouTube (build trust) > Application > 15-min Call > CISO 360 ($4,997)
+IG (catch attention) > YouTube (build trust) > Application > 15-min Call > Cybersecurity Accelerator ($4,997)
 ```
 
 One recording session a week. That one session feeds 4 channels. Clients come to you.
@@ -18,9 +18,9 @@ One recording session a week. That one session feeds 4 channels. Clients come to
 
 ## WHAT YOU'RE SELLING
 
-**CISO 360.** 14-week program. IT pros walk in, cybersecurity careers walk out.
+**Cybersecurity Accelerator.** 14-week program. IT pros walk in, cybersecurity careers walk out.
 
-**$4,997 paid in full.** Or $1,897 x 3 ($5,691 total).
+**$4,997 paid in full.** Or $1,997 x 3 ($5,991 total).
 
 **Who it's for:** IT professionals with 5-15 years of experience who want cybersecurity roles paying $150K-$400K+.
 
@@ -35,9 +35,9 @@ One recording session a week. That one session feeds 4 channels. Clients come to
 | Content (YouTube/IG/LinkedIn/Podcast) | Free | Proves you know what you're talking about |
 | Application | Free | Filters out tire-kickers |
 | 15-min Strategy Call (DJ) | Free | You decide if they're a fit. Not a sales pitch. |
-| CISO 360 Program | $4,997 PIF / $1,897x3 | The actual program |
-
-No middle tiers. No $97/mo. No $47 briefings. Free content, free application, free call, one price. Done.
+| $47 Career Scorecard | $47 | Low-ticket entry point, qualifies leads |
+| $97/mo Insider Brief | $97/mo | Monthly membership, recurring revenue |
+| Cybersecurity Accelerator | $4,997 PIF / $1,997x3 | The flagship 14-week program |
 
 ---
 
@@ -58,7 +58,7 @@ YouTube is a search engine. People type "IT to cybersecurity" into it every day.
 
 **Every video description MUST include:**
 ```
-🔗 Ready to make the switch? Apply for CISO 360: [APPLICATION LINK]
+🔗 Ready to make the switch? Apply for the Cybersecurity Accelerator: [APPLICATION LINK]
 
 About DJ Naronikar:
 28-year CISO veteran | Former Deloitte, EY, Shell | Wrote cybersecurity policy for a Central Bank (now law) | Helping experienced IT pros transition to $150K-$400K+ cybersecurity careers.
@@ -123,14 +123,13 @@ Every LinkedIn post points back to the YouTube video. Newsletter links to YouTub
 
 **Name options:**
 - "The CISO Path" (clean, searchable)
-- "CISO 360 Podcast" (ties directly to your program)
 - "From IT to CISO with DJ Naronikar" (says exactly what it is)
 
 **How it works:** Take your weekly YouTube video. Strip the audio. Upload it as a podcast episode. Same content, new channel, no extra recording time.
 
 **Where to publish:** Use a host like Buzzsprout or Anchor. One upload goes to Spotify, Apple Podcasts, and Google Podcasts automatically.
 
-**Every episode intro and outro:** "If you're an experienced IT pro ready to make the switch to cybersecurity, apply for CISO 360 at [URL]."
+**Every episode intro and outro:** "If you're an experienced IT pro ready to make the switch to cybersecurity, apply for the Cybersecurity Accelerator at [URL]."
 
 ---
 
@@ -165,18 +164,18 @@ How someone goes from stranger to paying student. Every step.
 - 15 minutes on Zoom. This is not a sales pitch.
 - You review their application beforehand.
 - You give an honest assessment. "Here's what I'd recommend for your situation."
-- If they're a fit: "I'd like to invite you to CISO 360. Here's how it works."
+- If they're a fit: "I'd like to invite you to the Cybersecurity Accelerator. Here's how it works."
 - If they're not ready: "Here's what to do first. Come back when you are."
 - The call is about fit. Your credibility does the selling.
 
 ### Stage 5: ENROLLMENT
 - $4,997 PIF: https://buy.stripe.com/eVqdR96tYaC7fTKdoM48006
-- $1,997/mo x 3: https://buy.stripe.com/cNi3cv5pUeSn9vmckI48007
+- $1,997/mo x 3 ($5,991 total): https://buy.stripe.com/cNi3cv5pUeSn9vmckI48007
 - GHL sends the welcome email automatically
 - DJ does a VIP welcome call with the new student
 
 ### Stage 6: DELIVERY
-- 14-week CISO 360 program
+- 14-week Cybersecurity Accelerator program
 - 120-130 pages of courseware (already built)
 - Weekly live sessions with DJ
 - LinkedIn profile and resume optimization
@@ -219,7 +218,7 @@ These titles come from real data. Google Trends search volume, Josh Madakor's to
 
 **Video 5:** "My Student Went From Chef to $120K Cybersecurity Analyst (Rob G's Story)"
 - Madakor's career transition videos get 3-8K views. DJ's version is a bigger story. Chef to six-figure analyst is a gap people remember.
-- This is the social proof video for CISO 360.
+- This is the social proof video for the Cybersecurity Accelerator.
 
 ### Shorts (3-5 per week, cut from long videos or standalone):
 
@@ -253,7 +252,7 @@ These titles come from real data. Google Trends search volume, Josh Madakor's to
 
 | Person | What they own |
 |--------|--------------|
-| **DJ** | Record videos. Take strategy calls. Teach CISO 360. |
+| **DJ** | Record videos. Take strategy calls. Teach the Cybersecurity Accelerator. |
 | **Agresh** | Publish the 7 GHL workflow drafts (overdue since March 17). Manage the application form. Set up welcome email automation. |
 | **Shreyas** | Later: run Meta ads to the best-performing YouTube videos. Not needed to start. |
 | **Dylan** | Tech setup. Application page, Stripe links, YouTube channel optimization, content repurposing automation. |
@@ -300,18 +299,17 @@ Two clients from 4,000 views. Victoria is booking calls off 315 subscribers and 
 
 ## WHAT NOT TO DO
 
-1. **Don't launch a community, course, or membership site.** You have CISO 360. Sell it.
-2. **Don't add a middle tier.** $4,997 or nothing.
-3. **Don't wait until everything is perfect.** Your first video will be your worst. Post it anyway.
-4. **Don't hire a closer.** You are the credibility. A 15-min call from the 28-year CISO beats a 60-min pitch from a stranger every time.
-5. **Don't post without a CTA.** Every piece of content points to the application link. Every single one.
-6. **Don't add more platforms.** YouTube, IG, LinkedIn, Podcast. That's it. No TikTok. No Twitter. No Telegram.
-7. **Don't run ads yet.** Get 10 videos published first. Then put money behind the ones that already work.
+1. **Don't add products outside the ladder.** The ladder is $47 Career Scorecard, $97/mo Insider Brief, and $4,997 Cybersecurity Accelerator. Sell those three. No new offers until these are proven.
+2. **Don't wait until everything is perfect.** Your first video will be your worst. Post it anyway.
+3. **Don't hire a closer.** You are the credibility. A 15-min call from the 28-year CISO beats a 60-min pitch from a stranger every time.
+4. **Don't post without a CTA.** Every piece of content points to the application link. Every single one.
+5. **Don't add more platforms.** YouTube, IG, LinkedIn, Podcast. That's it. No TikTok. No Twitter. No Telegram.
+6. **Don't run ads yet.** Get 10 videos published first. Then put money behind the ones that already work.
 
 ---
 
 ## THE POINT
 
-DJ records one video a week about going from IT to cybersecurity. That video gets repurposed across 4 channels. Every piece of content drives to an application for CISO 360 at $4,997.
+DJ records one video a week about going from IT to cybersecurity. That video gets repurposed across 4 channels. Every piece of content drives to an application for the Cybersecurity Accelerator at $4,997.
 
 Do this for 90 days. The math works.

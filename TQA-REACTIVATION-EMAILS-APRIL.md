@@ -1,6 +1,6 @@
 # TQA Reactivation Emails -- April 2026
-## Target: April 11 Paid Masterclass ($7 Entry)
-## Registration Link: https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+## Target: April 11 $27 Career Briefing
+## Registration Link: https://dmanwadefreedom.github.io/tqa-funnel/
 
 ---
 
@@ -28,11 +28,11 @@ I reviewed your application personally. You took a step most people won't. I don
 
 Here's what I want to do about it.
 
-On April 11, I'm running a live masterclass where I'll break down the exact framework I've used across 400+ organizations to build cybersecurity careers from scratch -- the same one that helped a former chef land a $120K analyst role.
+On April 11, I'm running a live career briefing where I'll break down the exact framework I've used across 400+ organizations to build cybersecurity careers from scratch -- the same one that helped a former chef land a $120K analyst role.
 
 You're getting priority access before anyone else sees this.
 
-**$7 reserves your seat:** [Register for April 11 Masterclass](https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html)
+**$27 reserves your seat:** [Register for April 11 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
 
 And if you want to talk before then -- reply to this email. I'll personally make time.
 
@@ -41,8 +41,8 @@ And if you want to talk before then -- reply to this email. I'll personally make
 
 ---
 
-**CTA Button Text:** Reserve My Seat -- $7
-**CTA Link:** https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+**CTA Button Text:** Reserve My Seat — $27
+**CTA Link:** https://dmanwadefreedom.github.io/tqa-funnel/
 **Suggested Send Time:** Tuesday, April 1 at 10:00 AM ET (most IT professionals check email mid-morning)
 
 ---
@@ -76,9 +76,9 @@ Here's what changed:
 - **The Rob G. case study in full** -- a former chef, zero tech background, now a $120K/year cybersecurity analyst. I'll walk through every step he took.
 - **Live Q&A built into the session** -- not tacked on at the end
 
-April 11 is the improved version. And it costs $7 to attend -- because I only want people in the room who are serious.
+April 11 is the improved version. It's just $27 to attend -- because I want to make sure everyone who's serious gets access.
 
-**Claim your seat:** [Register for April 11 Masterclass](https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html)
+**Claim your seat:** [Register for April 11 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
 
 You already proved you're serious once. This is the next step.
 
@@ -87,8 +87,8 @@ You already proved you're serious once. This is the next step.
 
 ---
 
-**CTA Button Text:** I'm In -- $7
-**CTA Link:** https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+**CTA Button Text:** I'm In — $27
+**CTA Link:** https://dmanwadefreedom.github.io/tqa-funnel/
 **Suggested Send Time:** Wednesday, April 2 at 8:00 PM ET (evening for working professionals who missed the Tuesday send)
 
 ---
@@ -116,11 +116,11 @@ But the reason you signed up hasn't gone away.
 
 The math: cybersecurity professionals earn $150K+ on average. General IT sits around $105K. Over 10 years, that gap is roughly $800,000 in lost earnings. That's not a motivational line -- it's Bureau of Labor Statistics data.
 
-On **April 11**, I'm running a live masterclass breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and the Central Bank of India.
+On **April 11**, I'm running a $27 live career briefing breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and the Central Bank of India.
 
-This time, it's $7 to attend. Not because the content is worth $7 -- companies pay me $2,000-$3,000 a day for this. The $7 is a filter. It keeps the room to 50 people who actually want to move.
+Companies pay me $2,000-$3,000 a day for this. I'm opening it up for just $27 because I want the right people in the room -- people who are ready to move.
 
-**50 seats. $7 entry:** [Register for April 11 Masterclass](https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html)
+**50 seats. $27 entry:** [Register for April 11 Career Briefing](https://dmanwadefreedom.github.io/tqa-funnel/)
 
 You already raised your hand once. This is me holding the door open.
 
@@ -129,8 +129,8 @@ You already raised your hand once. This is me holding the door open.
 
 ---
 
-**CTA Button Text:** Claim My Seat -- $7
-**CTA Link:** https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+**CTA Button Text:** Claim My Seat — $27
+**CTA Link:** https://dmanwadefreedom.github.io/tqa-funnel/
 **Suggested Send Time:** Thursday, April 3 at 12:00 PM ET (lunch break -- catches the working crowd mid-day)
 
 ---
@@ -160,10 +160,10 @@ One fact, then two buttons:
 
 **Cybersecurity job openings are projected to grow 33% through 2033.** The talent shortage is real. If you have IT experience and want to make the jump, the window is wide open.
 
-On **April 11**, I'm hosting a live masterclass ($7) where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
+On **April 11**, I'm hosting a $27 live career briefing where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
 
 If you're in:
-**[Yes -- Register for April 11 ($7)](https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html)**
+**[Yes -- Register for April 11 ($27)](https://dmanwadefreedom.github.io/tqa-funnel/)**
 
 If you're out:
 **[Remove me from this list]({{unsubscribe_link}})**
@@ -174,9 +174,9 @@ No hard feelings either way. I'd rather talk to 10 people who want this than ema
 
 ---
 
-**CTA Button Text (Primary):** Yes, I'm Interested -- $7
+**CTA Button Text (Primary):** Yes, I'm Interested — $27
 **CTA Button Text (Secondary):** Remove Me
-**CTA Link (Primary):** https://dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+**CTA Link (Primary):** https://dmanwadefreedom.github.io/tqa-funnel/
 **CTA Link (Secondary):** {{unsubscribe_link}} (or instruct them to reply "NO")
 **Suggested Send Time:** Friday, April 4 at 9:00 AM ET (end-of-week clean inbox mentality, quick decision)
 
@@ -198,4 +198,4 @@ No hard feelings either way. I'd rather talk to 10 people who want this than ema
 - Word counts: Email 1 (~175), Email 2 (~200), Email 3 (~210), Email 4 (~185) -- all within 150-250 range
 - No fake testimonials, no manufactured urgency, no inflated claims
 - Rob G. story is real (former chef to $120K analyst) -- reference only in Email 2 where it fits naturally
-- $7 positioning is explained honestly: it's a seriousness filter, not a discount
+- $27 entry -- filters for serious prospects
