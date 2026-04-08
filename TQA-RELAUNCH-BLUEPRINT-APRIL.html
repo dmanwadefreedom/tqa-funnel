@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA Relaunch Blueprint — April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e1a;
+  --card: #131929;
+  --border: #1e2a42;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --blue: #3b82f6;
+  --red: #ef4444;
+  --purple: #8b5cf6;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --surface: #0f1525;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Sticky Nav ── */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 26, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 56px;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-link {
+  white-space: nowrap;
+  padding: 8px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.nav-brand {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: -0.3px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Layout ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 80px 0; }
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(245,158,11,0.3);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 22px);
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto 24px;
+  font-weight: 400;
+}
+.hero-meta {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.hero-meta span { margin: 0 8px; }
+
+/* ── Section Headers ── */
+.section-header {
+  margin-bottom: 48px;
+}
+.section-number {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-header p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 700px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.card:hover {
+  border-color: rgba(245,158,11,0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Diagnostic Table ── */
+.diag-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+.diag-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+}
+.diag-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(30,42,66,0.5);
+  font-size: 15px;
+  vertical-align: top;
+}
+.diag-table tr:last-child td { border-bottom: none; }
+.metric-val {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.metric-bad { color: var(--red); }
+.metric-warn { color: var(--gold); }
+
+/* ── Root Cause Box ── */
+.root-cause {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 24px;
+}
+.root-cause-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+.root-cause p { font-size: 15px; color: var(--text); line-height: 1.8; }
+
+/* ── Competitor Cards ── */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.comp-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: border-color 0.3s, transform 0.2s;
+  position: relative;
+}
+.comp-card:hover {
+  border-color: rgba(59,130,246,0.4);
+  transform: translateY(-2px);
+}
+.comp-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.comp-card .comp-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.comp-card ul {
+  list-style: none;
+  padding: 0;
+}
+.comp-card li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 5px 0;
+  padding-left: 18px;
+  position: relative;
+}
+.comp-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+.comp-insight {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+}
+.insight-green { color: var(--green); }
+.insight-red { color: var(--red); }
+.insight-gold { color: var(--gold); }
+
+/* Gap card */
+.gap-card {
+  background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(245,158,11,0.08));
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+}
+.gap-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--purple);
+}
+.gap-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ── Phase Timeline ── */
+.phase {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 48px;
+}
+.phase::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 8px;
+  bottom: -48px;
+  width: 2px;
+  background: var(--border);
+}
+.phase:last-of-type::before { display: none; }
+.phase-dot {
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phase-dot::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.phase-0 .phase-dot { border-color: var(--green); }
+.phase-0 .phase-dot::after { background: var(--green); }
+.phase-1 .phase-dot { border-color: var(--blue); }
+.phase-1 .phase-dot::after { background: var(--blue); }
+.phase-2 .phase-dot { border-color: var(--purple); }
+.phase-2 .phase-dot::after { background: var(--purple); }
+.phase-3 .phase-dot { border-color: var(--gold); }
+.phase-3 .phase-dot::after { background: var(--gold); }
+
+.phase-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.phase h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.phase .phase-date {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.phase .phase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+@media (max-width: 640px) {
+  .phase .phase-row { grid-template-columns: 1fr; }
+}
+.phase-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.phase-stat .stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.phase-stat .stat-val {
+  font-size: 20px;
+  font-weight: 800;
+}
+.phase-detail {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+.phase-detail strong { color: var(--text); font-weight: 600; }
+
+.lead-names {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+}
+.lead-names .ln-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.lead-names .names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lead-names .name-tag {
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+/* Revenue Summary */
+.rev-summary {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 40px;
+}
+.rev-summary h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.rev-bars { display: flex; flex-direction: column; gap: 16px; }
+.rev-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.rev-label {
+  flex: 0 0 140px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: right;
+}
+.rev-bar-wrap {
+  flex: 1;
+  height: 36px;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.rev-bar {
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  transition: width 1s ease;
+}
+.rev-total {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.rev-total .total-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.rev-total .total-val {
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--green), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.rev-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ── Ad Cards ── */
+.audience-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+@media (max-width: 640px) {
+  .audience-compare { grid-template-columns: 1fr; }
+}
+.aud-card {
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid;
+}
+.aud-old {
+  background: rgba(239,68,68,0.05);
+  border-color: rgba(239,68,68,0.2);
+}
+.aud-new {
+  background: rgba(16,185,129,0.05);
+  border-color: rgba(16,185,129,0.2);
+}
+.aud-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.aud-old .aud-label { color: var(--red); }
+.aud-new .aud-label { color: var(--green); }
+.aud-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.ad-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.ad-card:hover {
+  border-color: rgba(245,158,11,0.3);
+  transform: translateY(-2px);
+}
+.ad-card-head {
+  padding: 20px 24px 0;
+}
+.ad-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.ad-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.ad-card-body {
+  padding: 0 24px 20px;
+}
+.ad-body-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.ad-cta {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+.ad-cta:hover { background: #d97706; }
+
+.budget-box {
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 10px;
+  padding: 24px 28px;
+}
+.budget-box h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+.budget-box p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ── Webinar Timeline ── */
+.webinar-phase {
+  margin-bottom: 40px;
+}
+.webinar-phase-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.wb-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wb-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+.wb-step:hover { border-color: rgba(255,255,255,0.1); }
+.wb-time {
+  flex: 0 0 80px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  padding-top: 2px;
+}
+.wb-content h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.wb-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Masterclass changes */
+.changes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.change-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+}
+.change-num {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.15);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.change-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  padding-right: 36px;
+}
+.change-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── Content Engine ── */
+.yt-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.yt-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.yt-card:hover {
+  border-color: rgba(239,68,68,0.3);
+  transform: translateY(-1px);
+}
+.yt-num {
+  flex: 0 0 44px;
+  height: 44px;
+  background: rgba(239,68,68,0.12);
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.yt-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.yt-hook {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.dist-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.dist-box h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.dist-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.dist-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.dist-arrow {
+  color: var(--text-dim);
+  font-size: 16px;
+}
+.content-mix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.mix-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.mix-pct {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.mix-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── Reactivation Segments ── */
+.seg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.seg-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: border-color 0.3s;
+}
+.seg-card:hover { border-color: rgba(139,92,246,0.3); }
+.seg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.seg-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.seg-a .seg-badge { background: rgba(239,68,68,0.15); color: var(--red); }
+.seg-b .seg-badge { background: rgba(245,158,11,0.15); color: var(--gold); }
+.seg-c .seg-badge { background: rgba(59,130,246,0.15); color: var(--blue); }
+.seg-d .seg-badge { background: rgba(100,116,139,0.2); color: var(--text-dim); }
+.seg-status {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.seg-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-green 2s ease infinite;
+}
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.seg-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.seg-action {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+.seg-email {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.7;
+}
+.seg-ghl {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'Inter', monospace;
+}
+
+/* ── Timeline / Gantt ── */
+.week-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.week-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.week-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.week-head h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.week-head .week-dates {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.week-body { padding: 20px 24px; }
+.assign-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(30,42,66,0.4);
+}
+.assign-row:last-child { border-bottom: none; }
+.assign-name {
+  flex: 0 0 90px;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 2px;
+}
+.assign-tasks {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.assign-dj { color: var(--gold); }
+.assign-agresh { color: var(--blue); }
+.assign-shreyas { color: var(--purple); }
+.assign-dylan { color: var(--green); }
+.assign-jay { color: var(--red); }
+
+/* Special day card */
+.day-card {
+  background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(239,68,68,0.06));
+  border: 1px solid rgba(245,158,11,0.3);
+}
+.day-card .week-head {
+  border-bottom-color: rgba(245,158,11,0.2);
+}
+
+/* ── Checklist ── */
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 12px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+.check-item:hover { border-color: rgba(16,185,129,0.3); }
+.check-icon {
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+.check-done .check-icon {
+  background: rgba(16,185,129,0.15);
+  color: var(--green);
+}
+.check-item p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-top: 3px;
+}
+
+/* ── Blocker Cards ── */
+.blocker-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.blocker-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.3s;
+}
+.blocker-item:hover { border-color: rgba(239,68,68,0.3); }
+.blocker-who {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+}
+.blocker-dj { background: rgba(245,158,11,0.12); color: var(--gold); }
+.blocker-agresh { background: rgba(59,130,246,0.12); color: var(--blue); }
+.blocker-shreyas { background: rgba(139,92,246,0.12); color: var(--purple); }
+.blocker-jay { background: rgba(239,68,68,0.12); color: var(--red); }
+.blocker-dylan { background: rgba(16,185,129,0.12); color: var(--green); }
+.blocker-desc { flex: 1; }
+.blocker-desc p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.blocker-desc .blocker-note {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ── Footer ── */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+}
+.footer-line {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  section { padding: 48px 0; }
+  .hero { padding: 64px 20px 48px; }
+  .card { padding: 20px; }
+  .comp-grid { grid-template-columns: 1fr; }
+  .ad-grid { grid-template-columns: 1fr; }
+  .seg-grid { grid-template-columns: 1fr; }
+  .check-grid { grid-template-columns: 1fr; }
+  .audience-compare { grid-template-columns: 1fr; }
+  .phase { padding-left: 32px; }
+  .rev-row { flex-direction: column; gap: 6px; }
+  .rev-label { flex: none; text-align: left; }
+  .diag-table { font-size: 13px; }
+  .diag-table th, .diag-table td { padding: 10px 8px; }
+  .yt-card { flex-direction: column; }
+  .assign-row { flex-direction: column; gap: 6px; }
+  .assign-name { flex: none; }
+  .wb-step { flex-direction: column; gap: 8px; }
+  .wb-time { flex: none; }
+}
+
+/* ── Utility ── */
+.mb-12 { margin-bottom: 12px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.text-gold { color: var(--gold); }
+.text-green { color: var(--green); }
+.text-blue { color: var(--blue); }
+.text-red { color: var(--red); }
+.text-purple { color: var(--purple); }
+
+/* Divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0;
+}
+
+/* Number list in phases */
+.phase-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+.phase-bullets li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+.phase-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+/* Animated entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: fadeUp 0.6s ease both;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <span class="nav-brand">TQA</span>
+    <a href="#postmortem" class="nav-link">Post-Mortem</a>
+    <a href="#landscape" class="nav-link">Landscape</a>
+    <a href="#revenue" class="nav-link">90-Day Plan</a>
+    <a href="#ads" class="nav-link">Ad Strategy</a>
+    <a href="#masterclass" class="nav-link">Masterclass</a>
+    <a href="#content" class="nav-link">Content</a>
+    <a href="#reactivation" class="nav-link">Reactivation</a>
+    <a href="#timeline" class="nav-link">Timeline</a>
+    <a href="#done" class="nav-link">Done</a>
+    <a href="#blockers" class="nav-link">Blockers</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-label">Strategic Relaunch Plan</div>
+    <h1>TQA Relaunch Blueprint<br>April 2026</h1>
+    <p class="hero-sub">From $0 Revenue to $100K: The 90-Day Plan for DJ Naronikar</p>
+    <p class="hero-meta">
+      April 1, 2026
+      <span>|</span>
+      Prepared by Dylan Ewing
+    </p>
+  </div>
+</header>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 1: POST-MORTEM ═══════════════ -->
+<section id="postmortem">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 01</div>
+      <h2>What Went Wrong</h2>
+      <p>March 19 Post-Mortem: $1,854 in ad spend, 0 revenue. Here is exactly what failed and why.</p>
+    </div>
+
+    <div class="card">
+      <table class="diag-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Result</th>
+            <th>Problem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Meta ad spend</td>
+            <td><span class="metric-val metric-bad">AUD $1,854 (USD $1,205)</span></td>
+            <td>Wrong audience -- broad targeting pulled broke IT helpdesk workers</td>
+          </tr>
+          <tr>
+            <td>Registrations</td>
+            <td><span class="metric-val metric-warn">197</span></td>
+            <td>Quantity over quality -- free entry attracted tire-kickers</td>
+          </tr>
+          <tr>
+            <td>Attended</td>
+            <td><span class="metric-val metric-bad">24 (12.2% show rate)</span></td>
+            <td>Zoom/GHL timezone error prevented some from joining. No pre-class video to build urgency.</td>
+          </tr>
+          <tr>
+            <td>Applied</td>
+            <td><span class="metric-val metric-warn">6</span></td>
+            <td>No follow-up -- these 6 were ghosted for 2 weeks</td>
+          </tr>
+          <tr>
+            <td>Paid</td>
+            <td><span class="metric-val metric-bad">0</span></td>
+            <td>$4,999 price + wrong audience (Pixel attracted people without budget)</td>
+          </tr>
+          <tr>
+            <td>Revenue</td>
+            <td><span class="metric-val metric-bad">$0</span></td>
+            <td>Technical errors + wrong targeting + no video prep + no follow-up on applicants</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="root-cause">
+        <div class="root-cause-label">Root Cause</div>
+        <p><strong>The pre-warm emails and VAPI confirmation calls worked -- leads engaged before the event.</strong> But three things killed conversion: (1) A Zoom/GHL timezone misconfiguration prevented some registrants from joining, (2) the Meta Pixel was attracting people who could not afford $4,999, and (3) no pre-class video was sent to build trust and urgency before the live event. Six people applied and nobody followed up for two weeks. Telegram was set up as a community channel but got zero engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 2: COMPETITIVE LANDSCAPE ═══════════════ -->
+<section id="landscape">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 02</div>
+      <h2>The Competitive Landscape</h2>
+      <p>Who is winning in cybersecurity education -- and the gap nobody is filling.</p>
+    </div>
+
+    <div class="comp-grid">
+      <!-- Boyd Clewis -->
+      <div class="comp-card">
+        <h3>Boyd Clewis</h3>
+        <div class="comp-sub">CyberHero School</div>
+        <ul>
+          <li>YouTube: 320K subscribers</li>
+          <li>Revenue: $40M+ over 6 years, $1M during pandemic peak</li>
+          <li>Model: Free YouTube content to CyberHero School to internship at his consulting firm</li>
+          <li>Price: ~$2K-$5K (not public)</li>
+          <li>1,000+ clients placed</li>
+          <li>Secret sauce: The internship. Students get real work experience at his firm.</li>
+        </ul>
+        <div class="comp-insight insight-red">DJ can't copy this yet -- needs audience first</div>
+      </div>
+
+      <!-- Gerald Auger -->
+      <div class="comp-card">
+        <h3>Gerald Auger</h3>
+        <div class="comp-sub">Simply Cyber</div>
+        <ul>
+          <li>PhD credential, YouTube presence</li>
+          <li>Courses: $20-$150 range (low ticket)</li>
+          <li>GRC Master Class: $150</li>
+          <li>FREE GRC foundations course</li>
+          <li>High volume, low price model</li>
+        </ul>
+        <div class="comp-insight insight-red">DJ should not copy this -- race to the bottom</div>
+      </div>
+
+      <!-- SANS/ISC2 -->
+      <div class="comp-card">
+        <h3>SANS / ISC2</h3>
+        <div class="comp-sub">Enterprise Certification</div>
+        <ul>
+          <li>Enterprise certs, $1K-$9K per course</li>
+          <li>Institutional play, employer-funded</li>
+          <li>Different market entirely</li>
+          <li>Corporate training budgets, not individuals</li>
+        </ul>
+        <div class="comp-insight insight-gold">Different market -- not direct competition</div>
+      </div>
+
+      <!-- Market Gap -->
+      <div class="comp-card" style="border-color: rgba(139,92,246,0.3);">
+        <h3 style="color: var(--purple);">DJ's Opportunity</h3>
+        <div class="comp-sub">Premium 1:1 CISO Mentorship</div>
+        <ul>
+          <li>28 years of CISO authority at Deloitte, EY, Shell</li>
+          <li>Real hiring manager network, real introductions</li>
+          <li>High-touch, premium positioning</li>
+          <li>Personal credential: AI policy for a central bank</li>
+          <li>400+ mentored across 8 countries</li>
+        </ul>
+        <div class="comp-insight insight-green">Nobody is doing this -- the gap is wide open</div>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h3>The Gap Nobody Is Filling</h3>
+      <p>Boyd does volume. Gerald does low-ticket. SANS does enterprise. <strong>Nobody is doing what DJ should be doing:</strong> leveraging 28 years of personal authority for high-touch, premium mentorship. The IT-to-cybersecurity career pivot market is exploding, and no one owns the premium tier.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 3: 90-DAY REVENUE PLAN ═══════════════ -->
+<section id="revenue">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 03</div>
+      <h2>The 90-Day Revenue Plan</h2>
+      <p>Four phases from warm leads to $100K. Each phase builds on the last.</p>
+    </div>
+
+    <!-- Phase 0 -->
+    <div class="phase phase-0">
+      <div class="phase-dot"></div>
+      <div class="phase-label text-green">Phase 0 -- The Sprint</div>
+      <h3>CISO Career Sprint</h3>
+      <div class="phase-date">Week 1-2 | April 1-14</div>
+
+      <div class="phase-row">
+        <div class="phase-stat">
+          <div class="stat-label">Product</div>
+          <div class="stat-val text-green">$2,500</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">4-week 1:1 with DJ</div>
+        </div>
+        <div class="phase-stat">
+          <div class="stat-label">Target</div>
+          <div class="stat-val text-green">$10,000</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">4 clients from 12 warm leads</div>
+        </div>
+      </div>
+
+      <div class="phase-detail mb-16">
+        <strong>How to sell:</strong> DJ WhatsApps and emails personally. No funnel needed. These 12 people already raised their hand. $2,500 is 10x cheaper than DJ's $2-3K/day consulting rate.
+      </div>
+
+      <div class="phase-detail mb-16">
+        <strong>Includes:</strong> LinkedIn audit, resume rewrite, career plan, introductions to hiring managers in DJ's network.
+      </div>
+
+      <div class="phase-detail mb-16" style="color:var(--gold);font-weight:600;">
+        CRITICAL: This creates the testimonials that sell everything else.
+      </div>
+
+      <div class="lead-names">
+        <div class="ln-label">6 Applicants (Highest Intent)</div>
+        <div class="names">
+          <span class="name-tag">Sonny Pierre</span>
+          <span class="name-tag">Ejaz Khan</span>
+          <span class="name-tag">Muhammad Mazed</span>
+          <span class="name-tag">Rama Krishna Guttula</span>
+          <span class="name-tag">Shafiul Kh</span>
+          <span class="name-tag">Kenny Ganta</span>
+        </div>
+      </div>
+      <div class="lead-names">
+        <div class="ln-label">6 Attended (Showed Up Live)</div>
+        <div class="names">
+          <span class="name-tag">Dev Ambrose</span>
+          <span class="name-tag">Jay Magpantay</span>
+          <span class="name-tag">Hector Ramirez</span>
+          <span class="name-tag">Tim Hughes</span>
+          <span class="name-tag">Dayo Adegbola</span>
+          <span class="name-tag">Jaya Singh</span>
+        </div>
+      </div>
+
+      <ul class="phase-bullets">
+        <li>No audience needed, no ads needed -- just DJ being DJ</li>
+        <li>$2,500 is a no-brainer against DJ's $2K-$3K/day consulting rate</li>
+        <li>4 clients in 2 weeks = $10K and the social proof to fuel everything else</li>
+      </ul>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase phase-1">
+      <div class="phase-dot"></div>
+      <div class="phase-label text-blue">Phase 1 -- April 11 Masterclass</div>
+      <h3>Live Paid Masterclass</h3>
+      <div class="phase-date">Week 2-3 | April 11-14</div>
+
+      <div class="phase-row">
+        <div class="phase-stat">
+          <div class="stat-label">Entry Price</div>
+          <div class="stat-val text-blue">$27</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Filters for serious</div>
+        </div>
+        <div class="phase-stat">
+          <div class="stat-label">On-Stage Offer</div>
+          <div class="stat-val text-blue">$997</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Accelerator (NOT $4,999)</div>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-stat">
+          <div class="stat-label">Target Attendance</div>
+          <div class="stat-val text-blue">25+</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">From 50 paid registrants</div>
+        </div>
+        <div class="phase-stat">
+          <div class="stat-label">Revenue Target</div>
+          <div class="stat-val text-blue">$5K-$10K</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">5-10 buy at $997</div>
+        </div>
+      </div>
+
+      <div class="phase-detail mb-12" style="font-weight:600;color:var(--text);">Title: "How IT Professionals Are Landing $150K+ Cybersecurity Roles in 90 Days"</div>
+
+      <div class="phase-detail mb-16">
+        <strong>What is different from March 19:</strong>
+      </div>
+
+      <ul class="phase-bullets">
+        <li>PAID entry ($27) -- filters out tire-kickers instantly</li>
+        <li>Pre-class trust VIDEO this time (emails + VAPI worked before, but no video was sent)</li>
+        <li>RIGHT price -- $997 on stage (not $4,999)</li>
+        <li>FIXED: Zoom/GHL timezone settings verified</li>
+        <li>NEW: LinkedIn scrape audience replaces broken Pixel targeting</li>
+        <li>DROPPED: Telegram (zero engagement). Keeping email + VAPI + SMS.</li>
+        <li>SOCIAL PROOF -- Sprint clients referenced (even if still in progress)</li>
+        <li>IMMEDIATE follow-up -- VAPI Priya calls within 24h, Jay books strategy calls</li>
+      </ul>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase phase-2">
+      <div class="phase-dot"></div>
+      <div class="phase-label text-purple">Phase 2 -- Scale the Accelerator</div>
+      <h3>$997 Accelerator (Group Program)</h3>
+      <div class="phase-date">Week 4-8 | April 15 - May 30</div>
+
+      <div class="phase-row">
+        <div class="phase-stat">
+          <div class="stat-label">Target Students</div>
+          <div class="stat-val text-purple">30-50</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Group program cohort</div>
+        </div>
+        <div class="phase-stat">
+          <div class="stat-label">Revenue Target</div>
+          <div class="stat-val text-purple">$30K-$50K</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Scaling what works</div>
+        </div>
+      </div>
+
+      <ul class="phase-bullets">
+        <li>YouTube content starts (5 videos scripted, ready to record)</li>
+        <li>Sprint client testimonials fuel everything</li>
+        <li>Bi-weekly masterclasses (evergreen, $27 entry each time)</li>
+        <li>VAPI re-engage calls to all unconverted leads</li>
+        <li>Meta retargeting of quiz takers + page visitors</li>
+      </ul>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase phase-3">
+      <div class="phase-dot"></div>
+      <div class="phase-label text-gold">Phase 3 -- High-Ticket Tier</div>
+      <h3>$4,999 CISO Accelerator (Premium 1:1)</h3>
+      <div class="phase-date">Month 3-4 | June - July</div>
+
+      <div class="phase-row">
+        <div class="phase-stat">
+          <div class="stat-label">Target Clients</div>
+          <div class="stat-val text-gold">10</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Accelerator graduates + high-intent leads</div>
+        </div>
+        <div class="phase-stat">
+          <div class="stat-label">Revenue Target</div>
+          <div class="stat-val text-gold">$50,000</div>
+          <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Premium positioning</div>
+        </div>
+      </div>
+
+      <div class="phase-detail mb-12">
+        <strong>This is Boyd's internship model but premium and personal:</strong>
+      </div>
+
+      <ul class="phase-bullets">
+        <li>Mock interviews with DJ personally</li>
+        <li>Resume placed in front of real hiring managers via DJ's network</li>
+        <li>Direct introductions to CISOs DJ knows</li>
+        <li>12-week intensive program</li>
+      </ul>
+    </div>
+
+    <!-- Revenue Summary -->
+    <div class="rev-summary">
+      <h3>Revenue Summary</h3>
+      <div class="rev-bars">
+        <div class="rev-row">
+          <div class="rev-label">Phase 0</div>
+          <div class="rev-bar-wrap">
+            <div class="rev-bar" style="width:10%;background:var(--green);">$10K</div>
+          </div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-label">Phase 1</div>
+          <div class="rev-bar-wrap">
+            <div class="rev-bar" style="width:10%;background:var(--blue);">$5K-$10K</div>
+          </div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-label">Phase 2</div>
+          <div class="rev-bar-wrap">
+            <div class="rev-bar" style="width:45%;background:var(--purple);">$30K-$50K</div>
+          </div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-label">Phase 3</div>
+          <div class="rev-bar-wrap">
+            <div class="rev-bar" style="width:50%;background:var(--gold);">$50K</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-total">
+        <div class="total-label">Total 90-Day Target</div>
+        <div class="total-val">$95,000 - $120,000</div>
+      </div>
+      <p class="rev-note">Revenue projections are estimates based on industry benchmarks and DJ's existing lead data. Actual results depend on execution velocity.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 4: AD STRATEGY ═══════════════ -->
+<section id="ads">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 04</div>
+      <h2>The New Ad Strategy</h2>
+      <p>Five ad variants targeting the right audience. $500 test budget. Kill losers, scale the winner.</p>
+    </div>
+
+    <!-- Audience Compare -->
+    <div class="audience-compare">
+      <div class="aud-card aud-old">
+        <div class="aud-label">Old Targeting (March 19)</div>
+        <p>Broad "cybersecurity interest" targeting pulled broke IT helpdesk workers making $45K-$65K. They could not afford $997, let alone $4,999. Free entry attracted tire-kickers with no buying intent. DJ's best CPL was $4.11, but the leads were worthless.</p>
+      </div>
+      <div class="aud-card aud-new">
+        <div class="aud-label">New Targeting (April 11)</div>
+        <p>LinkedIn scrape of Info/Cyber/IT Security Manager titles uploaded to Meta as custom audience. These are professionals making $85K-$120K who can afford $997. Lookalike audience from the 12 warm leads. Retargeting: quiz takers, masterclass page visitors, video viewers.</p>
+      </div>
+    </div>
+
+    <p style="font-size:14px;color:var(--text-dim);margin-bottom:32px;">Format: 4:5 vertical video/image. Bold captions. Serious, professional tone. No playful or meme creative -- this audience is senior.</p>
+
+    <!-- Ad Cards -->
+    <div class="ad-grid">
+      <!-- Ad 1 -->
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 1 -- Current Threat Hook</div>
+          <h4>"The Cybersecurity Hiring Gap Is Getting Worse"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">600,000 unfilled positions. Companies paying 40% premiums for qualified candidates. AI is accelerating the demand, not replacing it. I've been a CISO for 28 years -- Deloitte, EY, Shell. On April 11, I'm giving a career briefing for IT professionals who want to understand what's actually happening in this market and what to do about it. 90 minutes. $27. No recording.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <!-- Ad 2 -->
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 2 -- Salary Data</div>
+          <h4>"IT Pay vs Cybersecurity Pay: The 10-Year Gap"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">IT support: $55K today, $70K in 10 years. Cybersecurity: $95K today, $200K+ in 10 years. Same person. Different career path. I'm DJ Naronikar. I've spent 28 years on the hiring side of cybersecurity. On April 11, I'm breaking down the exact career path -- certifications, salary progression, how to get hired -- in a live briefing. $27 entry. No pitch. Just the information you need.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <!-- Ad 3 -->
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 3 -- Hidden Job Market</div>
+          <h4>"70% of Cybersecurity Jobs Are Never Posted"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">They're filled through referrals, direct outreach, and recruiters who already know the candidate. If you're applying through job boards, you're competing for 30% of the market. I've hired cybersecurity professionals for three decades. I know how the other 70% works. April 11, I'm sharing the playbook in a live briefing. 90 minutes. $27.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <!-- Ad 4 -->
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 4 -- LinkedIn Audit</div>
+          <h4>"What a Hiring CISO Sees When They Look at Your LinkedIn"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">I've reviewed thousands of LinkedIn profiles as a hiring CISO. Most IT professionals trying to break into cybersecurity make the same 3 mistakes. On April 11, I'm doing a live career briefing for IT professionals -- including a live LinkedIn audit of one attendee's profile. You'll see exactly what gets you noticed and what gets you skipped. $27. No recording.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+
+      <!-- Ad 5 -->
+      <div class="ad-card">
+        <div class="ad-card-head">
+          <div class="ad-num">Ad 5 -- The Cert Question</div>
+          <h4>"You're Probably Studying for the Wrong Certification"</h4>
+        </div>
+        <div class="ad-card-body">
+          <p class="ad-body-text">I've reviewed over 5,000 cybersecurity resumes. The certification section is where most IT professionals waste thousands of dollars. Security+, CISSP, CEH, CISM, SANS -- I'll tell you which ones matter, in which order, based on 28 years of hiring. Live career briefing, April 11. $27.</p>
+          <span class="ad-cta">Register -- $27</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-box">
+      <h4>Budget Recommendation</h4>
+      <p><strong>$500 test budget.</strong> $100 per ad. Run all 5 for 72 hours. Cut the bottom 2, scale the top performer.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 5: MASTERCLASS STRUCTURE ═══════════════ -->
+<section id="masterclass">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 05</div>
+      <h2>The Masterclass Structure</h2>
+      <p>Before, during, and after. March 19 had email pre-warming and VAPI calls that worked, but technical errors, wrong targeting, and missing video killed it. This time every gap is fixed.</p>
+    </div>
+
+    <!-- What's Different -->
+    <div class="changes-grid mb-32">
+      <div class="change-card">
+        <div class="change-num">1</div>
+        <h4>Paid Entry ($27)</h4>
+        <p>Filters out tire-kickers. $27 is high enough to prove serious intent but low enough to fill 50 seats. If they will not pay $27, they will never pay $997.</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">2</div>
+        <h4>Right Audience</h4>
+        <p>LinkedIn scrape replaces broken Pixel targeting that attracted people with no budget.</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">3</div>
+        <h4>Pre-Class Trust Video</h4>
+        <p>Emails + VAPI worked before but no video was sent. This time a trust video goes out before the event.</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">4</div>
+        <h4>Right Price on Stage</h4>
+        <p>$997 Accelerator offer (not $4,999 to strangers).</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">5</div>
+        <h4>Social Proof</h4>
+        <p>Sprint clients referenced, even if still in progress.</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">6</div>
+        <h4>Immediate Follow-Up</h4>
+        <p>VAPI Priya calls within 24h. Jay books strategy calls. Nobody gets ghosted.</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">7</div>
+        <h4>Zoom/GHL Timezone Fixed</h4>
+        <p>Timezone misconfiguration prevented registrants from joining last time. Verified and tested this round.</p>
+      </div>
+      <div class="change-card">
+        <div class="change-num">8</div>
+        <h4>Telegram Dropped</h4>
+        <p>Set up last time but got zero engagement. Keeping email + VAPI + SMS only.</p>
+      </div>
+    </div>
+
+    <!-- BEFORE -->
+    <div class="webinar-phase">
+      <div class="webinar-phase-label text-blue">Before the Class -- Pre-Warming Sequence</div>
+      <div class="wb-steps">
+        <div class="wb-step">
+          <div class="wb-time">Immediate</div>
+          <div class="wb-content">
+            <h4>Trust Video</h4>
+            <p>7 minutes, DJ on camera. Establishes authority, builds rapport, sets expectations for the masterclass.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 0</div>
+          <div class="wb-content">
+            <h4>Confirmation Email</h4>
+            <p>"What to expect" -- sets the frame, builds anticipation, confirms the date and time.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 1</div>
+          <div class="wb-content">
+            <h4>Value Email</h4>
+            <p>"3 biggest mistakes IT pros make when pivoting to cybersecurity" -- pure value, no pitch.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 2</div>
+          <div class="wb-content">
+            <h4>Case Study Email</h4>
+            <p>Rob G: chef to $120K cybersecurity role. Proof that the path works even without an IT background.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 3</div>
+          <div class="wb-content">
+            <h4>Urgency Email</h4>
+            <p>"Why AI makes this MORE urgent" -- the window is closing, and those who move first win.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day of</div>
+          <div class="wb-content">
+            <h4>Reminder + Link</h4>
+            <p>Final reminder email with Zoom link. SMS reminders at Day -1, -1 hour, and -5 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE CLASS -->
+    <div class="webinar-phase">
+      <div class="webinar-phase-label text-gold">The Class Itself -- 60-90 Minutes (Brunson Perfect Webinar)</div>
+      <div class="wb-steps">
+        <div class="wb-step">
+          <div class="wb-time">0-5 min</div>
+          <div class="wb-content">
+            <h4>Hook</h4>
+            <p>"Your IT job is safe. Your IT career is NOT." DJ credentials in 60 seconds -- Deloitte, EY, Shell, central bank AI policy, 400+ mentored.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">5-20 min</div>
+          <div class="wb-content">
+            <h4>The Opportunity</h4>
+            <p>600K unfilled cyber jobs in 2026. Average salary: $136K (up 8% YoY). The salary compound effect: $800K gap over 10 years. H-1B angle: cybersecurity roles are harder to offshore.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">20-35 min</div>
+          <div class="wb-content">
+            <h4>The 3 Secrets</h4>
+            <p><strong>1.</strong> "You don't need to code" -- GRC is the fastest entry (DJ's lane). <strong>2.</strong> "3 certs, not 30" -- Security+, CISSP, one specialization. <strong>3.</strong> "The hidden job market" -- skip the "3-5 years required" filter.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">35-50 min</div>
+          <div class="wb-content">
+            <h4>The Stack (Reveal the Accelerator)</h4>
+            <p>Piece by piece: career assessment, custom roadmap, cert plan, resume rewrite, interview prep, community access, DJ Q&amp;A sessions, the LIVE LinkedIn audit demo.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">50-60 min</div>
+          <div class="wb-content">
+            <h4>The Close</h4>
+            <p>Price reveal: <strong>$997</strong> (anchor against $8K SANS courses). Payment plan: 3 x $347. Webinar-only bonus: 1-on-1 career audit with DJ (first 10 enrollees). Scarcity: "I am only taking 30 students in this cohort."</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">60-90 min</div>
+          <div class="wb-content">
+            <h4>Live Q&amp;A</h4>
+            <p>People who stay are the hottest leads. Jay (closer) is in the chat booking strategy calls in real time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div class="webinar-phase">
+      <div class="webinar-phase-label text-green">After the Class -- Where March 19 Died</div>
+      <div class="wb-steps">
+        <div class="wb-step">
+          <div class="wb-time">Within 1h</div>
+          <div class="wb-content">
+            <h4>Replay Access (48 hours)</h4>
+            <p>Creates urgency. "The replay disappears in 48 hours" -- drives rewatching and buying.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Within 24h</div>
+          <div class="wb-content">
+            <h4>VAPI Priya Calls Non-Buyers</h4>
+            <p>AI voice agent (assistant ID: 03c5a1b5) calls every non-buyer. Warm, conversational, books strategy calls.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Within 48h</div>
+          <div class="wb-content">
+            <h4>Urgency Email</h4>
+            <p>"Your career audit expires in 24 hours" -- the bonus 1-on-1 is time-limited.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 3</div>
+          <div class="wb-content">
+            <h4>Jay Calls Warm Leads</h4>
+            <p>Human closer calls everyone who stayed for Q&amp;A or clicked the offer page. Strategy session, objection handling, close.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 5</div>
+          <div class="wb-content">
+            <h4>Final Email</h4>
+            <p>"Doors closing for this cohort" -- last chance, real deadline.</p>
+          </div>
+        </div>
+        <div class="wb-step">
+          <div class="wb-time">Day 7</div>
+          <div class="wb-content">
+            <h4>Doors Close</h4>
+            <p>Cohort is full or doors close. Wait for next cohort. Real scarcity, not fake scarcity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 6: CONTENT ENGINE ═══════════════ -->
+<section id="content">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 06</div>
+      <h2>The Content Engine</h2>
+      <p>Five YouTube videos scripted and ready to record. One recording = 5-6 pieces of content across all platforms.</p>
+    </div>
+
+    <div class="yt-grid">
+      <div class="yt-card">
+        <div class="yt-num">1</div>
+        <div>
+          <h4>Why IT Professionals Keep Failing Cybersecurity Interviews (And What To Say Instead)</h4>
+          <p class="yt-hook">"I have been on the hiring side for 28 years. I can tell you the exact moment I know a candidate is going to fail."</p>
+        </div>
+      </div>
+      <div class="yt-card">
+        <div class="yt-num">2</div>
+        <div>
+          <h4>The 3 Cybersecurity Certifications That Actually Get You Hired (And 2 That Waste Your Money)</h4>
+          <p class="yt-hook">"I have reviewed over 5,000 resumes. The certification section is where 70% blow their budget."</p>
+        </div>
+      </div>
+      <div class="yt-card">
+        <div class="yt-num">3</div>
+        <div>
+          <h4>From IT Support to $200K+ Cybersecurity Leader: The Exact Career Path</h4>
+          <p class="yt-hook">"I mentored a chef into a $120K cybersecurity role. Here is the exact path."</p>
+        </div>
+      </div>
+      <div class="yt-card">
+        <div class="yt-num">4</div>
+        <div>
+          <h4>I Wrote the AI Policy for a Central Bank. Here's Why That Matters for Your Career.</h4>
+          <p class="yt-hook">"That policy is now the standard for every bank in that country."</p>
+        </div>
+      </div>
+      <div class="yt-card">
+        <div class="yt-num">5</div>
+        <div>
+          <h4>The $800,000 Mistake IT Professionals Make Every Decade</h4>
+          <p class="yt-hook">"If you are making $105K in IT and you stay 10 years, you earn $1.1M. In cybersecurity: $1.9M."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Distribution Model -->
+    <div class="dist-box mb-24">
+      <h4>Distribution Model</h4>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">1 recording session per week = 5-6 pieces of content.</p>
+      <div class="dist-flow">
+        <span class="dist-item">1 Recording</span>
+        <span class="dist-arrow">&rarr;</span>
+        <span class="dist-item">YouTube Long-Form</span>
+        <span class="dist-arrow">+</span>
+        <span class="dist-item">2-3 Shorts</span>
+        <span class="dist-arrow">+</span>
+        <span class="dist-item">LinkedIn Post</span>
+        <span class="dist-arrow">+</span>
+        <span class="dist-item">Spotify Podcast</span>
+        <span class="dist-arrow">+</span>
+        <span class="dist-item">Newsletter</span>
+      </div>
+
+      <div class="content-mix">
+        <div class="mix-item">
+          <div class="mix-pct text-red">50%</div>
+          <div class="mix-label">Fear / News</div>
+        </div>
+        <div class="mix-item">
+          <div class="mix-pct text-blue">25%</div>
+          <div class="mix-label">Career Proof</div>
+        </div>
+        <div class="mix-item">
+          <div class="mix-pct text-gold">15%</div>
+          <div class="mix-label">DJ Authority</div>
+        </div>
+        <div class="mix-item">
+          <div class="mix-pct text-purple">10%</div>
+          <div class="mix-label">Behind-the-Scenes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 7: REACTIVATION ═══════════════ -->
+<section id="reactivation">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 07</div>
+      <h2>Reactivation Plan</h2>
+      <p>100 existing leads segmented into 4 groups. Every contact is tagged in GHL. Emails are written and ready.</p>
+    </div>
+
+    <div class="seg-grid">
+      <!-- Segment A -->
+      <div class="seg-card seg-a">
+        <div class="seg-header">
+          <div class="seg-badge">Segment A -- Applicants (6)</div>
+          <div class="seg-status">Tagged</div>
+        </div>
+        <h4>Highest Intent -- Personal Outreach</h4>
+        <div class="seg-action"><strong>Action:</strong> DJ WhatsApps personally with Sprint offer ($2,500). These people applied. They were ready to buy. Nobody called them.</div>
+        <div class="lead-names" style="margin:0 0 12px 0;">
+          <div class="names">
+            <span class="name-tag">Sonny Pierre</span>
+            <span class="name-tag">Ejaz Khan</span>
+            <span class="name-tag">Muhammad Mazed</span>
+            <span class="name-tag">Rama Krishna Guttula</span>
+            <span class="name-tag">Shafiul Kh</span>
+            <span class="name-tag">Kenny Ganta</span>
+          </div>
+        </div>
+        <div class="seg-email">"Your application was reviewed. I am taking 4 people for a private sprint. Here is what is included..."</div>
+        <div class="seg-ghl">GHL Tag: tqa-reactivate-applicant</div>
+      </div>
+
+      <!-- Segment B -->
+      <div class="seg-card seg-b">
+        <div class="seg-header">
+          <div class="seg-badge">Segment B -- Attended (6)</div>
+          <div class="seg-status">Tagged</div>
+        </div>
+        <h4>Showed Up -- Warm Follow-Up</h4>
+        <div class="seg-action"><strong>Action:</strong> Email + Sprint offer, then April 11 invite if no response. They showed up live. That is commitment.</div>
+        <div class="lead-names" style="margin:0 0 12px 0;">
+          <div class="names">
+            <span class="name-tag">Dev Ambrose</span>
+            <span class="name-tag">Jay Magpantay</span>
+            <span class="name-tag">Hector Ramirez</span>
+            <span class="name-tag">Tim Hughes</span>
+            <span class="name-tag">Dayo Adegbola</span>
+            <span class="name-tag">Jaya Singh</span>
+          </div>
+        </div>
+        <div class="seg-email">"You showed up on March 19. Most did not. That tells me something about you."</div>
+        <div class="seg-ghl">GHL Tag: tqa-reactivate-attended</div>
+      </div>
+
+      <!-- Segment C -->
+      <div class="seg-card seg-c">
+        <div class="seg-header">
+          <div class="seg-badge">Segment C -- Hot No-Shows (54)</div>
+          <div class="seg-status">Tagged</div>
+        </div>
+        <h4>Registered But Missed -- Re-Invite</h4>
+        <div class="seg-action"><strong>Action:</strong> "I saved your seat" email + April 11 masterclass invite ($27). Life happens. Give them another chance.</div>
+        <div class="seg-email">"Life happens. Your cybersecurity career has not changed since March 19. April 11 is your next shot."</div>
+        <div class="seg-ghl">GHL Tag: tqa-reactivate-hot-noshow</div>
+      </div>
+
+      <!-- Segment D -->
+      <div class="seg-card seg-d">
+        <div class="seg-header">
+          <div class="seg-badge">Segment D -- Warm/Cold (34)</div>
+          <div class="seg-status">Tagged</div>
+        </div>
+        <h4>Cleanup -- Reply or Remove</h4>
+        <div class="seg-action"><strong>Action:</strong> Cleanup email. "Reply YES or I will remove you." Respect their inbox. Clean the list.</div>
+        <div class="seg-email">"Are you still serious about cybersecurity? If yes, reply. If not, I respect your inbox."</div>
+        <div class="seg-ghl">GHL Tags: tqa-reactivate-warm, tqa-reactivate-cleanup</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--text-muted);">
+      All 97 contacts have been tagged in GHL as of April 1, 2026. Emails are written and ready for Agresh to deploy.
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 8: TIMELINE ═══════════════ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 08</div>
+      <h2>Team Assignments &amp; Timeline</h2>
+      <p>Who does what, when. Every task has an owner and a deadline.</p>
+    </div>
+
+    <div class="week-grid">
+
+      <!-- Week 1 -->
+      <div class="week-block">
+        <div class="week-head">
+          <h4>Week 1</h4>
+          <div class="week-dates">April 1 - 7</div>
+        </div>
+        <div class="week-body">
+          <div class="assign-row">
+            <div class="assign-name assign-dj">DJ</div>
+            <div class="assign-tasks">WhatsApp 6 applicants (Sprint offer). Email 6 attended. Record 7-minute trust video.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-agresh">Agresh</div>
+            <div class="assign-tasks">Fire reactivation emails (all 4 segments). Build pre-class email sequence (5 emails + SMS).</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-shreyas">Shreyas</div>
+            <div class="assign-tasks">LinkedIn scrape of Security Manager titles. Upload to Meta as custom audience. Set up 5 ad variants.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-dylan">Dylan</div>
+            <div class="assign-tasks">Registration page live (DONE). Stripe checkout wired. GHL webhook connected.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-jay">Jay</div>
+            <div class="assign-tasks">Review closer script. Prep for post-webinar strategy calls.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="week-block">
+        <div class="week-head">
+          <h4>Week 2</h4>
+          <div class="week-dates">April 7 - 11</div>
+        </div>
+        <div class="week-body">
+          <div class="assign-row">
+            <div class="assign-name assign-dj">DJ</div>
+            <div class="assign-tasks">Close Sprint clients. Record YouTube Video 1. Prep webinar slides.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-agresh">Agresh</div>
+            <div class="assign-tasks">SMS reminder sequence live. Pre-class emails firing on schedule.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-shreyas">Shreyas</div>
+            <div class="assign-tasks">Ads running ($500 budget). Monitor daily, kill losers, scale winner by Day 3.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-dylan">Dylan</div>
+            <div class="assign-tasks">Retargeting pixel firing on all pages. Quiz-to-masterclass redirect live.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- April 11 -->
+      <div class="week-block day-card">
+        <div class="week-head">
+          <h4>MASTERCLASS DAY</h4>
+          <div class="week-dates">April 11</div>
+        </div>
+        <div class="week-body">
+          <div class="assign-row">
+            <div class="assign-name assign-dj">DJ</div>
+            <div class="assign-tasks">Delivers masterclass (60-90 min). Live LinkedIn audit on stage. Closes $997 Accelerator offer.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-agresh">Agresh</div>
+            <div class="assign-tasks">Chat support during webinar. Tag attendees in GHL. Fire post-webinar email sequence.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-jay">Jay</div>
+            <div class="assign-tasks">In Zoom chat booking strategy calls live. Follow up with every warm lead within 24 hours.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-dylan">Dylan</div>
+            <div class="assign-tasks">VAPI Priya calling non-buyers within 24 hours. Monitor tech, Stripe, and GHL webhooks.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 3-4 -->
+      <div class="week-block">
+        <div class="week-head">
+          <h4>Week 3-4</h4>
+          <div class="week-dates">April 12 - 30</div>
+        </div>
+        <div class="week-body">
+          <div class="assign-row">
+            <div class="assign-name assign-dj">DJ</div>
+            <div class="assign-tasks">Sprint clients in progress (delivering value + collecting testimonials). Record Videos 2-3. Weekly webinar replays.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-agresh">Agresh</div>
+            <div class="assign-tasks">Post-webinar follow-up sequence running. Accelerator onboarding workflow for new students.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-shreyas">Shreyas</div>
+            <div class="assign-tasks">Scale winning ad. Test new creative with testimonial angles from Sprint clients.</div>
+          </div>
+          <div class="assign-row">
+            <div class="assign-name assign-jay">Jay</div>
+            <div class="assign-tasks">Strategy calls with warm leads. Close Accelerator sales. Track conversion rate.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 9: WHAT'S DONE ═══════════════ -->
+<section id="done">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 09</div>
+      <h2>What's Already Done</h2>
+      <p>The strategic groundwork is complete. Every item below has been built, written, or deployed.</p>
+    </div>
+
+    <div class="check-grid">
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Funnel architecture designed (6-stage visual map)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Competitive research completed (Boyd Clewis, Gerald Auger, market gap analysis)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Content strategy written (5 YouTube videos fully scripted with hooks)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Pricing decided ($2,500 Sprint / $997 Accelerator / $4,999 CISO tier)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>100 leads segmented and tagged in GHL (4 reactivation segments)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>4 reactivation emails written (one per segment, ready to deploy)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>HQ command page deployed (dmanwadefreedom.github.io/tqa-jumpstart/hq.html)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Masterclass registration page built (dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>5 ad creative variants written (headlines, body copy, CTAs)</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Victoria consulting brief prepared</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>Brand message unified: "I help IT professionals break into cybersecurity careers in 90 days -- without starting from scratch"</p>
+      </div>
+      <div class="check-item check-done">
+        <div class="check-icon">&#10003;</div>
+        <p>VAPI assistants configured (3 bots ready, including Priya for post-webinar calls)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ SECTION 10: BLOCKERS ═══════════════ -->
+<section id="blockers">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">Section 10</div>
+      <h2>What's Still Needed</h2>
+      <p>These are the blockers. Nothing moves until these are resolved. Each item has an owner.</p>
+    </div>
+
+    <div class="blocker-grid">
+      <div class="blocker-item">
+        <div class="blocker-who blocker-dj">DJ</div>
+        <div class="blocker-desc">
+          <p>WhatsApp the 6 applicants with the Sprint offer ($2,500)</p>
+          <div class="blocker-note">THIS IS THE $10K MOVE -- highest ROI action on this entire list</div>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-dj">DJ</div>
+        <div class="blocker-desc">
+          <p>Record the 7-minute trust video (on camera, establishes authority for pre-class sequence)</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-dj">DJ</div>
+        <div class="blocker-desc">
+          <p>Record YouTube Video 1 ("Why IT Professionals Keep Failing Cybersecurity Interviews")</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-dj">DJ</div>
+        <div class="blocker-desc">
+          <p>Stripe account -- need a $27 payment link (masterclass) and a $997 payment link (Accelerator)</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-agresh">Agresh</div>
+        <div class="blocker-desc">
+          <p>Fire reactivation emails in GHL (all 4 segments, emails are written and ready)</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-agresh">Agresh</div>
+        <div class="blocker-desc">
+          <p>Build pre-class email + SMS sequences in GHL (5 emails + 3 SMS reminders)</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-shreyas">Shreyas</div>
+        <div class="blocker-desc">
+          <p>LinkedIn scrape of Security Manager titles + Meta custom audience upload</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-shreyas">Shreyas</div>
+        <div class="blocker-desc">
+          <p>Launch 5 ad variants ($500 test budget, $100 per ad, 3-4 day test)</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-jay">Jay</div>
+        <div class="blocker-desc">
+          <p>Review closer script and be ready for post-webinar strategy calls</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-dylan">Dylan</div>
+        <div class="blocker-desc">
+          <p>Wire GHL webhook to masterclass registration form</p>
+        </div>
+      </div>
+      <div class="blocker-item">
+        <div class="blocker-who blocker-dylan">Dylan</div>
+        <div class="blocker-desc">
+          <p>Connect Stripe checkout links once DJ creates them</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="page-footer">
+  <p class="footer-line"><strong>TQA Relaunch Blueprint</strong> | Prepared by Dylan Ewing | April 1, 2026</p>
+  <p class="footer-line">Market data: StationX, Robert Half, ElectroIQ (2026). Competitor data: public sources.</p>
+  <p class="footer-line">Revenue projections are estimates -- actual results depend on execution.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Readiness Score | DJ Naronikar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#080c18;color:#cbd5e1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+.container{max-width:520px;width:100%;padding:24px}
+
+/* Header */
+.quiz-header{text-align:center;margin-bottom:32px}
+.quiz-header .eyebrow{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#d4a84b;margin-bottom:6px}
+.quiz-header h1{font-family:'Poppins';font-size:28px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:8px}
+.quiz-header h1 span{color:#d4a84b}
+.quiz-header p{font-size:13px;color:#64748b;line-height:1.6}
+
+/* Progress bar */
+.progress-wrap{margin-bottom:24px}
+.progress-bar{height:4px;background:#1e2d4a;border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:#d4a84b;border-radius:4px;transition:width 0.4s ease}
+.progress-text{font-size:10px;color:#4a5a70;margin-top:4px;text-align:right}
+
+/* Question card */
+.question-card{background:#111827;border:1px solid #1e2d4a;border-radius:12px;padding:28px 24px;display:none}
+.question-card.active{display:block}
+.question-card h2{font-family:'Poppins';font-size:17px;font-weight:700;color:#fff;margin-bottom:16px;line-height:1.4}
+
+/* Options */
+.option{display:block;background:#0f1729;border:1px solid #1e2d4a;border-radius:8px;padding:12px 16px;margin-bottom:8px;cursor:pointer;font-size:13px;color:#94a3b8;transition:all 0.15s;font-weight:500}
+.option:hover{border-color:#d4a84b;color:#fff;background:#151f35}
+.option.selected{border-color:#d4a84b;color:#d4a84b;background:rgba(212,168,75,0.08)}
+
+/* Email gate */
+.email-gate{background:#111827;border:1px solid #1e2d4a;border-radius:12px;padding:28px 24px;display:none;text-align:center}
+.email-gate h2{font-family:'Poppins';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}
+.email-gate p{font-size:13px;color:#64748b;margin-bottom:20px}
+.email-input{width:100%;padding:12px 16px;background:#0f1729;border:1px solid #1e2d4a;border-radius:8px;color:#fff;font-size:14px;font-family:'Inter';margin-bottom:8px;outline:none}
+.email-input:focus{border-color:#d4a84b}
+.name-input{width:100%;padding:12px 16px;background:#0f1729;border:1px solid #1e2d4a;border-radius:8px;color:#fff;font-size:14px;font-family:'Inter';margin-bottom:16px;outline:none}
+.name-input:focus{border-color:#d4a84b}
+.submit-btn{width:100%;padding:14px;background:#d4a84b;color:#0a0e1a;font-family:'Poppins';font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;letter-spacing:0.02em;transition:background 0.15s}
+.submit-btn:hover{background:#e5b84f}
+
+/* Results */
+.results{background:#111827;border:1px solid #1e2d4a;border-radius:12px;padding:32px 24px;display:none;text-align:center}
+.score-circle{width:140px;height:140px;border-radius:50%;border:6px solid #d4a84b;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:16px;position:relative}
+.score-num{font-family:'Poppins';font-size:42px;font-weight:800;color:#fff;line-height:1}
+.score-of{font-size:11px;color:#64748b}
+.score-label{font-family:'Poppins';font-size:18px;font-weight:700;color:#d4a84b;margin-bottom:4px}
+.score-desc{font-size:13px;color:#94a3b8;margin-bottom:24px;line-height:1.6;max-width:400px;margin-left:auto;margin-right:auto}
+
+.result-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;text-align:left}
+.result-card{background:#0f1729;border:1px solid #1e2d4a;border-radius:8px;padding:12px 14px}
+.result-card .rc-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px}
+.rc-green{color:#22c55e}
+.rc-gold{color:#d4a84b}
+.result-card .rc-value{font-size:13px;font-weight:600;color:#fff}
+
+.divider{height:1px;background:#1e2d4a;margin:24px 0}
+
+.upsell{text-align:center}
+.upsell h3{font-family:'Poppins';font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
+.upsell p{font-size:12px;color:#64748b;margin-bottom:16px;line-height:1.6}
+.upsell-btn{display:inline-block;padding:14px 28px;background:#d4a84b;color:#0a0e1a;font-family:'Poppins';font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:background 0.15s}
+.upsell-btn:hover{background:#e5b84f}
+.upsell-skip{display:block;margin-top:12px;font-size:11px;color:#4a5a70;cursor:pointer}
+
+/* DJ footer */
+.dj-footer{text-align:center;margin-top:24px;padding-top:16px;border-top:1px solid #1e2d4a}
+.dj-footer p{font-size:11px;color:#4a5a70}
+.dj-footer span{color:#64748b;font-weight:600}
+
+@media(max-width:560px){
+  .container{padding:16px}
+  .quiz-header h1{font-size:22px}
+  .result-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="quiz-header">
+    <div class="eyebrow">DJ Naronikar &bull; 28-Year Cybersecurity Leader</div>
+    <h1>Are You <span>Cybersecurity-Ready?</span></h1>
+    <p>5 questions. 2 minutes. Find out exactly where you stand on the path to your first (or next) cybersecurity role.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <div class="progress-text" id="progress-text"></div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card active" id="q1">
+    <h2>What best describes your current role?</h2>
+    <div class="option" onclick="answer(1, this, 2)">IT Support or Helpdesk</div>
+    <div class="option" onclick="answer(1, this, 4)">Sysadmin, Network Admin, or DBA</div>
+    <div class="option" onclick="answer(1, this, 6)">Cloud Engineer, DevOps, or SRE</div>
+    <div class="option" onclick="answer(1, this, 8)">IT Manager or IT Director</div>
+    <div class="option" onclick="answer(1, this, 9)">Security Analyst, SOC, or GRC</div>
+    <div class="option" onclick="answer(1, this, 3)">Between roles right now</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" id="q2">
+    <h2>How many years have you worked in IT or security?</h2>
+    <div class="option" onclick="answer(2, this, 2)">Less than 3 years</div>
+    <div class="option" onclick="answer(2, this, 5)">3 to 7 years</div>
+    <div class="option" onclick="answer(2, this, 8)">8 to 15 years</div>
+    <div class="option" onclick="answer(2, this, 10)">15+ years</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" id="q3">
+    <h2>Do you hold any cybersecurity certifications?</h2>
+    <div class="option" onclick="answer(3, this, 3)">None yet</div>
+    <div class="option" onclick="answer(3, this, 6)">CompTIA Security+ or equivalent</div>
+    <div class="option" onclick="answer(3, this, 8)">CISSP, CISM, or CISA</div>
+    <div class="option" onclick="answer(3, this, 10)">Multiple advanced certifications</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" id="q4">
+    <h2>What is your biggest barrier right now?</h2>
+    <div class="option" onclick="answer(4, this, 5)">I do not know where to start</div>
+    <div class="option" onclick="answer(4, this, 7)">I know the path but need guidance getting there</div>
+    <div class="option" onclick="answer(4, this, 6)">I have the skills but cannot land interviews</div>
+    <div class="option" onclick="answer(4, this, 8)">I am stuck at my current level and want to advance</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" id="q5">
+    <h2>How soon do you want to make your next move?</h2>
+    <div class="option" onclick="answer(5, this, 10)">Right now. I am ready.</div>
+    <div class="option" onclick="answer(5, this, 7)">Within 3 months</div>
+    <div class="option" onclick="answer(5, this, 4)">Within 6 months</div>
+    <div class="option" onclick="answer(5, this, 2)">Just exploring for now</div>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <div class="email-gate" id="email-gate">
+    <h2>Your score is ready.</h2>
+    <p>Enter your name and email to see your Cybersecurity Readiness Score and what it means for your next move.</p>
+    <input type="text" class="name-input" id="userName" placeholder="First name">
+    <input type="email" class="email-input" id="userEmail" placeholder="Email address">
+    <button class="submit-btn" onclick="showResults()">Show My Score</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+    <div class="score-circle">
+      <div class="score-num" id="scoreNum">0</div>
+      <div class="score-of">out of 100</div>
+    </div>
+    <div class="score-label" id="scoreLabel"></div>
+    <div class="score-desc" id="scoreDesc"></div>
+
+    <div class="result-cards">
+      <div class="result-card">
+        <div class="rc-label rc-green">Your Strength</div>
+        <div class="rc-value" id="strength"></div>
+      </div>
+      <div class="result-card">
+        <div class="rc-label rc-gold">Your #1 Gap</div>
+        <div class="rc-value" id="gap"></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="upsell">
+      <h3>Want the full picture?</h3>
+      <p>Get your personalized 8-page Career Scorecard. Includes your recommended certification path, target roles in your city, salary projection, and 90-day action plan. Reviewed by DJ personally.</p>
+      <a class="upsell-btn" href="#">Get Your Full Scorecard ($47)</a>
+      <div class="upsell-skip" onclick="document.getElementById('post-score').style.display='block'">No thanks, I will start with the free weekly briefings</div>
+    </div>
+
+    <div id="post-score" style="display:none;margin-top:20px;text-align:center">
+      <p style="font-size:13px;color:#94a3b8">You are in. Check your inbox for your first briefing from DJ.</p>
+    </div>
+  </div>
+
+  <div class="dj-footer">
+    <p><span>DJ Naronikar</span> &bull; 28-Year Cybersecurity Leader &bull; Deloitte, EY, Shell &bull; CIO Choice Award 2026</p>
+  </div>
+
+</div>
+
+<script>
+let scores = {};
+let totalScore = 0;
+
+function answer(q, el, pts) {
+  // highlight selected
+  el.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  scores[q] = pts;
+
+  // advance after short delay
+  setTimeout(() => {
+    document.getElementById('q'+q).style.display = 'none';
+    if (q < 5) {
+      document.getElementById('q'+(q+1)).classList.add('active');
+      document.getElementById('q'+(q+1)).style.display = 'block';
+      document.getElementById('progress').style.width = (q*20)+'%';
+      document.getElementById('progress-text').textContent = q+' of 5';
+    } else {
+      document.getElementById('progress').style.width = '100%';
+      document.getElementById('progress-text').textContent = '5 of 5';
+      document.getElementById('email-gate').style.display = 'block';
+    }
+  }, 300);
+}
+
+function showResults() {
+  var name = document.getElementById('userName').value;
+  var email = document.getElementById('userEmail').value;
+  if (!email || !email.includes('@')) { document.getElementById('userEmail').style.borderColor='#ef4444'; return; }
+
+  document.getElementById('email-gate').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+
+  // Calculate
+  var raw = 0;
+  for (var k in scores) raw += scores[k];
+  // Normalize to 0-100 (max possible = 10+10+10+8+10 = 48)
+  var pct = Math.round((raw / 48) * 100);
+  if (pct > 100) pct = 100;
+
+  document.getElementById('scoreNum').textContent = pct;
+
+  // Labels
+  if (pct >= 75) {
+    document.getElementById('scoreLabel').textContent = 'Strong Foundation';
+    document.getElementById('scoreDesc').textContent = 'You have the experience and positioning to make a serious move into a senior cybersecurity role. The question is not if, but how fast.';
+    document.getElementById('strength').textContent = 'Your experience and certifications put you ahead of most candidates';
+    document.getElementById('gap').textContent = 'Positioning and network access to get past the resume screen';
+  } else if (pct >= 50) {
+    document.getElementById('scoreLabel').textContent = 'Solid Starting Point';
+    document.getElementById('scoreDesc').textContent = 'You have real skills that transfer directly into cybersecurity. With the right roadmap, you could be in a security role in 90 days.';
+    document.getElementById('strength').textContent = 'Your IT background gives you a real advantage most people ignore';
+    document.getElementById('gap').textContent = 'A structured path and the right certifications for your target role';
+  } else {
+    document.getElementById('scoreLabel').textContent = 'Early Stage';
+    document.getElementById('scoreDesc').textContent = 'You are at the beginning, and that is fine. Knowing where you stand is the first step. Here is what to focus on first.';
+    document.getElementById('strength').textContent = 'Your motivation and timing. The market needs people now.';
+    document.getElementById('gap').textContent = 'Foundational skills and a clear certification path to get started';
+  }
+
+  // Scroll to results
+  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+
+</body>
+</html>

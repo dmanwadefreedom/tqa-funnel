@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA — Complete Funnel & Launch Plan</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0e1a;color:#e0e0e0;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
+h1{font-size:32px;text-align:center;margin-bottom:6px;color:#fff;letter-spacing:-0.5px}
+.subtitle{text-align:center;color:#7a8ba8;margin-bottom:12px;font-size:14px}
+.badge-row{text-align:center;margin-bottom:36px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.badge{background:#1a2744;color:#4ecdc4;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600}
+.badge.red{background:#3d1f1f;color:#fca5a5}
+.badge.gold{background:#3d2f1f;color:#fbbf24}
+
+.section{margin-bottom:50px}
+.section-title{font-size:20px;font-weight:700;color:#4ecdc4;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #1a2744;display:flex;align-items:center;gap:10px}
+.section-title .num{background:#4ecdc4;color:#0a0e1a;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+
+/* Funnel */
+.funnel-wrapper{display:flex;gap:40px;margin:20px 0;flex-wrap:wrap;justify-content:center}
+.funnel-col{flex:1;min-width:340px;max-width:560px}
+.funnel-col h3{text-align:center;font-size:16px;color:#fff;margin-bottom:16px;padding:10px;background:#111827;border-radius:8px;border:1px solid #1f2937}
+.funnel-col h3 span{color:#4ecdc4;font-weight:800}
+.funnel{display:flex;flex-direction:column;align-items:center;gap:0}
+.funnel-step{position:relative;text-align:center;padding:18px 24px;color:#fff;font-weight:600;width:100%}
+.funnel-step .label{font-size:14px;font-weight:700}
+.funnel-step .price{font-size:20px;font-weight:800;margin:4px 0}
+.funnel-step .detail{font-size:11px;color:rgba(255,255,255,0.65);margin-top:2px}
+.funnel-step .question{font-size:11px;color:rgba(255,255,255,0.5);font-style:italic;margin-top:4px}
+
+.f-free{background:linear-gradient(135deg,#1e40af,#1d4ed8);border-radius:10px 10px 0 0;clip-path:polygon(0 0,100% 0,96% 100%,4% 100%)}
+.f-7{background:linear-gradient(135deg,#4338ca,#6366f1);clip-path:polygon(3% 0,97% 0,93% 100%,7% 100%)}
+.f-47{background:linear-gradient(135deg,#7c3aed,#8b5cf6);clip-path:polygon(5% 0,95% 0,91% 100%,9% 100%)}
+.f-97{background:linear-gradient(135deg,#ea580c,#f97316);clip-path:polygon(7% 0,93% 0,88% 100%,12% 100%)}
+.f-499{background:linear-gradient(135deg,#059669,#10b981);clip-path:polygon(9% 0,91% 0,85% 100%,15% 100%)}
+.f-4999{background:linear-gradient(135deg,#d4a84b,#f59e0b);border-radius:0 0 10px 10px;clip-path:polygon(12% 0,88% 0,80% 100%,20% 100%)}
+
+.f2-free{background:linear-gradient(135deg,#1e40af,#1d4ed8);border-radius:10px 10px 0 0;clip-path:polygon(0 0,100% 0,94% 100%,6% 100%)}
+.f2-app{background:linear-gradient(135deg,#7c3aed,#8b5cf6);clip-path:polygon(5% 0,95% 0,90% 100%,10% 100%)}
+.f2-call{background:linear-gradient(135deg,#ea580c,#f97316);clip-path:polygon(8% 0,92% 0,85% 100%,15% 100%)}
+.f2-10k{background:linear-gradient(135deg,#d4a84b,#f59e0b);border-radius:0 0 10px 10px;clip-path:polygon(12% 0,88% 0,78% 100%,22% 100%)}
+
+/* Revenue boxes */
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+.rev-card{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:14px;text-align:center}
+.rev-card .amount{font-size:22px;font-weight:800;color:#4ecdc4}
+.rev-card .rev-label{font-size:11px;color:#7a8ba8;margin-top:3px}
+.rev-card.highlight{border-color:#d4a84b}
+.rev-card.highlight .amount{color:#d4a84b}
+
+/* Self-funding table */
+.fund-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.fund-table th{background:#1a2744;color:#4ecdc4;padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+.fund-table td{padding:10px 14px;border-bottom:1px solid #1f2937;color:#e0e0e0}
+.fund-table tr:nth-child(even){background:#111827}
+.fund-table .total td{border-top:2px solid #4ecdc4;font-weight:700;color:#4ecdc4}
+.fund-table .profit td{background:#0a2a1a;color:#10b981;font-weight:700}
+
+/* Buyer Journey */
+.journey{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;justify-content:center;margin:20px 0}
+.j-step{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:16px;text-align:center;flex:1;min-width:130px;max-width:180px}
+.j-step .j-label{font-size:10px;color:#4ecdc4;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.j-step .j-price{font-size:18px;font-weight:800;color:#fff;margin:4px 0}
+.j-step .j-title{font-size:13px;color:#e0e0e0;font-weight:600}
+.j-step .j-detail{font-size:10px;color:#7a8ba8;margin-top:4px}
+.j-step .j-q{font-size:10px;color:#555;font-style:italic;margin-top:6px;border-top:1px solid #1f2937;padding-top:6px}
+.j-arrow{color:#4ecdc4;font-size:18px;display:flex;align-items:center;padding:0 4px;flex-shrink:0}
+
+/* Delivery grid */
+.del-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:20px 0}
+.del-card{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:20px;position:relative;overflow:hidden}
+.del-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.del-card.free::before{background:#2563eb}
+.del-card.paid::before{background:#d4a84b}
+.del-card.build::before{background:#f59e0b}
+.del-card h4{font-size:15px;color:#fff;margin-bottom:6px}
+.del-card .del-price{font-size:12px;font-weight:700;color:#4ecdc4;margin-bottom:8px}
+.del-card p{font-size:12px;color:#9ca3af;line-height:1.6}
+.del-card ul{padding-left:16px;font-size:12px;color:#9ca3af;margin-top:8px}
+.del-card ul li{margin-bottom:4px}
+
+/* Case studies */
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:16px 0}
+.case-card{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:18px}
+.case-card h4{font-size:14px;color:#d4a84b;margin-bottom:6px}
+.case-card p{font-size:12px;color:#9ca3af}
+.case-card .case-use{font-size:11px;color:#4ecdc4;margin-top:8px;font-weight:600}
+
+/* Timeline */
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:#1f2937}
+.tl-item{position:relative;margin-bottom:20px;padding:14px 18px;background:#111827;border:1px solid #1f2937;border-radius:10px}
+.tl-item::before{content:'';position:absolute;left:-33px;top:18px;width:12px;height:12px;border-radius:50%;background:#4ecdc4;border:2px solid #0a0e1a}
+.tl-item.active::before{background:#f59e0b;box-shadow:0 0 8px rgba(245,158,11,0.5)}
+.tl-item.blocked::before{background:#ef4444}
+.tl-day{font-size:10px;color:#4ecdc4;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.tl-title{font-size:14px;font-weight:700;color:#fff;margin:3px 0}
+.tl-detail{font-size:12px;color:#9ca3af}
+.tl-who{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-top:4px}
+.who-dylan{background:#1e3a5f;color:#60a5fa}
+.who-agresh{background:#3b1f5e;color:#a78bfa}
+.who-dj{background:#1f3d1f;color:#6ee7b7}
+.who-shreyas{background:#3d2f1f;color:#fbbf24}
+
+/* Real data callout */
+.data-src{background:#111827;border:1px solid #1f2937;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:11px;color:#7a8ba8;display:flex;align-items:center;gap:8px}
+.data-src .dot{width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0}
+
+.footer{text-align:center;padding:30px 0 16px;color:#4a5568;font-size:11px;border-top:1px solid #1f2937;margin-top:40px}
+
+@media(max-width:768px){
+.funnel-wrapper{flex-direction:column}
+.funnel-col{max-width:100%}
+.journey{flex-direction:column;align-items:center}
+.j-arrow{transform:rotate(90deg)}
+.j-step{max-width:100%;min-width:0;width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>TQA Launch Plan</h1>
+<p class="subtitle">The Quantum Achievers — DJ Naronikar's Cybersecurity Career Programs</p>
+<div class="badge-row">
+<span class="badge">March 26, 2026 | Next Webinar: Sat April 11, 11 AM EST ($7 entry)</span>
+<span class="badge red">$0 revenue collected (7 days post-webinar)</span>
+<span class="badge gold">AUD $1,854 invested (USD $1,205)</span>
+<span class="badge">197 contacts in GHL</span>
+</div>
+
+<!-- ===== SECTION 1: DUAL FUNNELS ===== -->
+<div class="section">
+<div class="section-title"><span class="num">1</span> Two Funnels, Two Avatars</div>
+
+<div class="funnel-wrapper">
+<div class="funnel-col">
+<h3>Funnel 1: <span>"Raj"</span> — IT Pro Breaking Into Cybersecurity</h3>
+<div class="funnel">
+<div class="funnel-step f-free">
+<div class="label">FREE Readiness Quiz</div>
+<div class="price">$0</div>
+<div class="detail">5 questions. Instant score + domain match. Captures name, email, role.</div>
+<div class="question">"Am I ready? Which path fits me?"</div>
+</div>
+<div class="funnel-step f-7">
+<div class="label">Paid Webinar Access</div>
+<div class="price">$7</div>
+<div class="detail">Live session with DJ. Filters tire-kickers. 40%+ show rate vs 12.5% free.</div>
+<div class="question">"Show me the full picture."</div>
+</div>
+<div class="funnel-step f-47">
+<div class="label">Career Scorecard</div>
+<div class="price">$47</div>
+<div class="detail">Personalized PDF: cert roadmap, salary projection, action items, employers.</div>
+<div class="question">"Give me MY plan."</div>
+</div>
+<div class="funnel-step f-97">
+<div class="label">90-Day Accelerator</div>
+<div class="price">$97/mo</div>
+<div class="detail">AI assistant (DJ's brain), WhatsApp access, weekly task list, monthly updates.</div>
+<div class="question">"Guide me through it."</div>
+</div>
+<div class="funnel-step f-499">
+<div class="label">Jumpstart Course</div>
+<div class="price">$499</div>
+<div class="detail">5 videos from DJ + certificate. DJ's idea, DJ's pricing. One-time.</div>
+<div class="question">"Train me properly."</div>
+</div>
+<div class="funnel-step f-4999">
+<div class="label">Full 14-Week Program</div>
+<div class="price">$4,999</div>
+<div class="detail">Mentorship, placement support, employer intros, guarantee. The works.</div>
+<div class="question">"Place me in a cybersecurity role."</div>
+</div>
+</div>
+</div>
+
+<div class="funnel-col">
+<h3>Funnel 2: <span>"Ravi"</span> — Security Manager to CISO</h3>
+<div class="funnel">
+<div class="funnel-step f2-free">
+<div class="label">LinkedIn Content + Free Assessment</div>
+<div class="price">$0</div>
+<div class="detail">DJ's LinkedIn (9K followers, 18 recs). Authority content. CISO readiness quiz.</div>
+<div class="question">"Am I ready for the C-suite?"</div>
+</div>
+<div class="funnel-step f2-app">
+<div class="label">Application</div>
+<div class="price">Free</div>
+<div class="detail">Detailed application form. 10+ years experience required. Filters non-qualified.</div>
+<div class="question">"Am I the right fit for this?"</div>
+</div>
+<div class="funnel-step f2-call">
+<div class="label">VIP Strategy Call with DJ</div>
+<div class="price">Free (for qualified)</div>
+<div class="detail">30 min with DJ. Reviews their background. Confirms fit. Authority closes itself.</div>
+<div class="question">"What would DJ tell me to do?"</div>
+</div>
+<div class="funnel-step f2-10k">
+<div class="label">CISO Accelerator</div>
+<div class="price">$10,000</div>
+<div class="detail">8 weeks. Board communication, enterprise risk, regulatory navigation. CISO network access.</div>
+<div class="question">"Get me into the C-suite."</div>
+</div>
+</div>
+<div style="margin-top:16px;padding:14px;background:#111827;border:1px solid #1f2937;border-radius:8px">
+<p style="font-size:12px;color:#9ca3af"><strong style="color:#d4a84b">Different avatar, different money:</strong> Ravi earns $120K-$180K. The $10K math is obvious to him: invest $10K, jump to $250K+. DJ: "People at that level can pay." These are NOT the same people as Funnel 1. Separate ads, separate landing page, separate targeting (LinkedIn primary).</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION 2: SELF-FUNDING MODEL ===== -->
+<div class="section">
+<div class="section-title"><span class="num">2</span> Self-Funding Funnel — Low Ticket Covers Ad Spend</div>
+
+<p style="font-size:14px;color:#9ca3af;margin-bottom:16px">The $7 and $47 tiers aren't a compromise — they're the engine. They fund the ads that find the $4,999 and $10K buyers. And every person who pays gets REAL help.</p>
+
+<table class="fund-table">
+<tr><th>Step</th><th>Sales</th><th>Revenue</th><th>What It Covers</th></tr>
+<tr><td>$7 webinar (200 registrants)</td><td>200</td><td>$1,400</td><td>Entire campaign ad spend</td></tr>
+<tr><td>$47 Scorecard (15% of registrants)</td><td>30</td><td>$1,410</td><td>Next month's ad spend</td></tr>
+<tr><td>$97/mo Accelerator (30% of Scorecard)</td><td>9</td><td>$873/mo</td><td>DJ's operating costs</td></tr>
+<tr class="total"><td>Front-end total</td><td></td><td>$3,683</td><td>Ads run for free from here</td></tr>
+<tr><td>$499 Jumpstart Course (10% of Accelerator)</td><td>3</td><td>$1,497</td><td>Profit</td></tr>
+<tr><td>$4,999 Program (from warm pipeline)</td><td>2</td><td>$9,998</td><td>Profit</td></tr>
+<tr class="profit"><td>Total (90 days, Funnel 1 only)</td><td></td><td>$17,451</td><td>$1,205 invested = 14.5x ROAS</td></tr>
+</table>
+
+<div class="data-src"><span class="dot"></span> All numbers based on real CPL data from Meta API (act_1126902421887543). Best CPL achieved: $4.11 USD.</div>
+</div>
+
+<!-- ===== SECTION 3: BUYER JOURNEY ===== -->
+<div class="section">
+<div class="section-title"><span class="num">3</span> Raj's Buyer Journey — What He's Thinking at Each Step</div>
+
+<div class="journey">
+<div class="j-step">
+<div class="j-label">Step 1</div>
+<div class="j-price">FREE</div>
+<div class="j-title">Readiness Quiz</div>
+<div class="j-detail">5 questions. Instant score + domain. "You're 72/100 — strong fit for GRC."</div>
+<div class="j-q">"Am I even qualified?"</div>
+</div>
+<div class="j-arrow">&rarr;</div>
+<div class="j-step">
+<div class="j-label">Step 2</div>
+<div class="j-price">$7</div>
+<div class="j-title">Live Webinar</div>
+<div class="j-detail">DJ teaches. Real value. Case studies. Role breakdowns. Saturday AM.</div>
+<div class="j-q">"Is this legit?"</div>
+</div>
+<div class="j-arrow">&rarr;</div>
+<div class="j-step">
+<div class="j-label">Step 3</div>
+<div class="j-price">$47</div>
+<div class="j-title">Career Scorecard</div>
+<div class="j-detail">Full personalized PDF. Cert roadmap. Salary data. 3 action items. Employers.</div>
+<div class="j-q">"What's MY path?"</div>
+</div>
+<div class="j-arrow">&rarr;</div>
+<div class="j-step">
+<div class="j-label">Step 4</div>
+<div class="j-price">$97/mo</div>
+<div class="j-title">Accelerator</div>
+<div class="j-detail">AI assistant (DJ's brain). WhatsApp. Weekly tasks. Monthly updates.</div>
+<div class="j-q">"I need ongoing help."</div>
+</div>
+<div class="j-arrow">&rarr;</div>
+<div class="j-step">
+<div class="j-label">Step 5</div>
+<div class="j-price">$499</div>
+<div class="j-title">DJ's Course</div>
+<div class="j-detail">5 videos + certificate. Real training. DJ's framework, not textbooks.</div>
+<div class="j-q">"Train me for real."</div>
+</div>
+<div class="j-arrow">&rarr;</div>
+<div class="j-step">
+<div class="j-label">Step 6</div>
+<div class="j-price">$4,999</div>
+<div class="j-title">Full Program</div>
+<div class="j-detail">14 weeks. Mentorship. Placement. Employer intros. Guarantee.</div>
+<div class="j-q">"Get me hired."</div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION 4: WHAT THEY GET ===== -->
+<div class="section">
+<div class="section-title"><span class="num">4</span> What Each Tier Delivers</div>
+
+<div class="del-grid">
+<div class="del-card free">
+<h4>FREE — Readiness Quiz</h4>
+<div class="del-price">$0 | Lead magnet</div>
+<ul>
+<li>Readiness score (0-100)</li>
+<li>Domain match (GRC, SOC, Red Team, Architecture, IR, BCP)</li>
+<li>"You're a strong fit for [X]. Here's why."</li>
+<li>CTA: "Get the full plan ($47)" + "Join DJ live ($7)"</li>
+</ul>
+<p style="margin-top:8px"><strong style="color:#4ecdc4">Same 5 questions as Scorecard.</strong> Free = score only. Paid = full plan.</p>
+</div>
+
+<div class="del-card paid">
+<h4>$7 — Paid Webinar</h4>
+<div class="del-price">$7 one-time | Filter + show rate</div>
+<ul>
+<li>Live 60-min session with DJ</li>
+<li>Role-specific skill breakdowns (new slides DJ is adding)</li>
+<li>Real case studies (BEC attack, Qatar Central Bank, forensics)</li>
+<li>Live Q&A</li>
+<li>Saturday 10 AM ET (DJ agreed to this timing)</li>
+</ul>
+<p style="margin-top:8px"><strong style="color:#4ecdc4">DJ: "Even $10 would have gotten us 30-40 more people."</strong></p>
+</div>
+
+<div class="del-card paid">
+<h4>$47 — Career Scorecard</h4>
+<div class="del-price">$47 one-time | Tripwire</div>
+<ul>
+<li>Readiness score with full breakdown (5 categories)</li>
+<li>Skills transfer analysis (IT role to cybersecurity)</li>
+<li>Personalized certification roadmap (with what to SKIP)</li>
+<li>Salary projection for their metro area</li>
+<li>3 this-week action items</li>
+<li>Top employers in their metro (H-1B friendly flagged)</li>
+</ul>
+<p style="margin-top:8px"><strong style="color:#4ecdc4">Instant delivery. AI-generated from DJ's framework. Spouse-friendly.</strong></p>
+</div>
+
+<div class="del-card paid">
+<h4>$97/mo — 90-Day Accelerator</h4>
+<div class="del-price">$97/mo recurring | Core product</div>
+<ul>
+<li>AI career assistant trained on DJ's course files (24/7)</li>
+<li>WhatsApp access to DJ (weekly voice notes)</li>
+<li>Week-by-week task list personalized to their path</li>
+<li>Monthly plan updates as market shifts</li>
+<li>30-Day Career Clarity Guarantee (full refund if no clear path)</li>
+</ul>
+</div>
+
+<div class="del-card build">
+<h4>$499 — Jumpstart Course (DJ's idea)</h4>
+<div class="del-price">$499 one-time | DJ records these</div>
+<ul>
+<li>5 pre-recorded videos (30-45 min each), released weekly</li>
+<li>Certificate of completion</li>
+<li>$500 add-on: 1-on-1 session with DJ (CV/LinkedIn review)</li>
+<li>DJ: "I can sit down, record for half an hour, each topic, each domain"</li>
+</ul>
+</div>
+
+<div class="del-card paid">
+<h4>$4,999 — Full 14-Week Program</h4>
+<div class="del-price">$4,999 or 3x $1,997 | High ticket</div>
+<ul>
+<li>40+ hours video, 5 workbooks, hands-on labs</li>
+<li>1-on-1 mentorship with DJ</li>
+<li>3+ mock interviews, salary negotiation training</li>
+<li>400+ company employer network, direct recruiter intros</li>
+<li>Guest CISOs + ex-CERT India lead</li>
+<li>Guarantee: "We work with you until you're hired"</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION 5: DJ'S REAL CASE STUDIES ===== -->
+<div class="section">
+<div class="section-title"><span class="num">5</span> DJ's Real-World Case Studies (from March 13 + 24 calls)</div>
+
+<div class="case-grid">
+<div class="case-card">
+<h4>Business Email Compromise — $300K</h4>
+<p>CEO's email compromised. Attackers found vendor invoices, sent $300K wire request from CEO's account to accounts payable. DJ's team caught it. Stopped the transfer.</p>
+<div class="case-use">Use: Webinar + Scorecard — "This is what incident responders do"</div>
+</div>
+<div class="case-card">
+<h4>Qatar Central Bank — National Policy</h4>
+<p>DJ wrote the AI policy, data protection policy, and cloud security policy for Qatar Central Bank. Now rolled out across ALL banks and financial institutions in Qatar.</p>
+<div class="case-use">Use: Authority proof — "DJ's frameworks run national banking systems"</div>
+</div>
+<div class="case-card">
+<h4>50-Page Disaster Recovery Plan</h4>
+<p>India-based company, US client. Full DRP covering AWS, Office 365, internet outage, plus business continuity for sales, marketing, HR, and payroll during crisis.</p>
+<div class="case-use">Use: Scorecard GRC path — "This is what GRC professionals build"</div>
+</div>
+<div class="case-card">
+<h4>Financial Fraud Prevention — Retail Chain</h4>
+<p>DJ led fraud protection for a retail chain. Real-world case study used in his training program. "These are things I've lived through."</p>
+<div class="case-use">Use: Course content — shows depth of DJ's experience</div>
+</div>
+</div>
+
+<div class="data-src"><span class="dot"></span> All case studies extracted from Fathom transcripts (March 13 + March 24 calls). DJ: "What I've told you is not even 1% of what I know."</div>
+</div>
+
+<!-- ===== SECTION 6: REAL AD DATA ===== -->
+<div class="section">
+<div class="section-title"><span class="num">6</span> What We Spent and Got (Real Meta API Data)</div>
+
+<div class="rev-grid">
+<div class="rev-card">
+<div class="amount">$1,854 AUD</div>
+<div class="rev-label">Total Meta Ad Spend ($1,205 USD)</div>
+</div>
+<div class="rev-card">
+<div class="amount">192</div>
+<div class="rev-label">Leads from Meta</div>
+</div>
+<div class="rev-card">
+<div class="amount">$6.28</div>
+<div class="rev-label">Average CPL (USD)</div>
+</div>
+<div class="rev-card">
+<div class="amount">$4.11</div>
+<div class="rev-label">Best CPL (CBO L+F Both)</div>
+</div>
+<div class="rev-card">
+<div class="amount">12.5%</div>
+<div class="rev-label">Show Rate (free webinar)</div>
+</div>
+<div class="rev-card highlight">
+<div class="amount">$0</div>
+<div class="rev-label">Revenue Collected</div>
+</div>
+</div>
+
+<table class="fund-table">
+<tr><th>Campaign</th><th>Spend (AUD)</th><th>Spend (USD)</th><th>Leads</th><th>CPL (USD)</th></tr>
+<tr><td>CBO Instant Form Based</td><td>$576</td><td>$375</td><td>71</td><td>$5.43</td></tr>
+<tr><td>CBO Landing Page Based</td><td>$658</td><td>$428</td><td>43</td><td>$9.95</td></tr>
+<tr><td>CBO Landing + Form Both</td><td>$367</td><td>$238</td><td>58</td><td style="color:#10b981;font-weight:700">$4.11 (best)</td></tr>
+<tr><td>Re-Targeting Static</td><td>$253</td><td>$164</td><td>20</td><td>$8.65</td></tr>
+<tr class="total"><td>Total</td><td>$1,854</td><td>$1,205</td><td>192</td><td>$6.28 avg</td></tr>
+</table>
+
+<div class="data-src"><span class="dot"></span> Pulled from Meta Marketing API (act_1126902421887543) on March 26, 2026. Currency: AUD (Shreyas/CISO360 ad account).</div>
+</div>
+
+<!-- ===== SECTION 7: CURRENT GHL STATE ===== -->
+<div class="section">
+<div class="section-title"><span class="num">7</span> Current GHL State (197 Contacts — Zero Monetized)</div>
+
+<div class="rev-grid">
+<div class="rev-card"><div class="amount">197</div><div class="rev-label">Total Contacts</div></div>
+<div class="rev-card"><div class="amount">24</div><div class="rev-label">Attended Webinar</div></div>
+<div class="rev-card"><div class="amount">126</div><div class="rev-label">No-Shows</div></div>
+<div class="rev-card"><div class="amount">46</div><div class="rev-label">Old Leads</div></div>
+<div class="rev-card"><div class="amount">12</div><div class="rev-label">Applied</div></div>
+<div class="rev-card highlight"><div class="amount">0</div><div class="rev-label">Paid / Enrolled</div></div>
+</div>
+
+<p style="font-size:13px;color:#9ca3af;margin-top:12px"><strong style="color:#fca5a5">Problem:</strong> Post-webinar emails ARE sending but contain NO offer and NO checkout link. One workflow is broken (re-sending pre-webinar emails after the event). Stripe is NOT connected to GHL. Zero products exist. Jay's 3 calls: all broke or unemployed.</p>
+
+<div class="data-src"><span class="dot"></span> Pulled from GHL API (cv0yehFtVK84960e2GsO) on March 26, 2026.</div>
+</div>
+
+<!-- ===== SECTION 8: LAUNCH TIMELINE ===== -->
+<div class="section">
+<div class="section-title"><span class="num">8</span> Launch Timeline</div>
+
+<div class="timeline">
+<div class="tl-item active">
+<div class="tl-day">Wed Mar 26 — Today</div>
+<div class="tl-title">Present plan to DJ (6:30 PM) and Akshaya (7:30 PM). Get Stripe access.</div>
+<div class="tl-detail">Show this visual. Get buy-in on the self-funding model. DJ creates private WhatsApp group.</div>
+<span class="tl-who who-dylan">Dylan</span> <span class="tl-who who-dj">DJ</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Thu Mar 27</div>
+<div class="tl-title">Build free quiz + $47 Scorecard (same form, two output tiers)</div>
+<div class="tl-detail">Dylan builds the product. DJ reviews output. Agresh connects Stripe to GHL.</div>
+<span class="tl-who who-dylan">Dylan</span> <span class="tl-who who-agresh">Agresh</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Thu Mar 27 — 5 PM (DJ's time)</div>
+<div class="tl-title">Follow-up call with DJ + Akshaya. Review Scorecard output.</div>
+<span class="tl-who who-dj">DJ</span> <span class="tl-who who-dylan">Dylan</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Fri Mar 28</div>
+<div class="tl-title">Email blast: Free quiz to all 197 contacts. $47 Scorecard offer on results page.</div>
+<div class="tl-detail">3 segments: attended (direct Scorecard), no-show (replay + quiz), old leads (quiz + re-engage).</div>
+<span class="tl-who who-agresh">Agresh</span> <span class="tl-who who-dylan">Dylan</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Sat-Sun Mar 29-30</div>
+<div class="tl-title">Retargeting ads live ($20/day). DJ records first Jumpstart video.</div>
+<span class="tl-who who-shreyas">Shreyas</span> <span class="tl-who who-dj">DJ</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Mon Mar 31</div>
+<div class="tl-title">Cold traffic ads live ($30/day). Follow-up email sequence begins.</div>
+<div class="tl-detail">Salary math email (Day 3). DJ adds 2 role-specific slides to webinar deck.</div>
+<span class="tl-who who-shreyas">Shreyas</span> <span class="tl-who who-dj">DJ</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Sun Apr 6 — Ads Launch (5 days before webinar)</div>
+<div class="tl-title">Meta retargeting ($20/day) + cold traffic ($30/day). Manus AI optimizing.</div>
+<div class="tl-detail">Custom audience from LinkedIn scrape loaded. $7 webinar checkout: buy.stripe.com/28EcN5dWq...</div>
+<span class="tl-who who-shreyas">Shreyas</span> <span class="tl-who who-dylan">Dylan</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Sat Apr 11 — WEBINAR DAY ($7 entry, 11 AM EST)</div>
+<div class="tl-title">DJ live session. Saturday morning = higher show rate. $7 filters tire-kickers.</div>
+<div class="tl-detail">Post-webinar: $47 Scorecard offer to all attendees. $97/mo Accelerator upsell. LinkedIn outreach running for CISO tier.</div>
+<span class="tl-who who-dj">DJ</span> <span class="tl-who who-shreyas">Shreyas</span> <span class="tl-who who-dylan">Dylan</span>
+</div>
+<div class="tl-item">
+<div class="tl-day">Month 2</div>
+<div class="tl-title">Launch Funnel 2 (CISO $10K) on LinkedIn. First $4,999 upsells from Funnel 1.</div>
+<span class="tl-who who-dj">DJ</span> <span class="tl-who who-dylan">Dylan</span>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION 9: KEY QUOTES ===== -->
+<div class="section">
+<div class="section-title"><span class="num">9</span> DJ's Words — Straight From the Calls</div>
+
+<div style="display:grid;gap:12px">
+<div style="background:#111827;border-left:3px solid #d4a84b;padding:14px 18px;border-radius:0 8px 8px 0">
+<p style="font-size:14px;color:#e0e0e0;font-style:italic">"What I've told you in the last 15-20 minutes is not even one percent of the information I have. I've not even scratched the surface."</p>
+<p style="font-size:11px;color:#7a8ba8;margin-top:6px">— DJ, March 24 call</p>
+</div>
+<div style="background:#111827;border-left:3px solid #d4a84b;padding:14px 18px;border-radius:0 8px 8px 0">
+<p style="font-size:14px;color:#e0e0e0;font-style:italic">"Companies pay me $2,000 to $3,000 USD just to get hold of me for a day. I'm not trying to rip them off, I'm trying to help them, but I don't want to do it for free. Anything that comes free has no value."</p>
+<p style="font-size:11px;color:#7a8ba8;margin-top:6px">— DJ, March 24 call</p>
+</div>
+<div style="background:#111827;border-left:3px solid #d4a84b;padding:14px 18px;border-radius:0 8px 8px 0">
+<p style="font-size:14px;color:#e0e0e0;font-style:italic">"If we had charged even $10 to sign up — just two coffees — we would have had 30 to 40 more people actually showing up."</p>
+<p style="font-size:11px;color:#7a8ba8;margin-top:6px">— DJ, March 24 call</p>
+</div>
+<div style="background:#111827;border-left:3px solid #d4a84b;padding:14px 18px;border-radius:0 8px 8px 0">
+<p style="font-size:14px;color:#e0e0e0;font-style:italic">"I wrote the AI policy for the Qatar Central Bank. That regulation is now rolled out across all banks and financial institutions that operate in Qatar."</p>
+<p style="font-size:11px;color:#7a8ba8;margin-top:6px">— DJ, March 24 call</p>
+</div>
+<div style="background:#111827;border-left:3px solid #d4a84b;padding:14px 18px;border-radius:0 8px 8px 0">
+<p style="font-size:14px;color:#e0e0e0;font-style:italic">"AI is not yet there where it will say, pull the network cable. The accountability still sits with the human being in cybersecurity."</p>
+<p style="font-size:11px;color:#7a8ba8;margin-top:6px">— DJ, March 13 call</p>
+</div>
+</div>
+</div>
+
+<div class="footer">
+TQA Launch Plan — Prepared by Dylan Ewing for DJ Naronikar + Akshaya Naronikar<br>
+All data from live APIs: Meta (act_1126902421887543), GHL (cv0yehFtVK84960e2GsO), Fathom, WhatsApp<br>
+Framework: Hormozi Grand Slam Offers + Brunson Value Ladder | March 26, 2026<br><br>
+<strong style="color:#d4a84b">LIVE LINKS (click to preview):</strong><br>
+<a href="https://dmanwadefreedom.github.io/tqa-jumpstart/quiz.html" target="_blank" style="color:#4ecdc4">Free Career Quiz</a> &nbsp;|&nbsp;
+<a href="https://dmanwadefreedom.github.io/tqa-jumpstart/accelerator.html" target="_blank" style="color:#4ecdc4">$97/mo Accelerator Page</a> &nbsp;|&nbsp;
+<a href="https://buy.stripe.com/4gM00j3hM7pV22U84s48008" target="_blank" style="color:#4ecdc4">$47 Scorecard Checkout</a> &nbsp;|&nbsp;
+<a href="https://buy.stripe.com/8x25kD5pU39FgXOdoM48009" target="_blank" style="color:#4ecdc4">$97/mo Checkout</a> &nbsp;|&nbsp;
+<a href="https://buy.stripe.com/28EcN5dWq7pVePGacA4800a" target="_blank" style="color:#4ecdc4">$7 Webinar Checkout</a> &nbsp;|&nbsp;
+<a href="https://dmanwadefreedom.github.io/tqa-jumpstart/launch-plan.html" target="_blank" style="color:#4ecdc4">This Launch Plan</a>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Naronikar | Complete Launch Kit — April 2026</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--r:#ef4444;--o:#f97316;--gold:#f59e0b;--t:#e2e8f0;--m:#94a3b8;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:2rem 1.5rem}
+.hero{text-align:center;padding:2.5rem 0 2rem;border-bottom:1px solid var(--b);margin-bottom:2rem}
+.badge{display:inline-block;background:rgba(59,130,246,0.15);color:var(--a);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:100px;border:1px solid rgba(59,130,246,0.25);margin-bottom:0.6rem}
+.hero h1{font-size:1.8rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.hero p{color:var(--m);font-size:0.88rem;max-width:620px;margin:0 auto}
+.hero .date{color:var(--m);font-size:0.72rem;margin-top:0.6rem}
+
+/* TOC */
+.toc{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem}
+.toc h3{color:var(--w);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.4rem}
+.toc a{color:var(--a);text-decoration:none;font-size:0.8rem;padding:0.2rem 0}
+.toc a:hover{text-decoration:underline}
+@media(max-width:640px){.toc-grid{grid-template-columns:1fr}}
+
+/* Section headers */
+.sec{margin-bottom:2.5rem}
+.sec-title{font-size:1.1rem;font-weight:700;color:var(--w);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--a)}
+.sec-title.purple{border-color:var(--p)}
+.sec-title.gold{border-color:var(--gold)}
+.sec-title.green{border-color:var(--g)}
+.sec-title.orange{border-color:var(--o)}
+.sec-title.red{border-color:var(--r)}
+
+/* Cards */
+.card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1.15rem 1.35rem;margin-bottom:0.85rem}
+.card h3{font-size:0.92rem;font-weight:600;color:var(--w);margin-bottom:0.4rem}
+.card p,.card li{font-size:0.83rem}
+.card ul{list-style:none;padding:0}
+.card ul li{padding:0.15rem 0 0.15rem 1.1rem;position:relative}
+.card ul li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%;background:var(--a)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{text-align:left;padding:0.5rem 0.7rem;background:rgba(59,130,246,0.08);color:var(--a);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--b)}
+td{padding:0.5rem 0.7rem;border-bottom:1px solid var(--b);vertical-align:top}
+
+/* Stats */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin:0.75rem 0}
+.stat{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:0.8rem;text-align:center}
+.stat-v{font-size:1.2rem;font-weight:800;color:var(--w)}
+.stat-v.g{color:var(--g)}.stat-v.gold{color:var(--gold)}.stat-v.a{color:var(--a)}.stat-v.r{color:var(--r)}.stat-v.p{color:var(--p)}
+.stat-l{font-size:0.6rem;color:var(--m);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.15rem}
+@media(max-width:640px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+
+/* Alerts */
+.alert{border-radius:10px;padding:1rem 1.2rem;margin:0.75rem 0}
+.alert-g{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25)}
+.alert-r{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25)}
+.alert-gold{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25)}
+.alert h3{font-size:0.88rem;margin-bottom:0.35rem}
+.alert-g h3{color:var(--g)}.alert-r h3{color:var(--r)}.alert-gold h3{color:var(--gold)}
+.alert li{font-size:0.82rem;padding:0.15rem 0 0.15rem 1.1rem;position:relative;list-style:none}
+.alert li::before{content:"";position:absolute;left:0;top:0.5rem;width:5px;height:5px;border-radius:50%}
+.alert-g li::before{background:var(--g)}.alert-r li::before{background:var(--r)}.alert-gold li::before{background:var(--gold)}
+.alert ul{padding:0}
+
+/* Slides */
+.slide{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:0.75rem;position:relative}
+.slide-num{position:absolute;top:0.6rem;right:0.8rem;font-size:0.6rem;color:var(--m);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+.slide h4{font-size:0.9rem;font-weight:700;color:var(--w);margin-bottom:0.35rem}
+.slide p{font-size:0.82rem;margin-bottom:0.3rem}
+.slide .notes{font-size:0.75rem;color:var(--m);font-style:italic;margin-top:0.4rem;padding-top:0.4rem;border-top:1px dashed rgba(42,58,78,0.5)}
+
+/* Banner mockups */
+.banner-mock{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);border:2px solid var(--b);border-radius:8px;overflow:hidden;margin:0.75rem 0}
+.banner-inner{padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.banner-text h4{color:var(--w);font-size:1rem;font-weight:800;margin-bottom:0.15rem}
+.banner-text p{color:var(--m);font-size:0.75rem}
+.banner-cred{text-align:right}
+.banner-cred span{display:block;font-size:0.65rem;color:var(--gold);letter-spacing:0.04em}
+.banner-dim{text-align:center;font-size:0.65rem;color:var(--m);padding:0.3rem;background:rgba(0,0,0,0.3)}
+@media(max-width:640px){.banner-inner{flex-direction:column;text-align:center;gap:0.75rem}.banner-cred{text-align:center}}
+
+/* Loom script */
+.loom-block{background:var(--s);border-left:3px solid var(--a);padding:1rem 1.25rem;margin:0.5rem 0;border-radius:0 8px 8px 0}
+.loom-block .speaker{font-size:0.68rem;font-weight:700;color:var(--a);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.25rem}
+.loom-block p{font-size:0.83rem}
+.loom-time{font-size:0.65rem;color:var(--m);margin-top:0.3rem}
+
+hr.sep{border:none;border-top:1px solid var(--b);margin:2rem 0}
+.footer{text-align:center;padding:1.5rem 0;border-top:1px solid var(--b);margin-top:2rem;color:var(--m);font-size:0.7rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="badge">Complete Launch Kit</div>
+  <h1>DJ Naronikar — Everything to Launch</h1>
+  <p>Webinar presentation, social banners, content calendar, Loom walkthrough script, current state, and what to wire. One document. Show DJ this.</p>
+  <div class="date">April 7, 2026 | Prepared by Dylan Ewing</div>
+</div>
+
+<div class="toc">
+  <h3>Sections</h3>
+  <div class="toc-grid">
+    <div>
+      <a href="#state">1. Current State</a>
+      <a href="#webinar">2. New Webinar</a>
+      <a href="#banners">3. Social Banners</a>
+    </div>
+    <div>
+      <a href="#profiles">4. Profile Copy</a>
+      <a href="#calendar">5. Content Calendar</a>
+      <a href="#loom">6. Loom Script</a>
+    </div>
+    <div>
+      <a href="#tech">7. Tech Wiring</a>
+      <a href="#linkedin">8. LinkedIn Engine</a>
+      <a href="#decisions">9. DJ's Decisions</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1: CURRENT STATE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="state">
+  <div class="sec-title red">1. Current State — Where DJ Is Right Now</div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-v a">9K</div><div class="stat-l">LinkedIn Followers</div></div>
+    <div class="stat"><div class="stat-v a">1K</div><div class="stat-l">Newsletter Subs</div></div>
+    <div class="stat"><div class="stat-v gold">1.7K</div><div class="stat-l">FB Group Members</div></div>
+    <div class="stat"><div class="stat-v p">75</div><div class="stat-l">Telegram Subs</div></div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-v r">197</div><div class="stat-l">Cold Leads (GHL)</div></div>
+    <div class="stat"><div class="stat-v r">0</div><div class="stat-l">Paying Students</div></div>
+    <div class="stat"><div class="stat-v r">$0</div><div class="stat-l">Revenue (CISO 360)</div></div>
+    <div class="stat"><div class="stat-v r">4/10</div><div class="stat-l">Funnel Score</div></div>
+  </div>
+
+  <div class="card">
+    <h3>What's broken</h3>
+    <ul>
+      <li><strong>Sales page sells $97/mo</strong> — wrong product. Should be application to $4,997 CISO 360.</li>
+      <li><strong>CTA links go to #checkout</strong> — section doesn't exist. 100% of clicks go nowhere.</li>
+      <li><strong>180 webinar leads are cold</strong> — registered March 19, zero follow-up for 3 weeks.</li>
+      <li><strong>No application step</strong> anywhere in the funnel.</li>
+      <li><strong>No closer</strong> — Jay quit. DJ will do 15-min fit checks instead.</li>
+      <li><strong>Bios are inconsistent</strong> across all platforms. No unified brand.</li>
+      <li><strong>YouTube channel</strong> — handle exists (@dhananjayanaronikar) but not optimized.</li>
+      <li><strong>Agresh has 7 GHL workflows in Draft</strong> — been sitting since March 17.</li>
+      <li><strong>Contact email is achieversquantum@gmail.com</strong> — unprofessional.</li>
+    </ul>
+  </div>
+
+  <div class="alert alert-g">
+    <h3>What's already built</h3>
+    <ul>
+      <li>120+ pages CISO 360 courseware (Google Drive)</li>
+      <li>GHL CRM with lead scoring (0-12 pts) and 3 pipelines</li>
+      <li>Stripe products: $4,997 PIF + $1,897x3 payment plan</li>
+      <li>3 VAPI voice assistants (Closer Priya, Confirmation Priya, Re-Engage)</li>
+      <li>197 contacts segmented with tags in GHL</li>
+      <li>5 SEO blog articles (blog-articles/)</li>
+      <li>Complete competitor research + Google Trends data</li>
+      <li>Unified bios for all 11 platforms (copy-paste ready)</li>
+      <li>Full 90-day content calendar with weekly topics</li>
+      <li>DJ's photo assets (9 professional photos + 6 company logos)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2: NEW WEBINAR -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="webinar">
+  <div class="sec-title purple">2. New Webinar — $27 Entry, Application Close</div>
+
+  <div class="card">
+    <h3>Why $27 and not free</h3>
+    <ul>
+      <li>Last webinar was free. 197 registered, 24 attended (12.5% show rate), 0 paid.</li>
+      <li>$27 filters freebie seekers. Expected show rate: 50-70%.</li>
+      <li>$27 is low enough that serious people don't overthink it.</li>
+      <li>Everyone who pays $27 is a qualified lead for $4,997.</li>
+      <li>The webinar does NOT pitch CISO 360 directly. It ends with "Apply."</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Webinar structure: 75 minutes</h3>
+    <p style="color:var(--m);font-size:0.78rem;margin-bottom:0.5rem;">DJ presents live on Zoom. No recording offered. "You had to be there" creates urgency for next one.</p>
+    <table>
+      <thead><tr><th>Time</th><th>Section</th><th>Goal</th></tr></thead>
+      <tbody>
+        <tr><td>0:00-5:00</td><td>Welcome + DJ's story</td><td>Build trust, establish credibility</td></tr>
+        <tr><td>5:00-15:00</td><td>The market reality</td><td>Show the opportunity (data-driven)</td></tr>
+        <tr><td>15:00-30:00</td><td>The 3 career paths</td><td>Teach real value (frameworks)</td></tr>
+        <tr><td>30:00-45:00</td><td>Live LinkedIn audit</td><td>Deliver immediate value (one attendee)</td></tr>
+        <tr><td>45:00-55:00</td><td>The roadmap</td><td>Show the gap between DIY and guided</td></tr>
+        <tr><td>55:00-65:00</td><td>CISO 360 reveal</td><td>Present the program as the solution</td></tr>
+        <tr><td>65:00-75:00</td><td>Q&A + Application CTA</td><td>Drive applications</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:var(--p);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;margin:1rem 0 0.75rem;">Slide-by-Slide Content (Updated for $4,997 Funnel)</h3>
+
+  <div class="slide">
+    <div class="slide-num">Slide 1 — 2 min</div>
+    <h4>Your IT Career Isn't Broken. But It Is Capped.</h4>
+    <p>"From IT Stagnation to Six-Figure Cybersecurity Career"</p>
+    <p>DJ Naronikar | 28-Year CISO | Deloitte, EY, Shell</p>
+    <div class="notes">DJ: Welcome everyone. Quick intro — who I am, what we'll cover in the next 75 minutes, and why I built this. Keep it personal. "I've been hiring cybersecurity professionals for 28 years. Tonight I'm going to show you exactly what gets someone hired."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 2 — 3 min</div>
+    <h4>DJ's Credentials (but framed as relevance)</h4>
+    <p>CISO / vCISO across 400+ organizations in 8 countries. Deloitte, EY, Shell, Emirates Nuclear. ISC2 Chapter President. CIO Choice Award 2026.</p>
+    <p>"I wrote cybersecurity policy for a Central Bank that became law across every bank in the country."</p>
+    <div class="notes">Frame as: "This isn't theory. Everything I'm going to tell you tonight comes from doing this across 28 years and 8 countries. I've hired hundreds of cybersecurity professionals. I know exactly what companies look for."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 3 — 5 min</div>
+    <h4>The Market Reality (Updated 2026 Numbers)</h4>
+    <p><strong>750,000</strong> unfilled US cybersecurity jobs right now (CyberSeek)</p>
+    <p><strong>1.33 million</strong> employed in cybersecurity (ISC2)</p>
+    <p><strong>26%</strong> of positions unfilled — not competition, a talent shortage</p>
+    <p><strong>$185,000</strong> average cybersecurity manager salary</p>
+    <p><strong>33%</strong> projected job growth next decade (vs 5% average)</p>
+    <div class="notes">DJ: "Let me show you something. These aren't projections. These are today's numbers." Walk through each stat. The 26% unfilled rate is the killer stat. "One in four cybersecurity jobs has nobody sitting in it right now."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 4 — 5 min</div>
+    <h4>Is This You?</h4>
+    <ul style="list-style:none;padding:0;font-size:0.82rem;">
+      <li style="padding:0.2rem 0;">You've been in IT for 5-15 years. The pay ceiling is obvious.</li>
+      <li style="padding:0.2rem 0;">AI is automating tier-1 and tier-2 IT work. Your role is shrinking.</li>
+      <li style="padding:0.2rem 0;">You've looked at cybersecurity postings and thought "I could do that."</li>
+      <li style="padding:0.2rem 0;">You might be on an H-1B. One company decision could reset everything.</li>
+      <li style="padding:0.2rem 0;">You're supporting a family. The pressure to earn more isn't optional.</li>
+      <li style="padding:0.2rem 0;">You feel stuck. Not because you aren't smart — because nobody showed you the path.</li>
+    </ul>
+    <div class="notes">DJ: Read each line slowly. Let it land. Ask: "How many of those describe you right now?" Pause. "If it's more than two, you're exactly who I built this for."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 5 — 5 min</div>
+    <h4>The Salary Gap (Real Data)</h4>
+    <table>
+      <thead><tr><th>Current Role</th><th>Current Pay</th><th>Cyber Equivalent</th><th>Cyber Pay</th><th>Annual Gain</th></tr></thead>
+      <tbody>
+        <tr><td>IT Support</td><td>$42-58K</td><td>SOC Analyst</td><td>$65-95K</td><td style="color:var(--g);font-weight:700;">+$37K</td></tr>
+        <tr><td>Network Admin</td><td>$55-72K</td><td>Network Security Eng</td><td>$85-130K</td><td style="color:var(--g);font-weight:700;">+$58K</td></tr>
+        <tr><td>Sysadmin</td><td>$60-80K</td><td>Security Ops Manager</td><td>$110-150K</td><td style="color:var(--g);font-weight:700;">+$70K</td></tr>
+        <tr><td>IT Manager</td><td>$70-90K</td><td>CISO / Architect</td><td>$180-250K</td><td style="color:var(--g);font-weight:700;">+$160K</td></tr>
+      </tbody>
+    </table>
+    <div class="notes">DJ: "This isn't aspirational. These are what my students and colleagues earn. The same years of experience, the same work ethic — different title, different zeroes."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 6 — 5 min</div>
+    <h4>Why 70% Who Try Alone Fail</h4>
+    <ul style="list-style:none;padding:0;font-size:0.82rem;">
+      <li style="padding:0.2rem 0;"><strong>1. Wrong certs, wrong order.</strong> They study for CISSP when they need Security+ first.</li>
+      <li style="padding:0.2rem 0;"><strong>2. Resume that doesn't speak cyber.</strong> Same resume, different job title doesn't work.</li>
+      <li style="padding:0.2rem 0;"><strong>3. Invisible to the hidden job market.</strong> 70% of cybersecurity roles are never posted publicly.</li>
+      <li style="padding:0.2rem 0;"><strong>4. No one in their corner.</strong> No advisor who's been the hiring manager.</li>
+    </ul>
+    <div class="notes">DJ: "I've interviewed thousands of candidates. The ones who fail all make the same four mistakes. Let me walk you through them so you don't."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 7 — 10 min</div>
+    <h4>The 3 Career Paths (TEACH — This Is the Value)</h4>
+    <p style="margin-bottom:0.5rem;"><strong>Path 1: GRC (Governance, Risk, Compliance)</strong></p>
+    <p style="font-size:0.8rem;margin-bottom:0.5rem;">Best for: IT managers, project managers, business analysts. Fastest entry. Least technical. $90-150K.</p>
+    <p style="margin-bottom:0.5rem;"><strong>Path 2: Security Operations (SOC)</strong></p>
+    <p style="font-size:0.8rem;margin-bottom:0.5rem;">Best for: sysadmins, network admins, help desk. Technical but structured. $65-130K.</p>
+    <p style="margin-bottom:0.5rem;"><strong>Path 3: Security Architecture / Engineering</strong></p>
+    <p style="font-size:0.8rem;">Best for: cloud engineers, DevOps, senior sysadmins. Highest ceiling. $120-250K+.</p>
+    <div class="notes">DJ: "This is the part most courses skip. They tell you 'get into cybersecurity' without telling you WHICH cybersecurity. There are three distinct paths. You need to know which one matches YOUR background. Let me break each one down." Spend 3 min on each path. Give specific cert recommendations for each. This is where you deliver the most value.</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 8 — 10 min</div>
+    <h4>LIVE Exercise: LinkedIn Audit</h4>
+    <p>Pick one attendee. Share their LinkedIn on screen. DJ does a live audit:</p>
+    <ul style="list-style:none;padding:0;font-size:0.82rem;">
+      <li style="padding:0.15rem 0;">Headline: Does it position them for cyber roles?</li>
+      <li style="padding:0.15rem 0;">About: Does it tell a career transition story?</li>
+      <li style="padding:0.15rem 0;">Experience: Is it translated into security language?</li>
+      <li style="padding:0.15rem 0;">Skills: Are the right certifications and tools listed?</li>
+      <li style="padding:0.15rem 0;">Network: Are they connected to hiring managers and recruiters?</li>
+    </ul>
+    <div class="notes">DJ: "Let me show you what I mean. Who wants their LinkedIn audited right now? I'll do it live." Pick a volunteer. Walk through their profile. Show exactly what to change. This is the most memorable part of the webinar. Everyone in the room applies the advice to their own profile.</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 9 — 5 min</div>
+    <h4>The $300K Wire Fraud Story</h4>
+    <p>DJ tells the story of stopping a $300K wire fraud in real time.</p>
+    <div class="notes">DJ: "Let me tell you about the time I caught a $300,000 wire fraud in progress. This is what cybersecurity looks like in practice." Tell it like a story, not a lecture. The room should be dead quiet. This is what separates DJ from every course seller on YouTube. He didn't read about it. He did it.</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 10 — 5 min</div>
+    <h4>The Two Paths (DIY vs Guided)</h4>
+    <table>
+      <thead><tr><th></th><th>Path A: Alone</th><th>Path B: Guided</th></tr></thead>
+      <tbody>
+        <tr><td>Timeline</td><td>6-12 months</td><td style="color:var(--g)">90 days</td></tr>
+        <tr><td>Cert strategy</td><td>Guessing</td><td style="color:var(--g)">Personalized roadmap</td></tr>
+        <tr><td>Resume</td><td>IT resume</td><td style="color:var(--g)">Cyber-positioned</td></tr>
+        <tr><td>Job market</td><td>Public postings only</td><td style="color:var(--g)">Hidden market access</td></tr>
+        <tr><td>Interview prep</td><td>YouTube videos</td><td style="color:var(--g)">Mock interviews + coaching</td></tr>
+        <tr><td>Mentor</td><td>None</td><td style="color:var(--g)">28-year CISO</td></tr>
+        <tr><td>Success rate</td><td>~30%</td><td style="color:var(--g)">92% placement</td></tr>
+      </tbody>
+    </table>
+    <div class="notes">DJ: "You can do this alone. Some people do. But 70% who try alone fail, and the ones who succeed take 6-12 months. I built something that compresses that timeline to 90 days."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 11 — 5 min</div>
+    <h4>CISO 360 Accelerator — The Program</h4>
+    <p>14 weeks. 15-student cap. Here's what's inside:</p>
+    <ul style="list-style:none;padding:0;font-size:0.82rem;">
+      <li style="padding:0.15rem 0;">Phase 1 (Weeks 1-2): Foundation — 1:1 consultation, LinkedIn audit, personalized cert roadmap</li>
+      <li style="padding:0.15rem 0;">Phase 2 (Weeks 3-10): Technical Core — Network security, GRC, cloud security, incident response labs</li>
+      <li style="padding:0.15rem 0;">Phase 3 (Weeks 11-12): Job-Ready — Resume rebuild, LinkedIn optimization, hidden job market strategy</li>
+      <li style="padding:0.15rem 0;">Phase 4 (Weeks 13-14): Placement — Mock interviews, salary negotiation, direct employer intros</li>
+    </ul>
+    <p style="margin-top:0.5rem;font-weight:700;color:var(--g);">Guarantee: We work with you until you're hired. Not 14 weeks. Until.</p>
+    <div class="notes">DJ: Don't linger here. State the facts. The guarantee is the closer. "We don't stop at 14 weeks. If you haven't landed the role, we keep going. Period."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 12 — 3 min</div>
+    <h4>Student Results</h4>
+    <p><strong>Rob G:</strong> Chef → $120K Cybersecurity Analyst</p>
+    <p><strong>Sunit Suri:</strong> Career transition → placed</p>
+    <p>+ DJ's mentoring stats: 250+ professionals mentored across 28 years</p>
+    <div class="notes">DJ: "Rob came to me as a chef. Not IT. A chef. He's now earning $120K as a cybersecurity analyst. If a chef can make this transition, an experienced IT professional can do it faster." Short, punchy. Let the results speak.</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 13 — 5 min</div>
+    <h4>ROI Math + Investment</h4>
+    <p>If you're earning $85K now and land a $130K cyber role:</p>
+    <p><strong>Year 1 increase: +$45,000.</strong> Investment: $4,997. <strong>ROI: 800%.</strong></p>
+    <p><strong>Over 3 years vs staying in IT: +$135,000-$300,000</strong></p>
+    <p style="margin-top:0.5rem;">$4,997 paid in full. Or $1,897 x 3 monthly payments ($5,691 total).</p>
+    <p style="font-size:0.78rem;color:var(--m);margin-top:0.3rem;">15 spots per cohort. When they're full, they're full.</p>
+    <div class="notes">DJ: "The investment is $4,997. Or you can split it into three payments of $1,897. I want you to compare that to what you'll earn. If you go from $85K to $130K — which is conservative for this transition — you've made back the investment in the first 6 weeks of your new role."</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 14 — 5 min</div>
+    <h4>How to Apply (THE CTA)</h4>
+    <p>This is NOT "buy now." This is "apply."</p>
+    <p>Link to application form → 5-8 questions → GHL auto-scores → DJ reviews → 15-min call if qualified.</p>
+    <p style="margin-top:0.5rem;font-weight:600;color:var(--w);">"If this sounds like you, the next step is to apply. I review every application personally. If you're a fit, we'll do a 15-minute call. No pitch. Just clarity on whether this is the right move for you."</p>
+    <div class="notes">DJ: Drop the link in chat. Say it out loud. "Apply at thequantumachievers.com/apply." Leave it on screen for the rest of the session. Don't rush people. Let them decide.</div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-num">Slide 15 — 10 min</div>
+    <h4>Q&A</h4>
+    <p>Answer questions live. Application link stays on screen.</p>
+    <p>Common questions to prepare for:</p>
+    <ul style="list-style:none;padding:0;font-size:0.8rem;">
+      <li style="padding:0.15rem 0;">"Do I need a cybersecurity background?" → No. 60% come from pure IT.</li>
+      <li style="padding:0.15rem 0;">"Can I do this while working full-time?" → Yes. 10-15 hours/week.</li>
+      <li style="padding:0.15rem 0;">"I'm on a visa." → Cybersecurity strengthens your visa profile.</li>
+      <li style="padding:0.15rem 0;">"What if I'm not hired in 14 weeks?" → We continue. Until.</li>
+      <li style="padding:0.15rem 0;">"Is this just videos?" → No. 1:1 calls, live coaching, mock interviews, employer intros.</li>
+    </ul>
+    <div class="notes">DJ: End with "The link is in the chat. If you're serious about making this move, apply tonight. I review every application personally, and spots fill fast. Thank you for being here."</div>
+  </div>
+
+  <div class="card">
+    <h3>Post-Webinar Follow-Up (GHL Workflow)</h3>
+    <table>
+      <thead><tr><th>When</th><th>What</th><th>Who Gets It</th></tr></thead>
+      <tbody>
+        <tr><td>Immediately</td><td>"Thanks for attending" email with application link</td><td>All attendees</td></tr>
+        <tr><td>+24 hours</td><td>Replay of the LinkedIn audit exercise (screen recording, NOT full webinar)</td><td>All attendees</td></tr>
+        <tr><td>+48 hours</td><td>"Applications are open for 5 more days" + one student story</td><td>Attendees who didn't apply</td></tr>
+        <tr><td>+72 hours</td><td>DJ personal video: "I noticed you attended but haven't applied yet"</td><td>Attendees who didn't apply</td></tr>
+        <tr><td>+5 days</td><td>"Applications close Friday" — last call</td><td>Attendees who didn't apply</td></tr>
+        <tr><td>+7 days</td><td>Move to long-term nurture (weekly content emails)</td><td>Everyone who didn't apply</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--m);margin-top:0.5rem;">For applicants: GHL auto-scores → qualified (9-12) get DJ call within 48 hours. Warm (5-8) get email sequence. Cold (0-4) get newsletter.</p>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3: SOCIAL BANNERS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="banners">
+  <div class="sec-title gold">3. Social Banners — Design Specs</div>
+
+  <div class="card">
+    <h3>Brand Identity</h3>
+    <ul>
+      <li><strong>Name:</strong> DJ Naronikar (personal brand — NOT The Quantum Achievers)</li>
+      <li><strong>Tagline:</strong> "28-Year CISO. Helping IT pros break into cybersecurity."</li>
+      <li><strong>Program:</strong> CISO 360 Accelerator</li>
+      <li><strong>Colors:</strong> Dark navy (#0a0f1a) + Gold (#f59e0b) + White text</li>
+      <li><strong>Photo:</strong> Use dj-main-headshot.webp (professional, face visible)</li>
+      <li><strong>Fonts:</strong> Inter or similar sans-serif. Bold for name, regular for tagline.</li>
+      <li><strong>Logos:</strong> Deloitte, EY, ISC2, EC-Council (credibility strip)</li>
+    </ul>
+  </div>
+
+  <p style="font-size:0.8rem;color:var(--m);margin-bottom:0.75rem;">Each banner follows the same layout: DJ's photo (left), name + tagline (center), credibility logos (bottom). Consistent across all platforms.</p>
+
+  <h4 style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin:1rem 0 0.5rem;">YouTube Banner</h4>
+  <div class="banner-mock">
+    <div class="banner-inner">
+      <div class="banner-text">
+        <h4>DJ Naronikar</h4>
+        <p>28-Year CISO | Helping IT Pros Break Into Cybersecurity</p>
+        <p style="font-size:0.65rem;color:var(--gold);margin-top:0.3rem;">New videos every week → Subscribe</p>
+      </div>
+      <div class="banner-cred">
+        <span>Deloitte | EY | Shell</span>
+        <span>ISC2 | CIO Choice Award</span>
+        <span style="color:var(--w);font-weight:700;font-size:0.75rem;margin-top:0.2rem;">CISO 360</span>
+      </div>
+    </div>
+    <div class="banner-dim">2560 × 1440px (safe area: 1546 × 423px center) — Canva template "YouTube Channel Art"</div>
+  </div>
+
+  <h4 style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin:1rem 0 0.5rem;">LinkedIn Banner</h4>
+  <div class="banner-mock">
+    <div class="banner-inner" style="padding:1rem 1.5rem;">
+      <div class="banner-text">
+        <h4 style="font-size:0.9rem;">Helping IT Pros Land $150K+ Cybersecurity Careers</h4>
+        <p>28 Years | 400+ Organizations | 8 Countries</p>
+      </div>
+      <div class="banner-cred">
+        <span style="color:var(--w);font-weight:700;font-size:0.8rem;">CISO 360</span>
+        <span>thequantumachievers.com</span>
+      </div>
+    </div>
+    <div class="banner-dim">1584 × 396px — Canva template "LinkedIn Banner"</div>
+  </div>
+
+  <h4 style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin:1rem 0 0.5rem;">Facebook Cover (Page + Group)</h4>
+  <div class="banner-mock">
+    <div class="banner-inner" style="padding:1rem 1.5rem;">
+      <div class="banner-text">
+        <h4 style="font-size:0.9rem;">CISO360 — Cybersecurity Career Intelligence</h4>
+        <p>Weekly briefings from DJ Naronikar, 28-year CISO</p>
+      </div>
+      <div class="banner-cred">
+        <span>Podcast: Cyber Caffeine</span>
+        <span>Program: thequantumachievers.com</span>
+      </div>
+    </div>
+    <div class="banner-dim">820 × 312px (mobile safe area: 640 × 312px center) — Canva template "Facebook Cover"</div>
+  </div>
+
+  <h4 style="color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin:1rem 0 0.5rem;">YouTube Thumbnail Template</h4>
+  <div class="banner-mock">
+    <div class="banner-inner" style="padding:1.5rem 2rem;">
+      <div class="banner-text">
+        <h4 style="font-size:1.1rem;color:var(--gold);">$150K+</h4>
+        <p style="font-size:0.85rem;color:var(--w);font-weight:700;">IT to Cybersecurity<br>Career Roadmap</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:60px;height:60px;border-radius:50%;background:var(--b);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--m);">DJ Photo</div>
+      </div>
+    </div>
+    <div class="banner-dim">1280 × 720px — DJ's face (left or right), bold text, one number, high contrast. Copy Josh Madakor's style.</div>
+  </div>
+
+  <div class="alert alert-gold">
+    <h3>Banner Action Items</h3>
+    <ul>
+      <li><strong>Canva:</strong> Create all 4 banners using DJ's headshot photo + specs above</li>
+      <li><strong>YouTube:</strong> Upload banner + update channel name to "DJ Naronikar | CISO Career Coach"</li>
+      <li><strong>LinkedIn:</strong> Upload banner + update headline/About (see TQA-UNIFIED-BIOS.md)</li>
+      <li><strong>Facebook Page:</strong> Upload cover + update About section</li>
+      <li><strong>Facebook Group:</strong> Upload cover + update description</li>
+      <li><strong>Instagram:</strong> Profile photo = DJ's headshot. Bio from UNIFIED-BIOS.md</li>
+      <li><strong>Time:</strong> ~2 hours total if using Canva templates</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 4: PROFILE COPY -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="profiles">
+  <div class="sec-title">4. Profile Copy — All Platforms</div>
+
+  <div class="card">
+    <h3>Full bios ready in: TQA-UNIFIED-BIOS.md</h3>
+    <p>Copy-paste ready for all 11 platforms. That file has the complete text for:</p>
+    <table>
+      <thead><tr><th>#</th><th>Platform</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>LinkedIn Profile (headline + About)</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>2</td><td>LinkedIn Newsletter description</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>3</td><td>YouTube (channel desc + About)</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>4</td><td>Facebook Page (CISO360)</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>5</td><td>Facebook Group (CISO360)</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>6</td><td>Twitter/X Personal</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>7</td><td>Twitter/X CISO360</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>8</td><td>Telegram Community</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>9</td><td>Spotify (Cyber Caffeine)</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>10</td><td>LinkedIn Showcase (Cyber Caffeine)</td><td style="color:var(--g);">Copy ready</td></tr>
+        <tr><td>11</td><td>Ascend International</td><td style="color:var(--m);">No change needed</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--m);margin-top:0.5rem;">DJ or Agresh can update all platforms in 45-60 minutes by copy-pasting from UNIFIED-BIOS.md.</p>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 5: CONTENT CALENDAR -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="calendar">
+  <div class="sec-title green">5. Content Calendar — 90-Day Overview</div>
+
+  <div class="card">
+    <h3>Full calendar in: TQA-CLIENT-SUCCESS-SOP.html</h3>
+    <p>The SOP has the week-by-week content calendar for 12 weeks. Here's the overview:</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Phase</th><th>Weeks</th><th>Focus</th><th>Videos</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--a);font-weight:600;">Foundation</td>
+        <td>1-4</td>
+        <td>Establish channel. Career transition + salary + case studies + AI threat.</td>
+        <td>4 long + 12-20 shorts</td>
+      </tr>
+      <tr>
+        <td style="color:var(--p);font-weight:600;">Authority</td>
+        <td>5-8</td>
+        <td>Deep dives. Cert paths, job analysis, interview prep, student stories.</td>
+        <td>4 long + 12-20 shorts</td>
+      </tr>
+      <tr>
+        <td style="color:var(--g);font-weight:600;">Conversion</td>
+        <td>9-12</td>
+        <td>Funnel content. ROI breakdowns, live audits, testimonials, myth busting.</td>
+        <td>4 long + 12-20 shorts</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="margin-top:0.75rem;">
+    <h3>Weekly Content Output (1 recording = 4 channels)</h3>
+    <table>
+      <thead><tr><th>Channel</th><th>Content</th><th>Frequency</th><th>DJ Time</th></tr></thead>
+      <tbody>
+        <tr><td>YouTube (long)</td><td>10-20 min teaching video</td><td>1/week</td><td>1-2 hrs recording</td></tr>
+        <tr><td>YouTube Shorts</td><td>Cut from long video</td><td>3-5/week</td><td>0 (editor cuts)</td></tr>
+        <tr><td>IG Reels</td><td>Same as Shorts (cross-post)</td><td>3-5/week</td><td>0 (auto-repost)</td></tr>
+        <tr><td>LinkedIn</td><td>Post from video topic</td><td>3-4/week</td><td>15 min (approve)</td></tr>
+        <tr><td>LinkedIn Newsletter</td><td>Repurpose video script</td><td>1/week</td><td>0 (we draft)</td></tr>
+        <tr><td>Podcast</td><td>Audio from video</td><td>1/week</td><td>0 (strip + upload)</td></tr>
+        <tr><td>FB Group</td><td>Cross-post video</td><td>1/week</td><td>0 (auto-post)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--g);font-weight:600;margin-top:0.5rem;">Total DJ time: 4-5 hours/week</p>
+  </div>
+
+  <div class="card">
+    <h3>First 5 Video Topics (Data-Driven)</h3>
+    <table>
+      <thead><tr><th>Week</th><th>Title</th><th>Why This Topic</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>"IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</td><td>#1 search term (avg 35, peaked 100 Google Trends)</td></tr>
+        <tr><td>2</td><td>"How Much Do Cybersecurity Professionals Really Make?"</td><td>#2 search term. Madakor's money video: 64K views</td></tr>
+        <tr><td>3</td><td>"I Stopped a $300K Wire Fraud. Here's How."</td><td>DJ's real story. Nobody else can tell it.</td></tr>
+        <tr><td>4</td><td>"AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</td><td>AI is breakout search trend in this space</td></tr>
+        <tr><td>5</td><td>"My Student Went From Chef to $120K Cybersecurity Analyst"</td><td>Social proof. Career transition = Madakor's 3-8K view format.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 6: LOOM SCRIPT -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="loom">
+  <div class="sec-title orange">6. Dylan's Loom Script — Walk DJ Through Everything</div>
+
+  <p style="font-size:0.82rem;color:var(--m);margin-bottom:1rem;">Record this as a Loom. Screen share this HTML file. Talk through each section. Target: 15-20 minutes.</p>
+
+  <div class="loom-block">
+    <div class="speaker">Open (0:00-1:00)</div>
+    <p>"DJ, I built out the complete launch system for you. Everything's here — what to present at the webinar, your social media profiles, content calendar, and the tech that's wired up behind it. Let me walk you through it."</p>
+    <div class="loom-time">Screen: Show this HTML hero section</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">Current State (1:00-3:00)</div>
+    <p>"First — here's where you are right now. 9K LinkedIn followers, 1K newsletter, 1,700 in the Facebook group, 75 on Telegram. That's a real audience. But the funnel is broken — the sales page sells the wrong product, the CTA links go nowhere, and 180 people who registered for the webinar got zero follow-up. We're fixing all of that."</p>
+    <div class="loom-time">Screen: Scroll through the Current State section, point at the stats and the broken items</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">The New Webinar (3:00-7:00)</div>
+    <p>"Here's the new webinar. $27 entry — not free. Last time was free and 12% showed up. $27 filters out people who aren't serious. Your show rate should be 50-70%. Here's what you present, slide by slide. [Scroll through slides.] The key difference: you don't pitch on the webinar. You teach for 45 minutes, do a live LinkedIn audit, tell the wire fraud story, and then present CISO 360 with the application link. No pressure. Apply or don't. The credibility does the selling."</p>
+    <div class="loom-time">Screen: Scroll through webinar slides. Pause on the LinkedIn audit slide and the CTA slide.</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">Social Profiles (7:00-10:00)</div>
+    <p>"Your social profiles need to be consistent everywhere. I wrote copy for all 11 platforms — LinkedIn, YouTube, Instagram, Facebook page, Facebook group, Twitter, Telegram, Spotify, everything. It's all in one file, copy-paste ready. The brand is 'DJ Naronikar' — your name, your face. Not TQA. The program is CISO 360. TQA goes in the footer. I also have banner specs for YouTube, LinkedIn, and Facebook. Same design language — dark background, your headshot, the credential strip. Agresh or you can build these in Canva in about 2 hours."</p>
+    <div class="loom-time">Screen: Show the banner mockups and the profile copy table</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">Content Calendar (10:00-13:00)</div>
+    <p>"Content plan. You record one video a week. That recording feeds four channels — YouTube, Instagram, LinkedIn, and the podcast. You record on Monday, 1-2 hours. By Tuesday everything's uploaded. Your total time commitment is 4-5 hours a week. I picked the first 10 video topics based on real search data — Google Trends, what Madakor's audience watches, and what's ranking on YouTube right now. Your first video is 'IT to Cybersecurity in 2026' — that's the number one search term in this space."</p>
+    <div class="loom-time">Screen: Show the content calendar and the first 5 videos table</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">The 180 Leads (13:00-15:00)</div>
+    <p>"You have 180 people who already said yes once. They registered for the March webinar and got ghosted. We're going to re-engage them. Day 1: email with your first YouTube video. Day 3: personal message to the 12 who actually applied — those are the hottest leads, Jay or you call them directly. Day 5: introduce the $47 career assessment. Week 3: invite the re-engaged ones to the new $27 webinar. This is your fastest path to first students."</p>
+    <div class="loom-time">Screen: Show the re-engagement timeline from DJ-FULL-PLAN-ORDERED.html</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">What I Need From You (15:00-17:00)</div>
+    <p>"DJ, I need 5 decisions from you. [Read through the decisions list.] The biggest one is the video commitment. Everything in this plan starts the day you press record on video one. The second biggest is telling Agresh to publish those 7 GHL workflows. They've been in Draft since March 17. And the podcast name — Cyber Caffeine is taken on Spotify. My suggestion is 'The CISO Path' or 'CISO 360 Podcast.' Your call."</p>
+    <div class="loom-time">Screen: Show the decisions section</div>
+  </div>
+
+  <div class="loom-block">
+    <div class="speaker">Close (17:00-18:00)</div>
+    <p>"That's everything. The system is built. Stripe products are live. GHL is scored. Content calendar is mapped. All you need to do is record the first video and make these 5 decisions. Send me a message when you're ready and we'll set the webinar date."</p>
+    <div class="loom-time">Screen: Show the "already built" green alert from the current state section</div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 7: TECH WIRING -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="tech">
+  <div class="sec-title">7. Tech Still To Wire</div>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <table>
+      <thead><tr><th>Item</th><th>Status</th><th>Who</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td>Application page (thequantumachievers.com/apply)</td><td style="color:var(--r);">NOT BUILT</td><td>Dylan</td><td>2 hrs</td></tr>
+        <tr><td>Webinar registration page ($27 Stripe checkout)</td><td style="color:var(--r);">NOT BUILT</td><td>Dylan</td><td>1 hr</td></tr>
+        <tr><td>GHL webinar workflow (confirmation + reminders)</td><td style="color:var(--o);">IN DRAFT</td><td>Agresh</td><td>30 min</td></tr>
+        <tr><td>GHL post-webinar follow-up sequence</td><td style="color:var(--r);">NOT BUILT</td><td>Dylan/Agresh</td><td>1 hr</td></tr>
+        <tr><td>GHL "New Lead Nurture (Fast 5)" workflow</td><td style="color:var(--o);">IN DRAFT</td><td>Agresh</td><td>Publish</td></tr>
+        <tr><td>GHL "Meta Lead Registration" workflow</td><td style="color:var(--o);">IN DRAFT</td><td>Agresh</td><td>Publish</td></tr>
+        <tr><td>YouTube channel rename + banner</td><td style="color:var(--r);">NOT DONE</td><td>DJ</td><td>15 min</td></tr>
+        <tr><td>All social bios updated</td><td style="color:var(--r);">NOT DONE</td><td>DJ/Agresh</td><td>45 min</td></tr>
+        <tr><td>Canva banners (YT, LI, FB)</td><td style="color:var(--r);">NOT DONE</td><td>Dylan/Agresh</td><td>2 hrs</td></tr>
+        <tr><td>$47 Career Assessment quiz + PDF pipeline</td><td style="color:var(--r);">NOT BUILT</td><td>Dylan</td><td>4 hrs</td></tr>
+        <tr><td>Calendly or booking link for DJ's 15-min calls</td><td style="color:var(--r);">NOT SET UP</td><td>DJ</td><td>15 min</td></tr>
+        <tr><td>Re-engage email to 180 cold leads</td><td style="color:var(--g);">COPY READY</td><td>Agresh sends</td><td>15 min</td></tr>
+        <tr><td>5 SEO blog articles</td><td style="color:var(--g);">BUILT</td><td>—</td><td>Done</td></tr>
+        <tr><td>Stripe products ($4,997 + $1,897x3)</td><td style="color:var(--g);">LIVE</td><td>—</td><td>Done</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 8: LINKEDIN ENGINE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="linkedin">
+  <div class="sec-title purple">8. LinkedIn Content Engine — Auto-Generate DJ's Posts</div>
+
+  <div class="card">
+    <h3>The system (already built on VPS)</h3>
+    <p>The UGC Engine at <code>ugc.thedylanewing.com</code> has a LinkedIn post generator that:</p>
+    <ul>
+      <li>Uses 7 hook frameworks (Contrarian Take, Data Bomb, Personal Story, Industry Shift, Prediction, Myth Buster, Behind The Curtain)</li>
+      <li>Generates researched thought-leadership posts with CTA</li>
+      <li>Quality gates every post (auto-reject below 7/10)</li>
+      <li>Costs $0.002/post</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>To wire DJ into it</h3>
+    <ul>
+      <li><strong>Step 1:</strong> Onboard DJ as a UGC client (POST /clients with his brand context)</li>
+      <li><strong>Step 2:</strong> Set content_style to "professional_brand" (no AI avatar, authority posts)</li>
+      <li><strong>Step 3:</strong> Add his LinkedIn handle for research data pull</li>
+      <li><strong>Step 4:</strong> Run POST /research/{client_id} to scrape competitor data (Madakor, Boyd Clewis, etc.)</li>
+      <li><strong>Step 5:</strong> Generate 3-4 posts/week via POST /generate-linkedin</li>
+      <li><strong>Step 6:</strong> Posts land in review queue → DJ approves → publish to his LinkedIn</li>
+    </ul>
+    <p style="font-size:0.78rem;color:var(--m);margin-top:0.5rem;">The engine already works for Akshaya. Onboarding DJ takes ~15 minutes. Then it can generate his weekly LinkedIn posts automatically, pulling from current industry data.</p>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 9: DECISIONS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="sec" id="decisions">
+  <div class="sec-title red">9. DJ's 5 Decisions (Nothing Moves Until These Are Made)</div>
+
+  <div class="alert alert-r">
+    <h3>DJ must decide</h3>
+    <ul>
+      <li><strong>1. Yes to 1 video + 3-5 shorts per week?</strong> Everything in this plan starts here. No video = no funnel.</li>
+      <li><strong>2. Yes to 15-minute fit-check calls?</strong> Not sales calls. You've already seen their quiz, assessment, and application. 15 minutes to decide if they're a fit. Your credibility does the closing.</li>
+      <li><strong>3. Pick a podcast name.</strong> "Cyber Caffeine" is taken on Spotify (SISAP, 30 episodes, Spanish). Options: "The CISO Path" / "CISO 360 Podcast" / "From IT to CISO with DJ Naronikar"</li>
+      <li><strong>4. Confirm brand = DJ Naronikar.</strong> Your face, your name. Program = CISO 360. TQA in the footer.</li>
+      <li><strong>5. Tell Agresh to publish the 7 GHL workflows.</strong> They've been in Draft since March 17. Until they're published, no automation works.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>After DJ says yes</h3>
+    <table>
+      <thead><tr><th>Day</th><th>What Happens</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td>Day 1</td><td>Update all social bios + upload banners</td><td>DJ + Agresh</td></tr>
+        <tr><td>Day 1</td><td>Agresh publishes 7 GHL workflows</td><td>Agresh</td></tr>
+        <tr><td>Day 2</td><td>Dylan builds application page + webinar reg page</td><td>Dylan</td></tr>
+        <tr><td>Day 3</td><td>Send re-engage email to 180 cold leads</td><td>Agresh</td></tr>
+        <tr><td>Day 3</td><td>DJ records first YouTube video</td><td>DJ</td></tr>
+        <tr><td>Day 4</td><td>Upload video + shorts + LinkedIn post</td><td>Dylan/Agresh</td></tr>
+        <tr><td>Day 5</td><td>Send second re-engage email ($47 assessment link)</td><td>Agresh</td></tr>
+        <tr><td>Day 7</td><td>Set webinar date + open registration</td><td>Dylan + DJ</td></tr>
+        <tr><td>Week 2</td><td>Wire DJ into LinkedIn content engine</td><td>Dylan</td></tr>
+        <tr><td>Week 3</td><td>Run $27 webinar</td><td>DJ presents</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <p>DJ Naronikar | Complete Launch Kit | April 2026</p>
+  <p>Prepared by Dylan Ewing</p>
+  <p style="margin-top:0.3rem;">Files: DJ-COMPLETE-LAUNCH-KIT.html | TQA-UNIFIED-BIOS.md | TQA-CLIENT-SUCCESS-SOP.html | DJ-FULL-PLAN-ORDERED.html</p>
+</div>
+
+</div>
+</body>
+</html>

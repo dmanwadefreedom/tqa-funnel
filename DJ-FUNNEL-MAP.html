@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Naronikar — CISO 360 Funnel Map v2</title>
+<style>
+:root{--bg:#080c18;--s:#0f1729;--c:#151f35;--b:#1e2d4a;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--blue:#3b82f6;--purple:#8b5cf6;--cyan:#06b6d4;--gold:#f59e0b;--orange:#f97316;--w:#fff;--t:#cbd5e1;--m:#64748b;--line:#2a3a5c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+/* Header */
+.header{text-align:center;padding:2.5rem 2rem 1.5rem;border-bottom:2px solid var(--b)}
+.header h1{font-size:1.6rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.header p{font-size:0.85rem;color:var(--m);max-width:650px;margin:0 auto}
+.legend{display:flex;gap:1.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:0.4rem;font-size:0.7rem;font-weight:600}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* Section */
+.section{padding:2rem 0;border-bottom:1px solid var(--b)}
+.section:last-child{border-bottom:none}
+.section-label{text-align:center;margin-bottom:1.5rem}
+.stag{display:inline-block;font-size:0.58rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.9rem;border-radius:100px;margin-bottom:0.4rem}
+.stag-brand{background:rgba(6,182,212,0.12);color:var(--cyan);border:1px solid rgba(6,182,212,0.3)}
+.stag-social{background:rgba(59,130,246,0.12);color:var(--blue);border:1px solid rgba(59,130,246,0.3)}
+.stag-yt{background:rgba(239,68,68,0.12);color:var(--red);border:1px solid rgba(239,68,68,0.3)}
+.stag-funnel{background:rgba(139,92,246,0.12);color:var(--purple);border:1px solid rgba(139,92,246,0.3)}
+.stag-score{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
+.section-title{font-size:1.05rem;font-weight:700;color:var(--w)}
+.section-sub{font-size:0.78rem;color:var(--m);margin-top:0.2rem}
+
+/* Cards */
+.card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1rem 1.2rem;margin-bottom:0.75rem}
+.card h4{font-size:0.8rem;font-weight:700;color:var(--w);margin-bottom:0.3rem}
+.card p{font-size:0.72rem;color:var(--t);line-height:1.6}
+.card-grid{display:grid;gap:0.75rem}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:1fr 1fr 1fr}
+.grid-4{grid-template-columns:1fr 1fr 1fr 1fr}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* Status */
+.status{font-size:0.55rem;font-weight:700;letter-spacing:0.06em;padding:0.12rem 0.4rem;border-radius:4px;display:inline-block;text-transform:uppercase}
+.s-live{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.s-stale{background:rgba(234,179,8,0.12);color:var(--yellow);border:1px solid rgba(234,179,8,0.2)}
+.s-miss{background:rgba(239,68,68,0.12);color:var(--red);border:1px solid rgba(239,68,68,0.2)}
+.s-built{background:rgba(59,130,246,0.12);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
+.s-decide{background:rgba(6,182,212,0.12);color:var(--cyan);border:1px solid rgba(6,182,212,0.2)}
+
+/* Decision box */
+.decide{background:rgba(6,182,212,0.05);border:2px dashed rgba(6,182,212,0.3);border-radius:10px;padding:1rem 1.2rem;margin-bottom:0.75rem}
+.decide h4{color:var(--cyan)}
+
+/* Platform cards */
+.platform{background:var(--c);border:1px solid var(--b);border-radius:10px;overflow:hidden}
+.platform-head{display:flex;justify-content:space-between;align-items:center;padding:0.7rem 1rem;border-bottom:1px solid var(--b)}
+.platform-name{font-size:0.82rem;font-weight:700;color:var(--w)}
+.platform-body{padding:0.8rem 1rem}
+.platform-row{display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:1px solid rgba(30,45,74,0.5);font-size:0.68rem}
+.platform-row:last-child{border-bottom:none}
+.pr-label{color:var(--m);font-weight:600}
+.pr-value{color:var(--t);text-align:right;max-width:60%}
+.pr-has{color:var(--green)}
+.pr-need{color:var(--red)}
+
+/* Funnel flow */
+.funnel-flow{display:flex;flex-direction:column;align-items:center;gap:0}
+.funnel-node{background:var(--c);border:2px solid var(--b);border-radius:12px;padding:1rem 1.5rem;max-width:500px;width:100%;position:relative}
+.funnel-node.n-live{border-color:var(--green)}
+.funnel-node.n-stale{border-color:var(--yellow)}
+.funnel-node.n-miss{border-color:var(--red)}
+.funnel-node.n-built{border-color:var(--blue)}
+.funnel-node h4{font-size:0.85rem;font-weight:700;color:var(--w);margin-bottom:0.25rem}
+.funnel-node p{font-size:0.72rem}
+.node-tag{position:absolute;top:-9px;right:12px}
+
+.connector{display:flex;flex-direction:column;align-items:center;padding:0.15rem 0}
+.conn-line{width:2px;height:18px;background:var(--line)}
+.conn-text{font-size:0.6rem;color:var(--m);font-weight:600;padding:0.15rem 0.5rem;background:var(--bg);text-align:center;max-width:350px}
+
+.fork-container{display:flex;gap:1.5rem;justify-content:center;align-items:flex-start;margin:0.3rem 0;flex-wrap:wrap}
+.fork-path{display:flex;flex-direction:column;align-items:center;gap:0;max-width:230px}
+.fork-label{font-size:0.58rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:4px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem}
+.fl-yes{background:rgba(34,197,94,0.1);color:var(--green)}
+.fl-no{background:rgba(239,68,68,0.1);color:var(--red)}
+.fl-maybe{background:rgba(234,179,8,0.1);color:var(--yellow)}
+
+.decision-diamond{width:100px;height:50px;position:relative;margin:0.3rem 0}
+.diamond-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);width:36px;height:36px;background:var(--c);border:2px solid var(--gold);border-radius:3px}
+.diamond-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:0.58rem;font-weight:700;color:var(--gold);white-space:nowrap;z-index:2}
+
+/* YouTube grid */
+.yt-card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:0.9rem 1rem;position:relative}
+.yt-num{position:absolute;top:-8px;left:10px;background:var(--red);color:var(--w);font-size:0.55rem;font-weight:800;padding:0.1rem 0.45rem;border-radius:4px}
+.yt-card h4{font-size:0.75rem;font-weight:700;color:var(--w);margin-bottom:0.2rem;padding-left:0.3rem}
+.yt-card p{font-size:0.65rem}
+.belief-tag{display:inline-block;font-size:0.52rem;font-weight:700;background:rgba(139,92,246,0.12);color:var(--purple);padding:0.1rem 0.35rem;border-radius:3px;margin-top:0.15rem}
+.presell-tag{display:inline-block;font-size:0.52rem;font-weight:700;background:rgba(245,158,11,0.12);color:var(--gold);padding:0.1rem 0.35rem;border-radius:3px;margin-top:0.15rem}
+.objection-tag{display:inline-block;font-size:0.52rem;font-weight:700;background:rgba(34,197,94,0.12);color:var(--green);padding:0.1rem 0.35rem;border-radius:3px;margin-top:0.15rem}
+
+/* Callout */
+.callout{border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;font-size:0.75rem;text-align:center}
+.c-gold{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);color:var(--gold)}
+.c-red{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);color:var(--red)}
+.c-green{background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);color:var(--green)}
+
+/* Score boxes */
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem}
+.score-box{border-radius:10px;padding:1rem;text-align:center}
+.score-box .sv{font-size:2rem;font-weight:800}
+.score-box .sl{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-top:0.1rem}
+.score-box .sd{font-size:0.58rem;color:var(--m);margin-top:0.3rem}
+
+.footer{text-align:center;padding:2rem;color:var(--m);font-size:0.65rem}
+
+table{width:100%;border-collapse:collapse;font-size:0.7rem;margin:0.5rem 0}
+th{text-align:left;padding:0.4rem 0.6rem;background:rgba(59,130,246,0.05);color:var(--blue);font-weight:600;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--b)}
+td{padding:0.4rem 0.6rem;border-bottom:1px solid var(--b);vertical-align:top}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>DJ Naronikar — CISO 360 Funnel Map</h1>
+  <p>Brand identity, social presence, YouTube pre-sell engine, and simplified 5-step funnel. Cross-referenced against live assets April 8, 2026.</p>
+  <div class="legend">
+    <div class="legend-item"><div class="dot" style="background:var(--green)"></div> Live</div>
+    <div class="legend-item"><div class="dot" style="background:var(--yellow)"></div> Stale</div>
+    <div class="legend-item"><div class="dot" style="background:var(--blue)"></div> Built / Not Deployed</div>
+    <div class="legend-item"><div class="dot" style="background:var(--red)"></div> Missing</div>
+    <div class="legend-item"><div class="dot" style="background:var(--cyan)"></div> Decision Needed</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1: BRAND IDENTITY -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">
+    <div class="stag stag-brand">Section 1</div>
+    <div class="section-title">Brand Identity — Decide Today</div>
+    <div class="section-sub">One brand. One voice. One look. Everything below depends on these decisions.</div>
+  </div>
+
+  <div class="card-grid grid-2">
+    <div class="decide">
+      <h4>Decision: Brand Name</h4>
+      <p><strong>Option A:</strong> "DJ Naronikar" (personal brand) — trust lives in his name, not a company nobody knows<br>
+      <strong>Option B:</strong> "The Quantum Achievers / TQA" — company brand, separable from DJ<br>
+      <strong>Option C:</strong> Hybrid — "DJ Naronikar | CISO 360" — personal name + program name, drop TQA</p>
+      <p style="margin-top:0.4rem;color:var(--cyan);font-weight:600;">Bios already written for all 3 approaches (TQA-UNIFIED-BIOS.md)</p>
+    </div>
+    <div class="decide">
+      <h4>Decision: Podcast Name</h4>
+      <p><strong>Existing:</strong> "Cyber Caffeine Podcast" — 1 episode on YouTube, name is branded, matches cybersecurity niche<br>
+      <strong>Alternative:</strong> "The CISO Path" — more career-transition focused<br>
+      <strong>Recommendation:</strong> Keep "Cyber Caffeine" — it exists, it's catchy, don't rebrand something that just needs distribution</p>
+    </div>
+  </div>
+
+  <div class="card-grid grid-3">
+    <div class="decide">
+      <h4>Decision: Website Domain</h4>
+      <p><strong>Current:</strong> thequantumachievers.com (live, stale content)<br>
+      <strong>Options:</strong> Keep + update | djnaronikar.com | ciso360.com<br>
+      <strong>Depends on:</strong> Brand name decision above</p>
+    </div>
+    <div class="decide">
+      <h4>Decision: Voice &amp; Tone</h4>
+      <p><strong>Current bios say:</strong> Lead with what DJ does FOR THEM, not credentials. Credentials = proof, not headline.<br>
+      <strong>Tone:</strong> Authoritative, experienced, direct. Not salesy. A CISO presenting, not a marketer pitching.<br>
+      <strong>Cultural:</strong> Aware of H-1B dynamics, Indian IT culture, spouse as co-decider.</p>
+    </div>
+    <div class="decide">
+      <h4>Decision: Link Hub</h4>
+      <p><strong>Options:</strong> Linktree (free, fast) | Stan Store (can sell $47 directly) | Custom page on website<br>
+      <strong>Recommendation:</strong> Stan Store — acts as link hub AND checkout for $47 assessment. One link in all bios.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2: SOCIAL MEDIA COMMAND CENTER -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">
+    <div class="stag stag-social">Section 2</div>
+    <div class="section-title">Social Media — Every Platform</div>
+    <div class="section-sub">What DJ HAS on each platform vs what he NEEDS. All bios, banners, and specs.</div>
+  </div>
+
+  <div class="card-grid grid-2">
+
+    <!-- LinkedIn -->
+    <div class="platform">
+      <div class="platform-head">
+        <span class="platform-name">LinkedIn</span>
+        <span class="status s-live">LIVE — STRONGEST</span>
+      </div>
+      <div class="platform-body">
+        <div class="platform-row"><span class="pr-label">Followers</span><span class="pr-value pr-has">9,000</span></div>
+        <div class="platform-row"><span class="pr-label">Newsletter subs</span><span class="pr-value pr-has">~1,000</span></div>
+        <div class="platform-row"><span class="pr-label">Current headline</span><span class="pr-value pr-has">Fractional CISO/DPO, AI & Digital Security</span></div>
+        <div class="platform-row"><span class="pr-label">Bio written?</span><span class="pr-value pr-has">Yes — TQA-UNIFIED-BIOS.md</span></div>
+        <div class="platform-row"><span class="pr-label">Banner</span><span class="pr-value pr-need">NEED: Design with headshot + credentials + CTA</span></div>
+        <div class="platform-row"><span class="pr-label">Posting</span><span class="pr-value pr-has">Active — needs belief-mapped schedule</span></div>
+        <div class="platform-row"><span class="pr-label">Role in funnel</span><span class="pr-value">Drives to YouTube + free quiz. 4x/week posts.</span></div>
+      </div>
+    </div>
+
+    <!-- YouTube -->
+    <div class="platform">
+      <div class="platform-head">
+        <span class="platform-name">YouTube</span>
+        <span class="status s-stale">STALE — PRIORITY #1</span>
+      </div>
+      <div class="platform-body">
+        <div class="platform-row"><span class="pr-label">Subscribers</span><span class="pr-value pr-need">29 (needs growth)</span></div>
+        <div class="platform-row"><span class="pr-label">Videos</span><span class="pr-value pr-has">11 (mostly old, low engagement)</span></div>
+        <div class="platform-row"><span class="pr-label">Handle</span><span class="pr-value pr-has">@dhananjayanaronikar</span></div>
+        <div class="platform-row"><span class="pr-label">Bio written?</span><span class="pr-value pr-has">Yes — TQA-UNIFIED-BIOS.md</span></div>
+        <div class="platform-row"><span class="pr-label">Banner</span><span class="pr-value pr-need">NEED: Design with "IT to Cybersecurity" + headshot</span></div>
+        <div class="platform-row"><span class="pr-label">Playlists</span><span class="pr-value pr-need">NEED: Belief-mapped playlists</span></div>
+        <div class="platform-row"><span class="pr-label">Role in funnel</span><span class="pr-value">Trust engine. Raj watches 3-5 before acting. Pre-sells price + program.</span></div>
+      </div>
+    </div>
+
+    <!-- Podcast -->
+    <div class="platform">
+      <div class="platform-head">
+        <span class="platform-name">Podcast — Cyber Caffeine</span>
+        <span class="status s-stale">1 EPISODE / YT ONLY</span>
+      </div>
+      <div class="platform-body">
+        <div class="platform-row"><span class="pr-label">Episodes</span><span class="pr-value pr-need">1 (33 min, YouTube only)</span></div>
+        <div class="platform-row"><span class="pr-label">Spotify / Apple</span><span class="pr-value pr-need">NOT distributed</span></div>
+        <div class="platform-row"><span class="pr-label">RSS feed</span><span class="pr-value pr-need">Doesn't exist</span></div>
+        <div class="platform-row"><span class="pr-label">Cover art</span><span class="pr-value pr-need">NEED: Design</span></div>
+        <div class="platform-row"><span class="pr-label">Intro/Outro</span><span class="pr-value pr-need">NEED: DJ records 90 seconds</span></div>
+        <div class="platform-row"><span class="pr-label">Role in funnel</span><span class="pr-value">Passive reach. Auto-strip YouTube audio. Zero extra work for DJ.</span></div>
+      </div>
+    </div>
+
+    <!-- Instagram -->
+    <div class="platform">
+      <div class="platform-head">
+        <span class="platform-name">Instagram</span>
+        <span class="status s-miss">NOT ACTIVE</span>
+      </div>
+      <div class="platform-body">
+        <div class="platform-row"><span class="pr-label">Account</span><span class="pr-value pr-need">Needs setup or activation</span></div>
+        <div class="platform-row"><span class="pr-label">Bio written?</span><span class="pr-value pr-has">Yes — TQA-UNIFIED-BIOS.md</span></div>
+        <div class="platform-row"><span class="pr-label">Highlights</span><span class="pr-value pr-need">NEED: Results, My Story, Cyber 101, Assessment</span></div>
+        <div class="platform-row"><span class="pr-label">Role in funnel</span><span class="pr-value">Warming layer. Daily stories (hook > story > proof > CTA). Validates DJ when Raj checks.</span></div>
+      </div>
+    </div>
+
+    <!-- Facebook Group -->
+    <div class="platform">
+      <div class="platform-head">
+        <span class="platform-name">Facebook Group</span>
+        <span class="status s-live">LIVE</span>
+      </div>
+      <div class="platform-body">
+        <div class="platform-row"><span class="pr-label">Members</span><span class="pr-value pr-has">1,700</span></div>
+        <div class="platform-row"><span class="pr-label">Activity</span><span class="pr-value pr-need">Needs activation plan</span></div>
+        <div class="platform-row"><span class="pr-label">Role in funnel</span><span class="pr-value">Nurture layer. Share YouTube videos. Student stories. Keep leads warm.</span></div>
+      </div>
+    </div>
+
+    <!-- Website -->
+    <div class="platform">
+      <div class="platform-head">
+        <span class="platform-name">Website — thequantumachievers.com</span>
+        <span class="status s-stale">STALE</span>
+      </div>
+      <div class="platform-body">
+        <div class="platform-row"><span class="pr-label">Status</span><span class="pr-value pr-need">Shows March 19 webinar (past event)</span></div>
+        <div class="platform-row"><span class="pr-label">Pricing</span><span class="pr-value pr-need">Shows 3 tiers — conflicts with $4,997 single tier</span></div>
+        <div class="platform-row"><span class="pr-label">NEED</span><span class="pr-value pr-need">Update to: free quiz + VSSL page + $47 upsell + application</span></div>
+        <div class="platform-row"><span class="pr-label">tqa-hq.github.io</span><span class="pr-value pr-need">DEAD — 404 error. Stage pages only on Dylan's Mac.</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-grid grid-3" style="margin-top:0.75rem">
+    <div class="card">
+      <h4>Banner Specs Needed</h4>
+      <p><strong>LinkedIn:</strong> 1584 x 396px<br>
+      <strong>YouTube:</strong> 2560 x 1440px<br>
+      <strong>Facebook:</strong> 820 x 312px<br>
+      <strong>Instagram:</strong> Profile pic only (no banner)<br>
+      <strong>All banners:</strong> Same visual identity — DJ headshot + "I help IT professionals break into cybersecurity" + credential logos (Deloitte, EY, Shell, ISC2) + CTA</p>
+      <p style="margin-top:0.3rem"><span class="status s-miss">NONE DESIGNED</span></p>
+    </div>
+    <div class="card">
+      <h4>Bios Status</h4>
+      <p>All 11 platform bios written and copy-paste ready in TQA-UNIFIED-BIOS.md:</p>
+      <p style="margin-top:0.2rem">LinkedIn, LinkedIn Newsletter, YouTube (channel + about), Facebook Page, Facebook Group, Instagram, Twitter/X, Telegram, TikTok, Threads, Website About</p>
+      <p style="margin-top:0.3rem"><span class="status s-built">WRITTEN / NOT APPLIED</span></p>
+    </div>
+    <div class="card">
+      <h4>Link Hub (Linktree / Stan Store)</h4>
+      <p>One link in ALL bios. Must include:</p>
+      <p style="margin-top:0.2rem">1. Free Career Readiness Quiz<br>
+      2. $47 Full Career Scorecard<br>
+      3. Latest YouTube video<br>
+      4. Cyber Caffeine Podcast<br>
+      5. Apply for CISO 360<br>
+      6. Book a Call with DJ</p>
+      <p style="margin-top:0.3rem"><span class="status s-miss">NOT BUILT</span></p>
+    </div>
+  </div>
+
+  <div class="callout c-gold">DJ has 9 professional photos + 6 company logos ready (~/Documents/TQA/Assets/). Banner design can start immediately after brand name decision.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3: YOUTUBE PRE-SELL ENGINE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">
+    <div class="stag stag-yt">Section 3</div>
+    <div class="section-title">YouTube — The Pre-Sell Engine</div>
+    <div class="section-sub">Each video builds ONE belief, kills ONE objection, and pre-sells part of the offer. By video 5-6, Raj knows what CISO 360 is, what it costs, and whether he can afford it. He shows up to the call SOLD.</div>
+  </div>
+
+  <div class="callout c-gold" style="margin-bottom:1rem"><strong>The goal:</strong> By the time Raj gets on a call with DJ, he already knows: the program is ~$5K, it's 14 weeks, the ROI math works, and he's discussed it with his wife. The call is a FIT CHECK, not a pitch.</div>
+
+  <div class="card-grid grid-2">
+    <div class="yt-card">
+      <div class="yt-num">1</div>
+      <h4>"IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</h4>
+      <p>750K unfilled jobs. Which roles are actually growing. What pays vs what's overhyped.</p>
+      <div class="belief-tag">Belief 1: Demand is real</div>
+      <div class="objection-tag">Kills: "Is cybersecurity just hype?"</div>
+      <div class="presell-tag">Pre-sells: "I built a free quiz — link below"</div>
+    </div>
+    <div class="yt-card">
+      <div class="yt-num">2</div>
+      <h4>"How Much Do Cybersecurity Professionals Really Make?"</h4>
+      <p>Real salary data by role, city, and experience. H-1B database trick. Career changer realistic ranges.</p>
+      <div class="belief-tag">Belief 3: Money is real</div>
+      <div class="objection-tag">Kills: "Those salaries are for experienced people"</div>
+      <div class="presell-tag">Pre-sells: "$47 assessment gives YOUR salary projection"</div>
+    </div>
+    <div class="yt-card">
+      <div class="yt-num">3</div>
+      <h4>"I Stopped a $300K Wire Fraud. Here's How."</h4>
+      <p>Real incident story. What DJ actually does. Why experience matters more than certs.</p>
+      <div class="belief-tag">Belief 5: DJ is the guide</div>
+      <div class="objection-tag">Kills: "Why trust you over free YouTube?"</div>
+      <div class="presell-tag">Pre-sells: DJ's authority — "I've been on the hiring side for 28 years"</div>
+    </div>
+    <div class="yt-card">
+      <div class="yt-num">4</div>
+      <h4>"AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</h4>
+      <p>IT roles AI replaces vs security roles AI can't touch. CISO = AI-proof.</p>
+      <div class="belief-tag">Belief 4: AI-proof</div>
+      <div class="objection-tag">Kills: "What if AI takes cybersecurity too?"</div>
+      <div class="presell-tag">Pre-sells: "Take the free quiz to see which safe roles match you"</div>
+    </div>
+    <div class="yt-card">
+      <div class="yt-num">5</div>
+      <h4>"My Student Went From Chef to $120K Cybersecurity Analyst"</h4>
+      <p>Full transformation story. 14 weeks. If a chef can do it, an IT pro is way ahead.</p>
+      <div class="belief-tag">Belief 2: You can do this</div>
+      <div class="objection-tag">Kills: "I'm too old / wrong background"</div>
+      <div class="presell-tag">Pre-sells: "He did it through my 14-week program — I'll tell you about it in my next video"</div>
+    </div>
+    <div class="yt-card" style="border-color:var(--gold)">
+      <div class="yt-num" style="background:var(--gold);color:#000">6</div>
+      <h4>"The $400 Cert Trap: Why Self-Study Actually Costs $58K"</h4>
+      <p>Self-study = 18 months. Structured = 14 weeks. The salary delta math. Value stack ($21K+ value). <strong>Mentions $4,997 price directly.</strong></p>
+      <div class="belief-tag">Belief 6: Structured > self-study</div>
+      <div class="objection-tag">Kills: "I can learn this myself for free"</div>
+      <div class="presell-tag" style="background:rgba(245,158,11,0.2)">PRE-SELLS PRICE: "My program is $4,997. Here's why the $400 path costs $58K."</div>
+      <p style="margin-top:0.3rem;font-size:0.62rem;color:var(--gold);font-weight:600;">THIS IS THE VIDEO WHERE RAJ LEARNS THE PRICE. By the time he watches this, he's seen 5 other videos. He trusts DJ. The price is framed as ROI, not cost. He goes home and tells his wife the math.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:0.75rem">
+    <h4>What DJ's Existing 11 Videos Look Like vs What's Needed</h4>
+    <table>
+      <thead><tr><th>Existing Video</th><th>Views</th><th>Keep / Replace</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Cyber Caffeine Podcast (33 min)</td><td>25</td><td><span class="status s-stale">Keep as ep 1</span></td><td>Already branded. Distribute to Spotify/Apple.</td></tr>
+        <tr><td>CISO360 Overview (3:30)</td><td>83</td><td><span class="status s-stale">Replace</span></td><td>Too short, generic. Replace with belief-mapped Video 6.</td></tr>
+        <tr><td>ISO 27002 / Data Governance / Cyber Insurance</td><td>Low</td><td><span class="status s-stale">Archive</span></td><td>Technical content, not career-transition focused. Doesn't build beliefs.</td></tr>
+        <tr><td>Incident Response Playbooks</td><td>Low</td><td><span class="status s-stale">Keep</span></td><td>Relevant to Belief 5 (DJ's expertise). But needs retitling.</td></tr>
+        <tr><td>Dubai Museum Short (1 min)</td><td>122</td><td><span class="status s-live">Keep</span></td><td>Best performing. Shows YouTube Shorts work for DJ.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout c-green"><strong>After 6 videos:</strong> Raj has watched ~90 minutes of DJ. He knows the market is real, the money is real, DJ is legit, AI won't kill cybersecurity, he can do this, self-study costs more, and the program is $4,997. He takes the free quiz. Gets his score. Maybe buys the $47 full report. Watches the VSSL. Applies. Shows up to DJ's call with his wife's buy-in and money ready.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 4: THE FUNNEL -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">
+    <div class="stag stag-funnel">Section 4</div>
+    <div class="section-title">The Funnel — 5 Steps, One Path</div>
+    <div class="section-sub">Simplified from 8 steps to 5. One clean path. YouTube does the pre-selling. The funnel just converts.</div>
+  </div>
+
+  <div class="funnel-flow">
+
+    <!-- Step 1: YouTube -->
+    <div class="funnel-node n-stale" style="max-width:550px">
+      <div class="node-tag"><span class="status s-stale">STALE — 29 SUBS</span></div>
+      <h4>Step 1: YouTube + LinkedIn (Raj discovers DJ)</h4>
+      <p>Raj watches 3-5 belief-mapped videos over 2-4 weeks. LinkedIn posts drive him to YouTube. Each video builds one belief and pre-sells part of the offer. By Video 6, he knows the price.</p>
+      <p style="margin-top:0.3rem;font-size:0.65rem;"><strong>Target:</strong> 500+ views/video by month 3. 2-3% click to quiz link.</p>
+      <p style="font-size:0.65rem;"><strong>Every video description:</strong> Free quiz link (primary) + $47 assessment link + subscribe CTA</p>
+    </div>
+
+    <div class="connector">
+      <div class="conn-line"></div>
+      <div class="conn-text">Raj clicks "Free Career Readiness Quiz" in video description or LinkedIn bio</div>
+      <div class="conn-line"></div>
+    </div>
+
+    <!-- Step 2: Free Quiz -->
+    <div class="funnel-node n-miss" style="max-width:550px">
+      <div class="node-tag"><span class="status s-miss">NOT BUILT</span></div>
+      <h4>Step 2: Free Quiz → Email Capture → $47 Upsell</h4>
+      <p>5 questions. Instant readiness score. Email captured BEFORE showing results. Score page shows: score + top strength + #1 gap.</p>
+      <p style="margin-top:0.3rem;font-size:0.65rem;"><strong>Below the score:</strong> "Want the full 8-page DJ-reviewed Career Scorecard? $47" — upsell, NOT a gate. Raj can skip and still enters email nurture.</p>
+      <p style="font-size:0.65rem;"><strong>Target:</strong> 70% email capture rate. 8-12% buy $47 upsell.</p>
+    </div>
+
+    <div class="connector">
+      <div class="conn-line"></div>
+      <div class="conn-text">Email captured → weekly belief-mapped newsletter. $47 buyers get enhanced nurture.</div>
+      <div class="conn-line"></div>
+    </div>
+
+    <!-- Step 3: VSSL -->
+    <div class="funnel-node n-built" style="max-width:550px">
+      <div class="node-tag"><span class="status s-built">SCRIPT DONE / VIDEO NOT RECORDED</span></div>
+      <h4>Step 3: VSSL Page (the conversion bridge)</h4>
+      <p>15-18 min video. DJ on camera. Value stack: $21K+ stacked → $4,997 investment. Application form directly below video.</p>
+      <p style="margin-top:0.3rem;font-size:0.65rem;"><strong>How Raj gets here:</strong> Email nurture (email 6+) links to VSSL. Or Video 6 YouTube description links directly. Or the $47 scorecard page has a "Ready for the full program?" CTA.</p>
+      <p style="font-size:0.65rem;"><strong>Target:</strong> 60%+ watch 50% of video. 10-15% submit application.</p>
+      <p style="font-size:0.65rem;color:var(--gold);font-weight:600;">BLOCKER: DJ needs to record this video. Everything else is infrastructure around a video that doesn't exist yet.</p>
+    </div>
+
+    <div class="connector">
+      <div class="conn-line"></div>
+      <div class="conn-text">Raj submits application (5 questions). GHL auto-scores. Hot leads get VAPI call within 1 hour.</div>
+      <div class="conn-line"></div>
+    </div>
+
+    <!-- Step 4: Application + Pre-Call -->
+    <div class="funnel-node n-built" style="max-width:550px">
+      <div class="node-tag"><span class="status s-built">SPEC DONE / NOT IN GHL</span></div>
+      <h4>Step 4: Application → Pre-Call → DJ's 15-Min Call</h4>
+      <p><strong>Application:</strong> 5 questions (role, target, salary, barrier, investment readiness). Auto-scored in GHL.<br>
+      <strong>Hot leads (9+):</strong> Elliot VAPI calls within 1 hour to book DJ's calendar.<br>
+      <strong>Pre-call:</strong> Prep doc sent (designed for spouse). 3 reminders (24h email, 1h SMS, 15min SMS).<br>
+      <strong>DJ's call:</strong> Vision paint → specific advice → present offer with value stack → handle objections.</p>
+      <p style="margin-top:0.3rem;font-size:0.65rem;"><strong>Target:</strong> 80% show rate. 40-50% close rate. Because YouTube already pre-sold them.</p>
+    </div>
+
+    <div class="connector">
+      <div class="conn-line"></div>
+    </div>
+
+    <div class="decision-diamond">
+      <div class="diamond-inner"></div>
+      <div class="diamond-text">Enrolls?</div>
+    </div>
+
+    <div class="fork-container">
+      <div class="fork-path">
+        <div class="fork-label fl-yes">YES — $4,997</div>
+        <div class="funnel-node n-live" style="width:200px">
+          <h4>Stripe Payment</h4>
+          <p>$4,997 PIF (commitment discount) or $1,997 x 3.</p>
+          <p style="margin-top:0.2rem;font-size:0.62rem;"><span class="status s-live">Products exist</span> <span class="status s-stale">Update: $1,897→$1,997</span></p>
+        </div>
+        <div class="connector"><div class="conn-line"></div></div>
+        <div class="funnel-node n-miss" style="width:200px">
+          <h4>Step 5: Onboarding</h4>
+          <p>Day 0: Welcome email + community. Day 1: DJ Loom audits LinkedIn. Day 7: LinkedIn looks like a cybersecurity pro.</p>
+          <p style="margin-top:0.2rem;font-size:0.62rem;"><span class="status s-miss">NOT BUILT</span></p>
+        </div>
+      </div>
+
+      <div class="fork-path">
+        <div class="fork-label fl-maybe">"NEED TO THINK"</div>
+        <div class="funnel-node n-built" style="width:200px">
+          <h4>3-Email Follow-Up</h4>
+          <p>Day 2: value. Day 5: ROI doc for spouse. Day 10: real scarcity.</p>
+          <p style="margin-top:0.2rem;font-size:0.62rem;"><span class="status s-built">Copy written</span></p>
+        </div>
+      </div>
+
+      <div class="fork-path">
+        <div class="fork-label fl-no">NOT A FIT</div>
+        <div class="funnel-node" style="width:200px;border-color:var(--m)">
+          <h4>Honest Redirect</h4>
+          <p>DJ gives specific advice. Adds to newsletter. No sequence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout c-gold" style="margin-top:1rem">
+    <strong>Why this works:</strong> YouTube does the heavy lifting (3-5 videos over weeks = trust + price awareness). The quiz captures email (free, low friction). The VSSL converts interest to application (one video, one form). DJ closes on a call where Raj is already pre-sold. 5 steps, not 8.
+  </div>
+
+  <!-- Parallel: 197 Re-engage -->
+  <div class="card" style="margin-top:1rem;border-left:3px solid var(--red)">
+    <h4 style="color:var(--red)">URGENT Parallel Track: 197 Cold Leads</h4>
+    <p>180 webinar regs + 17 other. In GHL. No sequence running. 20 days cold.</p>
+    <p style="margin-top:0.3rem;font-size:0.72rem;"><strong>Action:</strong> Segment hot/warm/cold. Email the hot leads THIS WEEK. Offer free quiz or $47 assessment. DJ personally calls the 15-20 hottest.</p>
+    <p><span class="status s-stale">Leads exist / no sequence running</span></p>
+  </div>
+
+  <!-- Parallel: Webinar -->
+  <div class="card" style="border-left:3px solid var(--gold)">
+    <h4 style="color:var(--gold)">Quarterly Event: $27 Live Webinar</h4>
+    <p>Not a separate funnel. A conversion accelerator inside the same funnel. Slides exist (need V2 update). Feeds into VSSL → application → call.</p>
+    <p style="margin-top:0.3rem;font-size:0.72rem;"><strong>When:</strong> After main funnel is operational. 1x per quarter. Use as a push for people in the newsletter who haven't applied yet.</p>
+    <p><span class="status s-stale">Slides exist / need V2 updates</span></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 5: SCOREBOARD -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">
+    <div class="stag stag-score">Section 5</div>
+    <div class="section-title">Scoreboard — What Exists vs What's Needed</div>
+  </div>
+
+  <div class="score-grid">
+    <div class="score-box" style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)">
+      <div class="sv" style="color:var(--green)">6</div>
+      <div class="sl" style="color:var(--green)">Live</div>
+      <div class="sd">LinkedIn (9K), FB Group (1.7K), Telegram, Stripe, VAPI (3), GHL pipeline</div>
+    </div>
+    <div class="score-box" style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15)">
+      <div class="sv" style="color:var(--blue)">9</div>
+      <div class="sl" style="color:var(--blue)">Built (not deployed)</div>
+      <div class="sd">Belief map, VSSL script, bios (11), content calendar, call script, stage pages, funnel tree, slides guide, sample scorecard</div>
+    </div>
+    <div class="score-box" style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.15)">
+      <div class="sv" style="color:var(--yellow)">5</div>
+      <div class="sl" style="color:var(--yellow)">Stale</div>
+      <div class="sd">YouTube (29 subs), Podcast (1 ep), Website (past webinar), Webinar slides, 197 cold leads</div>
+    </div>
+    <div class="score-box" style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15)">
+      <div class="sv" style="color:var(--red)">10</div>
+      <div class="sl" style="color:var(--red)">Missing</div>
+      <div class="sd">Free quiz, $47 pipeline, VSSL video+page, banners, link hub, email sequences, onboarding, retargeting, IG, testimonial process</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h4>Build Order (after today's brand decisions)</h4>
+    <table>
+      <thead><tr><th>Priority</th><th>What</th><th>Who</th><th>Unblocks</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--red);font-weight:700">NOW</td><td>Launch 197-lead re-engage emails</td><td>Dylan + Agresh</td><td>Immediate revenue from existing leads</td></tr>
+        <tr><td style="color:var(--red);font-weight:700">Week 1</td><td>DJ records VSSL video + first YouTube video</td><td>DJ</td><td>The entire funnel — nothing works without video</td></tr>
+        <tr><td style="color:var(--gold);font-weight:700">Week 1</td><td>Design banners (LinkedIn, YouTube, FB) + apply bios</td><td>Dylan</td><td>Unified brand across all platforms</td></tr>
+        <tr><td style="color:var(--gold);font-weight:700">Week 1</td><td>Set up link hub (Stan Store or Linktree)</td><td>Dylan</td><td>One link in all bios that actually converts</td></tr>
+        <tr><td style="color:var(--gold);font-weight:700">Week 2</td><td>Build free quiz page</td><td>Dylan</td><td>Email capture from YouTube traffic</td></tr>
+        <tr><td style="color:var(--blue);font-weight:700">Week 2</td><td>Build VSSL page (needs DJ's video)</td><td>Dylan</td><td>The conversion mechanism</td></tr>
+        <tr><td style="color:var(--blue);font-weight:700">Week 2</td><td>Wire $47 assessment pipeline (Stripe → quiz → AI PDF)</td><td>Dylan</td><td>Revenue + lead qualification</td></tr>
+        <tr><td style="color:var(--blue);font-weight:700">Week 3</td><td>Wire email sequences in GHL</td><td>Agresh</td><td>Automated nurture</td></tr>
+        <tr><td style="color:var(--blue);font-weight:700">Week 3</td><td>Distribute Cyber Caffeine to Spotify/Apple</td><td>Dylan</td><td>Passive podcast reach</td></tr>
+        <tr><td style="color:var(--m);font-weight:700">Week 4+</td><td>IG activation, retargeting, $27 webinar, referral program</td><td>Team</td><td>Growth + optimization</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout c-green"><strong>The single biggest blocker: DJ recording videos.</strong> Everything else — quiz, pages, emails, banners — can be built in parallel. But the funnel doesn't work without DJ on camera. Video 1 + VSSL = the unlock.</div>
+</div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  DJ Naronikar — CISO 360 Funnel Map v2 | April 8, 2026 | Cross-referenced against live assets<br>
+  Related files: DJ-BELIEF-MAP.md | DJ-VSSL-SCRIPT.md | TQA-UNIFIED-BIOS.md | TQA-GO-TO-MARKET-PLAYBOOK.html | DJ-WEBINAR-V2-SLIDES.md
+</div>
+
+</body>
+</html>

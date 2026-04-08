@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Naronikar — Banner Mockups v2</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050810;font-family:'Inter',sans-serif;color:#fff;padding:48px 32px 80px;min-height:100vh}
+
+.page-header{text-align:center;margin-bottom:48px}
+.page-header h1{font-size:24px;font-weight:700;color:#d4a84b;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px}
+.page-header p{color:#6b7590;font-size:13px}
+
+.banner-card{max-width:900px;margin:0 auto 64px}
+.banner-label{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.banner-label .platform{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#d4a84b;background:rgba(212,168,75,0.12);border:1px solid rgba(212,168,75,0.3);padding:4px 12px;border-radius:4px}
+.banner-label .dims{font-size:11px;color:#4a5068}
+.banner-wrap{border:1px solid rgba(212,168,75,0.15);border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+
+/* ═══════════════════════════════════════ */
+/* LINKEDIN BANNER — 1584x396 at 792x198 */
+/* ═══════════════════════════════════════ */
+.li-banner{
+  width:792px;height:198px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0a0e1a 0%,#0f1a2e 40%,#162240 100%);
+}
+/* Subtle grid pattern */
+.li-banner::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(212,168,75,0.03) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+/* Photo on right — subtle, not dominant */
+.li-photo{
+  position:absolute;right:0;top:0;bottom:0;width:220px;
+  background:url('file:///Users/dylanewing/Documents/TQA/Assets/dj-photos-web/Giving-Speech-in-CIO-CHOICE-2026.webp') center center/cover;
+  mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.3) 30%,rgba(0,0,0,0.6) 100%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.3) 30%,rgba(0,0,0,0.6) 100%);
+}
+/* Content — LEFT side, outcome first */
+.li-content{position:relative;z-index:2;padding:28px 32px;max-width:560px}
+.li-eyebrow{font-family:'Inter';font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#d4a84b;margin-bottom:8px}
+.li-headline{font-family:'Poppins';font-size:26px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:6px}
+.li-headline span{color:#d4a84b}
+.li-sub{font-size:11px;color:#8899b0;line-height:1.5;margin-bottom:14px;max-width:400px}
+.li-bottom{display:flex;align-items:center;gap:16px}
+.li-cta{font-family:'Poppins';font-size:11px;font-weight:700;background:#d4a84b;color:#0a0e1a;padding:6px 18px;border-radius:4px;letter-spacing:0.02em}
+.li-logos{display:flex;align-items:center;gap:10px;opacity:0.5}
+.li-logos img{height:16px;filter:brightness(10) grayscale(1)}
+.li-cred{font-size:8px;color:#5a6a80;letter-spacing:0.06em;position:absolute;bottom:10px;right:240px}
+
+/* ═══════════════════════════════════════ */
+/* YOUTUBE BANNER — 2560x1440 at 640x360 */
+/* Safe area: center 1546x423 */
+/* ═══════════════════════════════════════ */
+.yt-banner{
+  width:640px;height:360px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0a0e1a 0%,#111d35 50%,#0d1528 100%);
+}
+.yt-banner::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(212,168,75,0.02) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+/* Safe area guide */
+.yt-safe{
+  position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:387px;height:106px;
+  border:1px dashed rgba(212,168,75,0.15);border-radius:4px;
+  z-index:1;
+}
+.yt-safe-label{position:absolute;top:-14px;left:8px;font-size:7px;color:rgba(212,168,75,0.25);letter-spacing:0.1em;text-transform:uppercase}
+/* Photo — bottom right, faded */
+.yt-photo{
+  position:absolute;right:-20px;bottom:-20px;width:280px;height:320px;
+  background:url('file:///Users/dylanewing/Documents/TQA/Assets/dj-photos-web/cyber-secuity-talk-by-Dhananjay-N.webp') center top/cover;
+  mask-image:radial-gradient(ellipse at bottom right,rgba(0,0,0,0.4) 20%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at bottom right,rgba(0,0,0,0.4) 20%,transparent 70%);
+}
+/* Content — centered in safe area */
+.yt-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;width:380px}
+.yt-eyebrow{font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#d4a84b;margin-bottom:6px}
+.yt-headline{font-family:'Poppins';font-size:22px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:4px}
+.yt-headline span{color:#d4a84b}
+.yt-sub{font-size:10px;color:#7a8ea8;margin-bottom:10px}
+.yt-cta{display:inline-block;font-family:'Poppins';font-size:10px;font-weight:700;background:#d4a84b;color:#0a0e1a;padding:5px 16px;border-radius:3px}
+/* Bottom bar with logos */
+.yt-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(10,14,26,0.85);padding:8px 20px;display:flex;justify-content:center;align-items:center;gap:20px;z-index:2}
+.yt-bar img{height:12px;filter:brightness(0) invert(1);opacity:0.4}
+.yt-bar span{font-size:7px;color:#4a5a70;letter-spacing:0.08em}
+
+/* ═══════════════════════════════════════ */
+/* FACEBOOK COVER — 820x312 at full size */
+/* ═══════════════════════════════════════ */
+.fb-banner{
+  width:820px;height:312px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0a0e1a 0%,#12203a 60%,#0d1528 100%);
+}
+.fb-banner::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(212,168,75,0.025) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+/* Award photo — left side accent */
+.fb-photo{
+  position:absolute;left:0;top:0;bottom:0;width:260px;
+  background:url('file:///Users/dylanewing/Documents/TQA/Assets/dj-photos-web/Award-at-CIO-CHOICE-2026.webp') center center/cover;
+  mask-image:linear-gradient(to right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.2) 70%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.2) 70%,transparent 100%);
+}
+/* Gold accent line */
+.fb-accent{position:absolute;left:240px;top:40px;bottom:40px;width:2px;background:linear-gradient(to bottom,transparent,#d4a84b,transparent)}
+/* Content — right side */
+.fb-content{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:2;text-align:right;max-width:480px}
+.fb-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#d4a84b;margin-bottom:8px}
+.fb-headline{font-family:'Poppins';font-size:28px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:6px}
+.fb-headline span{color:#d4a84b}
+.fb-sub{font-size:12px;color:#8899b0;margin-bottom:14px;line-height:1.5}
+.fb-bottom{display:flex;justify-content:flex-end;align-items:center;gap:16px}
+.fb-cta{font-family:'Poppins';font-size:11px;font-weight:700;background:#d4a84b;color:#0a0e1a;padding:7px 20px;border-radius:4px}
+.fb-logos{display:flex;align-items:center;gap:10px;opacity:0.4}
+.fb-logos img{height:14px;filter:brightness(0) invert(1)}
+
+/* ═══════════════════════════════════════ */
+/* NOTES */
+/* ═══════════════════════════════════════ */
+.notes{max-width:900px;margin:0 auto;background:#0d1220;border:1px solid #1e2d4a;border-radius:8px;padding:20px 24px}
+.notes h3{font-size:13px;font-weight:700;color:#d4a84b;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em}
+.notes p{font-size:12px;color:#6b7590;line-height:1.7;margin-bottom:6px}
+.notes strong{color:#8899b0}
+
+.footer{text-align:center;padding:40px;color:#3a4560;font-size:11px}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>DJ Naronikar — Banner Mockups v2</h1>
+  <p>Outcome first. Credentials second. One CTA. 2-second comprehension.</p>
+</div>
+
+<!-- ═══════ LINKEDIN ═══════ -->
+<div class="banner-card">
+  <div class="banner-label">
+    <span class="platform">LinkedIn</span>
+    <span class="dims">1584 x 396 (shown at 792 x 198)</span>
+  </div>
+  <div class="banner-wrap">
+    <div class="li-banner">
+      <div class="li-photo"></div>
+      <div class="li-content">
+        <div class="li-eyebrow">DJ Naronikar</div>
+        <div class="li-headline">Are You <span>Cybersecurity-Ready?</span></div>
+        <div class="li-sub">Find out where you stand on the path to CISO. From a 28 year CISO who has hired hundreds.</div>
+        <div class="li-bottom">
+          <div class="li-cta">Take Your Free Readiness Score</div>
+          <div class="li-logos">
+            <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-deloitte.webp" alt="Deloitte">
+            <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-isc2.webp" alt="ISC2">
+            <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-ec-council.webp" alt="EC-Council">
+          </div>
+        </div>
+      </div>
+      <div class="li-cred">CIO Choice Award 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ YOUTUBE ═══════ -->
+<div class="banner-card">
+  <div class="banner-label">
+    <span class="platform">YouTube</span>
+    <span class="dims">2560 x 1440 (shown at 640 x 360) — safe area dashed</span>
+  </div>
+  <div class="banner-wrap">
+    <div class="yt-banner">
+      <div class="yt-safe"><div class="yt-safe-label">Safe area (visible on all devices)</div></div>
+      <div class="yt-photo"></div>
+      <div class="yt-content">
+        <div class="yt-eyebrow">DJ Naronikar &bull; 28-Year CISO</div>
+        <div class="yt-headline">IT to <span>Cybersecurity</span><br>in 90 Days</div>
+        <div class="yt-sub">From a CISO who has been on the hiring side for 28 years</div>
+        <div class="yt-cta">Free Cybersecurity Readiness Score &darr;</div>
+      </div>
+      <div class="yt-bar">
+        <span>FORMER CISO AT</span>
+        <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-deloitte.webp" alt="Deloitte">
+        <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-anz.webp" alt="ANZ">
+        <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-isc2.webp" alt="ISC2">
+        <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-ec-council.webp" alt="EC-Council">
+        <span>&bull; CIO CHOICE AWARD 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FACEBOOK ═══════ -->
+<div class="banner-card">
+  <div class="banner-label">
+    <span class="platform">Facebook Cover</span>
+    <span class="dims">820 x 312</span>
+  </div>
+  <div class="banner-wrap">
+    <div class="fb-banner">
+      <div class="fb-photo"></div>
+      <div class="fb-accent"></div>
+      <div class="fb-content">
+        <div class="fb-eyebrow">28-Year CISO &bull; Deloitte &bull; EY &bull; Shell</div>
+        <div class="fb-headline">IT to <span>Cybersecurity</span><br>in 90 Days</div>
+        <div class="fb-sub">For IT and security professionals<br>who want cybersecurity careers that pay $150K+.</div>
+        <div class="fb-bottom">
+          <div class="fb-logos">
+            <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-deloitte.webp" alt="Deloitte">
+            <img src="file:///Users/dylanewing/Documents/TQA/Assets/tqa-ghl-images-upload/logo-isc2.webp" alt="ISC2">
+          </div>
+          <div class="fb-cta">Free Readiness Score</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ NOTES ═══════ -->
+<div class="notes">
+  <h3>Design Decisions</h3>
+  <p><strong>Hierarchy (2-second rule):</strong> 1. What he does (headline) → 2. Why trust him (credentials) → 3. What to do (CTA). DJ's photo is present but subdued so it validates without taking over.</p>
+  <p><strong>Messaging:</strong> "Are You Cybersecurity-Ready?" speaks to both audiences — IT pros wondering if they can make the switch AND security managers wondering if they're ready for the C-suite. One question, two buyers.</p>
+  <p><strong>CTA:</strong> "Free Readiness Score" not "Free Career Quiz" — specific, outcome-oriented, speaks to the assessment they'll actually get.</p>
+  <p><strong>Style:</strong> Trust &amp; Authority (UI/UX Pro Max recommendation). Navy + gold. Poppins headings + Inter body. No cyberpunk, no neon, no gaming aesthetic. A CISO presenting, not a hacker coding.</p>
+  <p><strong>Photos:</strong> Speaking on stage and award ceremony — both show authority in action, not a static headshot. Faded so they don't compete with text.</p>
+  <p><strong>Logos:</strong> Small, muted, bottom of hierarchy. They're proof signals, not the headline.</p>
+  <p><strong>To export:</strong> Screenshot each banner at 2x resolution, or rebuild in Canva/Figma using these as the spec. The photos reference local file paths — swap for uploaded versions in the design tool.</p>
+</div>
+
+<div class="footer">DJ Naronikar — Banner Mockups v2 | April 8, 2026 | Trust &amp; Authority design system</div>
+
+</body>
+</html>

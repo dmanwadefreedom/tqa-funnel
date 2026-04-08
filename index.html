@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA Launch Control — DJ Naronikar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+:root{--bg:#080c18;--s:#0f1729;--c:#151f35;--b:#1e2d4a;--gold:#d4a84b;--green:#22c55e;--red:#ef4444;--blue:#3b82f6;--purple:#8b5cf6;--cyan:#06b6d4;--orange:#f97316;--w:#fff;--t:#cbd5e1;--m:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-height:1.65;min-height:100vh}
+
+/* ── HEADER ── */
+.master-header{background:linear-gradient(135deg,#0d1b3e 0%,#091529 50%,#0a1020 100%);border-bottom:2px solid var(--gold);padding:2.5rem 2rem 2rem;text-align:center}
+.master-header .badge{display:inline-block;background:rgba(212,168,75,0.12);color:var(--gold);font-size:0.6rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 1rem;border-radius:100px;border:1px solid rgba(212,168,75,0.3);margin-bottom:0.8rem}
+.master-header h1{font-family:'Poppins';font-size:2rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.master-header h1 span{color:var(--gold)}
+.master-header p{color:var(--m);font-size:0.88rem;max-width:600px;margin:0 auto 1.5rem}
+
+/* Progress bar */
+.progress-master{max-width:500px;margin:0 auto}
+.progress-steps{display:flex;justify-content:space-between;margin-bottom:0.5rem}
+.progress-step{text-align:center;flex:1}
+.progress-dot{width:28px;height:28px;border-radius:50%;background:var(--s);border:2px solid var(--b);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:800;color:var(--m);margin:0 auto 0.3rem;transition:all 0.3s}
+.progress-dot.done{background:var(--green);border-color:var(--green);color:var(--w)}
+.progress-dot.active{border-color:var(--gold);color:var(--gold)}
+.progress-label{font-size:0.55rem;color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+.progress-track{height:3px;background:var(--b);border-radius:3px;position:relative}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:3px;transition:width 0.5s ease;width:0%}
+
+/* ── CONTAINER ── */
+.container{max-width:800px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+/* ── PHASE BLOCKS ── */
+.phase{background:var(--s);border:1px solid var(--b);border-radius:14px;margin-bottom:1.5rem;overflow:hidden;transition:all 0.3s}
+.phase.locked{opacity:0.5;pointer-events:none}
+.phase-header{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;cursor:pointer;border-bottom:1px solid transparent;transition:all 0.15s}
+.phase.open .phase-header{border-bottom-color:var(--b)}
+.phase-header:hover{background:rgba(255,255,255,0.02)}
+.phase-num{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-size:0.85rem;font-weight:800;flex-shrink:0}
+.pn-1{background:rgba(6,182,212,0.12);color:var(--cyan);border:1px solid rgba(6,182,212,0.25)}
+.pn-2{background:rgba(212,168,75,0.12);color:var(--gold);border:1px solid rgba(212,168,75,0.25)}
+.pn-3{background:rgba(139,92,246,0.12);color:var(--purple);border:1px solid rgba(139,92,246,0.25)}
+.pn-4{background:rgba(59,130,246,0.12);color:var(--blue);border:1px solid rgba(59,130,246,0.25)}
+.pn-5{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
+.pn-6{background:rgba(249,115,22,0.12);color:var(--orange);border:1px solid rgba(249,115,22,0.25)}
+.phase-info{flex:1}
+.phase-title{font-family:'Poppins';font-size:1rem;font-weight:700;color:var(--w)}
+.phase-sub{font-size:0.75rem;color:var(--m);margin-top:0.15rem}
+.phase-status{font-size:0.55rem;font-weight:700;letter-spacing:0.08em;padding:0.2rem 0.6rem;border-radius:100px;text-transform:uppercase;flex-shrink:0}
+.ps-pending{background:rgba(234,179,8,0.1);color:#eab308;border:1px solid rgba(234,179,8,0.2)}
+.ps-approved{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.ps-action{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.2)}
+.chevron{color:var(--m);font-size:1.2rem;transition:transform 0.3s;flex-shrink:0}
+.phase.open .chevron{transform:rotate(180deg)}
+
+.phase-body{display:none;padding:1.5rem}
+.phase.open .phase-body{display:block}
+
+/* ── ITEMS ── */
+.item{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:0.8rem}
+.item h4{font-size:0.85rem;font-weight:700;color:var(--w);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.5rem}
+.item p,.item li{font-size:0.8rem;color:var(--t);line-height:1.7}
+.item ul{padding-left:1.2rem;margin-top:0.3rem}
+.item li{margin-bottom:0.2rem}
+
+.file-link{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(59,130,246,0.08);color:var(--blue);font-size:0.72rem;font-weight:600;padding:0.3rem 0.7rem;border-radius:6px;text-decoration:none;border:1px solid rgba(59,130,246,0.2);margin:0.3rem 0.2rem 0 0;transition:all 0.15s}
+.file-link:hover{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4)}
+.file-link.html-file{color:var(--green);background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2)}
+.file-link.html-file:hover{background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.4)}
+
+/* Decision boxes */
+.decision{background:rgba(212,168,75,0.04);border:2px dashed rgba(212,168,75,0.25);border-radius:10px;padding:1rem 1.3rem;margin-bottom:0.8rem}
+.decision h4{color:var(--gold);font-size:0.82rem;font-weight:700;margin-bottom:0.4rem}
+.decision p{font-size:0.78rem}
+
+/* Checkboxes */
+.check-row{display:flex;align-items:flex-start;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid rgba(30,45,74,0.5)}
+.check-row:last-child{border-bottom:none}
+.check-row input[type="checkbox"]{width:18px;height:18px;accent-color:var(--gold);margin-top:2px;flex-shrink:0;cursor:pointer}
+.check-label{font-size:0.82rem;color:var(--t);flex:1}
+.check-label strong{color:var(--w)}
+
+/* Pricing table */
+.price-table{width:100%;border-collapse:collapse;margin:0.8rem 0}
+.price-table th{text-align:left;padding:0.6rem 0.8rem;background:rgba(212,168,75,0.06);color:var(--gold);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--b)}
+.price-table td{padding:0.6rem 0.8rem;border-bottom:1px solid var(--b);font-size:0.8rem;vertical-align:top}
+.price-table .price{font-family:'Poppins';font-weight:800;color:var(--w);font-size:0.95rem}
+
+/* Callout */
+.callout{border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;font-size:0.78rem}
+.callout-gold{background:rgba(212,168,75,0.06);border-left:3px solid var(--gold);color:var(--gold)}
+.callout-red{background:rgba(239,68,68,0.06);border-left:3px solid var(--red);color:var(--red)}
+.callout-green{background:rgba(34,197,94,0.06);border-left:3px solid var(--green);color:var(--green)}
+.callout-blue{background:rgba(59,130,246,0.06);border-left:3px solid var(--blue);color:var(--blue)}
+
+/* Flow diagram */
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:1rem 0}
+.flow-node{background:var(--c);border:2px solid var(--b);border-radius:10px;padding:0.8rem 1.2rem;max-width:400px;width:100%;text-align:center}
+.flow-node h5{font-size:0.8rem;font-weight:700;color:var(--w);margin-bottom:0.15rem}
+.flow-node p{font-size:0.68rem;color:var(--m)}
+.flow-node.n-free{border-color:var(--cyan)}
+.flow-node.n-paid{border-color:var(--gold)}
+.flow-node.n-main{border-color:var(--green)}
+.flow-arrow{color:var(--b);font-size:0.9rem;padding:0.15rem 0}
+
+/* Section divider */
+.section-divider{text-align:center;margin:1rem 0;font-size:0.6rem;font-weight:700;color:var(--m);text-transform:uppercase;letter-spacing:0.12em}
+
+/* Recording list */
+.rec-item{display:flex;gap:1rem;padding:0.8rem 0;border-bottom:1px solid rgba(30,45,74,0.5)}
+.rec-item:last-child{border-bottom:none}
+.rec-priority{font-size:0.55rem;font-weight:800;letter-spacing:0.06em;padding:0.15rem 0.5rem;border-radius:4px;text-transform:uppercase;flex-shrink:0;height:fit-content;margin-top:2px}
+.rp-now{background:rgba(239,68,68,0.12);color:var(--red);border:1px solid rgba(239,68,68,0.2)}
+.rp-week1{background:rgba(234,179,8,0.12);color:#eab308;border:1px solid rgba(234,179,8,0.2)}
+.rp-week2{background:rgba(59,130,246,0.12);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
+.rec-details{flex:1}
+.rec-details h5{font-size:0.82rem;font-weight:700;color:var(--w);margin-bottom:0.15rem}
+.rec-details p{font-size:0.75rem;color:var(--m)}
+
+/* Notes area */
+.notes-area{width:100%;min-height:60px;background:var(--c);border:1px solid var(--b);border-radius:8px;padding:0.8rem 1rem;color:var(--t);font-family:'Inter',sans-serif;font-size:0.82rem;resize:vertical;outline:none;margin-top:0.5rem}
+.notes-area:focus{border-color:var(--gold)}
+.notes-label{font-size:0.65rem;font-weight:700;color:var(--m);text-transform:uppercase;letter-spacing:0.08em;margin-top:1rem;margin-bottom:0.3rem}
+
+/* Approve button */
+.approve-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:#0a0e1a;font-family:'Poppins';font-size:0.82rem;font-weight:700;padding:0.7rem 1.5rem;border:none;border-radius:8px;cursor:pointer;margin-top:1rem;transition:all 0.15s}
+.approve-btn:hover{background:#e5c05f;transform:translateY(-1px)}
+.approve-btn.approved{background:var(--green)}
+
+/* Footer */
+.footer{text-align:center;padding:2rem;border-top:1px solid var(--b);margin-top:2rem}
+.footer p{font-size:0.72rem;color:var(--m)}
+
+@media(max-width:600px){
+.master-header h1{font-size:1.5rem}
+.phase-header{padding:1rem}
+.phase-body{padding:1rem}
+.progress-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="master-header">
+<div class="badge">Client Deliverable &bull; April 2026</div>
+<h1>TQA <span>Launch Control</span></h1>
+<p>Everything you need to review, approve, and launch — in order. Work through each phase. Nothing moves until you sign off.</p>
+<div class="progress-master">
+<div class="progress-steps">
+<div class="progress-step"><div class="progress-dot active" id="pd1">1</div><div class="progress-label">Foundation</div></div>
+<div class="progress-step"><div class="progress-dot" id="pd2">2</div><div class="progress-label">Pricing</div></div>
+<div class="progress-step"><div class="progress-dot" id="pd3">3</div><div class="progress-label">Funnel</div></div>
+<div class="progress-step"><div class="progress-dot" id="pd4">4</div><div class="progress-label">Content</div></div>
+<div class="progress-step"><div class="progress-dot" id="pd5">5</div><div class="progress-label">Tech</div></div>
+<div class="progress-step"><div class="progress-dot" id="pd6">6</div><div class="progress-label">Record</div></div>
+</div>
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════ PHASE 1: FOUNDATION ═══════════ -->
+<div class="phase open" id="phase1">
+<div class="phase-header" onclick="togglePhase('phase1')">
+<div class="phase-num pn-1">1</div>
+<div class="phase-info">
+<div class="phase-title">Foundation &amp; Brand Identity</div>
+<div class="phase-sub">Review brand guide, bios, and banners. Approve or request changes.</div>
+</div>
+<div class="phase-status ps-pending" id="ps1">Needs Review</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="callout callout-gold"><strong>Why this matters:</strong> Every piece of content, every ad, every email will reference these assets. Get the foundation right and everything downstream is consistent.</div>
+
+<!-- Brand Guide -->
+<div class="item">
+<h4>Brand Guide</h4>
+<p>Complete voice, tone, word rules, and visual identity for all TQA content. This is the rulebook Agresh, Shreyas, and any future team member follows.</p>
+<a href="TQA-BRAND-GUIDE.md" class="file-link">TQA-BRAND-GUIDE.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Core message approved:</strong> "I help IT professionals break into cybersecurity careers in 90 days."</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Voice rules approved:</strong> Authoritative, experienced, direct, no-fluff, culturally aware</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Proof stack approved:</strong> 28 years CISO + 400 orgs / 8 countries + CIO Choice Award</div>
+</div>
+</div>
+
+<!-- Bios -->
+<div class="item">
+<h4>Platform Bios (11 Platforms)</h4>
+<p>Copy-paste ready bios for LinkedIn, YouTube, Instagram, TikTok, Facebook, Twitter/X, Telegram, WhatsApp, Podcast, Email Signature, and Website About page.</p>
+<a href="TQA-UNIFIED-BIOS.md" class="file-link">TQA-UNIFIED-BIOS.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>LinkedIn headline approved</strong> (this is your first impression for 9K followers)</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>YouTube About approved</strong> (critical for new subscribers from IT-to-cybersecurity searches)</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>All 11 bios approved</strong> — ready to paste across all platforms</div>
+</div>
+</div>
+
+<!-- Banners -->
+<div class="item">
+<h4>Platform Banners</h4>
+<p>LinkedIn banner (1584x396), YouTube banner (2560x1440), Facebook cover (820x312). Uses your actual photos. Text: your core message + proof stack.</p>
+<a href="DJ-BANNER-MOCKUPS.html" class="file-link html-file">DJ-BANNER-MOCKUPS.html (open in browser)</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>LinkedIn banner approved</strong></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>YouTube banner approved</strong></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Facebook cover approved</strong></div>
+</div>
+</div>
+
+<!-- Brand Decisions -->
+<div class="decision">
+<h4>Decisions Needed</h4>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Brand name:</strong> Keep "The Quantum Achievers (TQA)" or rebrand to "DJ Naronikar" or hybrid? <em>Recommendation: DJ Naronikar as the face, TQA as the program name.</em></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Podcast name:</strong> Keep "Cyber Caffeine" or rename? <em>Recommendation: Keep it — 150+ organic searches, recognizable, good name.</em></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Domain:</strong> Keep thequantumachievers.com or new domain? <em>Decision needed before any new pages go live.</em></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Link hub:</strong> Linktree, Stan Store, or custom page? <em>Recommendation: Custom page on your domain — you own the traffic.</em></div>
+</div>
+</div>
+
+<div class="notes-label">Notes / Change Requests</div>
+<textarea class="notes-area" placeholder="Type any changes you want to the brand guide, bios, or banners here..."></textarea>
+</div>
+</div>
+
+<!-- ═══════════ PHASE 2: PRICING ═══════════ -->
+<div class="phase" id="phase2">
+<div class="phase-header" onclick="togglePhase('phase2')">
+<div class="phase-num pn-2">2</div>
+<div class="phase-info">
+<div class="phase-title">Pricing &amp; Offer Structure</div>
+<div class="phase-sub">Confirm the product ladder and pricing before we build the funnel.</div>
+</div>
+<div class="phase-status ps-pending" id="ps2">Needs Review</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="callout callout-red"><strong>Important:</strong> These two programs serve different audiences. They should NEVER be mixed in the same funnel, same content, or same conversation.</div>
+
+<div class="item">
+<h4>Product 1 — CISO 360 Accelerator (Main Funnel)</h4>
+<p><strong>Who it's for:</strong> IT professionals breaking INTO cybersecurity. Cloud engineers, DevOps, sysadmins, network admins, IT managers ($85K-$140K range).</p>
+<p><strong>Avatar name:</strong> "Raj" — Indian IT pro, 28-42, H-1B/Green Card, US metro.</p>
+<table class="price-table">
+<thead><tr><th>Tier</th><th>Price</th><th>What They Get</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>Free Quiz</td><td class="price">$0</td><td>5-question Cybersecurity Readiness Score + instant results</td><td>Lead capture. Email gate before results.</td></tr>
+<tr><td>Career Scorecard</td><td class="price">$47</td><td>Personalized 8-page PDF: gap analysis, role recommendations, 90-day plan</td><td>Buyer qualification. Proves they'll spend money on career transition.</td></tr>
+<tr><td>Jumpstart</td><td class="price">$97/mo</td><td>90-day self-paced program: Security+ prep, resume rewrite, LinkedIn optimization, interview prep</td><td>Mid-ticket for people not ready for $4,997. Builds trust for upsell.</td></tr>
+<tr><td>CISO 360 Accelerator</td><td class="price">$4,997</td><td>14-week cohort: 4 modules, live coaching, community, career placement support. Payment plan: $1,997 x 3</td><td>Core revenue product. DJ's 28-year experience is the differentiator.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="item">
+<h4>Product 2 — CISO Executive Program (Build Later)</h4>
+<p><strong>Who it's for:</strong> Security managers ALREADY in cybersecurity wanting the CISO title. Information Security Managers ($120K-$180K range).</p>
+<table class="price-table">
+<thead><tr><th>Tier</th><th>Price</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>CISO Executive Program</td><td class="price">$10,000</td><td>NOT building this funnel now. Separate launch after Accelerator is proven.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="decision">
+<h4>Pricing Decisions</h4>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>$47 Career Scorecard price approved</strong></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>$97/mo Jumpstart price approved</strong> (alternative: $499 one-time — your call)</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>$4,997 Accelerator price approved</strong></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>$1,997 x 3 payment plan approved</strong></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Confirm: $10K CISO Executive is parked (not building now)</strong></div>
+</div>
+</div>
+
+<div class="callout callout-blue"><strong>Competitor reference:</strong> Boyd Clewis charges $2,997 for his Cybersecurity Accelerator on Skool. He has 318K YouTube subs. You're charging $4,997 for a more premium, cohort-based experience with direct CISO access. That premium is justified by your 28-year track record — but only if the content experience delivers at that level.</div>
+
+<div class="notes-label">Notes / Pricing Changes</div>
+<textarea class="notes-area" placeholder="Any changes to pricing, payment terms, or offer structure..."></textarea>
+</div>
+</div>
+
+<!-- ═══════════ PHASE 3: FUNNEL FLOW ═══════════ -->
+<div class="phase" id="phase3">
+<div class="phase-header" onclick="togglePhase('phase3')">
+<div class="phase-num pn-3">3</div>
+<div class="phase-info">
+<div class="phase-title">Funnel Flow &amp; Customer Journey</div>
+<div class="phase-sub">Approve the exact path from stranger to student. Salesless model — no calls, no closers.</div>
+</div>
+<div class="phase-status ps-pending" id="ps3">Needs Review</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="callout callout-green"><strong>Salesless model:</strong> YouTube pre-sells everything including price. VSSL + Stripe checkout = self-serve purchase. No sales calls. No closers. No DMs. High-agency buyers ($120K+ earners) don't need hand-holding — they need proof and a clear path.</div>
+
+<!-- Visual Flow -->
+<div class="section-divider">The Complete Customer Journey</div>
+<div class="flow">
+<div class="flow-node n-free"><h5>YouTube / LinkedIn / Podcast</h5><p>DJ's content builds trust over weeks. Viewer sees proof of expertise.</p></div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node n-free"><h5>Free Quiz (5 Questions)</h5><p>cybersecurity-readiness-quiz.html &mdash; Email gate before results. Instant score.</p></div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node n-paid"><h5>$47 Career Scorecard</h5><p>Upsell from quiz results. Personalized 8-page PDF. Stripe checkout.</p></div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node n-paid"><h5>5-Email Nurture Sequence</h5><p>Belief-building emails over 5 days. Links to YouTube content. Builds toward VSSL.</p></div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node n-main"><h5>VSSL (Video Sales Letter)</h5><p>15-18 min video. DJ on camera. Value stack ($21K+), price reveal ($4,997), Stripe checkout below video.</p></div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node n-main"><h5>Stripe Checkout &rarr; Student</h5><p>$4,997 PIF or $1,997 x 3. No application. No call. Direct purchase.</p></div>
+</div>
+
+<div class="item" style="margin-top:1rem">
+<h4>Review the Full Funnel Map</h4>
+<p>Interactive visual showing every step, every platform, every connection point. 5 sections: Brand Identity, Social Media, YouTube Engine, 5-Step Funnel, Scoreboard.</p>
+<a href="DJ-FUNNEL-MAP.html" class="file-link html-file">DJ-FUNNEL-MAP.html (open in browser)</a>
+</div>
+
+<div class="item">
+<h4>Review the Go-To-Market Playbook</h4>
+<p>Full 15-section tabbed playbook covering everything: avatar, content strategy, email sequences, VSSL script, pricing, objection handling, onboarding, KPIs.</p>
+<a href="TQA-GO-TO-MARKET-PLAYBOOK.html" class="file-link html-file">TQA-GO-TO-MARKET-PLAYBOOK.html (open in browser)</a>
+</div>
+
+<div class="item">
+<h4>Review the VSSL Script</h4>
+<p>15-18 minute video sales letter script. DJ on camera, direct to viewer. Sections: Hook, Problem, Solution, Value Stack ($21K+), Price ($4,997), CTA (Stripe checkout).</p>
+<a href="DJ-VSSL-SCRIPT.md" class="file-link">DJ-VSSL-SCRIPT.md</a>
+</div>
+
+<div class="item">
+<h4>Review the Free Quiz</h4>
+<p>Working HTML prototype. 5 questions, email gate, instant score, $47 upsell. Ready to deploy.</p>
+<a href="cybersecurity-readiness-quiz.html" class="file-link html-file">cybersecurity-readiness-quiz.html (open in browser)</a>
+</div>
+
+<div class="decision">
+<h4>Funnel Decisions</h4>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Salesless model confirmed:</strong> No sales calls, no closers, no DMs. YouTube + VSSL + Stripe only.</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Funnel flow approved:</strong> Content &rarr; Quiz &rarr; $47 Scorecard &rarr; Email Nurture &rarr; VSSL &rarr; Stripe Checkout</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>VSSL script approved</strong> (or flagged for changes)</div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Quiz approved</strong> (or flagged for changes)</div>
+</div>
+</div>
+
+<div class="notes-label">Notes / Funnel Changes</div>
+<textarea class="notes-area" placeholder="Any changes to the funnel flow, scripts, or quiz..."></textarea>
+</div>
+</div>
+
+<!-- ═══════════ PHASE 4: SOCIAL CONTENT ═══════════ -->
+<div class="phase" id="phase4">
+<div class="phase-header" onclick="togglePhase('phase4')">
+<div class="phase-num pn-4">4</div>
+<div class="phase-info">
+<div class="phase-title">Social Content &amp; Publishing</div>
+<div class="phase-sub">Review and approve content ready to publish. LinkedIn posts, DM strategy, 30-day calendar.</div>
+</div>
+<div class="phase-status ps-pending" id="ps4">Needs Review</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="callout callout-red"><strong>Urgent:</strong> 10 LinkedIn posts were written for April 2-13. Were they posted? If not, approve now so we can schedule immediately. Your 9K followers are waiting.</div>
+
+<div class="item">
+<h4>LinkedIn Posts (10 Ready)</h4>
+<p>April 2-13, post daily on business days. Content mix: 5 fear/news (50%), 3 career proof (25%), 1 authority (15%), 1 behind the scenes (10%). Soft CTAs on 4 of 10 posts.</p>
+<a href="TQA-LINKEDIN-POSTS-APRIL.md" class="file-link">TQA-LINKEDIN-POSTS-APRIL.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>All 10 LinkedIn posts approved</strong> — ready to publish</div>
+</div>
+</div>
+
+<div class="item">
+<h4>LinkedIn DM Strategy</h4>
+<p>Full Sales Navigator &rarr; GHL &rarr; DM sequence workflow. Target: Cloud Engineers, DevOps, IT Managers, Sysadmins, Network Admins seeking cybersecurity transition.</p>
+<a href="TQA-LINKEDIN-DM-STRATEGY.md" class="file-link">TQA-LINKEDIN-DM-STRATEGY.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>DM strategy approved</strong></div>
+</div>
+<div class="check-row">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Sales Navigator subscription reactivated</strong> (required for this to work)</div>
+</div>
+</div>
+
+<div class="item">
+<h4>30-Day Content Calendar</h4>
+<p>4x/week posting calendar across platforms. Organized by belief-building topics aligned to the 7 beliefs that drive purchase decisions.</p>
+<a href="linkedin-30-day-calendar.md" class="file-link">linkedin-30-day-calendar.md</a>
+<a href="DJ-BELIEF-MAP.md" class="file-link">DJ-BELIEF-MAP.md (7 belief framework)</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>30-day content calendar approved</strong></div>
+</div>
+</div>
+
+<div class="item">
+<h4>Email Sequences</h4>
+<p>Full email sequence for leads at every stage: welcome, nurture, pre-webinar, post-webinar, re-engage, post-purchase onboarding.</p>
+<a href="TQA-FULL-EMAIL-SEQUENCE.md" class="file-link">TQA-FULL-EMAIL-SEQUENCE.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Email sequences approved</strong></div>
+</div>
+</div>
+
+<div class="item">
+<h4>YouTube Content Strategy</h4>
+<p>Content-to-revenue playbook. 10 video titles optimized for "IT to cybersecurity" search term (peaked 100 on Google Trends Nov 2025). YouTube is the trust engine.</p>
+<a href="DJ-CONTENT-TO-REVENUE-PLAYBOOK.md" class="file-link">DJ-CONTENT-TO-REVENUE-PLAYBOOK.md</a>
+<a href="DJ-YOUTUBE-RESEARCH-APRIL7.md" class="file-link">DJ-YOUTUBE-RESEARCH-APRIL7.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>YouTube strategy approved</strong></div>
+</div>
+</div>
+
+<div class="notes-label">Notes / Content Changes</div>
+<textarea class="notes-area" placeholder="Any changes to posts, emails, or content strategy..."></textarea>
+</div>
+</div>
+
+<!-- ═══════════ PHASE 5: TECH SETUP ═══════════ -->
+<div class="phase" id="phase5">
+<div class="phase-header" onclick="togglePhase('phase5')">
+<div class="phase-num pn-5">5</div>
+<div class="phase-info">
+<div class="phase-title">Tech &amp; Deployment</div>
+<div class="phase-sub">Approve specs for Agresh to build. GHL workflows, VAPI assistants, Stripe products.</div>
+</div>
+<div class="phase-status ps-pending" id="ps5">Needs Review</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="item">
+<h4>GHL System Rebuild Spec</h4>
+<p>Full specification for Agresh to rebuild GHL workflows: pipelines, lead scoring, email automations, buyer check gates, tags, and triggers.</p>
+<a href="TQA-GHL-NEW-SYSTEM-SPEC.md" class="file-link">TQA-GHL-NEW-SYSTEM-SPEC.md</a>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>GHL spec approved for Agresh to build</strong></div>
+</div>
+</div>
+
+<div class="item">
+<h4>VAPI Voice Assistants (3 Active)</h4>
+<p>Three VAPI assistants already configured:</p>
+<ul>
+<li><strong>Closer Priya</strong> — Post-webinar follow-up calls (7,275 char prompt, ElevenLabs voice)</li>
+<li><strong>Webinar Confirmation Priya</strong> — Confirms webinar registration (3,025 char prompt)</li>
+<li><strong>Re-Engage Old Leads</strong> — Reactivation calls to cold leads (1,408 char prompt)</li>
+</ul>
+<div class="callout callout-gold">With the salesless model, Priya's role shifts from "closer" to "re-engage + nurture." She invites people to watch the VSSL, not book a call.</div>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>VAPI assistant roles approved for salesless model</strong></div>
+</div>
+</div>
+
+<div class="item">
+<h4>Stripe Products</h4>
+<p>Existing Stripe products need updating:</p>
+<ul>
+<li><strong>$4,997 PIF</strong> — Exists. Confirmed.</li>
+<li><strong>Payment plan</strong> — Currently $1,897 x 3. <strong>Needs update to $1,997 x 3.</strong></li>
+<li><strong>$47 Scorecard</strong> — Needs to be created as a new Stripe product.</li>
+<li><strong>$97/mo Jumpstart</strong> — Needs to be created as a recurring subscription.</li>
+</ul>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Stripe product updates approved</strong> (Dylan will configure)</div>
+</div>
+</div>
+
+<div class="item">
+<h4>197 Cold Leads — Re-Engagement</h4>
+<p>197 contacts sitting in GHL from the March webinar. 20+ days cold. Need to send re-engage sequence ASAP.</p>
+<a href="TQA-REACTIVATION-EMAILS-APRIL.md" class="file-link">TQA-REACTIVATION-EMAILS-APRIL.md</a>
+<div class="callout callout-red">Every day these leads sit cold, they get harder to recover. This should launch within 48 hours of approval.</div>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Re-engage sequence approved to send to 197 contacts</strong></div>
+</div>
+</div>
+
+<div class="item">
+<h4>Deployment URLs</h4>
+<p>Pages will be deployed to GitHub Pages:</p>
+<ul>
+<li><strong>Quiz page:</strong> dmanwadefreedom.github.io/tqa-funnel/quiz</li>
+<li><strong>VSSL page:</strong> dmanwadefreedom.github.io/tqa-funnel/vssl</li>
+<li><strong>Jumpstart page:</strong> dmanwadefreedom.github.io/tqa-jumpstart/</li>
+<li><strong>Team Hub:</strong> dmanwadefreedom.github.io/tqa-team-hub/</li>
+</ul>
+<div class="check-row" style="margin-top:0.8rem">
+<input type="checkbox" onchange="updateProgress()">
+<div class="check-label"><strong>Deployment URLs approved</strong></div>
+</div>
+</div>
+
+<div class="notes-label">Notes / Tech Changes</div>
+<textarea class="notes-area" placeholder="Any changes to GHL spec, VAPI, Stripe, or deployment..."></textarea>
+</div>
+</div>
+
+<!-- ═══════════ PHASE 6: DJ'S RECORDING LIST ═══════════ -->
+<div class="phase" id="phase6">
+<div class="phase-header" onclick="togglePhase('phase6')">
+<div class="phase-num pn-6">6</div>
+<div class="phase-info">
+<div class="phase-title">DJ's Recording &amp; Action List</div>
+<div class="phase-sub">Things only DJ can do. Prioritized. Nothing launches until these are recorded.</div>
+</div>
+<div class="phase-status ps-action" id="ps6">Action Required</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="callout callout-red"><strong>Hard truth:</strong> Everything above is ready to deploy. The bottleneck is recordings. None of this works without DJ on camera.</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-now">This Week</div>
+<div class="rec-details">
+<h5>VSSL Recording (15-18 min)</h5>
+<p>The video sales letter. One take, good lighting, quiet room. Script is in DJ-VSSL-SCRIPT.md. This is the single most important asset — it converts viewers into $4,997 students without a sales call.</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Recorded</span>
+</div>
+</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-now">This Week</div>
+<div class="rec-details">
+<h5>Podcast Intro (90 seconds)</h5>
+<p>Cyber Caffeine intro. Who you are, what the podcast covers, who it's for. Used as intro clip for every episode. "I'm DJ Naronikar. 28 years as a CISO across Deloitte, EY, and Shell. On Cyber Caffeine, I break down what it actually takes to break into cybersecurity..."</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Recorded</span>
+</div>
+</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-week1">Week 1</div>
+<div class="rec-details">
+<h5>First YouTube Video</h5>
+<p>Topic recommendation: "How to Break Into Cybersecurity from IT in 2026" (matches peak search term). 8-12 minutes. Establishes the channel direction. Ends with quiz CTA.</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Recorded</span>
+</div>
+</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-week1">Week 1</div>
+<div class="rec-details">
+<h5>Reactivate Sales Navigator</h5>
+<p>Your Sales Nav &rarr; GHL workflow was working before. Reactivate the subscription so we can start the LinkedIn DM outreach strategy.</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Done</span>
+</div>
+</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-week1">Week 1</div>
+<div class="rec-details">
+<h5>Apply Bios to All Platforms</h5>
+<p>Copy-paste from TQA-UNIFIED-BIOS.md to LinkedIn, YouTube, Instagram, TikTok, Facebook, Twitter/X, Telegram, WhatsApp, podcast listing, email signature, website About page.</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Done</span>
+</div>
+</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-week2">Week 2</div>
+<div class="rec-details">
+<h5>Record 2 More YouTube Videos</h5>
+<p>Building the content library. Suggested topics from research: "5 Highest-Paying Cybersecurity Roles for IT Professionals" and "Why Certifications Alone Won't Get You a Cybersecurity Job."</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Recorded</span>
+</div>
+</div>
+
+<div class="rec-item">
+<div class="rec-priority rp-week2">Week 2</div>
+<div class="rec-details">
+<h5>Submit Cyber Caffeine to Spotify &amp; Apple Podcasts</h5>
+<p>Currently YouTube-only. 150+ organic searches for "Cyber Caffeine." Get it on podcast directories to capture that traffic.</p>
+<input type="checkbox" onchange="updateProgress()" style="margin-top:0.5rem"> <span style="font-size:0.78rem;color:var(--t)">Done</span>
+</div>
+</div>
+
+<div class="notes-label">Notes / Questions</div>
+<textarea class="notes-area" placeholder="Any questions or scheduling notes..."></textarea>
+</div>
+</div>
+
+<!-- ═══════════ REFERENCE: ALL FILES ═══════════ -->
+<div class="phase" id="phaseRef">
+<div class="phase-header" onclick="togglePhase('phaseRef')">
+<div class="phase-num" style="background:rgba(148,163,184,0.1);color:var(--m);border:1px solid var(--b)">&#128196;</div>
+<div class="phase-info">
+<div class="phase-title">Complete File Index</div>
+<div class="phase-sub">Every deliverable built for TQA, organized by category.</div>
+</div>
+<div class="chevron">&#9660;</div>
+</div>
+<div class="phase-body">
+
+<div class="item">
+<h4>Strategy &amp; Planning</h4>
+<a href="TQA-GO-TO-MARKET-PLAYBOOK.html" class="file-link html-file">Go-To-Market Playbook</a>
+<a href="DJ-FUNNEL-MAP.html" class="file-link html-file">Funnel Map v2</a>
+<a href="DJ-BELIEF-MAP.md" class="file-link">7-Belief Map</a>
+<a href="DJ-CONTENT-TO-REVENUE-PLAYBOOK.md" class="file-link">Content-to-Revenue Playbook</a>
+<a href="TQA-FULL-GROWTH-STRATEGY-APRIL7.md" class="file-link">Full Growth Strategy</a>
+<a href="TQA-PRICING-ANALYSIS.md" class="file-link">Pricing Analysis</a>
+<a href="APRIL-11-BATTLE-PLAN.md" class="file-link">April Battle Plan</a>
+</div>
+
+<div class="item">
+<h4>Brand &amp; Copy</h4>
+<a href="TQA-BRAND-GUIDE.md" class="file-link">Brand Guide</a>
+<a href="TQA-UNIFIED-BIOS.md" class="file-link">11 Platform Bios</a>
+<a href="DJ-BANNER-MOCKUPS.html" class="file-link html-file">Banner Mockups</a>
+<a href="DJ-VSSL-SCRIPT.md" class="file-link">VSSL Script</a>
+<a href="DJ-WEBINAR-V2-SLIDES.md" class="file-link">Webinar V2 Slide Guide</a>
+<a href="scorecard-claude-prompt.md" class="file-link">$47 Scorecard AI Prompt</a>
+</div>
+
+<div class="item">
+<h4>Content &amp; Social</h4>
+<a href="TQA-LINKEDIN-POSTS-APRIL.md" class="file-link">10 LinkedIn Posts (April)</a>
+<a href="linkedin-30-day-calendar.md" class="file-link">30-Day Content Calendar</a>
+<a href="TQA-LINKEDIN-DM-STRATEGY.md" class="file-link">LinkedIn DM Strategy</a>
+<a href="TQA-FULL-EMAIL-SEQUENCE.md" class="file-link">Full Email Sequence</a>
+<a href="TQA-REACTIVATION-EMAILS-APRIL.md" class="file-link">197-Lead Re-Engage Emails</a>
+<a href="TQA-WHATSAPP-SMS-VIDEO.md" class="file-link">WhatsApp/SMS/Video Plan</a>
+<a href="DJ-YOUTUBE-RESEARCH-APRIL7.md" class="file-link">YouTube Research</a>
+</div>
+
+<div class="item">
+<h4>Funnel Pages &amp; Quizzes</h4>
+<a href="cybersecurity-readiness-quiz.html" class="file-link html-file">Free Quiz (5 questions)</a>
+<a href="ciso-executive-quiz.html" class="file-link html-file">CISO Executive Quiz</a>
+<a href="sample-career-scorecard.html" class="file-link html-file">Sample $47 Scorecard</a>
+<a href="tqa-accelerator-offer.html" class="file-link html-file">Accelerator Offer Page</a>
+<a href="tqa-jumpstart-funnel-visual.html" class="file-link html-file">Jumpstart Funnel Visual</a>
+</div>
+
+<div class="item">
+<h4>Technical &amp; Operations</h4>
+<a href="TQA-GHL-NEW-SYSTEM-SPEC.md" class="file-link">GHL Rebuild Spec (for Agresh)</a>
+<a href="TQA-GHL-FULL-AUDIT-APRIL2.md" class="file-link">GHL Full Audit</a>
+<a href="TQA-PROGRAM-ARCHITECTURE.md" class="file-link">Program Architecture</a>
+<a href="TQA-97-DELIVERABLE-PLAN.md" class="file-link">$97 Jumpstart Curriculum</a>
+<a href="TQA-BIRDS-EYE-VIEW.md" class="file-link">Bird's Eye View</a>
+</div>
+
+<div class="item">
+<h4>Research &amp; Competitor Analysis</h4>
+<a href="FUNNEL-HACK-BOYD-CLEWIS.html" class="file-link html-file">Boyd Clewis Funnel Hack</a>
+<a href="TQA-OFFER-AUDIT-GRAND-SLAM.md" class="file-link">Offer Audit (Grand Slam)</a>
+<a href="web-presence-audit.md" class="file-link">Web Presence Audit</a>
+<a href="TQA-CONTENT-FUNNEL-STRATEGY-APRIL2026.md" class="file-link">Content Funnel Strategy</a>
+</div>
+
+<div class="item">
+<h4>Call Notes</h4>
+<a href="fathom-dj-call-march24.md" class="file-link">March 24 Call — Pricing, domains, case studies</a>
+<a href="fathom-dj-call-march26.md" class="file-link">March 26 Call — Sales Nav, Boyd Clewis, courseware</a>
+<a href="fathom-agresh-call-march9.md" class="file-link">March 9 Call — Agresh</a>
+<a href="fathom-growth-meeting-march9.md" class="file-link">March 9 Growth Meeting</a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer">
+<p>Prepared by Dylan Ewing &bull; Elevated AI &bull; April 2026</p>
+<p style="margin-top:0.3rem;font-size:0.65rem;color:#4a5a70">Work through each phase in order. Check boxes as you approve. Send notes back to Dylan with any changes.</p>
+</div>
+
+<script>
+function togglePhase(id){
+const el=document.getElementById(id);
+el.classList.toggle('open');
+}
+
+function updateProgress(){
+const all=document.querySelectorAll('input[type="checkbox"]');
+const checked=[...all].filter(c=>c.checked).length;
+const pct=Math.round((checked/all.length)*100);
+document.getElementById('progressFill').style.width=pct+'%';
+
+// Update phase dots based on section completion
+const phases=['phase1','phase2','phase3','phase4','phase5','phase6'];
+phases.forEach((pid,i)=>{
+const sec=document.getElementById(pid);
+if(!sec)return;
+const boxes=sec.querySelectorAll('input[type="checkbox"]');
+const done=[...boxes].filter(c=>c.checked).length;
+const dot=document.getElementById('pd'+(i+1));
+const stat=document.getElementById('ps'+(i+1));
+if(done===boxes.length && boxes.length>0){
+dot.classList.add('done');
+dot.classList.remove('active');
+if(stat){stat.className='phase-status ps-approved';stat.textContent='Approved';}
+}else if(done>0){
+dot.classList.add('active');
+dot.classList.remove('done');
+if(stat){stat.className='phase-status ps-pending';stat.textContent='In Progress';}
+}else{
+dot.classList.remove('done','active');
+if(i===0)dot.classList.add('active');
+}
+});
+}
+
+// Rewrite .md links to GitHub blob view (GitHub Pages doesn't render Markdown)
+document.querySelectorAll('a.file-link').forEach(a=>{
+const href=a.getAttribute('href');
+if(href && href.endsWith('.md')){
+a.href='https://github.com/dmanwadefreedom/tqa-funnel/blob/main/'+href;
+a.target='_blank';
+}
+});
+
+// Make all HTML file links open in new tab
+document.querySelectorAll('a.file-link.html-file').forEach(a=>{a.target='_blank';});
+
+// Save/load checkbox state to localStorage
+const KEY='tqa-launch-control-state';
+function saveState(){
+const state={};
+document.querySelectorAll('input[type="checkbox"]').forEach((cb,i)=>{state[i]=cb.checked;});
+document.querySelectorAll('textarea').forEach((ta,i)=>{state['note'+i]=ta.value;});
+localStorage.setItem(KEY,JSON.stringify(state));
+}
+function loadState(){
+try{
+const state=JSON.parse(localStorage.getItem(KEY));
+if(!state)return;
+document.querySelectorAll('input[type="checkbox"]').forEach((cb,i)=>{if(state[i])cb.checked=true;});
+document.querySelectorAll('textarea').forEach((ta,i)=>{if(state['note'+i])ta.value=state['note'+i];});
+updateProgress();
+}catch(e){}
+}
+document.querySelectorAll('input[type="checkbox"]').forEach(cb=>{cb.addEventListener('change',saveState);});
+document.querySelectorAll('textarea').forEach(ta=>{ta.addEventListener('input',saveState);});
+loadState();
+</script>
+</body>
+</html>

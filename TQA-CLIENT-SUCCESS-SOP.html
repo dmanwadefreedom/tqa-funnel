@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA | Client Success SOP + 90-Day Content Plan</title>
+<style>
+  :root {
+    --bg: #0a0f1a;
+    --surface: #111827;
+    --card: #1a2332;
+    --border: #2a3a4e;
+    --accent: #3b82f6;
+    --accent2: #8b5cf6;
+    --gold: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --white: #ffffff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1000px; margin:0 auto; padding:2rem 1.5rem; }
+
+  /* Header */
+  .hero { text-align:center; padding:3rem 0 2rem; border-bottom:1px solid var(--border); margin-bottom:2.5rem; }
+  .hero-badge { display:inline-block; background:rgba(59,130,246,0.15); color:var(--accent); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 1rem; border-radius:100px; border:1px solid rgba(59,130,246,0.25); margin-bottom:1rem; }
+  .hero h1 { font-size:2rem; font-weight:800; color:var(--white); margin-bottom:0.5rem; }
+  .hero p { color:var(--muted); font-size:0.95rem; max-width:650px; margin:0 auto; }
+  .hero .date { color:var(--muted); font-size:0.75rem; margin-top:0.75rem; }
+
+  /* Nav */
+  .toc { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.5rem 2rem; margin-bottom:2.5rem; }
+  .toc h3 { color:var(--white); font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.75rem; }
+  .toc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem; }
+  .toc a { color:var(--accent); text-decoration:none; font-size:0.82rem; padding:0.25rem 0; display:block; }
+  .toc a:hover { text-decoration:underline; }
+  @media(max-width:640px) { .toc-grid { grid-template-columns:1fr; } }
+
+  /* Sections */
+  .section { margin-bottom:2.5rem; }
+  .section-title { font-size:1.1rem; font-weight:700; color:var(--white); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:2px solid var(--accent); }
+  .section-title.purple { border-color:var(--accent2); }
+  .section-title.gold { border-color:var(--gold); }
+  .section-title.green { border-color:var(--green); }
+
+  /* Cards */
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1rem; }
+  .card h3 { font-size:0.95rem; font-weight:600; color:var(--white); margin-bottom:0.5rem; }
+  .card p, .card li { font-size:0.85rem; color:var(--text); }
+  .card ul { list-style:none; padding:0; }
+  .card ul li { padding:0.2rem 0 0.2rem 1.2rem; position:relative; }
+  .card ul li::before { content:""; position:absolute; left:0; top:0.55rem; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+
+  /* Funnel */
+  .funnel-stage { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem 1.5rem; margin-bottom:0.75rem; display:grid; grid-template-columns:140px 1fr; gap:1rem; align-items:start; }
+  .funnel-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; padding:0.3rem 0.75rem; border-radius:6px; text-align:center; margin-top:0.15rem; }
+  .fl-discover { background:rgba(59,130,246,0.15); color:var(--accent); }
+  .fl-trust { background:rgba(139,92,246,0.15); color:var(--accent2); }
+  .fl-apply { background:rgba(245,158,11,0.15); color:var(--gold); }
+  .fl-call { background:rgba(249,115,22,0.15); color:var(--orange); }
+  .fl-enroll { background:rgba(16,185,129,0.15); color:var(--green); }
+  .fl-deliver { background:rgba(16,185,129,0.15); color:var(--green); }
+  .fl-loop { background:rgba(59,130,246,0.15); color:var(--accent); }
+  .funnel-content { font-size:0.85rem; }
+  .funnel-content strong { color:var(--white); }
+  @media(max-width:640px) { .funnel-stage { grid-template-columns:1fr; } }
+
+  /* Calendar */
+  .week-row { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.6rem; }
+  .week-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; }
+  .week-num { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--accent); }
+  .week-dates { font-size:0.7rem; color:var(--muted); }
+  .week-pillar { font-size:0.65rem; background:rgba(139,92,246,0.12); color:var(--accent2); padding:0.15rem 0.5rem; border-radius:4px; font-weight:600; }
+  .week-long { font-size:0.9rem; font-weight:600; color:var(--white); margin-bottom:0.35rem; }
+  .week-shorts { font-size:0.8rem; color:var(--muted); }
+  .week-shorts span { display:inline-block; background:rgba(255,255,255,0.05); padding:0.1rem 0.4rem; border-radius:4px; margin:0.1rem 0.15rem 0.1rem 0; font-size:0.75rem; }
+
+  /* SOP */
+  .sop-person { display:grid; grid-template-columns:160px 1fr; gap:1rem; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:0.75rem; }
+  .sop-name { font-weight:700; color:var(--white); font-size:0.95rem; }
+  .sop-role { font-size:0.75rem; color:var(--accent); font-weight:500; }
+  .sop-tasks { font-size:0.85rem; }
+  .sop-tasks li { margin-bottom:0.25rem; }
+  @media(max-width:640px) { .sop-person { grid-template-columns:1fr; } }
+
+  /* KPIs */
+  .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; }
+  .kpi { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1rem; text-align:center; }
+  .kpi-val { font-size:1.4rem; font-weight:700; color:var(--white); }
+  .kpi-label { font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-top:0.25rem; }
+  .kpi-target { font-size:0.7rem; color:var(--green); margin-top:0.15rem; }
+  @media(max-width:640px) { .kpi-grid { grid-template-columns:repeat(2,1fr); } }
+
+  /* Alerts */
+  .alert { border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1rem; }
+  .alert-red { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); }
+  .alert-red h3 { color:var(--red); }
+  .alert-green { background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); }
+  .alert-green h3 { color:var(--green); }
+  .alert h3 { font-size:0.9rem; margin-bottom:0.5rem; }
+  .alert p, .alert li { font-size:0.85rem; }
+  .alert ul { list-style:none; padding:0; }
+  .alert ul li { padding:0.2rem 0 0.2rem 1.2rem; position:relative; }
+  .alert ul li::before { content:""; position:absolute; left:0; top:0.55rem; width:5px; height:5px; border-radius:50%; }
+  .alert-red ul li::before { background:var(--red); }
+  .alert-green ul li::before { background:var(--green); }
+
+  /* Tables */
+  table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+  th { text-align:left; padding:0.6rem 0.75rem; background:rgba(59,130,246,0.08); color:var(--accent); font-weight:600; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border); }
+  td { padding:0.6rem 0.75rem; border-bottom:1px solid var(--border); vertical-align:top; }
+
+  /* Footer */
+  .footer { text-align:center; padding:2rem 0; border-top:1px solid var(--border); margin-top:2rem; color:var(--muted); font-size:0.75rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">Client Success SOP</div>
+    <h1>TQA: 90-Day Content-to-Revenue Plan</h1>
+    <p>DJ Naronikar's complete playbook. Every video topic, every channel, every team task, every week for 90 days. Based on real search data, competitor analysis, and a proven organic funnel model.</p>
+    <div class="date">April 7, 2026 | Prepared by Dylan Ewing</div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>What's in this document</h3>
+    <div class="toc-grid">
+      <div>
+        <a href="#model">The Model</a>
+        <a href="#funnel">Full Funnel Map</a>
+        <a href="#pricing">Pricing (final)</a>
+      </div>
+      <div>
+        <a href="#channels">Channel Strategy</a>
+        <a href="#calendar">90-Day Content Calendar</a>
+        <a href="#kpis">KPIs + Targets</a>
+      </div>
+      <div>
+        <a href="#sop">Team SOP</a>
+        <a href="#weekly">Weekly Workflow</a>
+        <a href="#blockers">Blockers + Decisions</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Model -->
+  <div class="section" id="model">
+    <div class="section-title">The Model</div>
+    <div class="card">
+      <h3>Victoria Shearing's Organic Funnel (adapted for DJ)</h3>
+      <p>Victoria has 315 YouTube subscribers and 10 videos. She gets 2,200 views on a single video and books sales calls from it. Her model: post content on IG to catch attention, send them to YouTube to build trust, every video links to Calendly, close on the call.</p>
+      <p style="margin-top:0.75rem;">We're taking that framework and fitting it to DJ's situation. DJ has 28 years of real CISO experience, two student success stories, world-class case studies, and 9K LinkedIn followers already. The content writes itself. He just needs to press record.</p>
+      <p style="margin-top:0.75rem;font-weight:600;color:var(--white);">IG (catch attention) > YouTube (build trust) > Application > 15-min Call > CISO 360 ($4,997)</p>
+    </div>
+  </div>
+
+  <!-- Funnel -->
+  <div class="section" id="funnel">
+    <div class="section-title purple">Full Funnel Map</div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-discover">1. Discovery</div></div>
+      <div class="funnel-content">They find DJ through <strong>YouTube search</strong> ("IT to cybersecurity 2026"), an <strong>IG Reel</strong> in their feed, a <strong>LinkedIn post</strong>, a <strong>podcast episode</strong> during their commute, or a <strong>referral</strong> from a current student.</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-trust">2. Trust</div></div>
+      <div class="funnel-content">They watch 3-5 YouTube videos. They see DJ's case studies: Central Bank policy, the $300K wire fraud, Emirates Nuclear. They see student results: Rob G went from chef to $120K analyst. They think: <strong>"This guy actually did it."</strong></div>
+    </div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-apply">3. Application</div></div>
+      <div class="funnel-content">They click the link in the YouTube description or IG bio. They fill out a <strong>5-8 question application</strong>: current role, years of experience, salary goal, timeline, whether they can invest $5K. GHL auto-scores them (0-12 pts).</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-call">4. Strategy Call</div></div>
+      <div class="funnel-content"><strong>15 minutes on Zoom.</strong> Not a sales pitch. DJ reviews their application, gives an honest assessment. If they're a fit: "I'd like to invite you to CISO 360." If not: "Here's what to do first." The credibility does the selling.</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-enroll">5. Enrollment</div></div>
+      <div class="funnel-content"><strong>$4,997 PIF</strong> or <strong>$1,897 x 3.</strong> Stripe checkout. GHL sends welcome email. DJ does a VIP welcome call with the new student.</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-deliver">6. Delivery</div></div>
+      <div class="funnel-content">14-week CISO 360 program. 120+ pages of courseware (already built). Weekly live sessions. LinkedIn/resume optimization. Placement support. <strong>Result: student lands $150K+ cybersecurity role.</strong></div>
+    </div>
+
+    <div class="funnel-stage">
+      <div><div class="funnel-label fl-loop">7. Flywheel</div></div>
+      <div class="funnel-content">Student gets the result. DJ asks for a testimonial. Testimonial becomes a YouTube video. More proof, more applications, more students. <strong>Repeat.</strong></div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="section" id="pricing">
+    <div class="section-title gold">Pricing (Final)</div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead><tr><th>Step</th><th>Price</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>All content (YouTube, IG, LinkedIn, Podcast)</td><td style="color:var(--green);font-weight:700;">Free</td><td>Proves DJ knows what he's talking about</td></tr>
+          <tr><td>Application form</td><td style="color:var(--green);font-weight:700;">Free</td><td>Filters out people who aren't serious</td></tr>
+          <tr><td>15-min strategy call with DJ</td><td style="color:var(--green);font-weight:700;">Free</td><td>DJ decides if they're a fit</td></tr>
+          <tr><td>CISO 360 Program</td><td style="color:var(--gold);font-weight:700;">$4,997 PIF / $1,897x3</td><td>The 14-week career transformation</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:0.5rem;">No middle tiers. No $97/mo. No $47 briefing. Free content, free application, free call, one price.</p>
+  </div>
+
+  <!-- Channels -->
+  <div class="section" id="channels">
+    <div class="section-title">Channel Strategy</div>
+
+    <div class="card">
+      <h3>YouTube (start week 1)</h3>
+      <p>YouTube is a search engine. "IT to cybersecurity" peaked at 100 on Google Trends. Boyd Clewis has 318K subs in this niche. Josh Madakor has 220K. The demand is there.</p>
+      <ul>
+        <li>1 long video per week (10-20 min)</li>
+        <li>3-5 Shorts per week (cut from the long video)</li>
+        <li>Every description links to the application page</li>
+        <li>Channel name: "DJ Naronikar | CISO Career Coach"</li>
+        <li>Thumbnails: DJ's face + bold text + one number</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Instagram (start week 1)</h3>
+      <p>Catches people scrolling. They see something interesting, click through to YouTube for the full video.</p>
+      <ul>
+        <li>Repost YouTube Shorts as Reels. No extra work.</li>
+        <li>1-2 carousels per week (career tips, salary data, myth-busting)</li>
+        <li>Bio links to YouTube channel</li>
+        <li>Every Reel ends with "Full breakdown on YouTube, link in bio"</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>LinkedIn (start week 1)</h3>
+      <p>DJ already has 9K followers and 1K newsletter subscribers. This is where his audience lives.</p>
+      <ul>
+        <li>3-4 text posts per week (repurpose YouTube topics)</li>
+        <li>1 newsletter per week through "Quantum AI Cyber Articles"</li>
+        <li>Every post points to the YouTube video in comments</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Podcast (start week 2-3)</h3>
+      <p>"Cyber Caffeine" is taken on Spotify (SISAP, 30 episodes). DJ needs a new name: "The CISO Path," "CISO 360 Podcast," or "From IT to CISO with DJ Naronikar."</p>
+      <ul>
+        <li>Strip audio from the YouTube video. Upload as a podcast episode.</li>
+        <li>Same content, new channel, zero extra recording time.</li>
+        <li>Publish via Buzzsprout or Anchor (one upload goes everywhere)</li>
+        <li>Every intro/outro includes application CTA</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 90-Day Calendar -->
+  <div class="section" id="calendar">
+    <div class="section-title green">90-Day Content Calendar (April 7 - July 6, 2026)</div>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem;">Every topic is based on real search data. Google Trends volume, Josh Madakor's top-performing formats, and YouTube search results for DJ's niche. No guessing.</p>
+
+    <!-- Phase 1 -->
+    <h3 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;margin:1.25rem 0 0.75rem;">Phase 1: Foundation (Weeks 1-4)</h3>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem;">Goal: Get 4 long videos live. Establish the channel. Start the YouTube algorithm learning what your content is about.</p>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 1</span>
+        <span class="week-dates">Apr 7-13</span>
+        <span class="week-pillar">Career Transition</span>
+      </div>
+      <div class="week-long">Long: "IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</div>
+      <div class="week-shorts">Shorts: <span>My 28-year path in 60 seconds</span> <span>3 roles that don't need a CS degree</span> <span>Why IT pros are switching now</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 2</span>
+        <span class="week-dates">Apr 14-20</span>
+        <span class="week-pillar">Money / Salary</span>
+      </div>
+      <div class="week-long">Long: "How Much Do Cybersecurity Professionals Really Make? (Real Salary Data)"</div>
+      <div class="week-shorts">Shorts: <span>IT salary vs cyber salary, same experience</span> <span>The $150K starting point nobody talks about</span> <span>CISO salary breakdown by industry</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 3</span>
+        <span class="week-dates">Apr 21-27</span>
+        <span class="week-pillar">DJ Case Study</span>
+      </div>
+      <div class="week-long">Long: "I Stopped a $300K Wire Fraud. Here's How Cybersecurity Actually Works."</div>
+      <div class="week-shorts">Shorts: <span>The $300K email I caught in 90 seconds</span> <span>How business email compromise works</span> <span>What a CISO does on a Tuesday</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 4</span>
+        <span class="week-dates">Apr 28 - May 4</span>
+        <span class="week-pillar">AI + Cybersecurity</span>
+      </div>
+      <div class="week-long">Long: "AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</div>
+      <div class="week-shorts">Shorts: <span>3 IT roles AI will replace by 2027</span> <span>Why AI can't replace a CISO</span> <span>The cybersecurity skill AI can't learn</span></div>
+    </div>
+
+    <!-- Phase 2 -->
+    <h3 style="color:var(--accent2);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;margin:1.25rem 0 0.75rem;">Phase 2: Authority (Weeks 5-8)</h3>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem;">Goal: Social proof, industry depth, and DJ's unique credentials. Applications should start coming in by Week 6.</p>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 5</span>
+        <span class="week-dates">May 5-11</span>
+        <span class="week-pillar">Social Proof</span>
+      </div>
+      <div class="week-long">Long: "My Student Went From Chef to $120K Cybersecurity Analyst (Rob G's Story)"</div>
+      <div class="week-shorts">Shorts: <span>Rob G's story in 60 seconds</span> <span>You don't need an IT background</span> <span>What Rob did in week 1 of CISO 360</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 6</span>
+        <span class="week-dates">May 12-18</span>
+        <span class="week-pillar">Certifications</span>
+      </div>
+      <div class="week-long">Long: "Best Cybersecurity Certifications in 2026 (From Someone Who Has All of Them)"</div>
+      <div class="week-shorts">Shorts: <span>CISSP vs Security+, which first?</span> <span>The cert that gets you hired fastest</span> <span>Certifications I actually used on the job</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 7</span>
+        <span class="week-dates">May 19-25</span>
+        <span class="week-pillar">DJ's Niche Audience</span>
+      </div>
+      <div class="week-long">Long: "Cybersecurity Career After 40: What Nobody Tells Indian IT Professionals"</div>
+      <div class="week-shorts">Shorts: <span>H-1B to cybersecurity: what changes</span> <span>Age is an advantage in security</span> <span>The IT ceiling is real. Here's the exit.</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 8</span>
+        <span class="week-dates">May 26 - Jun 1</span>
+        <span class="week-pillar">Career Paths</span>
+      </div>
+      <div class="week-long">Long: "GRC vs SOC vs Pentesting: Which Cybersecurity Path Fits You?"</div>
+      <div class="week-shorts">Shorts: <span>GRC explained in 60 seconds</span> <span>SOC analyst day in the life (real version)</span> <span>The path with the fewest interviews</span></div>
+    </div>
+
+    <!-- Phase 3 -->
+    <h3 style="color:var(--green);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;margin:1.25rem 0 0.75rem;">Phase 3: Scale (Weeks 9-13)</h3>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem;">Goal: Double down on what's working. Use analytics to see which topics get views. More case studies, more proof, more depth on winning topics.</p>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 9</span>
+        <span class="week-dates">Jun 2-8</span>
+        <span class="week-pillar">Authority</span>
+      </div>
+      <div class="week-long">Long: "I Wrote Cybersecurity Law for a Central Bank. Here's What I Learned."</div>
+      <div class="week-shorts">Shorts: <span>Policy that became law for every bank</span> <span>What a Central Bank audit looks like</span> <span>The difference between policy and compliance</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 10</span>
+        <span class="week-dates">Jun 9-15</span>
+        <span class="week-pillar">Job Market Data</span>
+      </div>
+      <div class="week-long">Long: "100 Cybersecurity Jobs Analyzed: What Employers Actually Want in 2026"</div>
+      <div class="week-shorts">Shorts: <span>The skill in 87% of job posts</span> <span>Degrees vs certs: what hiring managers said</span> <span>Remote cyber jobs: the real numbers</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 11</span>
+        <span class="week-dates">Jun 16-22</span>
+        <span class="week-pillar">Interview Prep</span>
+      </div>
+      <div class="week-long">Long: "How to Ace a Cybersecurity Interview (From the CISO Who's Hiring)"</div>
+      <div class="week-shorts">Shorts: <span>The question every interviewer asks first</span> <span>What I look for in 30 seconds</span> <span>3 answers that got people hired</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 12</span>
+        <span class="week-dates">Jun 23-29</span>
+        <span class="week-pillar">Urgency / Mindset</span>
+      </div>
+      <div class="week-long">Long: "The Real Cost of Staying in IT When Cybersecurity Is Calling"</div>
+      <div class="week-shorts">Shorts: <span>$50K/year gap compounded over 10 years</span> <span>The conversation I have with every stuck IT pro</span> <span>Why waiting costs more than starting</span></div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-header">
+        <span class="week-num">Week 13</span>
+        <span class="week-dates">Jun 30 - Jul 6</span>
+        <span class="week-pillar">Review + Double Down</span>
+      </div>
+      <div class="week-long">Long: Repeat the format that got the most views in weeks 1-12</div>
+      <div class="week-shorts">Shorts: Reshoot/update best performers. Use comments and questions from the audience for new angles.</div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="section" id="kpis">
+    <div class="section-title gold">KPIs + Targets</div>
+    <h3 style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.75rem;">End of 90 Days</h3>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-val">12</div>
+        <div class="kpi-label">Long Videos</div>
+        <div class="kpi-target">1/week for 12 weeks</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">40+</div>
+        <div class="kpi-label">Shorts</div>
+        <div class="kpi-target">3-5/week</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">500+</div>
+        <div class="kpi-label">YouTube Subs</div>
+        <div class="kpi-target">From zero</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val">$10K+</div>
+        <div class="kpi-label">Revenue Target</div>
+        <div class="kpi-target">2 students at $4,997</div>
+      </div>
+    </div>
+
+    <div style="margin-top:1rem;">
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table>
+          <thead><tr><th>Metric</th><th>Month 1</th><th>Month 2</th><th>Month 3</th></tr></thead>
+          <tbody>
+            <tr><td>Long videos published</td><td>4</td><td>8</td><td>12</td></tr>
+            <tr><td>Shorts published</td><td>12-20</td><td>24-40</td><td>36-60</td></tr>
+            <tr><td>YouTube subscribers</td><td>50-100</td><td>150-300</td><td>300-500+</td></tr>
+            <tr><td>Avg views per video</td><td>200-500</td><td>500-1,500</td><td>1,000-3,000</td></tr>
+            <tr><td>Applications received</td><td>5-10</td><td>15-30</td><td>30-50</td></tr>
+            <tr><td>Strategy calls booked</td><td>2-5</td><td>8-15</td><td>15-25</td></tr>
+            <tr><td>Students enrolled</td><td>0-1</td><td>1-2</td><td>2-4</td></tr>
+            <tr><td style="font-weight:700;color:var(--white);">Revenue</td><td>$0-$4,997</td><td>$4,997-$9,994</td><td style="color:var(--green);font-weight:700;">$9,994-$19,988</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOP -->
+  <div class="section" id="sop">
+    <div class="section-title purple">Team SOP</div>
+
+    <div class="sop-person">
+      <div>
+        <div class="sop-name">DJ Naronikar</div>
+        <div class="sop-role">Founder / Instructor</div>
+      </div>
+      <div class="sop-tasks">
+        <ul>
+          <li><strong>Monday:</strong> Record 1 long YouTube video (10-20 min). Cut 3-5 Shorts from the recording. Total: 1-2 hours.</li>
+          <li><strong>Tuesday:</strong> Review and approve video uploads + descriptions. 15 min.</li>
+          <li><strong>Wednesday:</strong> Write or approve LinkedIn post based on video topic. 15 min.</li>
+          <li><strong>Thursday:</strong> Approve podcast episode (audio stripped from video). 5 min.</li>
+          <li><strong>Friday:</strong> Review applications, schedule strategy calls. 30 min.</li>
+          <li><strong>As needed:</strong> Take 15-min strategy calls with qualified applicants.</li>
+          <li><strong>Weekly total: 4-5 hours.</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sop-person">
+      <div>
+        <div class="sop-name">Agresh K</div>
+        <div class="sop-role">GHL Admin / Automations</div>
+      </div>
+      <div class="sop-tasks">
+        <ul>
+          <li><strong>Before launch:</strong> Publish the 7 draft GHL workflows. Overdue since March 17.</li>
+          <li><strong>Before launch:</strong> Build the application form (5-8 questions) and connect to GHL pipeline.</li>
+          <li><strong>Before launch:</strong> Set up automated welcome email for new CISO 360 students.</li>
+          <li><strong>Weekly:</strong> Monitor application pipeline. Flag high-scoring leads (9-12 pts) to DJ within 24 hours.</li>
+          <li><strong>Weekly:</strong> Send application follow-up emails to people who started but didn't finish.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sop-person">
+      <div>
+        <div class="sop-name">Shreyas</div>
+        <div class="sop-role">Meta Ads</div>
+      </div>
+      <div class="sop-tasks">
+        <ul>
+          <li><strong>Weeks 1-4:</strong> Nothing. Let DJ build organic content first.</li>
+          <li><strong>Week 5+:</strong> Identify top-performing YouTube videos (highest views, longest watch time).</li>
+          <li><strong>Week 5+:</strong> Run $10-20/day Meta ads boosting those videos. Retarget video viewers.</li>
+          <li><strong>Ongoing:</strong> Track CPL from ads vs organic. Report weekly.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sop-person">
+      <div>
+        <div class="sop-name">Dylan Ewing</div>
+        <div class="sop-role">AI Automation / Tech</div>
+      </div>
+      <div class="sop-tasks">
+        <ul>
+          <li><strong>Before launch:</strong> Build/update application page with proper Stripe links.</li>
+          <li><strong>Before launch:</strong> Update YouTube channel bio, banner, description.</li>
+          <li><strong>Before launch:</strong> Create Canva thumbnail template for DJ to reuse.</li>
+          <li><strong>Before launch:</strong> Set up Calendly for 15-min strategy calls.</li>
+          <li><strong>Week 2-3:</strong> Set up podcast host (Buzzsprout/Anchor) and first episode upload.</li>
+          <li><strong>Ongoing:</strong> Automate content repurposing (YouTube audio > podcast, Shorts > IG Reels).</li>
+          <li><strong>Monthly:</strong> Pull analytics. Update this SOP with what's working.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly Workflow -->
+  <div class="section" id="weekly">
+    <div class="section-title">Weekly Workflow</div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead><tr><th>Day</th><th>DJ</th><th>Agresh</th><th>Dylan</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;color:var(--white);">Monday</td><td>Record video + cut Shorts</td><td>Monitor applications</td><td>Prep description template</td></tr>
+          <tr><td style="font-weight:600;color:var(--white);">Tuesday</td><td>Approve uploads</td><td>Follow up incomplete applications</td><td>Upload long video + Shorts to YouTube</td></tr>
+          <tr><td style="font-weight:600;color:var(--white);">Wednesday</td><td>Write/approve LinkedIn post</td><td>Flag hot leads to DJ</td><td>Post Shorts as IG Reels</td></tr>
+          <tr><td style="font-weight:600;color:var(--white);">Thursday</td><td>Approve podcast episode</td><td>Send weekly pipeline summary</td><td>Upload podcast episode</td></tr>
+          <tr><td style="font-weight:600;color:var(--white);">Friday</td><td>Review apps + book calls</td><td>Update GHL pipeline status</td><td>LinkedIn newsletter from video script</td></tr>
+          <tr><td style="font-weight:600;color:var(--white);">Weekend</td><td>Take strategy calls if booked</td><td>-</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Blockers -->
+  <div class="section" id="blockers">
+    <div class="section-title" style="border-color:var(--red);">Blockers + Decisions Needed</div>
+
+    <div class="alert alert-red">
+      <h3>Must resolve before Week 1</h3>
+      <ul>
+        <li><strong>DJ confirms:</strong> 1 video + 3-5 Shorts per week. Yes or no. The entire plan depends on this.</li>
+        <li><strong>Podcast name:</strong> "Cyber Caffeine" is taken on Spotify. DJ picks a new name.</li>
+        <li><strong>Recording setup:</strong> Phone is fine. DJ needs a mic and a quiet room.</li>
+        <li><strong>Agresh publishes:</strong> 7 GHL workflow drafts. Sitting since March 17.</li>
+        <li><strong>Application page:</strong> Needs to be live with working Stripe links before any content goes out.</li>
+        <li><strong>Closer question resolved:</strong> Plan assumes DJ does 15-min calls. If he won't, we need a different solution.</li>
+      </ul>
+    </div>
+
+    <div class="alert alert-green">
+      <h3>Already done (from previous sessions)</h3>
+      <ul>
+        <li>Stripe products created on DJ's account ($47, $97/mo, $4,997 PIF, $1,997/mo)</li>
+        <li>GHL CRM set up with lead scoring (0-12 pts)</li>
+        <li>3 VAPI voice assistants configured (Priya, Webinar Confirm, Re-Engage)</li>
+        <li>Quiz, landing page, and sales page live on GitHub Pages</li>
+        <li>Schema markup added to sales page</li>
+        <li>5 SEO blog articles written for WordPress</li>
+        <li>LinkedIn 30-day content calendar drafted</li>
+        <li>120-130 pages CISO 360 courseware uploaded to Google Drive</li>
+        <li>Competitor research completed (Madakor, Auger, Clewis, CyLife, Cyber Leadership)</li>
+        <li>Google Trends + YouTube search data pulled for all target keywords</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>TQA Client Success SOP | April 7, 2026</p>
+    <p style="margin-top:0.15rem;">Prepared by Dylan Ewing | dylan@thedylanewing.com</p>
+    <p style="margin-top:0.15rem;">Research data: Google Trends, YouTube competitor analysis, Josh Madakor channel data, Victoria Shearing funnel model</p>
+  </div>
+
+</div>
+</body>
+</html>

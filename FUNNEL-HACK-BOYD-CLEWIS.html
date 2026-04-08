@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funnel Hack: Boyd Clewis / CyberHero School -- For DJ Naronikar</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --card: #111827;
+    --border: #1e293b;
+    --accent: #3b82f6;
+    --accent2: #10b981;
+    --gold: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 3rem;
+  }
+  .header h1 { font-size: 2.2rem; color: var(--white); margin-bottom: 0.5rem; }
+  .header .subtitle { color: var(--accent); font-size: 1.1rem; font-weight: 600; }
+  .header .meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
+
+  /* Section */
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .section h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section h2 .num {
+    background: var(--accent);
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section .tag {
+    display: inline-block;
+    background: rgba(59,130,246,0.15);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .section h3 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .section h4 {
+    color: var(--accent2);
+    font-size: 1rem;
+    margin: 1rem 0 0.4rem;
+  }
+  .section p, .section li { color: var(--text); margin-bottom: 0.5rem; }
+  .section ul, .section ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .section ul li { list-style: disc; }
+  .section ol li { list-style: decimal; }
+
+  /* Stat row */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .stat-card {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .stat-card .val { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Quote */
+  .quote {
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.5rem;
+    background: rgba(245,158,11,0.05);
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .quote .attr { font-style: normal; color: var(--gold); font-weight: 600; margin-top: 0.5rem; }
+
+  /* URL highlight */
+  .url {
+    display: inline-block;
+    background: rgba(16,185,129,0.1);
+    color: var(--accent2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    word-break: break-all;
+  }
+
+  /* Funnel flow */
+  .funnel-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  .funnel-step {
+    background: rgba(59,130,246,0.12);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+  }
+  .funnel-arrow {
+    color: var(--muted);
+    font-size: 1.2rem;
+  }
+
+  /* Offer table */
+  .offer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+  .offer-table th {
+    background: rgba(59,130,246,0.15);
+    color: var(--accent);
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .offer-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .offer-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Highlight box */
+  .highlight {
+    background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.25);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+  .highlight.green {
+    background: rgba(16,185,129,0.08);
+    border-color: rgba(16,185,129,0.25);
+  }
+  .highlight.red {
+    background: rgba(239,68,68,0.08);
+    border-color: rgba(239,68,68,0.25);
+  }
+
+  /* DJ action */
+  .dj-action {
+    background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(16,185,129,0.1));
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  .dj-action h4 { color: var(--white); margin-bottom: 0.5rem; }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.5rem; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .funnel-flow { flex-direction: column; }
+    .funnel-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>FUNNEL HACK: Boyd Clewis / CyberHero School</h1>
+  <div class="subtitle">Complete Reverse-Engineering for DJ Naronikar's Cybersecurity Coaching Funnel</div>
+  <div class="meta">Researched March 30, 2026 | All data captured from live sites via Playwright browser walk-through</div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section">
+  <span class="tag">Executive Summary</span>
+  <h2>The Boyd Clewis Funnel Blueprint</h2>
+  <p>Boyd Clewis runs an <strong>eight-figure cybersecurity training empire</strong> called CyberHero Enterprises, LLC. He positions himself as "the cybersecurity expert who helps people break into six-figure careers without certifications or degrees." His funnel is a textbook model for the cybersecurity career coaching niche. Here's the complete architecture:</p>
+
+  <div class="funnel-flow">
+    <div class="funnel-step">YouTube<br>(320K subs)</div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step">Free Masterclass<br>(Live Webinar)</div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step">CyberHero Accelerator<br>($997 one-time)</div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step">Skool Community<br>(1.8K members, free)</div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step">Wealth EngineX<br>(High-ticket coaching)</div>
+    <div class="funnel-arrow">&rarr;</div>
+    <div class="funnel-step">1:1 Consulting<br>($400/session)</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="val">320K</div><div class="label">YouTube Subscribers</div></div>
+    <div class="stat-card"><div class="val">40.2K</div><div class="label">LinkedIn Followers</div></div>
+    <div class="stat-card"><div class="val">41.9K</div><div class="label">Instagram Followers</div></div>
+    <div class="stat-card"><div class="val">1.8K</div><div class="label">Skool Members</div></div>
+    <div class="stat-card"><div class="val">$40M+</div><div class="label">Revenue Generated</div></div>
+    <div class="stat-card"><div class="val">1,000+</div><div class="label">Students Placed</div></div>
+  </div>
+</div>
+
+<!-- STEP 1: YOUTUBE -->
+<div class="section">
+  <span class="tag">Traffic Source</span>
+  <h2><span class="num">1</span> YouTube Channel -- The Top-of-Funnel Engine</h2>
+
+  <p><span class="url">youtube.com/@boydclewis</span></p>
+
+  <h3>Channel Stats</h3>
+  <ul>
+    <li><strong>Subscribers:</strong> 320K</li>
+    <li><strong>Total Videos:</strong> 246</li>
+    <li><strong>Joined:</strong> December 19, 2010</li>
+    <li><strong>Location:</strong> United States</li>
+    <li><strong>Banner:</strong> "BOYD CLEWIS -- CYBERSECURITY EXPERT -- NEW VIDEOS EVERY WEEK -- SUBSCRIBE"</li>
+    <li><strong>Verified:</strong> Yes (checkmark badge)</li>
+  </ul>
+
+  <h3>Channel Description (Full Bio)</h3>
+  <div class="quote">
+    "I'm Boyd Clewis, a cybersecurity consultant and career coach with almost 2 decades of experience in the field. This channel is all about protecting you so you can stay one step ahead of scammers. Expect entertaining, educational content every week! If you're ready to level up your career, outsmart scammers, and have a few laughs along the way, hit that subscribe button and turn on notifications."
+  </div>
+
+  <h3>Bio Links</h3>
+  <ul>
+    <li>LinkedIn: <span class="url">linkedin.com/in/boydclewis</span></li>
+    <li>Buy Me a Coffee: <span class="url">buymeacoffee.com/boydclewis</span></li>
+  </ul>
+
+  <h3>Content Strategy -- Two Distinct Video Types</h3>
+
+  <h4>TYPE 1: Viral Scam/Security Content (TOFU -- 80% of videos)</h4>
+  <p>These are his viral traffic magnets. They are NOT about career coaching -- they are fear-based consumer cybersecurity content designed to attract massive views:</p>
+  <ul>
+    <li>"They Don't Need Your Card. They Just Need Your Phone for 10 Seconds." -- <strong>126K views, 7 days ago</strong></li>
+    <li>"Your Cell Phone Carrier Just Handed Criminals Access To Your Bank..." -- <strong>97K views, 4 days ago</strong></li>
+    <li>"STOP Writing Checks Without Knowing About This New Scam" -- <strong>613K views, 3 months ago</strong></li>
+    <li>"The $20 ATM Scam That's Draining Bank Accounts in Minutes" -- <strong>528K views, 10 months ago</strong></li>
+    <li>"Expert Warns of DEADLY Debit Card Scam Sweeping the Nation" -- <strong>174K views, 6 months ago</strong></li>
+    <li>"Avoid This NEW Online Dating Scam Using AI" -- <strong>155K views, 1 year ago</strong></li>
+    <li>"A Paper-Thin Device at Walmart Self-Checkout Has Stolen $428 Million" -- <strong>135K views, 3 weeks ago</strong></li>
+    <li>"7 Sneaky New Bank Scams Draining Accounts in 2025" -- <strong>134K views, 11 months ago</strong></li>
+  </ul>
+  <p><strong>Pattern:</strong> Fear-based headlines, dollar amounts, urgency, current events. These videos establish him as THE cybersecurity authority in the viewer's mind.</p>
+
+  <h4>TYPE 2: Career Transition Content (MOFU/BOFU -- 20% of videos)</h4>
+  <p>These are the conversion videos that drive people into the funnel:</p>
+  <ul>
+    <li>"How I Went from $33k Helpdesk to $200k Cybersecurity Architect" -- <strong>1.1M views, 3 years ago</strong> (his #1 video)</li>
+    <li>"Free Training: Start a Cybersecurity Career In The Next 7 Days" -- <strong>1.1M views, 3 years ago</strong></li>
+    <li>"Cybersecurity Career in 7 Days? Is It REALLY Possible?" -- <strong>198K views, 3 years ago</strong></li>
+    <li>"Become a SOC Analyst for Free in 2025!" -- <strong>158K views, 2 years ago</strong></li>
+    <li>"ABSOLUTE BEST Way to Get Certified as a Cybersecurity Auditor" -- <strong>104K views, 2 years ago</strong></li>
+  </ul>
+
+  <div class="highlight">
+    <h4>KEY INSIGHT for DJ:</h4>
+    <p>Boyd uses VIRAL scam content (consumer-facing, fear-based) to attract massive audiences, then REDIRECTS career-interested viewers into his funnel via pinned comments and video descriptions. The scam videos build trust and authority. The career videos convert. This two-tier strategy is why he has 320K subs.</p>
+  </div>
+
+  <h3>Video Description CTA Pattern (from his #1 video)</h3>
+  <p>Every video description follows this format:</p>
+  <ol>
+    <li><strong>Primary CTA:</strong> "Get Mentored into a high-paying cybersecurity career!" with link to <span class="url">cyberherotraining.com/cyb...</span></li>
+    <li><strong>Book CTA:</strong> "Get My Best Selling Book and Learn How to Develop The Six-Figure Mindset and Career!"</li>
+    <li><strong>Hashtags:</strong> #cybersecurity #baxterclewis #boydclewis</li>
+    <li><strong>Social Links:</strong> Website, Instagram, LinkedIn, Facebook, Podcast</li>
+  </ol>
+
+  <h3>Pinned Comment Strategy</h3>
+  <p>Boyd pins his own comment on every video:</p>
+  <div class="quote">
+    "Free Training! The Fastest Way to Land High-Paying Cybersecurity Roles https://www.boydclewis.com/grc"
+    <div class="attr">Pinned by @BoydClewis</div>
+  </div>
+</div>
+
+<!-- STEP 2: MOST POPULAR VIDEO -->
+<div class="section">
+  <span class="tag">Trust Builder</span>
+  <h2><span class="num">2</span> Top Video Deep-Dive -- The Origin Story Video</h2>
+
+  <p><span class="url">youtu.be/BWesetFKGV0</span></p>
+
+  <h3>Video Details</h3>
+  <ul>
+    <li><strong>Title:</strong> "Free Training: Start a Cybersecurity Career In The Next 7 Days Without Coding Skills!"</li>
+    <li><strong>Views:</strong> 1.1 million</li>
+    <li><strong>Likes:</strong> 61K</li>
+    <li><strong>Comments:</strong> 1,757</li>
+    <li><strong>Posted:</strong> 3 years ago</li>
+    <li><strong>Length:</strong> Approx 20 minutes</li>
+  </ul>
+
+  <h3>Video Description CTAs</h3>
+  <ol>
+    <li><strong>Top CTA:</strong> "Get Mentored into a high-paying cybersecurity career!" --> cyberherotraining.com</li>
+    <li><strong>Book CTA:</strong> Link to Amazon book</li>
+    <li><strong>Social Links:</strong> Website, Instagram, LinkedIn, Facebook</li>
+    <li><strong>Podcast:</strong> "Don't Be An I.T. Guy Podcast" on iTunes</li>
+  </ol>
+
+  <h3>Pinned Comment (drives masterclass registrations)</h3>
+  <div class="quote">
+    "Free Training! The Fastest Way to Land High-Paying Cybersecurity Roles https://www.boydclewis.com/grc"
+    <div class="attr">Pinned by @BoydClewis -- 67 likes, 11 replies</div>
+  </div>
+
+  <div class="dj-action">
+    <h4>DJ ACTION: Create YOUR origin story video</h4>
+    <p>Boyd's #1 video is his personal journey: $33K helpdesk to $200K cybersecurity architect. DJ needs an equivalent: his transformation story, with a specific dollar figure journey. This becomes the evergreen funnel entry point. Title format: "How I Went from [low role/salary] to [high role/salary] in Cybersecurity"</p>
+  </div>
+</div>
+
+<!-- STEP 3: PERSONAL WEBSITE -->
+<div class="section">
+  <span class="tag">Hub / Authority Site</span>
+  <h2><span class="num">3</span> Personal Website -- boydclewis.com</h2>
+
+  <p><span class="url">boydclewis.com</span></p>
+  <p><strong>Page Title:</strong> "Boyd Clewis -- Cybersecurity Expert, Business Strategist & Forbes Books Author"</p>
+
+  <h3>Homepage Structure (single-page design, dark theme)</h3>
+
+  <h4>Hero Section</h4>
+  <ul>
+    <li><strong>Subtitle:</strong> "Cybersecurity Expert . Business Strategist"</li>
+    <li><strong>Headline:</strong> "Boyd Clewis"</li>
+    <li><strong>Subheadline:</strong> "Helping Tech Professionals Protect Their Future & Build Real Wealth"</li>
+    <li><strong>Body:</strong> "Whether you're breaking into cybersecurity or turning six-figure expertise into a business you own -- Boyd has built the roadmap and helped thousands walk it."</li>
+    <li><strong>Social Proof Bar:</strong> "Featured On:" -- Forbes, NBC, ABC, FOX, CBS, Black Enterprise logos</li>
+    <li><strong>Trust Badges:</strong> Forbes Technology Council, Forbes Books, Amazon #1 Best Seller</li>
+  </ul>
+
+  <h4>Programs Section -- "Where Are You on the Journey?"</h4>
+  <p>This is the key fork in the funnel. Two paths, two audiences:</p>
+  <table class="offer-table">
+    <tr>
+      <th>Path</th>
+      <th>Product</th>
+      <th>Target</th>
+      <th>CTA</th>
+      <th>Link</th>
+    </tr>
+    <tr>
+      <td><strong>Break In / Level Up</strong></td>
+      <td>CyberHero Training</td>
+      <td>Career starters wanting six figures</td>
+      <td>"Claim Your Spot"</td>
+      <td>boydclewis.com/accelerate-into-cyber</td>
+    </tr>
+    <tr>
+      <td><strong>Already Earning Six Figures?</strong></td>
+      <td>Wealth EngineX</td>
+      <td>Senior tech pros wanting to build a business</td>
+      <td>"Claim Your Spot"</td>
+      <td>wealthenginex.com/expert-to-empire</td>
+    </tr>
+  </table>
+
+  <h4>Testimonials Section -- "Real People. Real Results."</h4>
+  <p>Three video testimonials with pull-quotes and specific results:</p>
+  <ul>
+    <li><strong>Jon Chintanaroad (Founder, Recruiting Launch):</strong> "Boyd really helped me fix my offer pricing, my sales, and my marketing... Since working with Boyd, sales went through the roof."</li>
+    <li><strong>Erika Thomas (Founder, Career AI Academy):</strong> "$15K+ in revenue in 45 days" (specific dollar amount highlighted)</li>
+    <li><strong>Isshai (Agile Coach, IT Industry Tools):</strong> "$1,500 to 7 Figures -- Online Business Built in 2 Years"</li>
+  </ul>
+  <p>Plus 3 text-only testimonials with specific outcomes:</p>
+  <ul>
+    <li>Marcus T.: $45K help desk to $112K GRC Analyst in 8 months -- no CISSP, no CISM</li>
+    <li>Danielle R.: Replaced salary in under six months with consulting</li>
+    <li>Jason W.: Promoted twice in one year</li>
+  </ul>
+
+  <h4>Other Homepage Sections</h4>
+  <ul>
+    <li><strong>In the News:</strong> Media logo bar (Forbes, NBC, ABC, FOX, CBS, Black Enterprise)</li>
+    <li><strong>About Boyd:</strong> Bio with credentials -- Forbes Books author, Forbes Technology Council, TCU lecturer, 1000+ professionals trained</li>
+    <li><strong>Book Section:</strong> "Through the Firewall: The Alchemy of Turning Crisis into Opportunity" -- Forbes Books, links to Amazon</li>
+    <li><strong>Personal Section:</strong> "Husband. Father. Preacher. Mentor." -- humanizes him, mentions 4 kids, community work</li>
+    <li><strong>Instagram Feed Embed:</strong> Via SociableKit -- shows his reels with engagement counts</li>
+    <li><strong>Social Links:</strong> Instagram, Facebook, X/Twitter, TikTok, LinkedIn</li>
+    <li><strong>Contact:</strong> Simple CTA -- "Contact Boyd" at contact@boydclewis.com</li>
+  </ul>
+
+  <h3>Tech Stack (from tracking scripts observed)</h3>
+  <ul>
+    <li><strong>CRM/Funnel Builder:</strong> GoHighLevel (LeadConnectorHQ scripts detected on every page)</li>
+    <li><strong>Tracking:</strong> Facebook Pixel, custom UTS tracking</li>
+    <li><strong>Instagram Embed:</strong> SociableKit</li>
+    <li><strong>Domain Registrar:</strong> Custom domain, clean URLs</li>
+    <li><strong>Design:</strong> Dark theme, modern, single-page scroll, mobile responsive</li>
+  </ul>
+</div>
+
+<!-- STEP 4: MASTERCLASS FUNNEL -->
+<div class="section">
+  <span class="tag">Lead Capture</span>
+  <h2><span class="num">4</span> Free Masterclass Funnel -- The Lead Magnet Machine</h2>
+
+  <p>Boyd runs TWO masterclass opt-in pages that feed the same webinar. Both are built on GoHighLevel.</p>
+
+  <h3>Page A: boydclewis.com/masterclass</h3>
+  <p><span class="url">boydclewis.com/masterclass</span></p>
+  <p><strong>Page Title:</strong> "How to Start a 6-Figure Cybersecurity Career | Free Masterclass"</p>
+
+  <h4>Urgency Bar (top of page)</h4>
+  <div class="quote">
+    "This Is the LAST Live Session of the Year -- No Replays. Be There Live or Miss It."<br>
+    "FREE Cybersecurity Career Training on Thursday, November 20th | 7PM CST"
+  </div>
+
+  <h4>Headline</h4>
+  <p style="font-size: 1.3rem; font-weight: 700; color: var(--white);">"How Tech Professionals Move Into High-Paying Cybersecurity Roles"</p>
+  <p style="font-size: 1rem; color: var(--gold);">"(WITHOUT A COLLEGE DEGREE, CERTIFICATIONS, OR STARTING OVER)"</p>
+
+  <h4>Scarcity Element</h4>
+  <p>"Live Room Capacity Limited -- Seats Close When Full"</p>
+
+  <h4>Form Fields (4 fields)</h4>
+  <ol>
+    <li>First Name</li>
+    <li>Last Name</li>
+    <li>Email*</li>
+    <li>Phone*</li>
+  </ol>
+
+  <h4>CTA Button</h4>
+  <p style="background: var(--accent); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; display: inline-block; font-weight: 700; font-size: 1rem;">"Save My Seat Now! 19 Spots Remaining!"</p>
+  <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">SMS consent checkbox included for text message follow-up</p>
+
+  <h4>Below-the-Fold Content (Long-form persuasion)</h4>
+
+  <p><strong>Problem Agitation:</strong></p>
+  <div class="quote">"If You Work in IT and Still Feel Underpaid, You're Likely Making This One Mistake... Help desk, sysadmin, network ops, Tier 1/Tier 2, support, cloud -- these jobs matter, but the salary ceiling is low. You're not unqualified. You're just in the wrong lane."</div>
+
+  <p><strong>"In This Live Session, I'll Show You How To:"</strong></p>
+  <ul>
+    <li>Identify the cyber role that matches your background</li>
+    <li>Translate your current skills into cybersecurity language</li>
+    <li>Avoid the mistake keeping tech professionals underpaid</li>
+    <li>Move into higher-paying roles without starting over</li>
+    <li>Build a 90-day plan to make the transition simple</li>
+    <li>Add $50k-$100k to your earning potential</li>
+  </ul>
+
+  <p><strong>Presenter Bios (Boyd & Tiana Clewis):</strong></p>
+  <ul>
+    <li>"The Experts Behind $100M In Cybersecurity Salaries"</li>
+    <li>"Together, they've helped more than 1,000 professionals transition into six-figure cybersecurity roles"</li>
+    <li>Media credits: Forbes, NBC, FOX, CBS, ABC, AfroTech, Black Enterprise</li>
+  </ul>
+
+  <p><strong>"Who This Training Is For" (Qualification):</strong></p>
+  <ul>
+    <li>Working IT professionals</li>
+    <li>Help desk, sysadmin, network, cloud, QA, support</li>
+    <li>People who feel undervalued or underpaid</li>
+    <li>People ready to shift into higher-paying cybersecurity roles</li>
+    <li>Professionals who want clarity, not hype</li>
+  </ul>
+
+  <p><strong>"Who This Training Is NOT For" (Disqualification):</strong></p>
+  <ul>
+    <li>People who don't follow directions</li>
+    <li>People looking to get "rich" quick</li>
+    <li>People looking for free certifications</li>
+    <li>People who are perfectly happy with being broke</li>
+  </ul>
+
+  <p><strong>Testimonials on Masterclass Page:</strong></p>
+  <ul>
+    <li>Josh T.: "I'm making $260K a year... What Boyd teaches in his program cannot be found on YouTube, you can't google it"</li>
+    <li>Marius C.: "My salary doubled and now I love what I do."</li>
+    <li>John I.: "I am making over $270K... if you are on the fence, jump over right now."</li>
+  </ul>
+
+  <h3>Page B: cyberherotraining.com</h3>
+  <p><span class="url">cyberherotraining.com</span></p>
+  <p>Simpler landing page, same webinar, different headline:</p>
+
+  <h4>Headline</h4>
+  <p style="font-size: 1.2rem; font-weight: 700; color: var(--white);">"Free Web Class Reveals... UPGRADE YOUR JOB TO A 6-FIGURE CAREER IN THE NEXT 90 DAYS WITHOUT CERTIFICATIONS USING A SIMPLE 4-STEP FRAMEWORK"</p>
+
+  <h4>Form Fields (3 fields -- simpler)</h4>
+  <ol>
+    <li>Your Name*</li>
+    <li>Email*</li>
+    <li>Phone*</li>
+  </ol>
+
+  <h4>CTA: "Get Instant Access! 19 Spots Remaining!"</h4>
+  <p>This is the page linked from YouTube video descriptions (cyberherotraining.com/cyb...).</p>
+
+  <div class="highlight">
+    <h4>MASTERCLASS CONVERSION TACTICS (For DJ to model):</h4>
+    <ul>
+      <li><strong>Artificial Scarcity:</strong> "19 Spots Remaining!" (static number, creates urgency)</li>
+      <li><strong>LIVE-only:</strong> "No Replays. Be There Live or Miss It." (forces attendance)</li>
+      <li><strong>Phone number capture:</strong> Enables SMS follow-up sequences</li>
+      <li><strong>SMS consent checkbox:</strong> Legal compliance for text automation</li>
+      <li><strong>"Last session" framing:</strong> "This is the LAST time I'm teaching this live in 2025"</li>
+      <li><strong>Qualification/Disqualification:</strong> Tells people who it IS and ISN'T for -- filters tire-kickers</li>
+      <li><strong>Specific dollar amounts in testimonials:</strong> $260K, $270K, "salary doubled"</li>
+      <li><strong>Two pages, one funnel:</strong> Different headlines for different traffic sources</li>
+    </ul>
+  </div>
+</div>
+
+<!-- STEP 5: CYBERHERO ACCELERATOR -->
+<div class="section">
+  <span class="tag">Core Offer ($997)</span>
+  <h2><span class="num">5</span> CyberHero Accelerator -- The Paid Product</h2>
+
+  <p><span class="url">boydclewis.com/accelerate-into-cyber</span></p>
+  <p><strong>Page Title:</strong> "CyberHero Accelerator -- Break Into Cybersecurity Without Certifications | Boyd Clewis"</p>
+
+  <h3>Sales Page Headline</h3>
+  <p style="font-size: 1.3rem; font-weight: 700; color: var(--white);">"The Overlooked Skill That Took Me from $40K to $230K -- Without a Degree or Certifications"</p>
+  <p><strong>Subheadline:</strong> "Master the one cybersecurity skill companies are legally required to hire for -- and that 99% of 'experts' online aren't teaching you."</p>
+
+  <h3>Social Proof Stats (top of page)</h3>
+  <div class="stats">
+    <div class="stat-card"><div class="val">1,000+</div><div class="label">Students Trained</div></div>
+    <div class="stat-card"><div class="val">90%+</div><div class="label">Job Offer Rate</div></div>
+    <div class="stat-card"><div class="val">$100M+</div><div class="label">In Student Salaries</div></div>
+  </div>
+
+  <h3>Sales Page Structure (Full Breakdown)</h3>
+
+  <h4>1. The Problem -- "The Certification Trap Is Costing You Everything"</h4>
+  <p>Pain points addressed:</p>
+  <ul>
+    <li>Spent thousands on certifications/bootcamps with no job</li>
+    <li>Stuck in help desk/IT support making $40K-$60K</li>
+    <li>Applying to hundreds of jobs and getting ghosted</li>
+    <li>Don't meet "3-5 years experience" requirements</li>
+    <li>Feel like they need "one more certification" before being ready</li>
+  </ul>
+  <p><strong>Story integration:</strong> Boyd's own $70K spent on certifications, failed marriage, depression, debt -- and still got rejected by American Airlines with 10+ certs including CISSP.</p>
+
+  <h4>2. The Breakthrough -- "Companies Don't Hire Certifications. They Hire Problem Solvers."</h4>
+  <p>Key messaging: "Hiring is selfish -- they hire because they have a problem." Uses the plumber analogy. Positions data breaches as THE problem (Target: $202M, Home Depot: $292M, Equifax: $425M).</p>
+  <p><strong>The Secret Weapon: PCI DSS</strong> -- Payment Card Industry Data Security Standard. "Fewer than 100,000 professionals globally know how to do it at a high level."</p>
+
+  <h4>3. Boyd's Origin Story Timeline</h4>
+  <ol>
+    <li><strong>Starting Point:</strong> College dropout, two kids, night shifts in IT, $60K</li>
+    <li><strong>The Accident:</strong> Coworker fell asleep during audit; Boyd took over, passed PCI audit, $16K raise</li>
+    <li><strong>The Breakthrough:</strong> American Airlines came back -- offered $150K Senior Architect. The man who rejected him now reported to Boyd</li>
+    <li><strong>The Mission:</strong> 1,000+ students trained, 90%+ job offer rate, $100M+ in collective salaries</li>
+  </ol>
+
+  <h4>4. Course Contents -- 6 Modules</h4>
+  <table class="offer-table">
+    <tr><th>#</th><th>Module</th><th>Description</th></tr>
+    <tr><td>01</td><td>PCI DSS Mastery Framework</td><td>Deep-dive into Payment Card Industry Data Security Standard compliance</td></tr>
+    <tr><td>02</td><td>Hands-On Lab Experience</td><td>Real PCI assessments on live systems -- firewalls, servers, network devices</td></tr>
+    <tr><td>03</td><td>The Nip Tuck Method</td><td>Position as specialist vs generalist ("plastic surgeon" analogy -- 10x income)</td></tr>
+    <tr><td>04</td><td>AI-Powered Career Repositioning Tools</td><td>Proprietary AI tools to translate any experience into cybersecurity language</td></tr>
+    <tr><td>05</td><td>Interview Confidence System</td><td>"Competence doesn't get you hired. Confidence does."</td></tr>
+    <tr><td>06</td><td>The Hired-First Principle</td><td>ISA and QSA credentials require employment first -- Boyd shows how to get in the door</td></tr>
+  </table>
+
+  <h3>Pricing</h3>
+  <div class="highlight green">
+    <p style="font-size: 2rem; font-weight: 800; color: var(--accent2); margin-bottom: 0.25rem;">$997</p>
+    <p><strong>One-Time Investment</strong> -- 12 months of full access. No recurring fees. No upsells.</p>
+    <ul>
+      <li>Complete PCI DSS Mastery training</li>
+      <li>Hands-on lab environment with real systems</li>
+      <li>AI career repositioning tools</li>
+      <li>Interview preparation and confidence system</li>
+      <li>Resume and experience positioning framework</li>
+      <li>Access to the CyberHero community</li>
+    </ul>
+    <p><strong>CTA:</strong> "Enroll Now -- $997" (appears 3 times on page)</p>
+  </div>
+
+  <h3>Video Testimonials on Sales Page</h3>
+  <ul>
+    <li><strong>Adrian Sandoval (Cisco):</strong> "I'm making over $100K at Cisco... I don't have any certifications. Zero."</li>
+    <li><strong>John ($270K+):</strong> "I am making over $270K... If you are on the fence, just jump over right now."</li>
+    <li><strong>Danny Tolbert ($120K+):</strong> "This program takes you to another level you're not going to find at a university."</li>
+  </ul>
+
+  <h3>FAQ Answers (reveals objection handling)</h3>
+  <ul>
+    <li><strong>Need certifications?</strong> No -- the whole point is bypassing them</li>
+    <li><strong>Not technical?</strong> PCI pros guide/assess technical teams, not operate them</li>
+    <li><strong>How fast?</strong> Students landed roles in as little as 8 weeks</li>
+    <li><strong>Salary range:</strong> PCI DSS roles start $80K-$120K, experienced $150K-$230K+</li>
+    <li><strong>Subscription?</strong> One-time $997. No recurring. 12 months access.</li>
+  </ul>
+
+  <div class="dj-action">
+    <h4>DJ ACTION: Model this sales page structure</h4>
+    <p>The page follows: Problem (cert trap) --> Breakthrough (the secret skill) --> Origin Story --> Course Contents --> Pricing --> Testimonials --> FAQ --> Final CTA. DJ should identify HIS "secret skill" equivalent to PCI DSS that companies are "legally required" to hire for. GRC, SOC, NIST, ISO 27001 -- pick ONE specialization and own it.</p>
+  </div>
+</div>
+
+<!-- STEP 6: SKOOL COMMUNITY -->
+<div class="section">
+  <span class="tag">Community / Retention</span>
+  <h2><span class="num">6</span> CyberHero School on Skool -- Free Community</h2>
+
+  <p><span class="url">skool.com/cyberhero</span> (cyberheroschool.com redirects here)</p>
+
+  <h3>Community Stats</h3>
+  <ul>
+    <li><strong>Members:</strong> 1,800 (1.8K)</li>
+    <li><strong>Price:</strong> FREE (Private group)</li>
+    <li><strong>Admins:</strong> 9</li>
+    <li><strong>Run by:</strong> CyberHero Support</li>
+    <li><strong>Status:</strong> ENROLLMENT CURRENTLY CLOSED (creates scarcity even for free community)</li>
+  </ul>
+
+  <h3>Community Description</h3>
+  <div class="quote">
+    "We built this community to help people like you transition into high-paying cybersecurity roles -- without needing a college degree or endless certifications. We created the JAF System, which has helped 10,237 people land cybersecurity jobs, even without traditional qualifications."
+  </div>
+
+  <h3>Included Resources</h3>
+  <ul>
+    <li>Through The Firewall: Transform Your Life and Career Workshop</li>
+    <li>Zero to CyberHero Launch Kit</li>
+    <li>The Job Acquisition Funnel (JAF) Masterclass</li>
+    <li>CyberHero Reinvention Series</li>
+    <li>Community Support and Monthly Class Credits</li>
+    <li>New courses unlocked every month</li>
+  </ul>
+
+  <div class="highlight">
+    <h4>STRATEGY INSIGHT:</h4>
+    <p>The Skool community is FREE but CLOSED enrollment. This does two things: (1) creates waitlist demand even for free content, (2) redirects people who want in NOW to cyberherotraining.com (the paid webinar funnel). The community is a retention tool for paid students AND a lead nurture for prospects.</p>
+  </div>
+</div>
+
+<!-- STEP 7: WEALTH ENGINEX -->
+<div class="section">
+  <span class="tag">Back-End / High-Ticket</span>
+  <h2><span class="num">7</span> Wealth EngineX -- The Ascension Offer</h2>
+
+  <p><span class="url">wealthenginex.com/expert-to-empire</span></p>
+  <p><strong>Page Title:</strong> "Wealth EngineX -- Build Owned Income | Boyd Clewis"</p>
+
+  <h3>Target Audience</h3>
+  <p>"For tech coaches, course creators, and service-based business owners who want to scale to six and seven figures."</p>
+  <p>This is NOT for career starters -- this is for people who ALREADY earn six figures and want to build a business.</p>
+
+  <h3>Lead Magnet -- Free Guide</h3>
+  <p><strong>"Free Guide: From Expert to Empire"</strong></p>
+  <p>"How I turned my knowledge into an 8-figure cybersecurity business -- and the 3 costly mistakes you can avoid."</p>
+  <ul>
+    <li>The marketing approach that actually repels high-ticket buyers</li>
+    <li>The silent revenue killer (celebrating wins while losing millions)</li>
+    <li>Why hitting your biggest revenue month can be the most dangerous moment</li>
+    <li>The system for generating revenue on autopilot</li>
+  </ul>
+
+  <h3>Pain Points Addressed ("Sound Familiar?")</h3>
+  <ol>
+    <li>Spending More on Ads but Getting Fewer Sales</li>
+    <li>Revenue Is Growing but Profits Aren't</li>
+    <li>You're the Bottleneck in Your Own Business</li>
+  </ol>
+
+  <h3>Boyd's Positioning</h3>
+  <div class="quote">
+    "Every result that you have in your life right now is the result of a system. If you don't have the result you want, you don't have the right system."
+    <div class="attr">-- Boyd Clewis</div>
+  </div>
+  <ul>
+    <li>"Internationally recognized cybersecurity expert"</li>
+    <li>"Company generating over $2 million per month"</li>
+    <li>"$40M+ generated online"</li>
+    <li>Badges: Forbes Books Author, Forbes Technology Council, Eight-Figure CEO, 1,000+ Students Placed</li>
+  </ul>
+
+  <div class="dj-action">
+    <h4>DJ ACTION: Plan for a future back-end offer</h4>
+    <p>Boyd's ladder: $0 (Skool/masterclass) --> $997 (Accelerator) --> High-ticket (Wealth EngineX). DJ should plan for an eventual high-ticket offer for people who've completed his course and want to start their own cybersecurity consultancies or coaching businesses. But this is Phase 3 -- don't build it yet.</p>
+  </div>
+</div>
+
+<!-- STEP 8: BOOK -->
+<div class="section">
+  <span class="tag">Authority Builder</span>
+  <h2><span class="num">8</span> Forbes Book -- "Through the Firewall"</h2>
+
+  <h3>Book Details</h3>
+  <ul>
+    <li><strong>Title:</strong> Through the Firewall: The Alchemy of Turning Crisis into Opportunity</li>
+    <li><strong>Author:</strong> Boyd Clewis</li>
+    <li><strong>Publisher:</strong> Forbes Books</li>
+    <li><strong>Format:</strong> Hardcover (180 pages), Kindle, Audiobook</li>
+    <li><strong>Rating:</strong> 4.6 stars (60 reviews on Amazon)</li>
+    <li><strong>Published:</strong> June 20, 2023</li>
+  </ul>
+
+  <h3>Book Description</h3>
+  <p>"Boyd Clewis has defied the odds and gravity. He was born dead, changed schools and homes as a child more times than he can count, became a teenage father and a track star, had more than one close brush with the law, and endured unimaginable family tragedy -- all by the time he was barely old enough to drink."</p>
+
+  <div class="highlight">
+    <h4>AUTHORITY STRATEGY:</h4>
+    <p>The book is published by Forbes Books (not self-published). This gives massive credibility -- "Forbes Books Author" appears everywhere in his branding. The book is NOT a course or how-to manual -- it's his personal story of overcoming adversity. This makes him RELATABLE while the Forbes imprint makes him CREDIBLE. DJ doesn't need a Forbes book, but a published book (even self-published on Amazon) that tells his story would be a powerful authority play.</p>
+  </div>
+</div>
+
+<!-- STEP 9: 1:1 CONSULTING -->
+<div class="section">
+  <span class="tag">Premium / VIP</span>
+  <h2><span class="num">9</span> 1:1 Consulting via Intro.co -- $400/session</h2>
+
+  <p><span class="url">intro.co/BoydClewis</span> (linked from LinkedIn "Book an appointment")</p>
+
+  <h3>Consulting Details</h3>
+  <ul>
+    <li><strong>Platform:</strong> Intro.co (marketplace for expert video calls)</li>
+    <li><strong>Price:</strong> Starting at $400 per 15-minute session</li>
+    <li><strong>Rating:</strong> 5.0 stars (3 reviews)</li>
+    <li><strong>Bio:</strong> "Co-Founder Baxter Clewis Training Academy | Forbes Books Author | 8-Figure Tech Entrepreneur | $40M+ Generated Online"</li>
+    <li><strong>Availability:</strong> "via requests" (sold out, request-only)</li>
+  </ul>
+
+  <h3>Session Scope</h3>
+  <ul>
+    <li>Diagnosis of job search challenges</li>
+    <li>Get more job offers</li>
+    <li>How to make more money</li>
+    <li>What skills to focus on</li>
+    <li>Identify the skills you already have</li>
+  </ul>
+
+  <h3>What He Also Helps With</h3>
+  <ul>
+    <li>Scaling a tech training business from 6 to 7+ figures</li>
+    <li>Moving from B2C grind to premium B2B contracts</li>
+    <li>Building systems that attract high-ticket clients</li>
+    <li>Positioning yourself as THE authority in your niche</li>
+    <li>Going full-time with your course or coaching business</li>
+    <li>Landing six-figure cybersecurity roles</li>
+    <li>Building security & compliance programs (PCI DSS, NIST, HIPAA)</li>
+    <li>Personal branding & LinkedIn authority</li>
+  </ul>
+</div>
+
+<!-- STEP 10: OTHER PLATFORMS -->
+<div class="section">
+  <span class="tag">Multi-Platform Presence</span>
+  <h2><span class="num">10</span> All Platforms -- Complete Distribution Map</h2>
+
+  <table class="offer-table">
+    <tr><th>Platform</th><th>Handle/URL</th><th>Followers</th><th>Role in Funnel</th></tr>
+    <tr><td>YouTube</td><td>@BoydClewis</td><td>320K subs</td><td>Primary traffic engine -- viral scam content + career videos</td></tr>
+    <tr><td>LinkedIn</td><td>/in/boydclewis</td><td>40,200 followers</td><td>Authority/B2B -- headline: "$40M+ EdTech Founder | Forbes Books Author | CEO, Wealth EngineX"</td></tr>
+    <tr><td>Instagram</td><td>@boydclewis</td><td>41.9K followers, 695 posts</td><td>Reels/engagement -- bio: "Cybersecurity Expert | Forbes Author | Book a call"</td></tr>
+    <tr><td>Facebook</td><td>/boydclewis</td><td>Unknown</td><td>Community/ads</td></tr>
+    <tr><td>TikTok</td><td>@boydclewis</td><td>Unknown</td><td>Short-form repurposing</td></tr>
+    <tr><td>X/Twitter</td><td>@boydclewis</td><td>Unknown</td><td>Thought leadership</td></tr>
+    <tr><td>Podcast</td><td>"Don't Be An I.T. Guy"</td><td>Apple Podcasts</td><td>Long-form authority content</td></tr>
+    <tr><td>Skool</td><td>/cyberhero</td><td>1.8K members</td><td>Community retention + lead nurture</td></tr>
+    <tr><td>Intro.co</td><td>/BoydClewis</td><td>N/A</td><td>$400/session 1:1 consulting (VIP)</td></tr>
+    <tr><td>Amazon</td><td>Forbes Books</td><td>60 reviews</td><td>Authority builder</td></tr>
+    <tr><td>Buy Me a Coffee</td><td>/boydclewis</td><td>N/A</td><td>Low-barrier supporter engagement</td></tr>
+  </table>
+
+  <h3>LinkedIn Deep-Dive</h3>
+  <ul>
+    <li><strong>Headline:</strong> "$40M+ EdTech Founder | Forbes Books Author | CEO, Wealth EngineX | I Help Senior Tech Professionals Turn Their Expertise Into Generational Wealth"</li>
+    <li><strong>Certifications in name:</strong> CISSP, CCSK, CISA</li>
+    <li><strong>Location:</strong> Dallas-Fort Worth Metroplex</li>
+    <li><strong>Connections:</strong> 500+</li>
+    <li><strong>CTA Button:</strong> "Book an appointment" (links to intro.co/BoydClewis)</li>
+    <li><strong>Banner Image:</strong> "FORBES BOOKS AUTHOR -- Built a $40M+ EdTech Company. Forbes Books Published the Playbook." with book cover</li>
+    <li><strong>Company Page:</strong> Wealth EngineX (linked)</li>
+    <li><strong>Related profiles:</strong> Tiana Clewis (wife/co-founder) shows in "More profiles for you"</li>
+  </ul>
+</div>
+
+<!-- COMPLETE FUNNEL MAP -->
+<div class="section">
+  <span class="tag">Complete Architecture</span>
+  <h2>COMPLETE FUNNEL MAP</h2>
+
+  <h3>Traffic Sources (Top of Funnel)</h3>
+  <table class="offer-table">
+    <tr><th>Source</th><th>Content Type</th><th>Where It Drives</th></tr>
+    <tr><td>YouTube (320K)</td><td>Viral scam/security videos</td><td>Description links to cyberherotraining.com + pinned comments</td></tr>
+    <tr><td>YouTube</td><td>Career transition videos</td><td>Direct CTA to free masterclass</td></tr>
+    <tr><td>Instagram (42K)</td><td>Reels repurposed from YouTube</td><td>Bio link to boydclewis.com</td></tr>
+    <tr><td>LinkedIn (40K)</td><td>Thought leadership posts</td><td>CTA to Intro.co booking OR Wealth EngineX</td></tr>
+    <tr><td>Facebook</td><td>Ads + organic</td><td>Masterclass registration</td></tr>
+    <tr><td>Podcast</td><td>"Don't Be An I.T. Guy"</td><td>Long-form trust building</td></tr>
+    <tr><td>Amazon/Book</td><td>"Through the Firewall"</td><td>Authority + email list</td></tr>
+  </table>
+
+  <h3>Lead Capture (Middle of Funnel)</h3>
+  <table class="offer-table">
+    <tr><th>Asset</th><th>Purpose</th><th>Data Captured</th></tr>
+    <tr><td>Free Live Masterclass</td><td>Demonstrate expertise, pitch $997 course</td><td>Name, Email, Phone</td></tr>
+    <tr><td>cyberherotraining.com</td><td>Alternate webinar registration page</td><td>Name, Email, Phone</td></tr>
+    <tr><td>Wealth EngineX Free Guide</td><td>Lead magnet for high-ticket audience</td><td>Name, Email, Phone</td></tr>
+    <tr><td>Skool Community (waitlist)</td><td>Nurture while enrollment is closed</td><td>Skool account</td></tr>
+  </table>
+
+  <h3>Monetization (Bottom of Funnel)</h3>
+  <table class="offer-table">
+    <tr><th>Offer</th><th>Price</th><th>Target</th><th>Delivery</th></tr>
+    <tr><td>CyberHero Accelerator</td><td>$997 (one-time)</td><td>Career starters/changers</td><td>12-month online course + community</td></tr>
+    <tr><td>CyberHero School (Skool)</td><td>Free (enrollment gated)</td><td>Students + prospects</td><td>Community + monthly courses</td></tr>
+    <tr><td>Wealth EngineX</td><td>High-ticket (undisclosed)</td><td>Six-figure earners wanting to build businesses</td><td>Coaching/consulting program</td></tr>
+    <tr><td>1:1 Consulting (Intro.co)</td><td>$400/15 min</td><td>Anyone wanting direct access</td><td>Video call</td></tr>
+    <tr><td>Book: "Through the Firewall"</td><td>~$20-30</td><td>General audience</td><td>Hardcover/Kindle/Audible</td></tr>
+    <tr><td>Buy Me a Coffee</td><td>Tips</td><td>YouTube audience</td><td>One-time support</td></tr>
+  </table>
+</div>
+
+<!-- DJ PLAYBOOK -->
+<div class="section" style="border-color: var(--accent2);">
+  <span class="tag" style="background: rgba(16,185,129,0.15); color: var(--accent2);">DJ's Playbook</span>
+  <h2 style="color: var(--accent2);">What DJ Should Model -- Priority Actions</h2>
+
+  <h3>Phase 1: Foundation (Weeks 1-4)</h3>
+  <ol>
+    <li><strong>Pick ONE cybersecurity specialization</strong> equivalent to Boyd's PCI DSS. Candidates: GRC/compliance, SOC operations, cloud security, NIST framework, vCISO consulting. Must be something companies are "required" to have.</li>
+    <li><strong>Film the origin story video</strong> -- "How I Went from [X] to [Y] in Cybersecurity" -- this becomes the evergreen funnel anchor</li>
+    <li><strong>Build a single-page personal site</strong> on GHL (like boydclewis.com): Hero + Programs + Testimonials + About + Contact</li>
+    <li><strong>Set up a Skool community</strong> (free, private, gated enrollment) as the community hub</li>
+    <li><strong>Create YouTube channel</strong> with professional banner, bio, and consistent branding</li>
+  </ol>
+
+  <h3>Phase 2: Content Engine (Weeks 5-12)</h3>
+  <ol>
+    <li><strong>Start Boyd's two-tier content strategy:</strong>
+      <ul>
+        <li>80% viral scam/threat/news content (consumer-facing, fear-based, gets views)</li>
+        <li>20% career coaching content (converts viewers into prospects)</li>
+      </ul>
+    </li>
+    <li><strong>Build the masterclass registration page</strong> on GHL -- model Boyd's exact layout: urgency bar, headline, 4-field form, scarcity ("X spots remaining"), qualification/disqualification, testimonials</li>
+    <li><strong>Run the first live masterclass</strong> -- teach for 60 min, pitch the course at the end</li>
+    <li><strong>Add pinned comment + description CTAs</strong> to EVERY YouTube video</li>
+  </ol>
+
+  <h3>Phase 3: Monetization (Weeks 12-24)</h3>
+  <ol>
+    <li><strong>Build the core course</strong> ($497-$997 range) -- model Boyd's 6-module structure: Framework Mastery + Hands-On Labs + Positioning + AI Tools + Interview Prep + Getting Hired</li>
+    <li><strong>Collect video testimonials</strong> -- Boyd has them EVERYWHERE. Every page has 3+ video testimonials with specific dollar amounts</li>
+    <li><strong>Scale YouTube content</strong> to 2-3 videos/week</li>
+    <li><strong>Add LinkedIn as secondary traffic source</strong> -- target the "already employed" audience</li>
+    <li><strong>Set up SMS follow-up</strong> (Boyd captures phone on every form for text sequences)</li>
+  </ol>
+
+  <h3>Phase 4: Ascension (6+ months)</h3>
+  <ol>
+    <li>Publish a book (even self-published) to add "Author" to credentials</li>
+    <li>Build a high-ticket coaching offer for people who complete the course</li>
+    <li>Add 1:1 consulting via Intro.co or Calendly</li>
+    <li>Consider Forbes Books or similar publisher for credibility</li>
+  </ol>
+
+  <div class="highlight green">
+    <h4>THE #1 THING TO STEAL FROM BOYD:</h4>
+    <p style="font-size: 1.1rem; color: var(--white);"><strong>The "legally required" positioning.</strong> Boyd doesn't sell "cybersecurity training." He sells "the one skill companies are LEGALLY REQUIRED to hire for." He turned a compliance framework (PCI DSS) into a career weapon. DJ needs to find his version of this -- a specific, mandated requirement that creates guaranteed demand. This single positioning choice is the foundation of everything else.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.85rem;">
+  <p>Funnel Hack prepared for DJ Naronikar | Data captured March 30, 2026</p>
+  <p>All information sourced from publicly accessible pages via browser walk-through</p>
+  <p style="margin-top: 0.5rem;">File: /tmp/tqa-hq-dashboard/FUNNEL-HACK-BOYD-CLEWIS.html</p>
+</div>
+
+</div>
+</body>
+</html>

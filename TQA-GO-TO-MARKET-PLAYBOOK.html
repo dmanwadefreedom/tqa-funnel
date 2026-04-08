@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQA Go-To-Market Playbook | DJ Naronikar</title>
+<style>
+:root{--bg:#0a0f1a;--s:#111827;--c:#1a2332;--b:#2a3a4e;--a:#3b82f6;--p:#8b5cf6;--g:#10b981;--gold:#f59e0b;--o:#f97316;--r:#ef4444;--t:#e2e8f0;--m:#94a3b8;--w:#fff;--cyan:#06b6d4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.65;display:flex;min-height:100vh}
+
+/* ── SIDEBAR ── */
+.sidebar{width:240px;background:var(--s);border-right:1px solid var(--b);position:fixed;top:0;left:0;height:100vh;overflow-y:auto;z-index:10;padding:1.5rem 0}
+.sidebar h2{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--m);padding:0 1.2rem;margin-bottom:0.8rem}
+.sidebar .logo{padding:0 1.2rem 1rem;border-bottom:1px solid var(--b);margin-bottom:1rem}
+.sidebar .logo h1{font-size:1rem;font-weight:800;color:var(--w)}
+.sidebar .logo p{font-size:0.68rem;color:var(--m)}
+.nav-item{display:block;padding:0.5rem 1.2rem;font-size:0.78rem;color:var(--m);cursor:pointer;text-decoration:none;border-left:3px solid transparent;transition:all 0.15s}
+.nav-item:hover{color:var(--w);background:rgba(255,255,255,0.03)}
+.nav-item.active{color:var(--a);border-left-color:var(--a);background:rgba(59,130,246,0.06)}
+.nav-divider{height:1px;background:var(--b);margin:0.8rem 1.2rem}
+.nav-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--m);padding:0.5rem 1.2rem 0.3rem;font-weight:700}
+
+/* ── MAIN ── */
+.main{margin-left:240px;flex:1;min-height:100vh}
+.hero-bar{background:linear-gradient(135deg,#0d1b3e,#091529);padding:2.5rem 2.5rem 2rem;border-bottom:1px solid var(--b)}
+.hero-bar .badge{display:inline-block;background:rgba(6,182,212,0.12);color:var(--cyan);font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:100px;border:1px solid rgba(6,182,212,0.25);margin-bottom:0.6rem}
+.hero-bar h1{font-size:1.6rem;font-weight:800;color:var(--w);margin-bottom:0.3rem}
+.hero-bar p{color:var(--m);font-size:0.88rem;max-width:700px}
+.stat-strip{display:flex;gap:2rem;margin-top:1.2rem;flex-wrap:wrap}
+.stat-strip .stat{text-align:center}
+.stat-strip .stat-v{font-size:1.3rem;font-weight:800;color:var(--w)}
+.stat-strip .stat-l{font-size:0.6rem;color:var(--m);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ── SECTIONS ── */
+.content{padding:2rem 2.5rem 4rem}
+.section{display:none}
+.section.active{display:block}
+.section-head{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--b)}
+.section-head h2{font-size:1.2rem;font-weight:800;color:var(--w);margin-bottom:0.2rem}
+.section-head p{font-size:0.82rem;color:var(--m)}
+.card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:0.9rem}
+.card h3{font-size:0.9rem;font-weight:700;color:var(--w);margin-bottom:0.4rem}
+.card h4{font-size:0.78rem;font-weight:600;color:var(--gold);margin:0.6rem 0 0.3rem;text-transform:uppercase;letter-spacing:0.04em}
+.card p,.card li{font-size:0.82rem;color:var(--t)}
+.card ul,.card ol{padding-left:1.2rem}
+.card li{margin-bottom:0.25rem}
+.card-accent{border-left:3px solid var(--gold)}
+.card-blue{border-left:3px solid var(--a)}
+.card-green{border-left:3px solid var(--g)}
+.card-purple{border-left:3px solid var(--p)}
+.card-red{border-left:3px solid var(--r)}
+.card-cyan{border-left:3px solid var(--cyan)}
+
+table{width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.5rem 0}
+th{text-align:left;padding:0.55rem 0.7rem;background:rgba(59,130,246,0.06);color:var(--a);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.04em;border-bottom:1px solid var(--b)}
+td{padding:0.55rem 0.7rem;border-bottom:1px solid var(--b);vertical-align:top}
+.tag{display:inline-block;font-size:0.62rem;font-weight:600;padding:0.15rem 0.45rem;border-radius:4px;letter-spacing:0.03em}
+.tag-gold{background:rgba(245,158,11,0.12);color:var(--gold);border:1px solid rgba(245,158,11,0.2)}
+.tag-green{background:rgba(16,185,129,0.12);color:var(--g);border:1px solid rgba(16,185,129,0.2)}
+.tag-blue{background:rgba(59,130,246,0.12);color:var(--a);border:1px solid rgba(59,130,246,0.2)}
+.tag-purple{background:rgba(139,92,246,0.12);color:var(--p);border:1px solid rgba(139,92,246,0.2)}
+.tag-red{background:rgba(239,68,68,0.12);color:var(--r);border:1px solid rgba(239,68,68,0.2)}
+.tag-cyan{background:rgba(6,182,212,0.12);color:var(--cyan);border:1px solid rgba(6,182,212,0.2)}
+
+.flow-row{display:flex;gap:0.8rem;flex-wrap:wrap;margin:1rem 0}
+.flow-step{flex:1;min-width:140px;background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-align:center}
+.flow-step .num{font-size:1.4rem;font-weight:800;color:var(--gold)}
+.flow-step .label{font-size:0.72rem;font-weight:600;color:var(--w);margin-top:0.2rem}
+.flow-step .desc{font-size:0.68rem;color:var(--m);margin-top:0.2rem}
+.flow-arrow{display:flex;align-items:center;color:var(--b);font-size:1.2rem;padding:0 0.2rem}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.9rem}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+@media(max-width:768px){.sidebar{display:none}.main{margin-left:0}}
+
+hr.sep{border:none;border-top:1px solid var(--b);margin:2rem 0}
+
+.script-block{background:var(--s);border-left:3px solid var(--gold);padding:1rem 1.2rem;border-radius:0 8px 8px 0;font-size:0.82rem;font-style:italic;margin:0.5rem 0}
+.metric-box{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;text-align:center}
+.metric-box .mv{font-size:1.6rem;font-weight:800;color:var(--w)}
+.metric-box .ml{font-size:0.62rem;color:var(--m);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.15rem}
+.callout{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;font-size:0.82rem;color:var(--gold)}
+.callout-red{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:var(--r)}
+.callout-green{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);color:var(--g)}
+</style>
+</head>
+<body>
+
+<!-- ═══════ SIDEBAR ═══════ -->
+<nav class="sidebar">
+  <div class="logo">
+    <h1>DJ Naronikar</h1>
+    <p>CISO 360 — Go-To-Market</p>
+  </div>
+  <h2>Playbook</h2>
+  <a class="nav-item active" onclick="show('overview')">The Sales Machine</a>
+  <a class="nav-item" onclick="show('content')">Content Calendar</a>
+  <a class="nav-item" onclick="show('youtube')">YouTube Strategy</a>
+  <a class="nav-item" onclick="show('podcast')">Podcast Launch</a>
+  <a class="nav-item" onclick="show('instagram')">Instagram Engine</a>
+  <a class="nav-item" onclick="show('linkedin')">LinkedIn Playbook</a>
+  <div class="nav-divider"></div>
+  <h2>Conversion</h2>
+  <a class="nav-item" onclick="show('assessment')">$47 Assessment Pipeline</a>
+  <a class="nav-item" onclick="show('webinar')">Webinar V2 — Slide Fixes</a>
+  <a class="nav-item" onclick="show('vssl')">VSSL Page Build</a>
+  <a class="nav-item" onclick="show('sales')">Sales Process</a>
+  <a class="nav-item" onclick="show('precall')">Pre-Call System</a>
+  <div class="nav-divider"></div>
+  <h2>Reactivation</h2>
+  <a class="nav-item" onclick="show('reengage')">180-Lead Re-Engage</a>
+  <a class="nav-item" onclick="show('nurture')">FB Group Nurture</a>
+  <div class="nav-divider"></div>
+  <h2>Operations</h2>
+  <a class="nav-item" onclick="show('metrics')">Metrics Dashboard</a>
+  <a class="nav-item" onclick="show('decisions')">DJ's Decisions</a>
+  <a class="nav-item" onclick="show('timeline')">90-Day Timeline</a>
+</nav>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="main">
+
+<div class="hero-bar">
+  <div class="badge">Complete Go-To-Market Playbook</div>
+  <h1>How DJ Sells CISO 360</h1>
+  <p>Every channel, every piece of content, every email, every call — orchestrated around 7 beliefs that move "Raj" from stranger to $4,997 customer.</p>
+  <div class="stat-strip">
+    <div class="stat"><div class="stat-v">$4,997</div><div class="stat-l">Price ($21K+ value)</div></div>
+    <div class="stat"><div class="stat-v">15</div><div class="stat-l">Seats / Cohort</div></div>
+    <div class="stat"><div class="stat-v">197</div><div class="stat-l">Existing Leads</div></div>
+    <div class="stat"><div class="stat-v">$74,955</div><div class="stat-l">Full Cohort Rev</div></div>
+    <div class="stat"><div class="stat-v">7</div><div class="stat-l">Beliefs to Build</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: THE SALES MACHINE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section active" id="overview">
+  <div class="section-head">
+    <h2>The Sales Machine</h2>
+    <p>How every piece connects. One recording on Monday feeds everything. Each layer builds specific beliefs.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>The Core Loop (every single week)</h3>
+    <table>
+      <thead><tr><th>Day</th><th>DJ Does</th><th>Time</th><th>What It Feeds</th></tr></thead>
+      <tbody>
+        <tr><td>Monday</td><td>Records 1 YouTube video (15-20 min)</td><td>2 hrs</td><td>YouTube + Podcast audio + IG clips + LinkedIn post + FB Group share</td></tr>
+        <tr><td>Tuesday</td><td>Posts video. Shares to LinkedIn + FB Group.</td><td>30 min</td><td>All channels get content</td></tr>
+        <tr><td>Wed-Fri</td><td>IG stories (4-5 per week, hook > story > proof > CTA)</td><td>20 min/day</td><td>Warm traffic, drive to YouTube + $47 assessment</td></tr>
+        <tr><td>Thursday</td><td>Podcast episode auto-publishes (YouTube audio strip)</td><td>0 min</td><td>Spotify, Apple, Google — passive reach</td></tr>
+        <tr><td>Friday</td><td>1 email to newsletter (belief-mapped)</td><td>30 min</td><td>Nurture existing leads toward $47 or VSSL</td></tr>
+        <tr><td>Saturday</td><td>Review applications + call hot leads</td><td>1-2 hrs</td><td>Revenue</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">Total DJ time: 5-6 hours/week. That's it. Everything else is automated or repurposed.</div>
+  </div>
+
+  <div class="card">
+    <h3>The Funnel — Visual Flow</h3>
+    <div class="flow-row">
+      <div class="flow-step"><div class="num">1</div><div class="label">Discover</div><div class="desc">YouTube, LinkedIn, Podcast, IG</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="num">2</div><div class="label">Engage</div><div class="desc">IG Stories, FB Group, Email</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="num">3</div><div class="label">Qualify</div><div class="desc">$47 Assessment</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="num">4</div><div class="label">Convert</div><div class="desc">VSSL + Application</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="num">5</div><div class="label">Close</div><div class="desc">15-min call with DJ</div></div>
+    </div>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Revenue Math — Conservative</h3>
+    <div class="grid-3" style="margin-top:0.6rem">
+      <div class="metric-box"><div class="mv">1,000</div><div class="ml">Monthly YouTube views (month 3)</div></div>
+      <div class="metric-box"><div class="mv">3%</div><div class="ml">Click to $47 assessment</div></div>
+      <div class="metric-box"><div class="mv">30</div><div class="ml">Assessments / month</div></div>
+    </div>
+    <div class="grid-3" style="margin-top:0.6rem">
+      <div class="metric-box"><div class="mv">$1,410</div><div class="ml">Assessment rev / month</div></div>
+      <div class="metric-box"><div class="mv">10%</div><div class="ml">Assessment to Application</div></div>
+      <div class="metric-box"><div class="mv">3</div><div class="ml">Applications / month</div></div>
+    </div>
+    <div class="grid-3" style="margin-top:0.6rem">
+      <div class="metric-box"><div class="mv">50%</div><div class="ml">Close rate on calls</div></div>
+      <div class="metric-box"><div class="mv">1.5</div><div class="ml">Enrollments / month</div></div>
+      <div class="metric-box"><div class="mv">$7,496</div><div class="ml">Program rev / month</div></div>
+    </div>
+    <div class="callout-green callout" style="margin-top:0.8rem"><strong>Total monthly (conservative): $8,906</strong> — $1,410 assessments + $7,496 program. One full cohort (15 seats) = $74,955. Fill 2 cohorts/year = $149,910 + assessment revenue.</div>
+  </div>
+
+  <div class="card card-red">
+    <h3>What's Broken Right Now</h3>
+    <ul>
+      <li><strong>No YouTube content</strong> — channel exists, no belief-mapped videos published</li>
+      <li><strong>No $47 assessment live</strong> — quiz built (sample exists) but no Stripe + delivery pipeline</li>
+      <li><strong>No VSSL page</strong> — script written, page not built, video not recorded</li>
+      <li><strong>180 leads going colder daily</strong> — no re-engage sequence running</li>
+      <li><strong>thequantumachievers.com still says "Reserve my Spot"</strong> — stale webinar page</li>
+      <li><strong>No podcast</strong> — DJ mentioned production but nothing launched</li>
+      <li><strong>Jay (closer) quit</strong> — DJ taking calls himself (actually better)</li>
+      <li><strong>No email nurture running</strong> — GHL templates exist, workflows not wired</li>
+    </ul>
+  </div>
+
+  <div class="card card-green">
+    <h3>What IS Working</h3>
+    <ul>
+      <li>DJ's credibility is massive — 28 years, Deloitte/EY/Shell, CIO Choice Award</li>
+      <li>9K LinkedIn followers + 1K newsletter subs (warm audience)</li>
+      <li>1,700 FB group members (existing community)</li>
+      <li>Belief map fully built — content strategy is CLEAR</li>
+      <li>VSSL script fully written — just needs recording</li>
+      <li>Sample career scorecard built — $47 product designed</li>
+      <li>Stripe products created ($4,997 PIF + $1,997x3)</li>
+      <li>3 VAPI voice assistants ready</li>
+      <li>All social bios written (11 platforms)</li>
+      <li>GHL pipeline and scoring system exist</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: CONTENT CALENDAR -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="content">
+  <div class="section-head">
+    <h2>12-Week Content Calendar</h2>
+    <p>Every piece of content maps to a belief. No random posting. Each week has ONE primary belief, ONE YouTube video, daily IG stories, and ONE email.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>The Rule</h3>
+    <p><strong>Before publishing anything, answer:</strong> "Which belief does this build, and what's the ONE next step?" If you can't answer both, don't publish it.</p>
+  </div>
+
+  <div class="card">
+    <h3>Weeks 1-6: Foundation Cycle (one belief per week)</h3>
+    <table>
+      <thead><tr><th>Week</th><th>Belief</th><th>YouTube Video</th><th>IG Theme</th><th>Email Subject</th><th>CTA</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-blue">WK 1</span></td>
+          <td>B1: Demand is real</td>
+          <td>"IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</td>
+          <td>Market data, unfilled jobs, BLS stats</td>
+          <td>"The number most career advisors won't show you"</td>
+          <td>$47 Assessment</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">WK 2</span></td>
+          <td>B3: Money is real</td>
+          <td>"How Much Do Cybersecurity Professionals Really Make?"</td>
+          <td>Salary breakdowns, H-1B data, role comparisons</td>
+          <td>"Your salary ceiling isn't permanent"</td>
+          <td>$47 Assessment</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">WK 3</span></td>
+          <td>B5: DJ is the guide</td>
+          <td>"I Stopped a $300K Wire Fraud. Here's How."</td>
+          <td>War stories, day-in-the-life, enterprise proof</td>
+          <td>"Why I don't sell certifications"</td>
+          <td>$47 Assessment</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">WK 4</span></td>
+          <td>B4: AI-proof</td>
+          <td>"AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</td>
+          <td>AI tool screenshots, role safety matrix</td>
+          <td>"The AI fear you need to hear the truth about"</td>
+          <td>$47 Assessment</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">WK 5</span></td>
+          <td>B2: You can do this</td>
+          <td>"My Student Went From Chef to $120K Cybersecurity Analyst"</td>
+          <td>Transformation stories, before/after, timeline proof</td>
+          <td>"You're closer than you think"</td>
+          <td>$47 Assessment</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">WK 6</span></td>
+          <td>B6: Structured > self-study</td>
+          <td>"The $400 Cert Trap: Why Self-Study Costs More Than You Think"</td>
+          <td>Timeline comparisons, the real cost of free, positioning</td>
+          <td>"The $400 cert trap"</td>
+          <td>VSSL Page</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Weeks 7-12: Depth Cycle (new angles on same beliefs)</h3>
+    <table>
+      <thead><tr><th>Week</th><th>Belief</th><th>YouTube Video</th><th>Angle</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-purple">WK 7</span></td><td>B1+B3</td><td>"5 Cybersecurity Roles That Pay $150K+ (No Coding Required)"</td><td>Specific roles, GRC/IAM/Cloud, salary data by city</td></tr>
+        <tr><td><span class="tag tag-purple">WK 8</span></td><td>B5</td><td>"What a Real Day as a CISO Looks Like (Not What YouTube Shows You)"</td><td>Behind the scenes, board meetings, incident response</td></tr>
+        <tr><td><span class="tag tag-purple">WK 9</span></td><td>B2+B4</td><td>"H-1B to CISO: The Career Path Nobody Talks About"</td><td>H-1B specific, visa advantages in security, cultural angle</td></tr>
+        <tr><td><span class="tag tag-purple">WK 10</span></td><td>B1</td><td>"Government Mandates Are Creating 100K+ New Cyber Jobs (CMMC, SEC, NIST)"</td><td>Regulation-driven demand, compliance roles</td></tr>
+        <tr><td><span class="tag tag-purple">WK 11</span></td><td>B2+B5</td><td>"I Reviewed 500 Cybersecurity Resumes. Here's Why Most Get Rejected."</td><td>Hiring-side perspective, what DJ actually looks for</td></tr>
+        <tr><td><span class="tag tag-purple">WK 12</span></td><td>B6+B7</td><td>"The Math Behind Career Coaching: Is It Worth $5K?"</td><td>ROI framework, salary delta math, spouse-friendly</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.6rem;font-size:0.78rem;color:var(--m);">After week 12: repeat the cycle with new data, new student stories, and seasonal angles. The 7 beliefs never change — the stories that build them evolve.</p>
+  </div>
+
+  <div class="card card-green">
+    <h3>Daily IG Story Sequence (Mon-Fri template)</h3>
+    <table>
+      <thead><tr><th>Day</th><th>Story Type</th><th>Purpose</th><th>Example (Week 1)</th></tr></thead>
+      <tbody>
+        <tr><td>Mon</td><td><span class="tag tag-gold">HOOK</span></td><td>Stop the scroll with a stat or question</td><td>"750,000 cybersecurity jobs are sitting unfilled right now."</td></tr>
+        <tr><td>Tue</td><td><span class="tag tag-blue">STORY</span></td><td>DJ's perspective or student example</td><td>"I've been hiring for these roles for 28 years. Here's what most people get wrong..."</td></tr>
+        <tr><td>Wed</td><td><span class="tag tag-green">PROOF</span></td><td>Screenshot, data, or visual evidence</td><td>BLS salary data screenshot + CyberSeek heat map</td></tr>
+        <tr><td>Thu</td><td><span class="tag tag-purple">ENGAGE</span></td><td>Poll, question box, or DM prompt</td><td>Poll: "What's stopping you from switching to cybersecurity?" (Options: Don't know where to start / Too expensive / Too late / Impostor syndrome)</td></tr>
+        <tr><td>Fri</td><td><span class="tag tag-cyan">CTA</span></td><td>Drive to YouTube video or $47 assessment</td><td>"I broke this all down in my latest video — link in bio"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>LinkedIn Posting Schedule (4x/week)</h3>
+    <table>
+      <thead><tr><th>Day</th><th>Post Type</th><th>Template</th></tr></thead>
+      <tbody>
+        <tr><td>Mon</td><td>Data post</td><td>Market stat + DJ's take. Hook → 3 insights → CTA to video.</td></tr>
+        <tr><td>Tue</td><td>Story post</td><td>War story from DJ's career. One incident, one lesson. Human, not corporate.</td></tr>
+        <tr><td>Thu</td><td>Career advice</td><td>Practical tip for IT→cyber transition. Actionable, not vague. "Do this, not that."</td></tr>
+        <tr><td>Fri</td><td>Student spotlight or AMA</td><td>Student result + transformation. Or "Ask me anything about [belief topic this week]"</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--m);">LinkedIn is DJ's strongest existing channel (9K followers). Every post should have a clear next step: video link, assessment link, or newsletter sign-up.</p>
+  </div>
+
+  <div class="card">
+    <h3>Email Newsletter (1x/week, Friday)</h3>
+    <p>One belief per email. Mapped to that week's YouTube video. Short (300-500 words). One CTA.</p>
+    <table>
+      <thead><tr><th>Week</th><th>Subject Line</th><th>Belief</th><th>CTA</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>"The number most career advisors won't show you"</td><td>B1</td><td>Watch video + $47 assessment</td></tr>
+        <tr><td>2</td><td>"Your salary ceiling isn't permanent"</td><td>B3</td><td>Watch video + $47 assessment</td></tr>
+        <tr><td>3</td><td>"Why I don't sell certifications"</td><td>B5</td><td>Watch video</td></tr>
+        <tr><td>4</td><td>"The AI fear you need to hear the truth about"</td><td>B4</td><td>Watch video + $47 assessment</td></tr>
+        <tr><td>5</td><td>"You're closer than you think"</td><td>B2</td><td>Watch video + $47 assessment</td></tr>
+        <tr><td>6</td><td>"The $400 cert trap"</td><td>B6</td><td>VSSL page</td></tr>
+        <tr><td>7</td><td>"5 roles paying $150K+ (no coding)"</td><td>B1+B3</td><td>$47 assessment</td></tr>
+        <tr><td>8</td><td>"What I do when a company gets breached"</td><td>B5</td><td>Watch video</td></tr>
+        <tr><td>9</td><td>"The visa advantage nobody tells you about"</td><td>B2+B4</td><td>$47 assessment</td></tr>
+        <tr><td>10</td><td>"The government just created 100K new cyber jobs"</td><td>B1</td><td>Watch video</td></tr>
+        <tr><td>11</td><td>"I rejected 80% of these resumes. Here's why."</td><td>B2+B5</td><td>$47 assessment</td></tr>
+        <tr><td>12</td><td>"Show this to your partner (the math)"</td><td>B6+B7</td><td>VSSL page</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: YOUTUBE STRATEGY -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="youtube">
+  <div class="section-head">
+    <h2>YouTube Strategy</h2>
+    <p>YouTube is the belief engine. Each video builds ONE belief. The $47 assessment link is in every description. This is how strangers become leads.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Channel Setup Checklist</h3>
+    <ul>
+      <li><strong>Channel name:</strong> DJ Naronikar | CISO Career Coach</li>
+      <li><strong>Handle:</strong> @djnaronikar (or @dhananjayanaronikar if taken)</li>
+      <li><strong>Banner:</strong> "28 Years as a CISO. Now I help IT professionals break into cybersecurity." + headshot + Deloitte/EY/Shell logos</li>
+      <li><strong>About:</strong> Full bio from TQA-UNIFIED-BIOS.md</li>
+      <li><strong>Links:</strong> $47 assessment (primary), LinkedIn, CISO360 website</li>
+      <li><strong>Playlists:</strong> "Career Roadmap" (B1-B3), "Day in the Life" (B5), "AI & Security" (B4), "Student Stories" (B2)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>First 6 Videos — Script Outlines</h3>
+    <p style="margin-bottom:0.6rem;">Each video follows this structure: Hook (30s) > Problem/Data (3-4 min) > DJ's Take (3-4 min) > Proof (2-3 min) > Actionable Advice (3-4 min) > CTA (30s). Total: 12-18 min.</p>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Video 1: "IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</h3>
+    <h4>Belief: #1 — Demand is real</h4>
+    <p><strong>Hook:</strong> "If you're in IT and thinking about cybersecurity — I need to be honest with you for a few minutes. Because what LinkedIn tells you and what I've seen from 28 years of hiring are two different things."</p>
+    <p><strong>Data section:</strong> 750K unfilled jobs (NIST/CyberSeek). 26% positions still open. $185K avg cybersecurity manager salary. Government mandates (CMMC, SEC) forcing the spend.</p>
+    <p><strong>DJ's take:</strong> Which roles are actually growing (GRC, cloud security, IAM) vs overhyped (offensive security YouTubers). Honest about what pays vs what looks cool.</p>
+    <p><strong>Proof:</strong> Screen share CyberSeek heat map. Show BLS data. Show a real job posting with salary.</p>
+    <p><strong>Actionable advice:</strong> 3 roles to research tonight. How to check if your city has demand. One LinkedIn search to do right now.</p>
+    <p><strong>CTA:</strong> "I built a tool that creates your personal cybersecurity career roadmap based on your background. It's $47 and takes 10 minutes. Link in the description."</p>
+    <h4>Thumbnail concept</h4>
+    <p>DJ headshot (half face, professional) + "750K JOBS" in bold gold text + "Your Roadmap" in white. Dark background.</p>
+    <h4>Tags</h4>
+    <p style="font-size:0.75rem;color:var(--m)">cybersecurity career, IT to cybersecurity, cybersecurity jobs 2026, CISO career path, cybersecurity salary, career change cybersecurity, H-1B cybersecurity</p>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Video 2: "How Much Do Cybersecurity Professionals Really Make?"</h3>
+    <h4>Belief: #3 — Money is real</h4>
+    <p><strong>Hook:</strong> "$185,000. That's the average cybersecurity manager salary. But I'm not going to give you averages today — I'm going to show you what career changers actually earn in their first year. The real numbers."</p>
+    <p><strong>Data section:</strong> Role-by-role salary bands (not just averages). SOC Analyst $65-95K. Security Engineer $85-130K. GRC Analyst $80-110K. Security Manager $130-185K. CISO $180-350K+. Show by city tier.</p>
+    <p><strong>DJ's take:</strong> The H-1B salary database trick — it's public, anyone can search. First-year-in-cyber realistic ranges: $95K-$130K. The 3-year trajectory, not just the peak.</p>
+    <p><strong>Proof:</strong> Screen share H-1B database. Screen share BLS. Show real job postings with salary ranges.</p>
+    <p><strong>CTA:</strong> "$47 assessment — it calculates your personalized salary projection based on your background, city, and target role."</p>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Video 3: "I Stopped a $300K Wire Fraud. Here's How."</h3>
+    <h4>Belief: #5 — DJ is the guide</h4>
+    <p><strong>Hook:</strong> "Someone tried to steal $300,000 from one of my clients. I caught it in 4 hours. Let me tell you exactly what happened — because this is what a real day as a CISO looks like."</p>
+    <p><strong>Story:</strong> Full incident narrative. How the fraud was detected. What DJ did step by step. The outcome. What most companies get wrong.</p>
+    <p><strong>DJ's take:</strong> This is why CISOs get paid $200K+. It's not about firewalls — it's about judgment under pressure. And judgment comes from experience, not certifications.</p>
+    <p><strong>CTA:</strong> "This is the kind of scenario I prepare my students for. If you want to know where you stand — $47 assessment, link below."</p>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Video 4: "AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</h3>
+    <h4>Belief: #4 — AI-proof</h4>
+    <p><strong>Hook:</strong> "AI just automated 40% of L1 IT support. If you're in IT, you should be concerned. But not about cybersecurity — and I'll show you exactly why."</p>
+    <p><strong>Data:</strong> IT roles AI is replacing (L1 support, basic admin, monitoring). Security roles where AI increases demand (incident response, threat hunting, GRC). Why the CISO role specifically is AI-proof (business judgment, board communication, regulatory interpretation).</p>
+    <p><strong>Proof:</strong> Show an AI security tool in action — it flags threats, but a HUMAN decides the response. That human = job security.</p>
+    <p><strong>CTA:</strong> "Find out which security roles match YOUR background — $47 assessment."</p>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Video 5: "My Student Went From Chef to $120K Cybersecurity Analyst"</h3>
+    <h4>Belief: #2 — You can do this</h4>
+    <p><strong>Hook:</strong> "He was a professional chef. No tech background. No certifications. Today he makes $120,000 as a cybersecurity analyst. Let me tell you exactly what happened in 14 weeks."</p>
+    <p><strong>Story:</strong> Full transformation. Where he started, what the program focused on for his profile, how his resume was repositioned, how he got the interviews, the offer.</p>
+    <p><strong>Key line:</strong> "If a chef can make this transition, an IT professional with 10 years of experience is already ahead. You're closer than you think."</p>
+    <p><strong>CTA:</strong> "$47 assessment — see exactly where you stand and how close you really are."</p>
+  </div>
+
+  <div class="card card-blue">
+    <h3>Video 6: "The $400 Cert Trap: Why Self-Study Costs More Than You Think"</h3>
+    <h4>Belief: #6 — Structured > self-study</h4>
+    <p><strong>Hook:</strong> "CompTIA Security+ costs $400. My program costs $4,997. And I'm going to show you why the $400 option is actually the MORE expensive path."</p>
+    <p><strong>Math:</strong> Self-study = 18-24 months. Structured = 14 weeks. At $50K salary delta, 14 months of delay = $58,000 in lost income. The "free" path costs $58K.</p>
+    <p><strong>The 3 things a cert alone can't give you:</strong> Business language translation, security-in-context understanding, professional network.</p>
+    <p><strong>CTA:</strong> "I made a video explaining exactly what the program looks like inside. Watch it here." (Link to VSSL page — NOT $47 assessment. This video's job is to bridge to the VSSL.)</p>
+  </div>
+
+  <div class="card card-green">
+    <h3>Production Specs</h3>
+    <ul>
+      <li><strong>Format:</strong> Talking head + screen shares. Phone or webcam is fine. Natural light.</li>
+      <li><strong>Length:</strong> 12-18 minutes. Long enough to build one belief deeply.</li>
+      <li><strong>Description template:</strong> 2-3 sentence summary + $47 assessment link + timestamps + relevant links + 3 hashtags</li>
+      <li><strong>Upload schedule:</strong> Every Tuesday, 10 AM EST (peak for B2B/career content)</li>
+      <li><strong>Pinned comment:</strong> "$47 Career Assessment — get your personalized cybersecurity roadmap: [link]"</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: PODCAST LAUNCH -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="podcast">
+  <div class="section-head">
+    <h2>Podcast: "The CISO Path"</h2>
+    <p>Zero extra recording. Strip audio from YouTube videos + add a 60-second intro/outro. Passive reach on Spotify, Apple, and Google Podcasts.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Why Podcast Matters for DJ</h3>
+    <ul>
+      <li><strong>Reach:</strong> Different audience than YouTube. IT pros commute, listen at gym, listen while coding.</li>
+      <li><strong>Trust:</strong> 30+ minutes in someone's ears = parasocial relationship. They feel like they know DJ.</li>
+      <li><strong>SEO:</strong> Podcast titles rank in Google. "How much do cybersecurity professionals make" = search traffic.</li>
+      <li><strong>Zero extra work:</strong> YouTube audio + intro/outro = podcast episode. DJ records NOTHING extra.</li>
+      <li><strong>Credibility signal:</strong> "I have a podcast" is professional authority. Guest appearances follow.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Setup (one-time, 2 hours)</h3>
+    <table>
+      <thead><tr><th>Step</th><th>What</th><th>Tool</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Create podcast on hosting platform</td><td>Spotify for Podcasters (free) or Buzzsprout ($12/mo)</td><td>$0-12/mo</td></tr>
+        <tr><td>2</td><td>Design cover art</td><td>Canva — DJ headshot + "The CISO Path" + dark professional background</td><td>$0</td></tr>
+        <tr><td>3</td><td>Record 60-sec intro</td><td>DJ records: "Welcome to The CISO Path. I'm DJ Naronikar — 28-year CISO, and I help IT professionals break into cybersecurity careers. Let's get into it."</td><td>$0</td></tr>
+        <tr><td>4</td><td>Record 30-sec outro</td><td>"If you're thinking about making the switch, take my $47 Career Assessment — link in the show notes. See you next week."</td><td>$0</td></tr>
+        <tr><td>5</td><td>Submit to directories</td><td>Apple Podcasts, Spotify, Google Podcasts, Amazon Music — auto-distributed from host</td><td>$0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Weekly Workflow (15 minutes/week)</h3>
+    <ol>
+      <li>YouTube video publishes Tuesday</li>
+      <li>Strip audio (YouTube Studio download or yt-dlp)</li>
+      <li>Prepend intro + append outro (automated with ffmpeg script on VPS)</li>
+      <li>Upload to podcast host with title, description, and show notes</li>
+      <li>Auto-publishes Thursday (gives YouTube 2-day head start)</li>
+    </ol>
+    <div class="callout">This can be fully automated: VPS cron detects new YouTube upload > strips audio > adds intro/outro > uploads to podcast host via API. DJ touches nothing.</div>
+  </div>
+
+  <div class="card">
+    <h3>First 12 Episodes (matches YouTube calendar)</h3>
+    <table>
+      <thead><tr><th>Ep</th><th>Title</th><th>Belief</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>"IT to Cybersecurity in 2026: A 28-Year CISO's Honest Roadmap"</td><td>B1</td><td>YouTube Video 1</td></tr>
+        <tr><td>2</td><td>"How Much Do Cybersecurity Professionals Really Make?"</td><td>B3</td><td>YouTube Video 2</td></tr>
+        <tr><td>3</td><td>"I Stopped a $300K Wire Fraud. Here's How."</td><td>B5</td><td>YouTube Video 3</td></tr>
+        <tr><td>4</td><td>"AI Is Replacing IT Jobs. These Cybersecurity Roles Are Safe."</td><td>B4</td><td>YouTube Video 4</td></tr>
+        <tr><td>5</td><td>"From Chef to $120K Cybersecurity Analyst"</td><td>B2</td><td>YouTube Video 5</td></tr>
+        <tr><td>6</td><td>"The $400 Cert Trap"</td><td>B6</td><td>YouTube Video 6</td></tr>
+        <tr><td>7</td><td>"5 Cybersecurity Roles Paying $150K+ (No Coding)"</td><td>B1+B3</td><td>YouTube Video 7</td></tr>
+        <tr><td>8</td><td>"What a Real Day as a CISO Looks Like"</td><td>B5</td><td>YouTube Video 8</td></tr>
+        <tr><td>9</td><td>"H-1B to CISO: The Career Path Nobody Talks About"</td><td>B2+B4</td><td>YouTube Video 9</td></tr>
+        <tr><td>10</td><td>"Government Mandates Just Created 100K New Cyber Jobs"</td><td>B1</td><td>YouTube Video 10</td></tr>
+        <tr><td>11</td><td>"I Reviewed 500 Resumes. Here's Why Most Get Rejected."</td><td>B2+B5</td><td>YouTube Video 11</td></tr>
+        <tr><td>12</td><td>"Is Career Coaching Worth $5K? The Math."</td><td>B6+B7</td><td>YouTube Video 12</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-purple">
+    <h3>Bonus Episodes (podcast-only, when DJ wants to go deeper)</h3>
+    <p>These are OPTIONAL extras DJ can record when he has stories to tell. 20-40 minutes. Conversational.</p>
+    <table>
+      <thead><tr><th>Type</th><th>Format</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Guest Interview</td><td>DJ interviews a student or industry peer</td><td>"How [Student Name] Went From IT Support to Security Engineer in 4 Months"</td></tr>
+        <tr><td>Cyber News Hot Take</td><td>DJ reacts to a breach or industry event</td><td>"The [Company] Breach: What the CISO Should Have Done"</td></tr>
+        <tr><td>AMA</td><td>DJ answers questions from LinkedIn/IG DMs</td><td>"Your Questions Answered: Certs, Salary, AI, and Visa Concerns"</td></tr>
+        <tr><td>Deep Dive</td><td>DJ explains one concept in depth</td><td>"GRC vs SOC vs Cloud Security: Which Path Is Right For You?"</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--m);">Guest episodes are gold for cross-promotion. Students who appear on the podcast become walking testimonials.</p>
+  </div>
+
+  <div class="card card-green">
+    <h3>Podcast Growth Tactics</h3>
+    <ul>
+      <li><strong>Show notes:</strong> Every episode links to $47 assessment + DJ's LinkedIn</li>
+      <li><strong>Cross-promote:</strong> Mention podcast in YouTube description. Mention YouTube in podcast outro.</li>
+      <li><strong>LinkedIn clips:</strong> Pull a 60-second audio quote, add DJ's headshot as background, post as LinkedIn video</li>
+      <li><strong>Guest swaps:</strong> After 10 episodes, reach out to other cybersecurity podcasts for guest appearances</li>
+      <li><strong>Telegram/CISO360:</strong> Share each episode to the Telegram group with a one-line hook</li>
+      <li><strong>Apple Podcasts SEO:</strong> Each episode title includes the primary keyword ("cybersecurity career", "CISO salary", etc.)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: INSTAGRAM ENGINE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="instagram">
+  <div class="section-head">
+    <h2>Instagram Strategy</h2>
+    <p>Instagram is the WARMING layer. Not discovery — validation. When someone finds DJ on YouTube or LinkedIn, they check his IG. If it's active with proof, they trust him more. If it's dead, they bounce.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>IG's Role in the Funnel</h3>
+    <p>Instagram does NOT need to generate leads directly. It needs to do 3 things:</p>
+    <ol>
+      <li><strong>Validate:</strong> When Raj Googles DJ and finds his IG, it should scream "this guy is legit"</li>
+      <li><strong>Warm:</strong> Daily stories keep DJ top-of-mind between YouTube videos</li>
+      <li><strong>Bridge:</strong> Story CTAs drive to YouTube videos and the $47 assessment</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Profile Optimization</h3>
+    <ul>
+      <li><strong>Name field:</strong> DJ Naronikar | CISO Career Coach</li>
+      <li><strong>Bio:</strong> 28-year CISO. Deloitte | EY | Shell.<br>I help IT professionals break into $150K+ cybersecurity careers.<br>$47 Career Assessment below.</li>
+      <li><strong>Link:</strong> $47 assessment page (not linktree — direct link)</li>
+      <li><strong>Profile pic:</strong> Professional headshot (dj-main-headshot.webp)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Highlight Structure (Pinned Proof Categories)</h3>
+    <table>
+      <thead><tr><th>Highlight</th><th>Content</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>RESULTS</td><td>Student transformation stories, salary screenshots, LinkedIn updates</td><td>Belief 2 — "I can do this too"</td></tr>
+        <tr><td>MY STORY</td><td>DJ's career journey, enterprise photos, award moments</td><td>Belief 5 — "This guy is legit"</td></tr>
+        <tr><td>CYBER 101</td><td>Quick explanations of roles, certs, salary bands</td><td>Beliefs 1+3 — market data</td></tr>
+        <tr><td>AI & JOBS</td><td>AI impact on IT, which roles are safe, what's growing</td><td>Belief 4 — AI-proof</td></tr>
+        <tr><td>ASSESSMENT</td><td>Walkthrough of the $47 assessment, what you get, sample output</td><td>Drive $47 conversions</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Feed Posts (2-3x/week)</h3>
+    <p>Not critical — stories do the heavy lifting. Feed posts are for search/discovery and grid aesthetics.</p>
+    <table>
+      <thead><tr><th>Post Type</th><th>Frequency</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Carousel (data/tips)</td><td>1x/week</td><td>5-slide carousel: "5 Cyber Roles That Pay $150K+ (No Coding Required)" — each slide = one role + salary</td></tr>
+        <tr><td>Reel (YouTube clip)</td><td>1x/week</td><td>60-90 sec clip from YouTube video — the best hook + one insight + CTA</td></tr>
+        <tr><td>Single image (quote/stat)</td><td>1x/week</td><td>Bold stat graphic: "26% of cybersecurity positions are UNFILLED" — DJ brand colors</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <h3>Story-to-DM Automation</h3>
+    <p>When someone responds to a story poll or question box:</p>
+    <ol>
+      <li>DJ replies personally (or via Elliot VAPI if volume justifies)</li>
+      <li>Reply includes: relevant YouTube video link + $47 assessment CTA</li>
+      <li>If they express interest: "I have a $47 assessment that builds your personalized roadmap. Want me to send the link?"</li>
+      <li>Track DM conversations in GHL (manual for now, automate later with ManyChat or GHL IG integration)</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: LINKEDIN PLAYBOOK -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="linkedin">
+  <div class="section-head">
+    <h2>LinkedIn Playbook</h2>
+    <p>DJ's strongest channel. 9K followers + 1K newsletter subs. This is where IT professionals already look for career advice. The audience is pre-qualified.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>LinkedIn's Unique Advantage</h3>
+    <p>Every person who engages with DJ's LinkedIn post is showing their employer, their role, and their career stage in their profile. LinkedIn IS the qualification mechanism. DJ can see exactly who's engaging before they ever apply.</p>
+  </div>
+
+  <div class="card">
+    <h3>Post Templates (4x/week)</h3>
+
+    <h4>Template 1: Data Drop (Monday)</h4>
+    <div class="script-block">
+      750,000 cybersecurity positions are unfilled in the US right now.<br><br>
+      Not "projected." Not "by 2030." Right now.<br><br>
+      I've been hiring for these roles for 28 years. Here's what most people don't understand about this number:<br><br>
+      1. It's not just entry-level. Companies can't fill mid-senior roles either.<br>
+      2. Most applicants get filtered out for the wrong reasons — not skills, but positioning.<br>
+      3. Career changers from IT have an unfair advantage if they know how to frame it.<br><br>
+      I broke this down in my latest video — link in comments.<br><br>
+      What's stopping you from making the switch?
+    </div>
+
+    <h4>Template 2: War Story (Tuesday)</h4>
+    <div class="script-block">
+      Someone tried to steal $300K from one of my clients.<br><br>
+      I caught it in 4 hours.<br><br>
+      Here's what happened...<br><br>
+      [3-4 paragraph story: detection, investigation, resolution, outcome]<br><br>
+      This is what a real day as a CISO looks like.<br><br>
+      It's not about firewalls. It's about judgment under pressure.<br><br>
+      Full story on my YouTube channel — link in comments.
+    </div>
+
+    <h4>Template 3: Career Advice (Thursday)</h4>
+    <div class="script-block">
+      I've reviewed 500+ cybersecurity resumes in my career.<br><br>
+      80% get rejected before anyone reads them.<br><br>
+      The #1 mistake: writing an IT resume and applying for security jobs.<br><br>
+      Here's the fix — 3 changes that take 30 minutes:<br><br>
+      1. [Specific change]<br>
+      2. [Specific change]<br>
+      3. [Specific change]<br><br>
+      If you want a personalized assessment of where you stand, I built a $47 career scorecard — link in comments.
+    </div>
+
+    <h4>Template 4: Spotlight or AMA (Friday)</h4>
+    <div class="script-block">
+      [Student Name] was a chef.<br><br>
+      No tech background. No certifications. No "network."<br><br>
+      Today he makes $120K as a cybersecurity analyst.<br><br>
+      In 14 weeks, we:<br>
+      - Identified his transferable skills (leadership, crisis management, process control)<br>
+      - Built his security narrative<br>
+      - Got him in front of 3 hiring managers<br><br>
+      He had an offer within 5 months.<br><br>
+      If he can do it, what's your excuse?<br><br>
+      Seriously — drop your biggest barrier in the comments. I'll answer every one.
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <h3>LinkedIn Newsletter: "The CISO Path" (weekly)</h3>
+    <p>LinkedIn newsletter goes to 1K subscribers directly. Same content as the email newsletter — one belief per week, 300-500 words, one CTA. Publish Thursday morning.</p>
+    <p style="margin-top:0.4rem;font-size:0.78rem;color:var(--m);">Advantage: LinkedIn newsletters get push notifications to subscribers. Open rates are 2-3x higher than email.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: $47 ASSESSMENT PIPELINE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="assessment">
+  <div class="section-head">
+    <h2>$47 Assessment Pipeline</h2>
+    <p>The $47 Career Assessment is the ENGINE of this funnel. It qualifies leads, generates revenue, and makes the VSSL + call feel like a natural next step.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>STEP 0: Free Quiz — The Missing Lead Magnet</h3>
+    <p>Right now the funnel goes YouTube &rarr; $47. That's too big a jump. 97% of viewers aren't ready to pay yet. They're LOST. The free quiz captures their email so you can nurture them toward $47.</p>
+    <h4>Free "Cybersecurity Career Readiness Quiz" — 5 questions, 2 minutes</h4>
+    <table>
+      <thead><tr><th>#</th><th>Question</th><th>Options</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>What's your current role?</td><td>IT Support / Network Admin / Sysadmin / IT Manager / Other Tech / Non-Tech</td></tr>
+        <tr><td>2</td><td>How many years in IT?</td><td>0-2 / 2-5 / 5-10 / 10+</td></tr>
+        <tr><td>3</td><td>What's your biggest concern about switching?</td><td>Don't know where to start / Too expensive / Too late / AI will replace it / Spouse won't agree</td></tr>
+        <tr><td>4</td><td>When do you want to make the switch?</td><td>ASAP / 3-6 months / Someday / Just exploring</td></tr>
+        <tr><td>5</td><td>Have you earned any security certifications?</td><td>None yet / CompTIA Security+ / CISSP / Other / Multiple</td></tr>
+      </tbody>
+    </table>
+    <h4>Flow</h4>
+    <ol>
+      <li>Visitor answers 5 questions (no email yet)</li>
+      <li><strong>Email gate BEFORE showing score:</strong> "Enter your email to see your Cybersecurity Readiness Score"</li>
+      <li>Instant score on screen: "Your Readiness Score: 62/100 — STRONG FOUNDATION" (with bar chart)</li>
+      <li>Score page shows 3 things: their score, their top strength, their #1 gap</li>
+      <li>Below score: <strong>"Want the full picture? Get your personalized 8-page Career Scorecard for $47"</strong> — Stripe button</li>
+      <li>Email captured &rarr; GHL contact created &rarr; enters newsletter + nurture sequence</li>
+    </ol>
+    <h4>Conversion targets</h4>
+    <table>
+      <thead><tr><th>Gate</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td>Page visit &rarr; starts quiz</td><td>60%+</td></tr>
+        <tr><td>Starts quiz &rarr; completes</td><td>80%+ (only 5 questions)</td></tr>
+        <tr><td>Completes &rarr; enters email</td><td>70%+ (they want their score)</td></tr>
+        <tr><td>Sees score &rarr; buys $47 report</td><td>8-12%</td></tr>
+        <tr><td>Doesn't buy $47 &rarr; enters email nurture</td><td>100% (already captured)</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">This one addition captures 10-20x more leads. Everyone who takes the free quiz but doesn't buy $47 still enters the newsletter and gets belief-mapped content weekly. They'll buy later.</div>
+  </div>
+
+  <hr class="sep">
+
+  <div class="card card-accent">
+    <h3>STEP 1: $47 Assessment — Full Pipeline (paid upsell from free quiz)</h3>
+    <table>
+      <thead><tr><th>Step</th><th>What Happens</th><th>Tool</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Visitor clicks "$47 Full Scorecard" from free quiz results, YouTube, IG, LinkedIn, or email</td><td>Link to Stripe checkout</td></tr>
+        <tr><td>2</td><td>Stripe checkout — $47 payment</td><td>Stripe (product exists: buy.stripe.com link)</td></tr>
+        <tr><td>3</td><td>After payment: redirect to full quiz page (10-12 questions)</td><td>Custom form or Typeform</td></tr>
+        <tr><td>4</td><td>Quiz answers submitted to GHL as contact with custom fields</td><td>GHL webhook + custom fields</td></tr>
+        <tr><td>5</td><td>INSTANT: AI generates scorecard and displays on-screen immediately after quiz</td><td>Claude API on VPS &rarr; live HTML render</td></tr>
+        <tr><td>6</td><td>BONUS: DJ-reviewed premium version emailed within 24 hours with personal video note</td><td>GHL email or Resend + Loom</td></tr>
+        <tr><td>7</td><td>Buyer tagged in GHL: "assessment-buyer" + score tier (hot/warm/cold)</td><td>GHL auto-tagging</td></tr>
+        <tr><td>8</td><td>Hot leads (score 9+): Elliot VAPI calls within 1 hour</td><td>VAPI + GHL trigger</td></tr>
+        <tr><td>9</td><td>All buyers enter 7-email nurture sequence (one belief per email)</td><td>GHL email sequence</td></tr>
+        <tr><td>10</td><td>Email 6 links to VSSL page. Email 7 links to application form.</td><td>GHL + VSSL page</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Quiz Questions (10-12)</h3>
+    <table>
+      <thead><tr><th>#</th><th>Question</th><th>Why</th><th>Scoring</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>What's your current role?</td><td>Personalization + qualification</td><td>IT = 2, Other tech = 1, Non-tech = 0</td></tr>
+        <tr><td>2</td><td>How many years of IT experience?</td><td>Readiness indicator</td><td>5+ = 2, 2-5 = 1, 0-2 = 0</td></tr>
+        <tr><td>3</td><td>What's your current salary range?</td><td>Salary delta calculation</td><td>Under $80K = 2, $80-120K = 1, $120K+ = 0</td></tr>
+        <tr><td>4</td><td>Which cybersecurity area interests you most?</td><td>Path recommendation (GRC / SOC / Cloud / Pen Test)</td><td>All = 1 (no wrong answer)</td></tr>
+        <tr><td>5</td><td>Do you have any security certifications?</td><td>Starting point assessment</td><td>None = 1 (more room to grow), Some = 1</td></tr>
+        <tr><td>6</td><td>What's your visa status?</td><td>H-1B specific advice</td><td>H-1B = 1 (flag for cultural content)</td></tr>
+        <tr><td>7</td><td>When do you want to make the switch?</td><td>Urgency scoring</td><td>ASAP = 3, 3-6 months = 2, someday = 0</td></tr>
+        <tr><td>8</td><td>What's your biggest barrier?</td><td>Objection identification + belief mapping</td><td>Maps to beliefs 1-7</td></tr>
+        <tr><td>9</td><td>Have you invested in career coaching before?</td><td>Purchase behavior predictor</td><td>Yes = 2, No = 0</td></tr>
+        <tr><td>10</td><td>Do you have a partner/spouse who'd be part of this decision?</td><td>Belief 7 trigger</td><td>Yes = flag for ROI content</td></tr>
+        <tr><td>11</td><td>City / metro area</td><td>Salary data by market</td><td>Used in PDF personalization</td></tr>
+        <tr><td>12</td><td>Email + phone</td><td>Contact info</td><td>Required for delivery + GHL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <h3>PDF Generation — What Goes In Each Page</h3>
+    <p>See <a href="sample-career-scorecard.html" style="color:var(--g)">sample-career-scorecard.html</a> for the designed example.</p>
+    <table>
+      <thead><tr><th>Pages</th><th>Content</th><th>Personalized Using</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Cover page + overall score</td><td>Name, current role, score out of 100</td></tr>
+        <tr><td>2</td><td>Readiness breakdown — 5 dimensions scored</td><td>Technical skills, business acumen, certifications, network, positioning</td></tr>
+        <tr><td>3-4</td><td>Recommended path: which certs, which roles, which sequence</td><td>Based on Q1 (role), Q4 (interest area), Q5 (existing certs)</td></tr>
+        <tr><td>5-6</td><td>Salary projection: current → target → 3-year trajectory</td><td>Based on Q3 (salary), Q11 (city), Q4 (target area)</td></tr>
+        <tr><td>7</td><td>90-day action plan: month 1, 2, 3</td><td>Customized to their starting point</td></tr>
+        <tr><td>8</td><td>Investment ROI section (for spouse) + soft CTA</td><td>Salary delta calculation, payback period</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--m);">The PDF does NOT hard-sell CISO 360. One line on page 8: "If you want help executing this plan in 14 weeks instead of 18 months, you can apply here." That's it. The value of the PDF sells the program.</p>
+  </div>
+
+  <div class="card">
+    <h3>Post-Assessment Email Sequence (7 emails, 14 days)</h3>
+    <table>
+      <thead><tr><th>Email</th><th>Day</th><th>Subject</th><th>Belief</th><th>CTA</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Day 0</td><td>"Your Career Scorecard is attached"</td><td>—</td><td>Review your PDF</td></tr>
+        <tr><td>2</td><td>Day 2</td><td>"The number most career advisors won't show you"</td><td>B1</td><td>YouTube Video 1</td></tr>
+        <tr><td>3</td><td>Day 4</td><td>"You're closer than you think"</td><td>B2</td><td>YouTube Video 5</td></tr>
+        <tr><td>4</td><td>Day 6</td><td>"The AI fear you need to hear the truth about"</td><td>B4</td><td>YouTube Video 4</td></tr>
+        <tr><td>5</td><td>Day 9</td><td>"Why I don't sell certifications"</td><td>B5</td><td>YouTube Video 3</td></tr>
+        <tr><td>6</td><td>Day 11</td><td>"The $400 cert trap"</td><td>B6</td><td>VSSL page</td></tr>
+        <tr><td>7</td><td>Day 14</td><td>"Your 90-day plan is waiting"</td><td>B6+B7</td><td>Application form</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-red">
+    <h3>BUYER CHECK GATES (non-negotiable)</h3>
+    <p>Every email in every sequence must check: <strong>if contact has tag "student-active", SKIP.</strong> If someone enrolls in CISO 360 from email 3, emails 4-7 should NOT still pitch them.</p>
+    <table>
+      <thead><tr><th>GHL Tag</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>student-active</td><td>Remove from ALL nurture/sales sequences. Add to onboarding sequence.</td></tr>
+        <tr><td>assessment-buyer</td><td>Remove from free quiz nurture. Add to $47 post-assessment sequence.</td></tr>
+        <tr><td>applied-pending</td><td>Remove from content nurture. Add to pre-call sequence.</td></tr>
+        <tr><td>call-completed-enrolled</td><td>Same as student-active.</td></tr>
+        <tr><td>call-completed-not-ready</td><td>Move to long-term nurture (newsletter only).</td></tr>
+      </tbody>
+    </table>
+    <div class="callout-red callout">Agresh must wire these gates in GHL BEFORE launching any sequences. Sending "why you should apply" to someone who already paid $4,997 is amateur hour.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: WEBINAR V2 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="webinar">
+  <div class="section-head">
+    <h2>Webinar V2 — Slide-by-Slide Fixes</h2>
+    <p>The existing webinar slides are solid bones but misaligned with the new strategy. Here's what to change and why.</p>
+  </div>
+
+  <div class="callout-red callout">The webinar is now a $27 paid event (not free). This changes EVERYTHING about attendee quality. Free = 180 registered, 24 attended, 0 paid. $27 = fewer attendees, all serious.</div>
+
+  <div class="card card-red">
+    <h3>Slide 1 — CHANGE</h3>
+    <p><strong>Current:</strong> "THE QUANTUM ACHIEVERS" branding</p>
+    <p><strong>Change to:</strong> "DJ NARONIKAR | CISO CAREER COACH" — personal brand, not company brand. The trust is in DJ's name, not a business name nobody recognizes.</p>
+    <p><strong>Subtitle:</strong> Keep "From IT Stagnation to 6-Figure Cybersecurity Career" — it's strong.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 2 (Credentials) — KEEP + UPDATE</h3>
+    <p>This slide is great. Add: "CIO Choice Award 2026" and "Host of The CISO Path podcast."</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 3 (Is This You?) — KEEP</h3>
+    <p>Perfect as-is. This builds Belief 2 (I can do this) by making Raj feel seen.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Slide 4 (Market Stats) — UPDATE NUMBERS</h3>
+    <p><strong>Current:</strong> "600K+ unfilled jobs" / "$112K median"</p>
+    <p><strong>Update to:</strong> "750K+ unfilled US cybersecurity jobs" (NIST 2025 data) / "$185K average cybersecurity manager salary" (BLS). The median entry figure of $112K is fine to keep for realistic anchoring.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 5 (Pressure Is Real) — KEEP</h3>
+    <p>Strong as-is. Builds Belief 4 (AI-proof). Add one line: "Government mandates (CMMC, SEC, NIST) are FORCING companies to hire — this isn't discretionary spending."</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 6 (Salary Table) — KEEP + MINOR UPDATE</h3>
+    <p>Great visual. Update the gain column to reflect 2026 market rates if newer data is available. The IT Manager → CISO jump ($160K gain) is the money shot.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 7 (Why 70% Fail) — KEEP</h3>
+    <p>This directly builds Belief 6 (structured > self-study). Strong as-is.</p>
+  </div>
+
+  <div class="card card-green">
+    <h3>Slide 8 (Live Exercise) — KEEP, THIS IS GOLD</h3>
+    <p>Making attendees search LinkedIn LIVE is engagement genius. They discover their own gap in real time. This builds Belief 1 AND 2 simultaneously. Do NOT remove this slide.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 9 (Career Trajectory) — KEEP</h3>
+    <p>The IT vs Cyber salary trajectory comparison is devastating. Keep exactly as-is.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Slide 10-11 (Resume + Interview Comparison) — KEEP</h3>
+    <p>Concrete examples. Strong Belief 5 builders.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Slide 12 (14-Week Breakdown) — UPDATE</h3>
+    <p><strong>Current:</strong> Phase breakdown is good but doesn't match VSSL script structure.</p>
+    <p><strong>Align to VSSL:</strong></p>
+    <ul>
+      <li>Weeks 1-4: Foundation + Positioning (resume, LinkedIn, narrative building)</li>
+      <li>Weeks 5-10: Skill Building + Certification Prep (personalized path)</li>
+      <li>Weeks 11-14: Job Placement Support (mock interviews, network, intros)</li>
+    </ul>
+    <p>Add: "Direct access to me. Not a TA. Capped at 15 students."</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Slide 13 (Everything Included) — UPDATE GUARANTEE</h3>
+    <p><strong>Current:</strong> "We work with you until you're hired."</p>
+    <p><strong>Decision needed from DJ:</strong> Is this guarantee still active? If yes, keep it — it's the strongest line on the slide. If no, replace with: "If you don't feel confident in your new positioning after 14 weeks, we extend your access until you do."</p>
+    <p><strong>Also add:</strong> "15-student cap per cohort" — scarcity that's real, not fake.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Slide 14 (ROI Math) — UPDATE TO MATCH VSSL</h3>
+    <p><strong>Current:</strong> $55K → $80K example. ROI: 3,300%.</p>
+    <p><strong>Update to match Raj's profile:</strong> $90K → $140K example (more realistic for the H-1B IT pro avatar). $4,997 / $50K annual increase = payback in 5 weeks. Over 3 years: $150K+ earned above current salary. Include the spouse-friendly framing from VSSL Section 7.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Slide 16 (Two Paths) — FLAG: VERIFY CLAIMS</h3>
+    <p><strong>Current:</strong> "92% placement rate"</p>
+    <p><strong>Critical:</strong> Where does this number come from? If DJ can verify this with data, KEEP IT — it's incredibly strong. If it's aspirational, REMOVE IT. One unverifiable claim destroys credibility with a skeptical Indian IT audience. Replace with: "Students who complete the program and follow the placement process have a [X]% interview rate" — use whatever number is real.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Slide 17 (CTA) — UPDATE URL + FRAMING</h3>
+    <p><strong>Current:</strong> "thequantumachievers.com/apply" + "Free Strategy Call"</p>
+    <p><strong>Change to:</strong> DJ's personal domain or VSSL page URL. "Apply for CISO 360" not "Free Strategy Call" — application framing is stronger. Add: "15 seats per cohort. Next cohort starts [DATE]."</p>
+  </div>
+
+  <div class="card card-purple">
+    <h3>NEW SLIDE — Add After Slide 5</h3>
+    <h4>Belief 4 Deep Dive: "AI Creates MORE Security Jobs"</h4>
+    <p>The current deck doesn't address AI directly enough. Raj's biggest fear is switching into another field that gets automated. Add a slide showing:</p>
+    <ul>
+      <li>AI is a TOOL in cybersecurity, not a replacement</li>
+      <li>Attackers use AI = more sophisticated threats = more demand for defenders</li>
+      <li>Compliance/audit/governance roles are regulation-driven — AI can't sign off on compliance</li>
+      <li>"The question isn't whether AI will replace cybersecurity. The question is whether cybersecurity will save YOUR career from AI."</li>
+    </ul>
+  </div>
+
+  <div class="card card-purple">
+    <h3>NEW SLIDE — Add Before CTA</h3>
+    <h4>The $47 Assessment Offer</h4>
+    <p>Before the CISO 360 application CTA, add a slide for the $47 assessment as a lower-commitment next step:</p>
+    <ul>
+      <li>"Not ready to apply? Start with the $47 Career Assessment."</li>
+      <li>"It creates your personalized roadmap based on YOUR background, YOUR city, YOUR goals."</li>
+      <li>"The assessment stands alone — no obligation, no sales call."</li>
+      <li>This gives fence-sitters an action to take. They leave with SOMETHING to do.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: VSSL PAGE BUILD -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="vssl">
+  <div class="section-head">
+    <h2>VSSL Page Build Spec</h2>
+    <p>The VSSL page is where the conversion happens. Script is written (DJ-VSSL-SCRIPT.md). Here's the page spec.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Page Structure</h3>
+    <ol>
+      <li><strong>Header:</strong> "DJ Naronikar — CISO 360 Accelerator" + "15 seats. Next cohort starts [DATE]."</li>
+      <li><strong>Video player:</strong> 16:9, autoplay OFF, controls visible. VSSL video (15-18 min).</li>
+      <li><strong>Headline below video:</strong> "Apply for CISO 360 — The 14-Week Accelerator for IT Professionals Ready to Break Into Cybersecurity"</li>
+      <li><strong>Application form:</strong> 5 questions (see Stage 3 page for details)</li>
+      <li><strong>Social proof section:</strong> Student result cards + DJ credibility bar (logos) + FAQ accordion</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>What DJ Needs to Do</h3>
+    <ol>
+      <li>Record the VSSL using the script in DJ-VSSL-SCRIPT.md</li>
+      <li>Upload to Vimeo (NOT YouTube — this is gated content)</li>
+      <li>Send the Vimeo embed URL to Dylan</li>
+      <li>Page build takes ~2 hours after video is uploaded</li>
+    </ol>
+    <div class="callout">The VSSL page CANNOT be built until DJ records the video. The video is the highest-leverage piece. Everything else is infrastructure around it.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: SALES PROCESS -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="sales">
+  <div class="section-head">
+    <h2>Sales Process</h2>
+    <p>DJ takes the calls himself. This is actually better — his 28 years of credibility closes harder than any hired closer. Here's the full process.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Why DJ Closing Is Better Than Jay</h3>
+    <ul>
+      <li>Raj trusts DJ — he's been watching his content. Jay is a stranger.</li>
+      <li>DJ can give real career advice on the call (value before ask)</li>
+      <li>DJ can qualify in real time — "I don't think you're ready yet" builds more trust than any close</li>
+      <li>15-student cap means DJ only needs 15 calls per cohort to fill it</li>
+      <li>At $4,997 x 15 = $74,955 per cohort, each call is worth $5K. Worth DJ's time.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>The Call — 15 Minutes</h3>
+    <table>
+      <thead><tr><th>Minute</th><th>What DJ Says</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>0-1</td><td>"Hey [name], thanks for applying. I reviewed your application — I can see you've been in [role] for [X years]. Tell me what's going on."</td><td>Rapport. Let them talk.</td></tr>
+        <tr><td>1-5</td><td>LISTEN. Ask: "What made you apply now vs 6 months ago?" and "What happens if nothing changes?"</td><td>Uncover urgency + pain depth.</td></tr>
+        <tr><td>5-6</td><td><strong>VISION PAINT (critical):</strong> "If we fast-forward 6 months and everything worked exactly how you wanted — what does your life look like? What's your title? What's your salary? What does your family say?" <em>Let THEM sell themselves. Shut up and listen.</em></td><td>Raj paints his own future. 10x more powerful than DJ telling him.</td></tr>
+        <tr><td>6-9</td><td>Give specific advice: "Based on your background, I'd recommend [specific path]. Here's what most people in your position get wrong..."</td><td>Deliver value. Build Belief 5.</td></tr>
+        <tr><td>9-12</td><td>If they're a fit: "I run CISO 360. 14 weeks, 15-student cap, we work with you until you're hired. $4,997 — or $1,997/month for 3 months. Based on what you've told me, I think you'd be a strong candidate."</td><td>Present the offer. Not a pitch — a recommendation.</td></tr>
+        <tr><td>12-15</td><td>Handle questions. If spouse concern: "Have you talked to your partner? What questions do they have? I'm happy to address those." If timing: "Take a few days. I'll follow up Friday."</td><td>Close or set follow-up.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <h3>Objection Responses</h3>
+    <table>
+      <thead><tr><th>Objection</th><th>DJ's Response</th><th>Belief</th></tr></thead>
+      <tbody>
+        <tr><td>"It's too expensive"</td><td>"I understand. Let me show you the math. If your target salary is $140K and you're at $90K, that's $50K/year. $4,997 pays for itself in your first month. And the 3-month payment plan is $1,997/month — that's the commitment discount compared to $20,000+ in total value."</td><td>B6+B7</td></tr>
+        <tr><td>"I can learn this on my own"</td><td>"You absolutely can. I'll give you the same advice I'd give any self-learner: start with [cert], focus on [area], target [roles]. That path takes 18-24 months. The question is whether the salary difference during those extra months is worth more than $5K to you."</td><td>B6</td></tr>
+        <tr><td>"My wife won't agree"</td><td>"That's a smart approach — making it a joint decision. Would it help if I sent you a one-page document with the ROI math that you could share with her? And if she has questions, I'm happy to jump on a 5-minute call with both of you."</td><td>B7</td></tr>
+        <tr><td>"I need to think about it"</td><td>"Take your time. I'll follow up Friday. But I will say — the next cohort starts [date] and I only take 15. I'm not saying that to pressure you. I'm saying it because if you decide in 3 weeks, the slot may not be there."</td><td>Real scarcity</td></tr>
+        <tr><td>"What if it doesn't work?"</td><td>"Fair question. I can't guarantee a job — nobody can. But I can guarantee you'll be positioned better than 95% of applicants. And we continue working together past 14 weeks until you're confident."</td><td>B5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Post-Call Automation</h3>
+    <table>
+      <thead><tr><th>Outcome</th><th>Next Step</th><th>Automation</th></tr></thead>
+      <tbody>
+        <tr><td>Enrolled (paid)</td><td>Welcome email + onboarding sequence + cohort access</td><td>Stripe webhook > GHL tag "student-active" > onboarding workflow</td></tr>
+        <tr><td>"Need to think"</td><td>Follow-up Friday + 3 nurture emails over 10 days</td><td>GHL tag "call-followup" > follow-up sequence</td></tr>
+        <tr><td>Not a fit (now)</td><td>"Come back in X months" + newsletter add</td><td>GHL tag "not-ready-now" > long-term nurture</td></tr>
+        <tr><td>Rejected by DJ</td><td>Honest redirect + specific advice</td><td>GHL tag "redirected" > no sequence</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-green">
+    <h3>Post-Enrollment: Day 0-7 Onboarding (the Week 1 Quick Win)</h3>
+    <p>Raj just paid $4,997. What happens NOW determines if he stays excited or gets buyer's remorse. The Week 1 quick win: <strong>DJ personally audits Raj's LinkedIn and sends a Loom video with 5 specific changes. Raj implements them. His LinkedIn looks like a cybersecurity professional by Day 7.</strong> That's a VISIBLE result he can show his wife.</p>
+    <table>
+      <thead><tr><th>Day</th><th>What Happens</th><th>Channel</th></tr></thead>
+      <tbody>
+        <tr><td>Day 0 (immediately)</td><td>Welcome email: "You're in. Here's what happens next." + community access link + Week 1 schedule</td><td>GHL email (auto on Stripe webhook)</td></tr>
+        <tr><td>Day 0 (within 2h)</td><td>DJ sends personal Loom: "Hey [name], welcome to CISO 360. Here's your first assignment — send me your LinkedIn URL by tonight."</td><td>Email / Loom</td></tr>
+        <tr><td>Day 1</td><td>Raj sends LinkedIn URL. DJ records 5-min Loom audit: "Here are 5 things to change on your LinkedIn today."</td><td>Loom</td></tr>
+        <tr><td>Day 2-3</td><td>Raj implements the 5 changes. DJ reviews and confirms: "Your LinkedIn now signals cybersecurity professional."</td><td>Email / community</td></tr>
+        <tr><td>Day 4</td><td>First group coaching call — introductions, program walkthrough, cert roadmap discussion</td><td>Zoom</td></tr>
+        <tr><td>Day 7</td><td>Week 1 recap email: "You've already repositioned your LinkedIn. That's more progress than most people make in 3 months of self-study."</td><td>GHL email</td></tr>
+      </tbody>
+    </table>
+    <div class="callout-green callout"><strong>Why this matters:</strong> By Day 7, Raj has a VISIBLE result. His LinkedIn looks different. He can show his wife. He feels momentum. This is the antidote to buyer's remorse and the foundation for a testimonial.</div>
+  </div>
+
+  <div class="card card-purple">
+    <h3>"Need to Think" Follow-Up Sequence (3 emails)</h3>
+    <p>When DJ's call ends with "I need to think about it" — this sequence fires automatically.</p>
+    <table>
+      <thead><tr><th>Email</th><th>Day</th><th>Subject</th><th>Angle</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>Day 2</td>
+          <td>"Something I should have mentioned on our call"</td>
+          <td>Pure value — share one additional insight specific to their situation from the call notes. No pitch. Build Belief 5 (DJ genuinely cares). End with: "No rush on the decision. I just wanted you to have this."</td>
+        </tr>
+        <tr>
+          <td>2</td><td>Day 5</td>
+          <td>"The math, in case it helps the conversation at home"</td>
+          <td>ROI one-pager designed for spouse. Their specific salary delta based on call. Payback period. Payment plan option ($1,997/mo). "Feel free to share this with your partner — I wrote it for them." Builds Belief 7.</td>
+        </tr>
+        <tr>
+          <td>3</td><td>Day 10</td>
+          <td>"Quick update on the next cohort"</td>
+          <td>Real scarcity: "[X] of 15 seats are filled for the [DATE] cohort. Not trying to pressure you — just don't want you to decide in 3 weeks and find out it's full. If you want to lock in a seat, reply to this email." Honest, direct, respectful.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--m);margin-top:0.5rem;">After email 3 with no response: move to long-term nurture (newsletter only). No more follow-up. Respect > revenue.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: PRE-CALL SYSTEM -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="precall">
+  <div class="section-head">
+    <h2>Pre-Call System</h2>
+    <p>The goal: 80%+ show rate. Most coaches get 50%. This system ensures Raj shows up prepared, committed, and ready to say yes.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>After Application Submitted</h3>
+    <table>
+      <thead><tr><th>Timing</th><th>What</th><th>Channel</th></tr></thead>
+      <tbody>
+        <tr><td>Immediately</td><td>Confirmation page: "Your application is in. Here's what happens next."</td><td>Web page</td></tr>
+        <tr><td>Immediately</td><td>Confirmation email with calendar booking link</td><td>GHL email</td></tr>
+        <tr><td>Within 1 hour</td><td>Elliot VAPI call (hot leads only, score 9+): "Hey [name], DJ just reviewed your application. He'd like to schedule a call. When works for you?"</td><td>VAPI</td></tr>
+        <tr><td>After booking</td><td>Calendar confirmation + prep doc link</td><td>GHL email</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Pre-Call Prep Document</h3>
+    <p>"What to Have Ready for Your Call with DJ" — sent after booking, designed for Raj to share with his wife.</p>
+    <ul>
+      <li>What the call IS: 15 minutes, fit check, DJ gives specific career advice whether you join or not</li>
+      <li>What the call is NOT: a sales pitch, high-pressure, commitment required</li>
+      <li>Come prepared with: your current resume, salary info, one question you want DJ to answer</li>
+      <li>ROI section: "Investment: $4,997. Average salary increase for career changers: $50K/year. Payback period: 5 weeks."</li>
+      <li>FAQ: "What if I'm not accepted?" / "Can I use a payment plan?" / "What's the guarantee?"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Reminder Sequence</h3>
+    <table>
+      <thead><tr><th>Timing</th><th>Channel</th><th>Message</th></tr></thead>
+      <tbody>
+        <tr><td>24 hours before</td><td>Email</td><td>"Your call with DJ is tomorrow at [time]. Here's the prep doc if you haven't reviewed it. [link]"</td></tr>
+        <tr><td>1 hour before</td><td>SMS</td><td>"Hey [name] — your call with DJ is in 1 hour. Here's the Zoom link: [link]. See you there."</td></tr>
+        <tr><td>15 min before</td><td>SMS</td><td>"Starting in 15 minutes. Zoom link: [link]"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: 180-LEAD RE-ENGAGE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="reengage">
+  <div class="section-head">
+    <h2>180-Lead Re-Engage Sequence</h2>
+    <p>180 webinar registrants sitting cold in GHL. Every day without contact = money lost. This sequence wakes them up.</p>
+  </div>
+
+  <div class="card card-purple">
+    <h3>Post-Webinar Speed-to-Contact (for future webinars)</h3>
+    <table>
+      <thead><tr><th>Segment</th><th>Timing</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-green">Attended</span></td><td>Within 2 hours</td><td>Elliot VAPI call: "Hey [name], DJ asked me to follow up from tonight's webinar. He noticed you stayed for the full session. Would you like to book a 15-minute call with him this week?"</td></tr>
+        <tr><td><span class="tag tag-red">No-show</span></td><td>Within 30 minutes</td><td>Elliot VAPI call: "Hi [name], DJ noticed you couldn't make the webinar tonight. He recorded a replay — want me to send it over? It covers the $150K cybersecurity roadmap he shared."</td></tr>
+        <tr><td><span class="tag tag-green">Attended</span></td><td>Same night</td><td>Email: replay link + $47 assessment offer + application link</td></tr>
+        <tr><td><span class="tag tag-red">No-show</span></td><td>Next morning</td><td>Email: "Sorry you missed it — here's the replay" + $47 assessment as alternative next step</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">Speed to contact is the #1 predictor of webinar-to-sale conversion. The first person to call wins. Elliot VAPI makes this instant.</div>
+  </div>
+
+  <div class="callout-red callout"><strong>URGENT:</strong> These leads registered for a March 19 webinar. It's now April 8. They've been cold for 20 days. Each day makes re-engagement harder. This sequence should launch THIS WEEK.</div>
+
+  <div class="card card-accent">
+    <h3>Segmentation First</h3>
+    <table>
+      <thead><tr><th>Segment</th><th>Criteria</th><th>Count (est.)</th><th>Approach</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-red">HOT</span></td><td>Attended webinar + opened post emails + scored 9-12</td><td>~15-20</td><td>DJ calls personally. Elliot VAPI follows up.</td></tr>
+        <tr><td><span class="tag tag-gold">WARM</span></td><td>Attended or engaged but didn't convert</td><td>~30-40</td><td>$47 assessment offer + belief-mapped emails</td></tr>
+        <tr><td><span class="tag tag-blue">COLD</span></td><td>Registered, didn't attend, no engagement</td><td>~120-130</td><td>"We noticed you registered but couldn't make it" — replay + $47 offer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Hot Lead Sequence (15-20 leads)</h3>
+    <table>
+      <thead><tr><th>Day</th><th>Action</th><th>Channel</th><th>Message</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Personal email from DJ</td><td>Email</td><td>"Hey [name], I noticed you attended the webinar last month. I wanted to reach out personally — I've been thinking about something I should have covered in more depth. [Relevant insight]. Would a 15-minute call be helpful? I have a few slots this week."</td></tr>
+        <tr><td>2</td><td>Elliot VAPI call</td><td>Phone</td><td>"Hi [name], this is calling on behalf of DJ Naronikar. DJ reviewed your profile from the webinar and wanted to connect directly. When would be a good time for a quick 15-minute call?"</td></tr>
+        <tr><td>4</td><td>LinkedIn connection + message</td><td>LinkedIn</td><td>DJ connects personally + short note: "Great seeing you at the webinar. If you have any questions about making the transition, happy to chat."</td></tr>
+        <tr><td>7</td><td>Value email</td><td>Email</td><td>Link to best YouTube video (Belief 5 — wire fraud story). "I made this video about a $300K fraud I stopped. Thought you'd find it interesting."</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Warm Lead Sequence (30-40 leads)</h3>
+    <table>
+      <thead><tr><th>Day</th><th>Action</th><th>Subject / Message</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Email</td><td>"I built something for you" — introduce $47 assessment. "Based on the webinar, I created a $47 Career Assessment that gives you a personalized cybersecurity roadmap. No obligation. Just clarity."</td></tr>
+        <tr><td>3</td><td>Email</td><td>"The number most career advisors won't show you" — Belief 1 content. Link to YouTube Video 1.</td></tr>
+        <tr><td>6</td><td>Email</td><td>"He was a chef. Now he makes $120K in cybersecurity." — Belief 2. Link to YouTube Video 5.</td></tr>
+        <tr><td>9</td><td>Email</td><td>"The $400 cert trap" — Belief 6. Link to YouTube Video 6.</td></tr>
+        <tr><td>12</td><td>Email</td><td>"Last note from me" — Direct CTA: $47 assessment or VSSL page. "After this, I'll just send you my weekly newsletter. No hard sell. But if you're serious about making the switch, the $47 assessment is the best first step."</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Cold Lead Sequence (120-130 leads)</h3>
+    <table>
+      <thead><tr><th>Day</th><th>Action</th><th>Subject / Message</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Email</td><td>"Sorry you missed it" — "The webinar ran March 19. You registered but couldn't make it (life happens). Here's the short version: [3 bullet points of key insights]. I also built a $47 Career Assessment — link below."</td></tr>
+        <tr><td>4</td><td>Email</td><td>"750,000 cybersecurity jobs are sitting unfilled" — Belief 1 content. YouTube Video 1 link.</td></tr>
+        <tr><td>8</td><td>Email</td><td>"My student went from chef to $120K" — Belief 2 content. YouTube Video 5 link.</td></tr>
+        <tr><td>14</td><td>Email</td><td>"Quick question" — "Are you still thinking about cybersecurity? If yes, reply and I'll send something helpful. If not, no worries — I'll stop emailing about it."</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--m);">After day 14: anyone who didn't engage gets moved to newsletter-only. Don't burn the list with more emails they're not reading.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: FB GROUP NURTURE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="nurture">
+  <div class="section-head">
+    <h2>FB Group Nurture</h2>
+    <p>1,700 members sitting in DJ's Facebook group. This is a nurture layer — not a lead gen channel. Its job: keep leads warm until they're ready.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Weekly Group Posting Schedule</h3>
+    <table>
+      <thead><tr><th>Day</th><th>Post Type</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Tue</td><td>YouTube video share</td><td>Share the week's video with a one-line hook + "What questions do you have?"</td></tr>
+        <tr><td>Thu</td><td>Quick tip or insight</td><td>3-4 sentence career tip. No link. Just value. Build habit of checking the group.</td></tr>
+        <tr><td>Sat</td><td>Student spotlight or AMA</td><td>"[Student] just landed a $130K role. Here's what they did differently." Or "Ask me anything about [topic]. I'll answer every comment."</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Group Optimization</h3>
+    <ul>
+      <li><strong>Name:</strong> "Cybersecurity Career Changers | DJ Naronikar" (include DJ's name for search)</li>
+      <li><strong>Description:</strong> "IT professionals making the switch to cybersecurity. Led by 28-year CISO DJ Naronikar."</li>
+      <li><strong>Pinned post:</strong> DJ intro + $47 assessment link + group rules</li>
+      <li><strong>Join questions:</strong> "What's your current role?" + "What's your biggest barrier to cybersecurity?" (feeds into content ideas)</li>
+      <li><strong>After $47 assessment:</strong> All buyers get invited to the group with a personal note: "I added you to a community of IT professionals making the same transition."</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: METRICS DASHBOARD -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="metrics">
+  <div class="section-head">
+    <h2>Metrics Dashboard</h2>
+    <p>What to track weekly. If you don't measure it, you can't improve it.</p>
+  </div>
+
+  <div class="card">
+    <h3>Weekly KPIs</h3>
+    <table>
+      <thead><tr><th>Metric</th><th>Target</th><th>Source</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td>YouTube views</td><td>500+/week (month 1-3)</td><td>YouTube Studio</td><td>Top of funnel volume</td></tr>
+        <tr><td>YouTube→Assessment clicks</td><td>3%+ CTR</td><td>YouTube description link tracker</td><td>Content → lead conversion</td></tr>
+        <tr><td>$47 assessments sold</td><td>5+/week (month 3+)</td><td>Stripe</td><td>Qualified lead generation + revenue</td></tr>
+        <tr><td>Applications submitted</td><td>2+/week (month 3+)</td><td>GHL forms</td><td>Bottom of funnel</td></tr>
+        <tr><td>Calls booked</td><td>2+/week</td><td>GHL calendar</td><td>Conversion pipeline</td></tr>
+        <tr><td>Call show rate</td><td>80%+</td><td>GHL + manual tracking</td><td>Pre-call system effectiveness</td></tr>
+        <tr><td>Close rate</td><td>50%+</td><td>Stripe</td><td>DJ's call effectiveness</td></tr>
+        <tr><td>Revenue</td><td>$4,997+/week at scale</td><td>Stripe</td><td>The only metric that matters</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Funnel Drop-Off Points to Monitor</h3>
+    <table>
+      <thead><tr><th>Drop-Off Point</th><th>Fix If Below Target</th></tr></thead>
+      <tbody>
+        <tr><td>YouTube view → description click (<3%)</td><td>CTA in video isn't compelling. Revise the closing pitch. Test pinned comment.</td></tr>
+        <tr><td>Assessment page → purchase (<10%)</td><td>Page copy isn't converting. Test price point, headline, or add video walkthrough.</td></tr>
+        <tr><td>Assessment buyer → application (<10%)</td><td>Email nurture isn't building Belief 6. Revise sequence. Check email deliverability.</td></tr>
+        <tr><td>Application → booked call (<80%)</td><td>Friction in booking. Simplify calendar link. Add Elliot VAPI speed-to-contact.</td></tr>
+        <tr><td>Booked → showed up (<80%)</td><td>Pre-call system isn't working. Add SMS reminders. Improve prep doc.</td></tr>
+        <tr><td>Showed → enrolled (<50%)</td><td>DJ's call script needs refinement. Review objection handling. Consider price testing.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-cyan">
+    <h3>Retargeting Pixel Strategy</h3>
+    <p>Every page visitor who doesn't convert is recoverable — IF you're tracking them.</p>
+    <table>
+      <thead><tr><th>Page</th><th>Pixel Event</th><th>Retarget With</th><th>Budget</th></tr></thead>
+      <tbody>
+        <tr><td>Free quiz page</td><td>ViewContent</td><td>Testimonial ad &rarr; quiz completion</td><td>$3/day</td></tr>
+        <tr><td>Free quiz completed (no $47)</td><td>Lead</td><td>"Your score was [X]. Here's what it means" ad &rarr; $47 assessment</td><td>$5/day</td></tr>
+        <tr><td>$47 assessment page (no purchase)</td><td>ViewContent</td><td>Student transformation ad &rarr; $47 purchase</td><td>$5/day</td></tr>
+        <tr><td>$47 buyer (no application)</td><td>Purchase</td><td>"Did you review your scorecard?" ad &rarr; VSSL page</td><td>$3/day</td></tr>
+        <tr><td>VSSL page (no application)</td><td>ViewContent</td><td>DJ credibility ad (wire fraud story clip) &rarr; application</td><td>$5/day</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--m);"><strong>Total retargeting budget: $21/day ($630/mo).</strong> Shreyas manages. Each audience is warm — they've already engaged. CPAs should be 3-5x lower than cold traffic.</p>
+    <div class="callout">Install Meta Pixel on ALL pages before launching any content. Every YouTube viewer who visits a page without the pixel = wasted data.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: DJ'S DECISIONS -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="decisions">
+  <div class="section-head">
+    <h2>DJ's Decisions (Needed Before Launch)</h2>
+    <p>These 8 decisions are blocking progress. Each one has a recommended answer — DJ just needs to confirm or override.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 1: Branding — TQA vs DJ Naronikar</h3>
+    <p><strong>Recommendation:</strong> DJ Naronikar personal brand. Drop "The Quantum Achievers" as the front-facing name. Use "CISO 360" as the program name only.</p>
+    <p><strong>Why:</strong> Nobody knows TQA. Everyone trusts DJ's name and credentials. Personal brands convert higher for coaching/consulting.</p>
+    <p><strong>Impact:</strong> Website URL, social handles, email headers, webinar branding.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 2: Guarantee — "Until you're hired" still active?</h3>
+    <p><strong>Current claim (Slide 13):</strong> "We work with you until you're hired. Not 14 weeks. Until."</p>
+    <p><strong>If yes:</strong> Keep it everywhere. It's the single strongest differentiator.</p>
+    <p><strong>If no:</strong> Replace with: "Extended access until you're confident in your new positioning."</p>
+    <p><strong>Why this matters:</strong> If DJ says it and doesn't honor it, one angry student destroys credibility with the Indian IT community (word travels fast in this network).</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 3: "92% placement rate" — Verifiable?</h3>
+    <p><strong>If real:</strong> Put it everywhere. Website hero section, ads, emails, VSSL.</p>
+    <p><strong>If aspirational:</strong> Remove immediately. Replace with number of students placed or interview rate.</p>
+    <p><strong>Why:</strong> H-1B professionals are analytically rigorous. They WILL fact-check. One unverifiable claim poisons everything.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 4: Next cohort start date</h3>
+    <p><strong>Need:</strong> A specific date for "Next cohort starts [DATE]" on VSSL page and application form.</p>
+    <p><strong>Recommendation:</strong> 4-6 weeks from launch date. Gives enough time to fill 15 seats while maintaining urgency.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 5: Website — thequantumachievers.com or new domain?</h3>
+    <p><strong>Options:</strong></p>
+    <ul>
+      <li>A) Keep thequantumachievers.com, rebrand the page content → cheapest, fastest</li>
+      <li>B) New domain: djnaronikar.com or ciso360.com → cleaner, aligns with personal brand</li>
+    </ul>
+    <p><strong>Recommendation:</strong> Option B if available. Check domain availability for djnaronikar.com and ciso360.com.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 6: $47 Assessment — AI-generated or DJ-reviewed?</h3>
+    <p><strong>Option A:</strong> Fully automated (Claude API generates PDF, emailed within 2 hours). Scales infinitely.</p>
+    <p><strong>Option B:</strong> DJ reviews each one and adds a personal note. Doesn't scale but feels premium.</p>
+    <p><strong>Recommendation:</strong> Start with Option B (DJ reviews). 5-10 assessments/week is manageable. Switch to A when volume exceeds 20/week.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 7: $10K CISO Program — same funnel or separate?</h3>
+    <p><strong>Context:</strong> April 6 pricing set $4,997 Accelerator + $10K CISO Program (5 cap).</p>
+    <p><strong>Recommendation:</strong> SEPARATE funnel. $10K program is a different buyer (experienced, wants CISO specifically). Don't muddy the $4,997 conversion path. Build the $10K funnel AFTER the $4,997 funnel is producing revenue.</p>
+  </div>
+
+  <div class="card card-red">
+    <h3>Decision 8: Podcast name and hosting</h3>
+    <p><strong>Recommendation:</strong> "The CISO Path with DJ Naronikar" — clear, searchable, personal.</p>
+    <p><strong>Hosting:</strong> Spotify for Podcasters (free) to start. Move to Buzzsprout ($12/mo) if analytics needed.</p>
+    <p><strong>DJ just needs to approve the name and record a 60-second intro.</strong></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SECTION: 90-DAY TIMELINE -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="timeline">
+  <div class="section-head">
+    <h2>90-Day Launch Timeline</h2>
+    <p>Week-by-week execution plan. DJ's time commitment: 5-6 hours/week after the first 2 weeks of setup.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>Phase 1: Foundation (Weeks 1-2) — Setup everything</h3>
+    <table>
+      <thead><tr><th>Task</th><th>Owner</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>DJ records VSSL video (15-18 min)</td><td>DJ</td><td>3 hrs</td></tr>
+        <tr><td>DJ records podcast intro/outro (90 sec)</td><td>DJ</td><td>15 min</td></tr>
+        <tr><td>DJ records first YouTube video</td><td>DJ</td><td>2 hrs</td></tr>
+        <tr><td>DJ makes 8 decisions above</td><td>DJ</td><td>30 min</td></tr>
+        <tr><td>Dylan builds VSSL page</td><td>Dylan</td><td>2 hrs</td></tr>
+        <tr><td>Dylan wires $47 assessment pipeline (Stripe → quiz → GHL → PDF)</td><td>Dylan</td><td>4 hrs</td></tr>
+        <tr><td>Dylan sets up podcast hosting + submits to directories</td><td>Dylan</td><td>1 hr</td></tr>
+        <tr><td>Dylan builds YouTube channel (banner, bio, links, playlists)</td><td>Dylan</td><td>1 hr</td></tr>
+        <tr><td>Agresh wires GHL email sequences (7-email nurture + reminders)</td><td>Agresh</td><td>3 hrs</td></tr>
+        <tr><td>Agresh builds application form in GHL</td><td>Agresh</td><td>1 hr</td></tr>
+        <tr><td>Update webinar slides per V2 recommendations</td><td>Dylan/DJ</td><td>2 hrs</td></tr>
+        <tr><td>Launch 180-lead re-engage sequence</td><td>Dylan/Agresh</td><td>1 hr</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Phase 2: Launch Content Engine (Weeks 3-6)</h3>
+    <table>
+      <thead><tr><th>Week</th><th>YouTube</th><th>Podcast</th><th>LinkedIn</th><th>IG</th><th>Email</th></tr></thead>
+      <tbody>
+        <tr><td>3</td><td>Video 1 (B1: Demand)</td><td>Ep 1 (auto)</td><td>4 posts</td><td>5 stories + 3 feed</td><td>Newsletter #1</td></tr>
+        <tr><td>4</td><td>Video 2 (B3: Money)</td><td>Ep 2 (auto)</td><td>4 posts</td><td>5 stories + 3 feed</td><td>Newsletter #2</td></tr>
+        <tr><td>5</td><td>Video 3 (B5: DJ guide)</td><td>Ep 3 (auto)</td><td>4 posts</td><td>5 stories + 3 feed</td><td>Newsletter #3</td></tr>
+        <tr><td>6</td><td>Video 4 (B4: AI-proof)</td><td>Ep 4 (auto)</td><td>4 posts</td><td>5 stories + 3 feed</td><td>Newsletter #4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Phase 3: Scale + Optimize (Weeks 7-12)</h3>
+    <ul>
+      <li>Continue weekly content cycle (YouTube + podcast + LinkedIn + IG + email)</li>
+      <li>Review metrics weekly: what's converting, what's not</li>
+      <li>Launch $27 paid webinar (date TBD, use updated slides)</li>
+      <li>First $47 assessments should be converting by now</li>
+      <li>First CISO 360 enrollments should be coming in</li>
+      <li>Shreyas launches Meta retargeting on assessment buyers (warm audience)</li>
+      <li>DJ starts guest podcast appearances (cross-promotion)</li>
+    </ul>
+  </div>
+
+  <div class="card card-green">
+    <h3>Revenue Projections by Phase</h3>
+    <table>
+      <thead><tr><th>Phase</th><th>Assessment Rev</th><th>Program Rev</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Weeks 1-4 (setup + re-engage)</td><td>$470 (10 x $47)</td><td>$4,997 (1 from re-engage)</td><td>$5,467</td></tr>
+        <tr><td>Weeks 5-8 (content rolling)</td><td>$940 (20 x $47)</td><td>$9,994 (2 enrollments)</td><td>$10,934</td></tr>
+        <tr><td>Weeks 9-12 (momentum)</td><td>$1,880 (40 x $47)</td><td>$14,991 (3 enrollments)</td><td>$16,871</td></tr>
+      </tbody>
+    </table>
+    <div class="callout-green callout"><strong>90-day projection (conservative): $33,272</strong> — Covers DJ's retainer 45x over. And this is BEFORE paid ads. Organic only.</div>
+  </div>
+</div>
+
+</div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
