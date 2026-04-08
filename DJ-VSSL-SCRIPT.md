@@ -225,25 +225,27 @@ That's not a pitch. That's arithmetic."
 
 ---
 
-## SECTION 8: THE CTA — DIRECT CHECKOUT (15:30 - 17:00)
+## SECTION 8: THE CTA — APPLY (15:30 - 17:00)
 
-**Goal:** Direct purchase. No application, no call. Stripe checkout below the video.
+**Goal:** Application framing. Low-pressure next step. The content already did the selling.
 
 ---
 
-"OK so here's what to do if you're in.
+"OK so here's what to do if this makes sense for you.
 
-Right below this video — there's a button. Click it. Pick the option that works for you. $4,997 all at once, or three payments of $1,997. Same program either way.
+Right below this video there's a short application. Five questions. Takes about three minutes.
 
-I keep each group to 15 people. That's it. When it's full, you wait for the next one. I do that so I can actually know your name and your situation — not run some massive course where you're just a number.
+I keep each group to 15 people. That's it. When it's full, you wait for the next one. I do that so I can actually know your name and your situation. Not run some massive course where you're just a number.
 
-If you've been watching my stuff and this all makes sense to you — just scroll down and join. That's it. No hoops. No phone calls.
+I look at every application personally. If it looks like a good fit, you'll hear from me within 48 hours. We'll have a quick conversation. Not a sales pitch. I'll ask about your situation, your goals, your timeline. You ask me anything you want.
 
-And look — if you're not there yet, totally fine. Grab the $47 Career Scorecard first. It'll show you exactly where you stand and what your next 90 days should look like. You can always come back when you're ready.
+If we're a good fit, I'll show you how to get started. If we're not, I'll tell you that too. I'd rather point you in the right direction than take your money for something that won't work.
+
+And look, if you're not there yet, totally fine. Grab the $47 Career Scorecard first. It'll show you exactly where you stand and what your next 90 days should look like. You can always come back when you're ready.
 
 Got questions? Shoot me an email. I read them all.
 
-Either way — I'm glad you watched this. I hope it gave you a clearer picture of what's actually possible. Because the gap between where you are right now and where you want to be? It's way smaller than you think."
+Either way, I'm glad you watched this. I hope it gave you a clearer picture of what's actually possible. Because the gap between where you are right now and where you want to be? It's way smaller than you think."
 
 ---
 
@@ -253,35 +255,40 @@ Either way — I'm glad you watched this. I hope it gave you a clearer picture o
 
 ## Production Notes for DJ
 
-1. **Length target:** 15-18 minutes. Viewers who watch 15 minutes of a VSSL and THEN buy are highly qualified.
+1. **Length target:** 15-18 minutes. Viewers who watch 15 minutes of a VSSL and THEN apply are highly qualified.
 2. **No slides.** Just you, talking. One whiteboard moment for the ROI math is fine.
-3. **Record in one take if possible.** Authenticity matters more than polish. If you mess up a line, just pause and restate — you can cut in editing.
-4. **Wardrobe:** Business casual. What you'd wear to a client meeting. Not a suit, not a t-shirt.
+3. **Record in one take if possible.** Authenticity matters more than polish. If you mess up a line, just pause and restate. You can cut in editing.
+4. **Wardrobe:** Business casual. What you'd wear to a client meeting.
 5. **Lighting:** Natural light or simple ring light. Clean background. No clutter.
 6. **Do NOT put this on YouTube.** This lives ONLY on the VSSL page. It's gated. People earn the right to see it by watching your free content first.
-7. **Stripe checkout button sits directly below the video on the same page.** No application. No call. They watch, they scroll, they buy.
+7. **Application form sits directly below the video on the same page.** They watch, they scroll, they apply.
 
 ## VSSL Page Layout (for the builder)
 
 ```
-[DJ NARONIKAR — CISO 360 Accelerator]
+[DJ NARONIKAR — Cybersecurity Accelerator]
 
 [VIDEO PLAYER — 16:9, autoplay OFF, controls visible]
 
 [Headline below video:]
-"CISO 360 — The 14-Week Accelerator for IT Professionals Ready to Break Into Cybersecurity"
+"Apply for the 14-Week Cybersecurity Accelerator for IT Professionals"
 
 [Subhead:]
 "15 seats per cohort. Next cohort starts [DATE]."
 
-[TWO CHECKOUT BUTTONS — side by side]
-- "Enroll Now — $4,997" (Stripe link, one-time)
-- "Payment Plan — $1,997/mo x 3" (Stripe link, subscription)
+[APPLICATION FORM]
+- Q1: Current role + years of experience
+- Q2: What's your target cybersecurity role? (dropdown)
+- Q3: What's your current salary range? (dropdown)
+- Q4: What's your biggest barrier to making the switch? (text)
+- Q5: Can you invest $4,997 (or $1,997/mo x 3) in your career transition? (yes / need to discuss / not right now)
 
-[Below buttons — $47 fallback:]
-"Not ready yet? Start with your personalized Career Scorecard for $47"
+[SUBMIT: "Apply Now"]
 
-[Below checkout — social proof section:]
+[Below form — $47 fallback:]
+"Not ready to apply? Start with your personalized Career Scorecard for $47"
+
+[Below application — social proof section:]
 - Student result cards (photo + quote + outcome)
 - DJ credibility bar (Deloitte, EY, Shell logos + "28 years")
 - FAQ accordion:
