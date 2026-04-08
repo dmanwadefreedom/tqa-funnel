@@ -37,7 +37,7 @@ You're getting priority access before anyone else sees this.
 And if you want to talk before then -- reply to this email. I'll personally make time.
 
 -- DJ Naronikar
-28-Year CISO | Deloitte, EY, Shell, Central Bank of India
+28-Year CISO | Deloitte, EY, Shell, Middle East Central Bank
 
 ---
 
@@ -116,7 +116,7 @@ But the reason you signed up hasn't gone away.
 
 The math: cybersecurity professionals earn $150K+ on average. General IT sits around $105K. Over 10 years, that gap is roughly $800,000 in lost earnings. That's not a motivational line -- it's Bureau of Labor Statistics data.
 
-On **April 18**, I'm running a $27 live career briefing breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and the Central Bank of India.
+On **April 18**, I'm running a $27 live career briefing breaking down how to close that gap -- the same framework I've built across 28 years advising Deloitte, EY, Shell, and a Middle East Central Bank.
 
 Companies pay me $2,000-$3,000 a day for this. I'm opening it up for just $27 because I want the right people in the room -- people who are ready to move.
 
@@ -160,7 +160,7 @@ One fact, then two buttons:
 
 **Cybersecurity job openings are projected to grow 33% through 2033.** The talent shortage is real. If you have IT experience and want to make the jump, the window is wide open.
 
-On **April 18**, I'm hosting a $27 live career briefing where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and the Central Bank of India.
+On **April 18**, I'm hosting a $27 live career briefing where I break down the exact transition framework from my 28 years as a CISO at Deloitte, EY, Shell, and a Middle East Central Bank.
 
 If you're in:
 **[Yes -- Register for April 18 ($27)](https://dmanwadefreedom.github.io/tqa-funnel/)**

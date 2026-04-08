@@ -229,7 +229,7 @@ Registers ($27) → Confirmation + Trust Video + SMS
 Pre-briefing nurture (4 emails + SMS reminders)
         |
         v
-APRIL 11 BRIEFING (DJ teaches)
+APRIL 18 BRIEFING (DJ teaches)
         |
     +---+---+
     |       |

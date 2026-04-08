@@ -2,6 +2,8 @@
 ## Based on Boyd Clewis data, Hormozi framework, market comps, and DJ's call feedback
 ## March 26, 2026
 
+> **NOTE (April 8, 2026):** Product ladder was finalized after this analysis. See TQA-SOURCE-OF-TRUTH.md for current pricing.
+
 ---
 
 ## THE THREE OPTIONS ON THE TABLE
@@ -211,7 +213,7 @@ Boyd doesn't need a low-ticket funnel because he has 318K YouTube subscribers. Y
 FREE Quiz ("Is your IT career AI-proof?")
   |
   v
-$7 Webinar (Saturday April 11, 11 AM EST — increases show rate)
+$27 Career Briefing (Saturday April 18, 11 AM EST — increases show rate)
   |
   v
 $47 AI-Proof Career Plan (one-time PDF — funds ads)
@@ -224,7 +226,7 @@ $499 Jumpstart Course        $4,999 Full Program
 (DJ's 5 videos + cert)      (14 weeks, mentorship, placement)
   |
   v
-$10,000 CISO Accelerator (separate funnel, separate avatar)
+$10,000 CISO Executive Program (separate funnel, separate avatar)
 ```
 
 No cannibalization. Each tier has clear, distinct value. The community feeds the courses. The courses feed the full program.

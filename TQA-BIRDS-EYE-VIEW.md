@@ -30,9 +30,9 @@ DJ records ONE 15-minute YouTube video per week
               |
          $27 Career Briefing
               |
-         $997 Accelerator
+         $4,997 Cybersecurity Accelerator
               |
-         $4,999+ CISO Track
+         $10,000 CISO Executive Program (separate funnel, build later)
 ```
 
 **One recording session per week = 6 pieces of content across all platforms.**
@@ -116,9 +116,9 @@ This is the Boyd model, adapted for DJ:
 
 5. **They attend the $27 briefing.** DJ teaches for 80 minutes. One sentence about the program. Q&A.
 
-6. **They apply for the $997 Accelerator.** Because they've watched DJ for weeks. They've attended the briefing. They trust him. No selling required.
+6. **They apply for the $4,997 Cybersecurity Accelerator.** Because they've watched DJ for weeks. They've attended the briefing. They trust him. No selling required.
 
-7. **Top performers move to $4,999+ CISO Track.** DJ's personal mentorship, employer intros, placement guarantee. This is where the real money is.
+7. **Top performers move to $10,000 CISO Executive Program (separate funnel, build later).** DJ's personal mentorship, employer intros, placement guarantee. This is where the real money is.
 
 **DJ never sells. The content sells. The math sells. The demonstration sells.**
 
@@ -127,10 +127,10 @@ This is the Boyd model, adapted for DJ:
 ## THE FULL OFFER STACK (bird's eye)
 
 ```
-FREE                    $27                     $997                    $4,999-$7,000
-YouTube + LinkedIn      Career Briefing         90-Day Accelerator      CISO Track
-+ Podcast               (live, 90 min)          (group program)         (1:1 with DJ)
-                        |                       |                       |
+FREE                    $27                     $4,997                   $10,000
+YouTube + LinkedIn      Career Briefing         Cybersecurity            CISO Executive
++ Podcast               (live, 90 min)          Accelerator (14 wks)    Program (separate
+                        |                       |                       funnel, build later)
 Trust building          Demonstration           Structured path         Premium access
 They watch DJ           They experience DJ      AI coach + community    DJ's network
 for weeks               live for 90 min         + bi-weekly calls       + employer intros
@@ -147,7 +147,7 @@ This is corporate/enterprise training. Different buyer (companies, not individua
 ## WHAT'S ALREADY BUILT (DJ doesn't need to build these)
 
 - Career Briefing registration page (LIVE)
-- $997 Accelerator offer page (LIVE)
+- $4,997 Cybersecurity Accelerator offer page (LIVE)
 - 17-slide HTML presentation deck (LIVE)
 - 10 LinkedIn posts ready to copy-paste
 - 5 ad creatives written
@@ -159,7 +159,7 @@ This is corporate/enterprise training. Different buyer (companies, not individua
 - 100 GHL contacts tagged and segmented
 - LinkedIn DM strategy + GHL workflow spec
 
-**Everything is in one place:** dmanwadefreedom.github.io/tqa-jumpstart/package.html
+**Everything is in one place:** dmanwadefreedom.github.io/tqa-funnel/package.html
 
 ---
 
@@ -172,7 +172,7 @@ This is corporate/enterprise training. Different buyer (companies, not individua
 | Day 3 | WhatsApp the 6 applicants (messages are written, just send). | 20 min |
 | Day 4 | Record the 7-minute trust video (script provided). | 30 min |
 | Day 5 | Record YouTube Video 1 (script provided). | 1 hour |
-| Day 6 | Create Stripe links ($27 briefing + $997 Accelerator). | 15 min |
+| Day 6 | Create Stripe links ($27 Career Briefing + $4,997 Cybersecurity Accelerator). | 15 min |
 | Day 7 | Rest. Team handles repurposing + ad launch + email sequences. | 0 |
 
 **Total DJ time for the week: ~3.5 hours.**
@@ -187,6 +187,6 @@ YouTube content. That's it.
 
 DJ has the credential. DJ has the course. DJ has the system. DJ has the team.
 
-The only missing piece is consistent content that builds trust with the right audience over time. Once that's running, people come to DJ pre-sold. The briefing confirms what they already believe. The Accelerator is the obvious next step. The CISO Track is the premium option for serious professionals.
+The only missing piece is consistent content that builds trust with the right audience over time. Once that's running, people come to DJ pre-sold. The briefing confirms what they already believe. The Cybersecurity Accelerator is the obvious next step. The CISO Executive Program is the premium option for serious professionals (separate funnel, build later).
 
 No selling. No pitching. No pressure. Just a CISO sharing what he knows, and a clear path for people who want to go further.

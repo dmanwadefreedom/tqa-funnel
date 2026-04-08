@@ -25,7 +25,7 @@
 ### Revenue to Date
 | Line Item | Amount |
 |-----------|--------|
-| Jumpstart Sales | $0 |
+| Insider Brief Sales | $0 |
 | Program Enrollments | $0 |
 | Strategy Call Conversions | $0 |
 | **Total Revenue** | **$0** |
@@ -34,7 +34,7 @@
 | | Amount |
 |-|--------|
 | **Current Loss** | **-$3,802** |
-| Break-even on ads only (Jumpstart) | 13 sales at $97 |
+| Break-even on ads only (Insider Brief) | 13 sales at $97 |
 | Break-even all-in (1 month costs) | 40 sales at $97 OR 1 program enrollment at $4,999 |
 
 ---
@@ -75,7 +75,7 @@
 
 ---
 
-## CAMPAIGN 1: JUMPSTART ($97/mo) — IT PROFESSIONALS
+## CAMPAIGN 1: INSIDER BRIEF ($97/mo) — IT PROFESSIONALS
 
 ### Target Avatar: "Raj"
 - Indian IT professional, 28-42, H-1B/Green Card
@@ -83,8 +83,8 @@
 - Sysadmin, Network Admin, Cloud Engineer, IT Support Senior
 - Pain: career ceiling, visa trap, AI anxiety, salary stagnation
 
-### Landing Page: Jumpstart Offer Page
-- URL: dmanwadefreedom.github.io/tqa-jumpstart/ (needs Stripe checkout wired)
+### Landing Page: Insider Brief Offer Page
+- URL: dmanwadefreedom.github.io/tqa-funnel/ (needs Stripe checkout wired)
 - NOT thequantumachievers.com (still broken, promoting past event)
 - Score: 7/10 once checkout is connected
 
@@ -124,19 +124,19 @@
 - Headline: The $800K Career Gap
 - Primary: $105K in IT. $185K in cybersecurity. $800K difference over 10 years. Get your personal transition plan built by a 28-year CISO. $97/mo. Cancel anytime.
 - Image: Split-screen salary comparison, bold numbers, dark background
-- CTA: Learn More -> Jumpstart page
+- CTA: Learn More -> Insider Brief page
 
 **Creative 2 — Direct Access (Static)**
 - Headline: Talk Directly to a 28-Year CISO
 - Primary: WhatsApp access to a CISO who led security at Deloitte, EY, and Shell. Personal cybersecurity career plan + AI assistant. $97/mo.
 - Image: DJ photo + WhatsApp icon overlay
-- CTA: Learn More -> Jumpstart page
+- CTA: Learn More -> Insider Brief page
 
 **Creative 3 — AI Threat (Video/Carousel)**
 - Headline: AI Is Coming for IT Jobs
 - Primary: AI is automating mid-level IT jobs. Cybersecurity demand is growing 35% YoY. A 28-year CISO built a personal career transition plan for IT pros ready to move. $97/mo.
 - Image: Stark comparison visual — "Automated" vs "In Demand"
-- CTA: Learn More -> Jumpstart page
+- CTA: Learn More -> Insider Brief page
 
 ### Projections (based on REAL historical data)
 
@@ -147,7 +147,7 @@
 | CPL (from history) | $8.00 | $6.28 | $4.11 |
 | Clicks to page | 150 | 200 | 280 |
 | Page conversion rate | 2% | 3.5% | 5% |
-| **Jumpstart signups** | **3** | **7** | **14** |
+| **Insider Brief signups** | **3** | **7** | **14** |
 | **Month 1 revenue** | **$291** | **$679** | **$1,358** |
 | **Month 2 (70% retain)** | **$204** | **$475** | **$951** |
 | **Cost per signup** | **$152** | **$65** | **$32** |
@@ -172,7 +172,8 @@ NOTE: These are from cold traffic ONLY. Email blast to 192 existing contacts sho
 
 ---
 
-## CAMPAIGN 2: CISO ACCELERATOR ($10K) — SENIOR SECURITY MANAGERS
+## CAMPAIGN 2: CISO EXECUTIVE PROGRAM ($10,000) — SENIOR SECURITY MANAGERS
+> **NOTE:** This is a separate funnel from the main Cybersecurity Accelerator. Build later — not active now.
 
 ### Target Avatar: "Ravi" (DJ's description from March 13 call)
 - Security Manager / IT Security Manager / vCISO
@@ -188,9 +189,9 @@ NOTE: These are from cold traffic ONLY. Email blast to 192 existing contacts sho
 - Higher ticket = fewer sales needed to break even
 
 ### Landing Page: NEEDS TO BE BUILT
-- NOT the Jumpstart page (wrong audience, wrong price point)
+- NOT the Insider Brief page (wrong audience, wrong price point)
 - NOT thequantumachievers.com (broken, wrong audience)
-- Need a NEW page: "CISO Accelerator" or "Executive Cybersecurity Leadership"
+- Need a NEW page: "CISO Executive Program" or "Executive Cybersecurity Leadership"
 - Application-only model (Apply -> DJ reviews -> VIP call -> enrollment)
 - DJ's CISO network, guest speakers, CERT India leader = premium positioning
 
@@ -250,14 +251,14 @@ NOTE: LinkedIn is expensive ($8-$15 CPC) but this audience is higher intent and 
 | Line Item | Amount (USD) |
 |-----------|-------------|
 | **Revenue** | |
-| Jumpstart subscriptions (15-23 @ $97) | $1,455 - $2,231 |
+| Insider Brief subscriptions (15-23 @ $97) | $1,455 - $2,231 |
 | Full program upsells (1-2 @ $4,999) | $4,999 - $9,998 |
-| CISO Accelerator applications (0-1 @ $10,000) | $0 - $10,000 |
+| CISO Executive Program applications (0-1 @ $10,000) | $0 - $10,000 |
 | **Total Revenue** | **$6,454 - $22,229** |
 | | |
 | **Costs** | |
-| Meta ads — Campaign 1 Jumpstart | -$455 |
-| Meta + LinkedIn — Campaign 2 CISO | -$728 |
+| Meta ads — Campaign 1 Insider Brief | -$455 |
+| Meta + LinkedIn — Campaign 2 CISO Executive | -$728 |
 | Dylan contractor fee | -$1,500 |
 | Agresh (est) | -$500 |
 | Shreyas (est) | -$500 |
@@ -269,10 +270,10 @@ NOTE: LinkedIn is expensive ($8-$15 CPC) but this audience is higher intent and 
 ### Month 2
 | Line Item | Amount (USD) |
 |-----------|-------------|
-| Jumpstart retention (70% of M1) | $1,019 - $1,562 |
-| New Jumpstart from ads | $500 - $1,000 |
+| Insider Brief retention (70% of M1) | $1,019 - $1,562 |
+| New Insider Brief from ads | $500 - $1,000 |
 | Full program (1-2 more) | $4,999 - $9,998 |
-| CISO Accelerator (1-2) | $10,000 - $20,000 |
+| CISO Executive Program (1-2) | $10,000 - $20,000 |
 | **Total Revenue** | **$16,518 - $32,560** |
 | Costs (same operational) | -$3,803 |
 | **Net Month 2** | **$12,715 - $28,757** |
@@ -280,9 +281,9 @@ NOTE: LinkedIn is expensive ($8-$15 CPC) but this audience is higher intent and 
 ### Month 3
 | Line Item | Amount (USD) |
 |-----------|-------------|
-| Jumpstart base (growing) | $2,000 - $3,500 |
+| Insider Brief base (growing) | $2,000 - $3,500 |
 | Program enrollments (Cohort 2 @ $7,500) | $15,000 - $37,500 |
-| CISO Accelerator | $10,000 - $30,000 |
+| CISO Executive Program | $10,000 - $30,000 |
 | **Total Revenue** | **$27,000 - $71,000** |
 | Costs (scaled) | -$5,000 |
 | **Net Month 3** | **$22,000 - $66,000** |
@@ -305,7 +306,7 @@ NOTE: LinkedIn is expensive ($8-$15 CPC) but this audience is higher intent and 
 | Jay didn't close | 3 calls, 0 conversions | **DJ does VIP calls** (15 min, authority close) |
 | Website still promotes past event | "Reserve my Spot" for March 19 | **New landing page per campaign** (not WordPress) |
 | Pixel not firing on conversions | PixelYourSite installed but 0 purchase events | **Test pixel fires on form submit + purchase** |
-| No replay page | Replay on Google Drive link, no offer underneath | **Build replay page with Jumpstart CTA below** |
+| No replay page | Replay on Google Drive link, no offer underneath | **Build replay page with Insider Brief CTA below** |
 | One webinar, one shot | Single event, then nothing | **Evergreen replay + monthly live webinar** |
 | Only 1 offer ($4,999) | Too big a jump for cold leads | **$97 -> $497 -> $4,999 ladder** |
 
@@ -313,14 +314,14 @@ NOTE: LinkedIn is expensive ($8-$15 CPC) but this audience is higher intent and 
 
 ## LANDING PAGE STRATEGY (for both campaigns)
 
-### Campaign 1 (Jumpstart — $97/mo)
-**Use:** dmanwadefreedom.github.io/tqa-jumpstart/
+### Campaign 1 (Insider Brief — $97/mo)
+**Use:** dmanwadefreedom.github.io/tqa-funnel/
 - Wire Stripe checkout (BLOCKER — need DJ's link)
 - Score: 7/10 once checkout works
 - DO NOT use thequantumachievers.com (still broken, 4/10)
 
-### Campaign 2 (CISO Accelerator — $10K)
-**NEEDS TO BE BUILT** — separate page, separate audience
+### Campaign 2 (CISO Executive Program — $10,000)
+**NEEDS TO BE BUILT** — separate funnel, separate audience, build later
 - Application-only (GHL form or Typeform)
 - DJ's credentials + guest speaker lineup
 - "Limited to 10 seats per cohort"

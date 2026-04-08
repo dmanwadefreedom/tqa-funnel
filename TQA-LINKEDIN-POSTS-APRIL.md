@@ -289,7 +289,7 @@ That is what I am building. The map.
 | 5 | Apr 8 | Tue | Fear/News | Yes | AI-generated phishing attacks increased 148% this year. |
 | 6 | Apr 9 | Wed | DJ Authority | No | Last year I wrote the artificial intelligence policy for a central bank in the Middle East. |
 | 7 | Apr 10 | Thu | Fear/News | Yes | Three new US state privacy laws took effect on January 1, 2026. |
-| 8 | Apr 11 | Fri | Career Proof | No | CompTIA Security+ holders earn 11% more than their non-certified peers. |
+| 8 | Apr 18 | Fri | Career Proof | No | CompTIA Security+ holders earn 11% more than their non-certified peers. |
 | 9 | Apr 13 | Mon | Fear/News | No | Professional services and healthcare are the two most-attacked sectors in 2026. |
 | 10 | Apr 14 | Tue | BTS | No | I spent last Friday in a room with 50 IT professionals... |
 

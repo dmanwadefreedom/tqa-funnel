@@ -45,7 +45,7 @@ Slide 6: CTA — "Want your personalized career path? Link in comments."
 
 **Body:** I had networking experience. Systems knowledge. And a willingness to learn faster than threats evolved. The cybersecurity industry didn't have a "path" back then. You figured it out. Today, the path exists — but most people overthink it. They spend 18 months researching certifications instead of 90 days executing a plan. The fastest career transitions I've seen? People who picked a direction and moved. Not the ones who studied every option first.
 
-**CTA:** $27 Career Briefing — 30 min to map your transition. Link in comments.
+**CTA:** $27 Career Briefing — 90 minutes that could change your career trajectory. Link in comments.
 
 ---
 
@@ -106,7 +106,7 @@ Skip: Vendor-specific certs until you know your specialization. Skip OSCP unless
 
 **Body:** Here's what changed: He stopped studying randomly and started following a plan. Month 1-2: Security+ while still in his IT role. Month 3-5: CySA+ and built a home lab. Month 6-8: Started applying to security roles. Positioned his 8 years of networking as "deep infrastructure security knowledge." Month 9: Hired. Month 12: Promoted. The skills were always there. He just needed someone to show him how to package them.
 
-**CTA:** This is exactly what the Career Briefing does. 30 minutes. $27. Link in comments.
+**CTA:** This is exactly what the Career Briefing does. 90 minutes. $27. Link in comments.
 
 ---
 
@@ -176,7 +176,7 @@ Slide 5: Your IT visa experience + Security+ = you're already more qualified tha
 ### Fri May 2 — TEXT POST (Vision)
 **Hook:** Where will you be 12 months from now?
 
-**Body:** Same desk. Same salary. Same ceiling. Or: New title. New salary bracket. New career trajectory. The difference isn't talent — every IT professional I've worked with had the raw skills. The difference is direction. A clear plan. Someone who's walked the path showing you the shortcuts and the pitfalls. I've done this for 28 years. I've seen what works. I've seen what doesn't. And I can tell you in 30 minutes exactly what YOUR next move should be.
+**Body:** Same desk. Same salary. Same ceiling. Or: New title. New salary bracket. New career trajectory. The difference isn't talent — every IT professional I've worked with had the raw skills. The difference is direction. A clear plan. Someone who's walked the path showing you the shortcuts and the pitfalls. I've done this for 28 years. I've seen what works. I've seen what doesn't. And I can tell you in 90 minutes exactly what YOUR next move should be.
 
 **CTA:** $27 Career Briefing. Your career roadmap, built by a CISO who's hired hundreds. Link in bio.
 

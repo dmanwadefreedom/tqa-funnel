@@ -1,9 +1,11 @@
 # TQA Web Presence Audit — April 6, 2026
 
-## Sales Page Audit (tqa-jumpstart/index.html)
-**Current URL:** dmanwadefreedom.github.io/tqa-jumpstart/
+## Sales Page Audit (tqa-funnel/index.html)
+**Current URL:** dmanwadefreedom.github.io/tqa-funnel/
 **Design Score:** 8/10 — clean, premium dark theme, good typography
 **Conversion Score:** 4/10 — critical breaks below
+
+> **NOTE:** This audit was run against the old tqa-jumpstart URL. It should be re-run against the current tqa-funnel site for updated findings.
 
 ### CRITICAL Issues
 
@@ -11,7 +13,7 @@
 |---|-------|--------|-----|
 | 1 | **CTAs link to `#checkout` — section doesn't exist** | 100% of clicks go nowhere. Zero conversions possible. | Add Stripe checkout embed or redirect to Stripe payment link |
 | 2 | **Not on main domain** | Zero SEO juice. GitHub Pages subdomain has no authority. | Deploy to thequantumachievers.com/jumpstart or /start |
-| 3 | **No upsell path** | $97/mo is the ceiling. No path to $2,497 Accelerator or $7,500 CISO Track. | Add "Accelerate Your Transition" upgrade section after checkout |
+| 3 | **No upsell path** | No path from $97/mo Insider Brief to $4,997 Cybersecurity Accelerator. | Add "Accelerate Your Transition" upgrade section after checkout |
 | 4 | **Contact email: achieversquantum@gmail.com** | Unprofessional. Kills trust. | Switch to dj@thequantumachievers.com or support@thequantumachievers.com |
 
 ### HIGH Priority Issues
@@ -21,7 +23,7 @@
 | 5 | No schema markup (Course, EducationalOrganization) | Add JSON-LD (see schema-markup.html) |
 | 6 | No favicon | Add TQA logo as favicon |
 | 7 | No privacy policy / terms links in footer | Add links — required for Meta ads |
-| 8 | Pricing still shows $97/mo — should reflect new $47 briefing entry | Update hero + CTA to $47 Career Briefing as entry, $97/mo as ongoing |
+| 8 | Pricing should reflect current product ladder | Current ladder: $0 Quiz, $27 Career Briefing, $47 Career Scorecard, $97/mo Insider Brief, $4,997 Cybersecurity Accelerator. See TQA-SOURCE-OF-TRUTH.md |
 | 9 | No video testimonials | Record 2-3 student video testimonials or use LinkedIn screenshot format |
 | 10 | No aggregate numbers ("X students helped", "Y% got roles") | Add proof metrics — even "28 years mentoring" → "100+ career transitions guided" |
 
@@ -53,7 +55,7 @@
 |--------|--------------|--------|
 | thequantumachievers.com | WordPress site. Webinar funnel. 2 pages in sitemap. No blog. | PRIMARY — all content here |
 | thequantumadvantage.com | JS redirect → /lander (403). Dead. | 301 redirect → thequantumachievers.com |
-| dmanwadefreedom.github.io/tqa-jumpstart/ | Best sales page. Wrong domain. | Move content to main WP domain |
+| dmanwadefreedom.github.io/tqa-funnel/ | Best sales page. Wrong domain. | Move content to main WP domain |
 
 ### 301 Redirect Setup (thequantumadvantage.com)
 

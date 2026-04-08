@@ -9,7 +9,7 @@
 
 ---
 
-## A. SPRINT OFFER — 6 APPLICANTS (Applied March 19, No Follow-Up)
+## A. RE-ENGAGE — 6 APPLICANTS (Applied March 19, No Follow-Up)
 
 **Names:** Sonny Pierre, Ejaz Khan, Muhammad Mazed, Rama Krishna Guttula, Shafiul Kh, Kenny Ganta
 
@@ -19,9 +19,11 @@
 >
 > I saw your application from March 19. I want to be upfront — you should have heard from me sooner. You filled it out, and that tells me you're serious about making the move into cybersecurity.
 >
-> I've been doing something different since then. Instead of running another large group, I'm taking 6 people through what I'm calling the Sprint — a 4-week intensive where I personally build your career transition plan, run mock interviews with you, and get your LinkedIn and resume in shape for cybersecurity hiring managers. Not a course. Direct work with me.
+> I'm running a live Cybersecurity Career Briefing on April 18 at 11:00 AM EST. No fluff — I'll walk through the exact career path from IT to cybersecurity with real salary data, a certification roadmap, and a live LinkedIn audit exercise.
 >
-> It's $2,500 for the 4 weeks. That's roughly what companies pay me for a single day of consulting. The difference is you get 4 weeks of my attention focused on your career.
+> 28 years as a CISO at Deloitte, EY, and Shell. This is what I'd tell my own team.
+>
+> $27 to attend. Small room. Worth a look if you're serious about making the move.
 >
 > [Personalized line based on their application]
 >
@@ -33,11 +35,13 @@
 >
 > I saw your application from March 19. I want to be upfront — you should have heard from me sooner. You filled it out, and that tells me you're serious about making the move into cybersecurity.
 >
-> I've been doing something different since then. Instead of running another large group, I'm taking 6 people through what I'm calling the Sprint — a 4-week intensive where I personally build your career transition plan, run mock interviews with you, and get your LinkedIn and resume in shape for cybersecurity hiring managers. Not a course. Direct work with me.
+> I'm running a live Cybersecurity Career Briefing on April 18 at 11:00 AM EST. No fluff — I'll walk through the exact career path from IT to cybersecurity with real salary data, a certification roadmap, and a live LinkedIn audit exercise.
 >
-> It's $2,500 for the 4 weeks. That's roughly what companies pay me for a single day of consulting. The difference is you get 4 weeks of my attention focused on your career.
+> 28 years as a CISO at Deloitte, EY, and Shell. This is what I'd tell my own team.
 >
-> Based on your application, you've got the technical background. The gap is usually in how you position it for security roles — and that's exactly what the Sprint is built to fix.
+> $27 to attend. Small room.
+>
+> Based on your application, you've got the technical background. The gap is usually in how you position it for security roles — and that's exactly what the briefing covers.
 >
 > Would you be open to a 15-minute call this week so I can hear where you're at?
 
@@ -47,11 +51,13 @@
 >
 > I saw your application from March 19. I want to be upfront — you should have heard from me sooner. You filled it out, and that tells me you're serious about making the move into cybersecurity.
 >
-> I've been doing something different since then. Instead of running another large group, I'm taking 6 people through what I'm calling the Sprint — a 4-week intensive where I personally build your career transition plan, run mock interviews with you, and get your LinkedIn and resume in shape for cybersecurity hiring managers. Not a course. Direct work with me.
+> I'm running a live Cybersecurity Career Briefing on April 18 at 11:00 AM EST. No fluff — I'll walk through the exact career path from IT to cybersecurity with real salary data, a certification roadmap, and a live LinkedIn audit exercise.
 >
-> It's $2,500 for the 4 weeks. That's roughly what companies pay me for a single day of consulting. The difference is you get 4 weeks of my attention focused on your career.
+> 28 years as a CISO at Deloitte, EY, and Shell. This is what I'd tell my own team.
 >
-> I've worked with a lot of professionals making this exact transition from IT infrastructure into security. The experience you already have is more transferable than most people realize — the Sprint is about closing the remaining gaps fast.
+> $27 to attend. Small room.
+>
+> I've worked with a lot of professionals making this exact transition from IT infrastructure into security. The experience you already have is more transferable than most people realize — the briefing covers exactly how to position it.
 >
 > Would you be open to a 15-minute call this week so I can hear where you're at?
 
@@ -59,14 +65,14 @@
 
 | Name | Suggested personalized line |
 |------|-----------------------------|
-| Sonny Pierre | "Your background stood out to me. The Sprint is built for people who are ready to move, not people still thinking about it. From what I saw in your application, you're ready." |
-| Muhammad Mazed | "I've worked with professionals in similar positions to yours. The transition is very doable — the Sprint compresses what normally takes people 6+ months into 4 focused weeks." |
-| Shafiul Kh | "What caught my attention in your application was that you're already thinking about cybersecurity seriously. The Sprint is about turning that into a concrete plan with real interviews lined up." |
-| Kenny Ganta | "I noticed your IT background in your application. You're closer to a cybersecurity role than you probably think — the Sprint is designed to bridge that last gap." |
+| Sonny Pierre | "Your background stood out to me. The Career Briefing is built for people who are ready to move, not people still thinking about it. From what I saw in your application, you're ready." |
+| Muhammad Mazed | "I've worked with professionals in similar positions to yours. The transition is very doable — the briefing walks through exactly how to make it happen." |
+| Shafiul Kh | "What caught my attention in your application was that you're already thinking about cybersecurity seriously. The Career Briefing turns that into a concrete plan." |
+| Kenny Ganta | "I noticed your IT background in your application. You're closer to a cybersecurity role than you probably think — the briefing shows you exactly how to bridge that gap." |
 
 ---
 
-## B. SPRINT OFFER — 6 ATTENDED (Attended March 19, Didn't Buy)
+## B. RE-ENGAGE — 6 ATTENDED (Attended March 19, Didn't Buy)
 
 **Names:** Dev Ambrose, Jay Magpantay, Hector Ramirez, Tim Hughes, Dayo Adegbola, Jaya Singh
 
@@ -76,15 +82,15 @@
 >
 > You came to the March 19 session. I know that one had some timezone issues and the format wasn't ideal for everyone. I appreciate you sticking through it.
 >
-> Since then I've been rethinking how I work with people. The large-group model doesn't let me go deep enough on individual career situations. So I'm doing something different.
+> I'm running a new Career Briefing on April 18 at 11:00 AM EST. This one is focused and practical — real salary data, a certification roadmap that matters, how the hidden job market works, and a live LinkedIn audit exercise.
 >
-> I'm running what I'm calling the Sprint — 4 weeks, 6 people maximum, working directly with me. I build your personal career transition plan, we do live mock interviews, I audit your LinkedIn and resume, and by week 4 you have a clear path into cybersecurity with applications out the door.
+> $27 to attend. I keep the room small on purpose.
 >
-> It's $2,500. I know that's a real number. But I charge companies $2-3K per day, and in the Sprint you're getting 4 weeks of that same level of attention focused entirely on your career move.
+> I also have a new offer: the Cybersecurity Career Scorecard ($47) — an 8-page personalized assessment of where you stand, what transfers from your IT background, and your exact certification roadmap. If you want that instead of the live session, let me know.
 >
 > [Personalized line based on attendance]
 >
-> Interested in hearing more about it? I can do a quick call this week.
+> Interested? I can do a quick call this week.
 
 ### Example 1: Jay Magpantay
 
@@ -92,15 +98,13 @@
 >
 > You came to the March 19 session. I know that one had some timezone issues and the format wasn't ideal for everyone. I appreciate you sticking through it.
 >
-> Since then I've been rethinking how I work with people. The large-group model doesn't let me go deep enough on individual career situations. So I'm doing something different.
+> I'm running a new Career Briefing on April 18 at 11:00 AM EST. This one is focused and practical — real salary data, a certification roadmap that matters, how the hidden job market works, and a live LinkedIn audit exercise.
 >
-> I'm running what I'm calling the Sprint — 4 weeks, 6 people maximum, working directly with me. I build your personal career transition plan, we do live mock interviews, I audit your LinkedIn and resume, and by week 4 you have a clear path into cybersecurity with applications out the door.
+> $27 to attend. I keep the room small on purpose.
 >
-> It's $2,500. I know that's a real number. But I charge companies $2-3K per day, and in the Sprint you're getting 4 weeks of that same level of attention focused entirely on your career move.
+> You sat through the full session, which tells me you're not casually browsing. This might be a better fit — smaller room, more interaction.
 >
-> You sat through the full session, which tells me you're not casually browsing. If the group format didn't quite fit, this might be a better match for how you work.
->
-> Interested in hearing more about it? I can do a quick call this week.
+> Interested? I can do a quick call this week.
 
 ### Example 2: Dayo Adegbola
 
@@ -108,24 +112,22 @@
 >
 > You came to the March 19 session. I know that one had some timezone issues and the format wasn't ideal for everyone. I appreciate you sticking through it.
 >
-> Since then I've been rethinking how I work with people. The large-group model doesn't let me go deep enough on individual career situations. So I'm doing something different.
+> I'm running a new Career Briefing on April 18 at 11:00 AM EST. This one is focused and practical — real salary data, a certification roadmap that matters, how the hidden job market works, and a live LinkedIn audit exercise.
 >
-> I'm running what I'm calling the Sprint — 4 weeks, 6 people maximum, working directly with me. I build your personal career transition plan, we do live mock interviews, I audit your LinkedIn and resume, and by week 4 you have a clear path into cybersecurity with applications out the door.
+> $27 to attend. I keep the room small on purpose.
 >
-> It's $2,500. I know that's a real number. But I charge companies $2-3K per day, and in the Sprint you're getting 4 weeks of that same level of attention focused entirely on your career move.
+> I remember you had good questions during the session. That kind of engagement is exactly what makes this work — the briefing is built around people who actually dig in.
 >
-> I remember you had good questions during the session. That kind of engagement is exactly what makes the Sprint work — it's built around people who actually dig in.
->
-> Interested in hearing more about it? I can do a quick call this week.
+> Interested? I can do a quick call this week.
 
 ### Personalization Notes for Remaining 4
 
 | Name | Suggested personalized line |
 |------|-----------------------------|
-| Dev Ambrose | "You showed up when 80% of registrants didn't. That alone tells me about your commitment level. The Sprint is built for people like that." |
-| Hector Ramirez | "I've been thinking about the questions that came up in that session. The Sprint addresses most of them head-on — especially the 'where do I start' piece." |
-| Tim Hughes | "The session covered a lot of ground in a short time. The Sprint lets me go deep on YOUR specific situation instead of covering general frameworks." |
-| Jaya Singh | "You invested the time to show up and stay through the full session. The Sprint is about turning that investment into results — a real transition plan with timelines." |
+| Dev Ambrose | "You showed up when 80% of registrants didn't. That alone tells me about your commitment level. This briefing is built for people like that." |
+| Hector Ramirez | "I've been thinking about the questions that came up in that session. The Career Briefing addresses most of them head-on — especially the 'where do I start' piece." |
+| Tim Hughes | "The session covered a lot of ground in a short time. The new briefing is more focused — real data, real exercises, real next steps for YOUR situation." |
+| Jaya Singh | "You invested the time to show up and stay through the full session. The April 18 briefing turns that investment into a concrete plan with timelines." |
 
 ---
 

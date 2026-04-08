@@ -1,5 +1,5 @@
 # Cybersecurity Career Briefing — Slide Deck
-## DJ Naronikar | April 11, 2026
+## DJ Naronikar | April 18, 2026
 ### Format: Career Briefing (not a webinar). DJ teaches for 80 minutes. One mention of his program. Then Q&A.
 ### Total Runtime: 85-90 minutes
 
@@ -10,7 +10,7 @@
 **On Screen:**
 - "Cybersecurity Career Briefing"
 - DJ Naronikar | 28-Year CISO
-- April 11, 2026
+- April 18, 2026
 - The Quantum Achievers logo (small, bottom corner)
 
 **Speaker Notes:**

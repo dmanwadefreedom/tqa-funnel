@@ -1,20 +1,20 @@
 # TQA Program Architecture — How Everything Connects
-## For DJ: Why $997, How to Deliver, and Where the $4,999+ Lives
+## For DJ: Why $4,997, How to Deliver, and Where the $10,000 CISO Executive Program Lives
 ## April 2, 2026
 
 ---
 
-## DJ — YOUR COURSEWARE IS WORTH MORE THAN $997
+## DJ — YOUR COURSEWARE IS WORTH EVERY DOLLAR OF $4,997
 
-Let me be clear. Your CISO360 Certified Cybersecurity Specialist courseware is a 94-page, 23,000-word document covering 5 domains with 237 sections, 14+ compliance frameworks, real case studies, and an AI governance module most programs don't even touch. Combined with your 14-week delivery structure (1:1 mentorship, labs, mock interviews, employer intros, placement guarantee) — that IS a $5,000-$7,000 program. The pricing analysis and competitor research confirms it.
+Let me be clear. Your Cybersecurity Accelerator courseware is a 94-page, 23,000-word document covering 5 domains with 237 sections, 14+ compliance frameworks, real case studies, and an AI governance module most programs don't even touch. Combined with your 14-week delivery structure (group coaching, labs, mock interviews, community) — that IS a $4,997 program. The pricing analysis and competitor research confirms it.
 
-The $997 Accelerator is not a discount on your program. It is a different product. It is the practical career transition path that feeds INTO your full program. Here is exactly how.
+The $4,997 Cybersecurity Accelerator is the main program. Here is exactly how it works.
 
 ---
 
 ## YOUR COURSEWARE — WHAT'S ACTUALLY IN IT
 
-### CISO360 Certified Cybersecurity Specialist (94 pages)
+### Cybersecurity Accelerator Courseware (94 pages)
 
 **Domain 1: Network Security** (pages 4-16)
 - Network security fundamentals (CIA triad, access control, encryption, IDS/IPS)
@@ -62,7 +62,7 @@ The $997 Accelerator is not a discount on your program. It is a different produc
 
 ## THE TWO PRODUCTS (they are NOT the same thing)
 
-### Product 1: $997 Accelerator (90 Days)
+### Product 1: $4,997 Cybersecurity Accelerator (14 Weeks)
 **What it is:** The CAREER TRANSITION engine. Gets IT professionals from "I want to move into cybersecurity" to "I have a job offer."
 
 **What it includes:**
@@ -80,19 +80,17 @@ The $997 Accelerator is not a discount on your program. It is a different produc
 - Peer accountability group
 
 **What it does NOT include:**
-- The full CISO360 courseware (5 domains, 94 pages)
-- 1:1 personal mentorship with DJ
+- 1:1 personal mentorship with DJ (that is the $10,000 CISO Executive Program)
 - Direct employer introductions from DJ's network
 - Personal mock interviews with DJ
 - "Until you're hired" placement guarantee
-- Deep technical training (GRC frameworks, risk management, compliance)
 
-**Why it exists at $997:**
+**Why it exists at $4,997:**
 1. It is a complete, self-contained product. Someone who does the work will land a cybersecurity job.
 2. It does not require DJ's personal time per student (group calls, not 1:1). DJ can serve 30 students at once.
-3. It creates the proof. 30 students going through this = 30 potential success stories that justify the $4,999+ tier.
-4. It is affordable enough for "Raj" to say yes without a strategy call. $997 or 3 x $347. His wife sees the math ($25K+ salary increase year 1) and agrees.
-5. Boyd charges $2,997 for his program with 320K YouTube subscribers. DJ has near zero audience. The $997 price point converts without the audience.
+3. It creates the proof. 30 students going through this = 30 potential success stories.
+4. The ROI is clear for "Raj." $4,997 or 3 x $1,997. His wife sees the math ($25K+ salary increase year 1) and agrees.
+5. Boyd charges $2,997 for his program with 320K YouTube subscribers. DJ has the 28-year CISO credential, employer network, and deeper courseware — $4,997 is defensible.
 
 **Delivery schedule (12 weeks / 90 days):**
 
@@ -117,12 +115,12 @@ The $997 Accelerator is not a discount on your program. It is a different produc
 
 ---
 
-### Product 2: $4,999-$7,000 CISO Track (14 Weeks)
-**What it is:** The FULL program. Everything in the Accelerator PLUS DJ's deep technical training and personal mentorship. This is the 14-week program from the webinar slides.
+### Product 2: $10,000 CISO Executive Program (separate funnel, build later)
+**What it is:** The PREMIUM program. Everything in the Cybersecurity Accelerator PLUS DJ's personal mentorship and employer introductions. This is a separate funnel — do NOT build now.
 
 **What it includes (everything above PLUS):**
 
-**The Full CISO360 Courseware (5 domains):**
+**Everything in the Cybersecurity Accelerator PLUS:**
 - Domain 1: Network Security (threats, architecture, monitoring, best practices)
 - Domain 2: GRC (governance framework, ethics, policies, 3 Lines of Defense, reporting)
 - Domain 3: Risk Management (ERM, threat modeling, risk registers, BIA, KRIs, controls testing)
@@ -153,8 +151,8 @@ The $997 Accelerator is not a discount on your program. It is a different produc
 | Job-Ready Positioning | 11-12 | Resume rebuild, LinkedIn optimization, networking strategy, hidden job market |
 | Interview & Placement | 13-14 | 3+ mock interviews, salary negotiation, direct employer introductions |
 
-**Why this is $4,999-$7,000:**
-1. It includes 94 pages of proprietary courseware that took DJ 28 years to develop
+**Why this is $10,000:**
+1. It includes everything in the $4,997 Cybersecurity Accelerator
 2. It includes DJ's personal time (1:1 calls, personal mock interviews, personal introductions)
 3. It includes access to DJ's employer network (400+ companies — this alone is worth the price)
 4. It includes a placement guarantee (DJ's reputation is on the line)
@@ -174,7 +172,7 @@ $27 Career Briefing (live, 90 min, DJ teaches)
         +---- Not ready yet → weekly email nurture → next briefing
         |
         v
-$997 Accelerator (90 days, group)
+$4,997 Cybersecurity Accelerator (14 weeks, group)
   - Gets Security+ certified
   - Gets resume + LinkedIn right
   - Gets interview skills
@@ -185,7 +183,7 @@ $997 Accelerator (90 days, group)
         +---- Wants to go deeper → upgrade option
         |
         v
-$4,999-$7,000 CISO Track (14 weeks, 1:1 with DJ)
+$10,000 CISO Executive Program (separate funnel, 1:1 with DJ)
   - Full technical training (the courseware)
   - DJ's personal mentorship
   - Employer introductions
@@ -195,27 +193,21 @@ $4,999-$7,000 CISO Track (14 weeks, 1:1 with DJ)
 Cybersecurity career launched. Testimonial created. Cycle repeats.
 ```
 
-**The Accelerator creates the demand for the CISO Track.**
+**The Cybersecurity Accelerator creates the demand for the CISO Executive Program.**
 
-Students who go through the Accelerator and get their Security+ will want MORE. They will want the deep technical knowledge. They will want DJ's personal network. They will want the guarantee. THAT is when they upgrade to $4,999+.
+Students who go through the Accelerator and get their Security+ will want MORE. They will want DJ's personal network. They will want the guarantee. THAT is when they upgrade to $10,000.
 
-DJ does not need to sell the CISO Track from cold. He sells the Accelerator (which is easy at $997), delivers results, and the upgrade sells itself.
+DJ does not need to sell the CISO Executive Program from cold. He sells the Cybersecurity Accelerator (which converts with the application model at $4,997), delivers results, and the upgrade sells itself.
 
 ---
 
-## WHY 90 DAYS AND NOT 14 WEEKS
+## THE 14-WEEK STRUCTURE
 
-DJ's 14-week program is the CISO Track. 14 weeks = 98 days. That IS roughly 90 days. But the Accelerator is a different scope:
+The Cybersecurity Accelerator IS the 14-week program. This is the main product at $4,997 (or $1,997 x 3 payment plan).
 
-- The Accelerator focuses on the 4 things that get hired: cert, resume, LinkedIn, interviews
-- The CISO Track adds 8 weeks of technical training (Weeks 3-10 in the original slides: network security, GRC, cloud security, incident response)
-- 90 days is a cleaner number than "12-14 weeks" for marketing
-- 90 days matches the promise: "break into cybersecurity careers in 90 days"
-
-The Accelerator is 12 weeks of practical career transition.
-The CISO Track is 14 weeks of practical transition + deep technical training.
-
-2 extra weeks = 8 weeks of technical core that the Accelerator doesn't include (because the Accelerator assumes they learn the technical skills through Security+ study and TryHackMe labs, not through DJ's courseware).
+- The Accelerator covers career transition + technical training over 14 weeks
+- It includes the courseware, group coaching, labs, resume work, interview prep, and certification support
+- The CISO Executive Program ($10,000) is a separate funnel built later for 1:1 mentorship + employer intros + placement guarantee
 
 ---
 
@@ -235,12 +227,12 @@ This should NEVER be mixed into the TQA Career Briefing funnel. Different audien
 
 ## WHAT DJ NEEDS TO DECIDE
 
-1. **Does the Accelerator ($997) vs CISO Track ($4,999+) split make sense?** The Accelerator is the career transition engine. The CISO Track is the full program with courseware + mentorship + placement. They are different products for different stages.
+1. **The Cybersecurity Accelerator is $4,997 (or $1,997 x 3 payment plan).** This is the main product. It includes the courseware, group coaching, labs, resume work, interview prep, and certification support. DECIDED.
 
-2. **What is the exact CISO Track price?** $4,999? $5,997? $7,000? This depends on how much of DJ's personal time is included. If it is 1:1 weekly calls for 14 weeks + placement guarantee, $5,997-$7,000 is defensible. If it is group calls + self-paced courseware, $3,997-$4,999 is more appropriate.
+2. **The CISO Executive Program is $10,000.** This is a separate funnel built later. It includes 1:1 mentorship, employer introductions, and placement guarantee. NOT building now.
 
-3. **Is the courseware included in the Accelerator or not?** Right now, the answer is no — the Accelerator is practical career transition only. The courseware is the CISO Track's differentiator. DJ needs to agree with this split. If he wants the courseware in the Accelerator, the price should be $2,997+ (matching Boyd).
+3. **The courseware IS included in the Cybersecurity Accelerator.** The Accelerator is the full 14-week program. DECIDED.
 
-4. **Payment plans?** Accelerator: 3 x $347. CISO Track: 3 x $1,999 or 6 x $1,166. These reduce friction for Raj, who needs to have the conversation with his wife.
+4. **Payment plan:** 3 x $1,997. This reduces friction for Raj, who needs to have the conversation with his wife.
 
-5. **Is the $10K+ offer live now?** If so, it needs its own funnel, its own page, and its own sales process. It should NOT be mentioned in the Career Briefing or on any TQA pages aimed at individual IT professionals.
+5. **The $10K offer is NOT live.** It will get its own funnel, its own page, and its own sales process when built. It should NOT be mentioned in the Career Briefing or on any TQA pages aimed at individual IT professionals.

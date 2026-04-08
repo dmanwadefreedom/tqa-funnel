@@ -14,7 +14,7 @@ Perfect. Now I'll create the comprehensive growth strategy document:
 
 TQA has the right offer (career transition program), the right founder (28-year CISO), and the right avatar (H-1B IT professionals in the US). But the funnel has three critical failures:
 
-1. **No trust-building middle tier** — The jump from $47 webinar to $4,997 program is too large. People attend, feel the value, then ghost because they haven't experienced the product or seen proof it works.
+1. **No trust-building middle tier** — The jump from $27 Career Briefing to $4,997 program is too large. People attend, feel the value, then ghost because they haven't experienced the product or seen proof it works.
 
 2. **Wrong audience quality** — 197 contacts from Meta ads, but many are unqualified (brokie students, non-US, wrong roles). The cost-per-lead ($4.11) is good, but cost-per-qualified-lead is terrible because lead quality is low.
 
@@ -23,9 +23,9 @@ TQA has the right offer (career transition program), the right founder (28-year 
 **This plan fixes all three problems in 90 days.**
 
 ### Immediate Revenue Targets
-- **Days 1-30:** Reactivate existing 197 contacts + April 18 webinar → target 20-25 paid ($47 briefing registrations) = $940-$1,175 revenue
+- **Days 1-30:** Reactivate existing 197 contacts + April 18 webinar → target 20-25 paid ($27 Career Briefing registrations) = $540-$675 revenue
 - **Days 31-60:** Launch YouTube content + warm nurture sequences → grow to 400+ total contacts = $2,000+ revenue
-- **Days 61-90:** $997 Accelerator cohort starts → convert 8-12 attendees = $8,000-$12,000 revenue
+- **Days 61-90:** $4,997 Cybersecurity Accelerator cohort starts → convert 8-12 attendees = $40,000-$60,000 revenue
 
 **90-Day Revenue Projection: $10,000-$15,000**
 
@@ -33,7 +33,7 @@ TQA has the right offer (career transition program), the right founder (28-year 
 
 ## SECTION 1: THE FUNNEL ARCHITECTURE & TRUST-BUILDING MIDDLE TIER
 
-### Problem: Why the $47 → $4,997 Jump Fails
+### Problem: Why the $27 → $4,997 Jump Fails
 
 DJ's webinar is brilliant. People attend, DJ teaches for 90 minutes, the content is world-class, and DJ doesn't sell. This is actually the problem. The audience feels the value, but they don't know:
 - Whether DJ can deliver on the $5K promise
@@ -47,7 +47,7 @@ They need a middle product that:
 3. Shows them they can do the work
 4. Builds enough trust that the upgrade is obvious
 
-**The solution: The $997 Accelerator as the trust-building bridge.**
+**The solution: The $4,997 Cybersecurity Accelerator as the trust-building bridge.**
 
 ### The Three-Tier Funnel Architecture
 
@@ -60,7 +60,7 @@ YouTube (weekly videos) + LinkedIn content (daily)
 Builds authority, gets people to watch DJ before they buy
 ↓
 
-TIER 2: $47 WEBINAR → PRESELL FUNNEL (Days 6-11)
+TIER 2: $27 CAREER BRIEFING → PRESELL FUNNEL (Days 6-11)
 ↓
 "Career Briefing" — live, 90 minutes, DJ teaches, minimal selling
 + 5-email presell sequence before (builds desire + scarcity)
@@ -69,7 +69,7 @@ TIER 2: $47 WEBINAR → PRESELL FUNNEL (Days 6-11)
 Conversion target: 10-15% of attendees → apply for strategy call
 ↓
 
-TIER 3: $997 ACCELERATOR (90 days, group program)
+TIER 3: $4,997 CYBERSECURITY ACCELERATOR (14 weeks, group program)
 ↓
 THE TRUST BUILDER & PROOF POINT
 Includes:
@@ -86,10 +86,10 @@ Includes:
 - WhatsApp community + DJ weekly voice notes
 - Peer accountability group
 ↓
-Conversion target: 30-40% of Accelerator grads → apply for CISO Track
+Conversion target: 30-40% of Accelerator grads → apply for CISO Executive Program
 ↓
 
-TIER 4: $4,999-$7,000 CISO TRACK (14 weeks, 1:1 with DJ)
+TIER 4: $10,000 CISO EXECUTIVE PROGRAM (separate funnel, build later)
 ↓
 THE PREMIUM OFFER
 Everything in Accelerator PLUS:
@@ -103,11 +103,11 @@ Everything in Accelerator PLUS:
 This is where the real margin is.
 ```
 
-**Key insight:** The Accelerator is NOT a discount on the CISO Track. It is a different product for a different customer:
-- **Accelerator:** "I need a job quickly, I have limited budget, I'll do most of the work"
-- **CISO Track:** "I want deep technical training, I have the budget, I want DJ's personal network, I want a guarantee"
+**Key insight:** The Cybersecurity Accelerator is the MAIN product. The CISO Executive Program is a separate funnel built later:
+- **Cybersecurity Accelerator ($4,997):** The 14-week career transition program with DJ's group coaching
+- **CISO Executive Program ($10,000):** 1:1 with DJ, employer intros, placement guarantee (separate funnel, build later)
 
-30-40% of Accelerator grads will upgrade to the CISO Track. This is your revenue compounding engine.
+30-40% of Accelerator grads will upgrade to the CISO Executive Program. This is your revenue compounding engine.
 
 ---
 
@@ -209,7 +209,7 @@ DJ has 12+ platforms with inconsistent messaging:
 - Current: Outdated, manual updates, no traffic
 - New: Redirect homepage to GitHub Pages Career Briefing landing page
 - Long-term: Use as blog later (when you have SEO strategy), for now it's dead weight
-- Action: 301 redirect www.thequantumachievers.com to dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+- Action: 301 redirect www.thequantumachievers.com to dmanwadefreedom.github.io/tqa-funnel/masterclass.html
 
 ---
 
@@ -221,7 +221,7 @@ Meta ads have generated 197 contacts at $4.11 CPL. But the conversion is 0 becau
 - Students (no buying power)
 - People in wrong countries (India, overseas)
 - Wrong job roles (developers, not IT ops)
-- Broke ("interested but can't afford $47")
+- Broke ("interested but can't afford $27")
 - Interest clickers (saw the word "free" and clicked)
 
 **Cost-per-lead:** $4.11 ✓ Good
@@ -283,7 +283,7 @@ The fix: Stricter targeting filters that bring in fewer leads but higher quality
    - Expected briefing registration rate: 15-20% (from responders)
    - Expected applications: 2-3% of briefing attendees
    - Expected paid conversions: 20-30% of applications
-   - **Bottom line:** 100 outreach messages → 35 connections → 3-4 DM responses → 1 briefing reg → 1 application → 1 paid ($997+)
+   - **Bottom line:** 100 outreach messages → 35 connections → 3-4 DM responses → 1 briefing reg → 1 application → 1 paid ($4,997+)
 
 3. **Gating the Sales Navigator Funnel**
    - Only message people who:
@@ -335,7 +335,7 @@ Instead of "Cybersecurity + CISSP + CompTIA interests," use:
   - Bollywood interests (correlates with Indian diaspora)
   - This 10% cultural layer adds significant precision without being exclusionary
 
-**Ad creative:** Point to the masterclass.html ($47 briefing registration page)
+**Ad creative:** Point to the masterclass.html ($27 Career Briefing registration page)
 
 **Expected results:**
 - CPL: $3.50-$5.50 (similar to current, but higher quality)
@@ -349,7 +349,7 @@ Currently GHL scores leads 0-12 points but nobody looks at the score.
 **New system: Tag-based workflow triggers**
 
 As soon as a contact enters GHL:
-- **Score 9-12 (HOT):** Tag: `tqa-hot` → Assigned to Jay for strategy call (AI voicebot can call them within 24h)
+- **Score 9-12 (HOT):** Tag: `tqa-hot` → Assigned to DJ for strategy call (AI voicebot can call them within 24h)
 - **Score 5-8 (WARM):** Tag: `tqa-warm` → Auto-enroll in presell email sequence
 - **Score 0-4 (COLD):** Tag: `tqa-cold` → Auto-enroll in long-term nurture (weekly emails, no hard sell)
 
@@ -389,7 +389,7 @@ This is already written. Send to all 79 pre-qualified contacts (6 applicants + 5
 **Email 4 (April 9, Wednesday):** "4 minutes of my actual thinking"
 - DJ's short video or Cyber Caffeine podcast episode
 - Demonstrates expertise and thought process
-- First mention of April 18 briefing with price ($47)
+- First mention of April 18 briefing with price ($27)
 - Positioned as "proof of my value"
 - Click target: 20%+ (video view)
 
@@ -398,7 +398,7 @@ This is already written. Send to all 79 pre-qualified contacts (6 applicants + 5
 - Certification insight + salary data + hidden market + proof
 - 514,000 unfilled cybersecurity jobs statistic
 - Direct CTA: "You already told me you're serious. Prove it."
-- Registration link: dmanwadefreedom.github.io/tqa-jumpstart/masterclass.html
+- Registration link: dmanwadefreedom.github.io/tqa-funnel/masterclass.html
 - Conversion target: 25%+ registration rate
 
 **Implementation:**
@@ -435,7 +435,7 @@ After the April 18 briefing, attendees fall into categories:
 - Hard deadline (create scarcity)
 - "15 seats available"
 - Pricing reminder
-- Payment plan reminder ($997 or 3 x $347)
+- Payment plan reminder ($4,997 or 3 x $1,997)
 - CTA: "Secure your seat. Apply now."
 
 **Day 7 (April 18):** Long-term nurture starts
@@ -476,7 +476,7 @@ For contacts who don't convert in the first 2 months:
 
 ---
 
-## SECTION 5: CLOSING THE $997 ACCELERATOR SALES
+## SECTION 5: CLOSING THE $4,997 CYBERSECURITY ACCELERATOR SALES
 
 ### The Application Form (Mid-Funnel Qualifier)
 
@@ -498,17 +498,17 @@ After the webinar or presell sequence, interested people apply using the TQA-Str
 
 ### The Strategy Call (Closer's Job)
 
-Applicants who score 9+ are routed to Jay for a **15-minute "strategy call"** (not a sales call).
+Applicants who score 9+ are routed to DJ for a **15-minute "strategy call"** (not a sales call).
 
-**Jay's script (from TQA-CLOSER-SCRIPT.pdf):**
+**DJ's script (adapted from TQA-CLOSER-SCRIPT.pdf):**
 
-"Hey [name], this is Jay from The Quantum Achievers. I'm not here to sell you. I'm here to understand your situation and tell you honestly if our Accelerator program is the right fit for you.
+"Hey [name], this is DJ from The Quantum Achievers. I'm not here to sell you. I'm here to understand your situation and tell you honestly if our Accelerator program is the right fit for you.
 
 Quick questions:
 1. What's your current role and how long have you been doing it?
 2. What's drawing you to cybersecurity specifically?
 3. What's the one thing holding you back from making the transition right now?
-4. If it makes sense, are you in a position to invest $997 (or three payments of $347) in the next 30 days?
+4. If it makes sense, are you in a position to invest $4,997 (or three payments of $1,997) in the next 30 days?
 
 [Listen. Don't pitch. This call is 70% listening, 30% talking.]
 
@@ -518,7 +518,7 @@ If they're not a fit: 'Honestly, this might not be the right time for you. Here'
 
 [Either way, you're building trust, not pushing.]"
 
-**Call booking:** Via GHL calendar (TQA Strategy Call), which Jay owns
+**Call booking:** Via GHL calendar (TQA Strategy Call), which DJ owns
 
 **Conversion rate target:** 40-50% of strategy call to Accelerator enrollment
 
@@ -526,14 +526,14 @@ If they're not a fit: 'Honestly, this might not be the right time for you. Here'
 
 Make it frictionless:
 
-- **Option 1:** $997 one-time (full program cost)
-- **Option 2:** 3 payments of $347 (spreads the burden)
+- **Option 1:** $4,997 one-time (full program cost)
+- **Option 2:** 3 payments of $1,997 (spreads the burden)
 - **Option 3:** Payment plan (discuss with DJ if special circumstances)
 
-The 3-payment option is CRITICAL for the "Raj" avatar. He needs to have a conversation with his spouse about $997. If the option is 3 payments, he can say "it's $347 per month for 3 months" — easier to justify.
+The 3-payment option is CRITICAL for the "Raj" avatar. He needs to have a conversation with his spouse about $4,997. If the option is 3 payments, he can say "it's $1,997 per month for 3 months" — easier to justify.
 
 **Payment flow:**
-- Apply → Strategy call with Jay → Decide to enroll → Stripe checkout with payment plan option → Enroll in Accelerator cohort → Start curriculum
+- Apply → Strategy call with DJ → Decide to enroll → Stripe checkout with payment plan option → Enroll in Cybersecurity Accelerator cohort → Start curriculum
 
 ---
 
@@ -653,7 +653,7 @@ Full transcript: [link to blog post when available]
 
 Ready to transition? 
 Free Career Briefing: [LINK]
-Apply for 90-Day Accelerator: [LINK]
+Apply for Cybersecurity Accelerator: [LINK]
 Podcast (Cyber Caffeine): [SPOTIFY LINK]
 ```
 
@@ -745,8 +745,8 @@ By July 1, 2026, target 400+ total contacts with sources:
 **Cost-per-paid-enrollment:** $2,100 ÷ 2 enrollments = **$1,050 per Accelerator customer**
 
 This is healthy if:
-- Accelerator price is $997 (break even, but you get the upsell to CISO Track)
-- Or CISO Track sell is $5,000+ (5x ROI on acquisition cost)
+- Cybersecurity Accelerator price is $4,997 (strong margin on acquisition cost)
+- Or CISO Executive Program sell is $10,000 (10x ROI on acquisition cost)
 
 ---
 
@@ -767,7 +767,7 @@ This is healthy if:
 - Webinar registrations: 40-50 (from presell + ads + navigator)
 - Webinar attendees: 20-25 show-up rate 50%+)
 - Strategy call applications: 3-5 (15-20% of attendees)
-- Paid ($47 briefing): 10-15 (25-30% of attendees buy)
+- Paid ($27 Career Briefing): 10-15 (25-30% of attendees buy)
 
 **Key Success Metric:**
 - At least 1 Accelerator enrollment from April 18 webinar = proving the funnel works
@@ -803,7 +803,7 @@ This is healthy if:
 - [ ] YouTube generating consistent 20-30 registrations/week
 - [ ] LinkedIn DMs generating consistent 10-15 strategy calls/week
 - [ ] Accelerator cohort 1 producing success stories (at least 1 student getting interviews)
-- [ ] CISO Track sales pitch ready (now that proof points exist)
+- [ ] CISO Executive Program sales pitch ready (now that proof points exist)
 - [ ] Meta ad spend reduced to AUD $20/day (YouTube + DM filling the gap)
 - [ ] Second Accelerator cohort launched (May 20 or June 3 start date)
 
@@ -811,11 +811,11 @@ This is healthy if:
 - Total contacts: 400+
 - Webinar registrations: 60-80 in June
 - Accelerator cohort 2: 5-8 students = **$5,000-$8,000 revenue**
-- First CISO Track sale (from early Accelerator graduate): **$5,000+ revenue**
+- First CISO Executive Program sale (from early Accelerator graduate): **$5,000+ revenue**
 - **Total 90-day revenue: $10,000-$18,000**
 
 **Key Success Metric:**
-- At least 2 CISO Track applications = proving the upgrade funnel is real
+- At least 2 CISO Executive Program applications = proving the upgrade funnel is real
 
 ---
 
@@ -832,27 +832,27 @@ This is healthy if:
 - **Total spend:** USD $2,100 (Meta ads) + $300 (Sales Navigator) = $2,400
 - **Total contacts:** 400+
 - **Cost-per-lead:** $5.50 (better targeting)
-- **Conversions:** 6-8 Accelerator + 1-2 CISO Track
+- **Conversions:** 6-8 Accelerator + 1-2 CISO Executive Program
 - **Revenue:** $10,000-$18,000
 
 ### Unit Economics (Per Accelerator Student)
 
 | Item | Amount | Notes |
 |------|--------|-------|
-| Accelerator Price | $997 | Or 3 x $347 |
+| Cybersecurity Accelerator Price | $4,997 | Or 3 x $1,997 |
 | Cost to Acquire | $200-$400 | Blend of ads + DM + organic |
-| Gross Margin | $600-$800 | 60-80% margin |
+| Gross Margin | $4,600-$4,800 | 92-96% margin |
 | Tier-1 Overhead* | $0 | Group program, no 1:1 time per student |
-| Net Profit per Student | $600-$800 | |
-| **10 students** | **$6,000-$8,000** | Realistic for Phase 2-3 |
+| Net Profit per Student | $4,600-$4,800 | |
+| **10 students** | **$46,000-$48,000** | Realistic for Phase 2-3 |
 
 *Group calls with 10 students = 1 hour of DJ's time = $0 marginal cost per student
 
-### Unit Economics (Per CISO Track Student)
+### Unit Economics (Per CISO Executive Program Student)
 
 | Item | Amount | Notes |
 |------|--------|-------|
-| CISO Track Price | $5,000+ | Assume $5,000 base (might be $5,997) |
+| CISO Executive Program Price | $10,000 | Separate funnel, build later |
 | Cost to Acquire | $400-$600 | Usually upsell from Accelerator (lower CAC) |
 | Gross Margin | $4,400 | 88% margin |
 | Tier-1 Overhead* | $800-$1,000 | 1:1 calls (8 hours x $100-125/hr internally valued) |
@@ -865,31 +865,28 @@ This is healthy if:
 
 ## SECTION 11: THE CLOSER PROBLEM & SOLUTIONS
 
-### Current Situation
-- Jay (identified closer) said he's "not committing"
-- DJ doesn't take sales calls (doesn't want to sell)
-- No strategy calls are being booked post-webinar
-- Applications are sitting unanswered
+### Current Situation (UPDATED)
+- Jay quit -- DJ takes strategy calls himself now
+- DJ handles calls as "career consultations," not sales calls
+- Leads arrive pre-sold by content; call confirms fit
+- Applications need prompt follow-up
 
-### Solution Options
-
-#### Option A: DJ Takes 15-Min Strategy Calls (NOT full sales pitch)
+### Solution: DJ Takes 15-Min Strategy Calls
 - Frame: "Career consultation," not "sales call"
 - DJ's job: Listen to their situation, tell them honestly if program is right, answer questions
-- Time commitment: If 5 applications/webinar, 5 × 15 min = 75 minutes/webinar = 3 hours/month
+- Time commitment: If 5 applications/webinar, 5 x 15 min = 75 minutes/webinar = 3 hours/month
 - This is doable and actually builds relationship
 - Conversion: DJ saying "yes, this is for you" carries 2-3x more weight than an AI bot or closer
 - **Pros:** High conversion, builds personal connection, DJ authentic
 - **Cons:** Takes DJ's time, requires discipline to not oversell
 
-#### Option B: AI Closer (VAPI Priya) + Warm Handoff
-- VAPI Priya (existing assistant) calls applicants, qualifies them, books with Jay
-- Jay does brief warm handoff only (no cold calls, applicants are pre-qualified)
-- Time: Jay does 1-2 warm handoffs/day vs 10+ cold calls
-- **Pros:** Scales without increasing DJ/Jay time
+### Supplementary Option: AI Closer (VAPI Priya) + Warm Handoff
+- VAPI Priya (existing assistant) calls applicants, qualifies them, books with DJ
+- DJ does brief warm handoff only (no cold calls, applicants are pre-qualified)
+- **Pros:** Scales without increasing DJ's time
 - **Cons:** Lower conversion than DJ personally (human connection lost)
 
-#### Option C: Application-Only Model (No Closer Calls)
+### Fallback: Application-Only Model (No Calls)
 - Applicants fill out detailed application
 - Based on answers, send acceptance/rejection email within 24 hours
 - Accepted students get welcome sequence + onboarding
@@ -897,7 +894,7 @@ This is healthy if:
 - **Pros:** Zero-touch, scales infinitely
 - **Cons:** Loses personalization, conversion drops to 30-40%
 
-#### RECOMMENDATION: Option A (DJ Takes Calls)
+### ACTIVE APPROACH: DJ Takes Calls (Hybrid with VAPI)
 - DJ is the product, so DJ in the call builds trust
 - 3 hours/month is manageable given the ROI ($2,000-$3,000 revenue per hour)
 - Hybrid: VAPI does initial qualification + booking, DJ does final decision call
@@ -962,7 +959,7 @@ This is healthy if:
 1. [ ] Monitor presell sequence engagement (opens, clicks) — report to Slack daily
 2. [ ] Track webinar registrations daily
 3. [ ] Push reminders (SMS + email) for webinar (24h, 1h, 15 min before)
-4. [ ] Have closing script ready for Jay (if Jay is helping)
+4. [ ] Confirm DJ's strategy call calendar is live and accepting bookings
 5. [ ] Post-webinar: Send follow-up emails to attendees (automated workflow)
 
 **For Shreyas:**
@@ -978,7 +975,7 @@ This is healthy if:
 **Result by Day 30:**
 - April 18 webinar complete (25-35 attendees target)
 - 5-10 strategy call applications received
-- 10-15 paid briefing registrations ($47)
+- 10-15 paid briefing registrations ($27)
 - 100+ YouTube channel subscribers
 - Presell sequence performance data: email open rates, click rates, registration lift
 - Sales Navigator: 500+ connection requests sent, 150-200 connections, 15-30 DM responses
@@ -1040,23 +1037,23 @@ This is healthy if:
 **For Shreyas:**
 1. [ ] Based on 90-day data, optimize Meta spend allocation
 2. [ ] If YouTube is generating 20+ regs/week, can reduce Meta cold spend to AUD $15/day
-3. [ ] Create 3-4 CISO Track ad angles (for future use, once graduates exist)
+3. [ ] Create 3-4 CISO Executive Program ad angles (for future use, once graduates exist)
 4. [ ] Monthly report: ROI analysis, recommend next-phase budget
 
 **For Dylan:**
 1. [ ] YouTube analysis: identify top-performing topics, recommend focus areas
 2. [ ] Sales Navigator data: success rate by message type, improve messaging
 3. [ ] Final pipeline audit: Full sourcing breakdown, lifetime value per source
-4. [ ] Plan Phase 4: Optimization, scaling, CISO Track focus
+4. [ ] Plan Phase 4: Optimization, scaling, CISO Executive Program focus
 
 **Result by Day 90 (July 1):**
 - YouTube: 300-500 subscribers, 8-10 videos published, 1,500-2,500 views/week, 15-20 registrations/week
 - Accelerator: Cohort 1 finishing (3-5 graduates), Cohort 2 launched (5-8 students) = $8,000-$13,000 revenue
 - Sales Navigator: 1,800+ connection requests, 400+ connections, 80-100 DM responses, 15-20 applications
-- CISO Track: 1-2 inquiries (from early Accelerator grads realizing they want more)
+- CISO Executive Program: 1-2 inquiries (from early Accelerator grads realizing they want more)
 - Total contacts: 400-450
 - Total revenue: $10,000-$18,000 (target achieved)
-- Meta ads: CPL $4-$5, ROI positive (each $997 enrollment = $800 profit after CAC)
+- Meta ads: CPL $4-$5, ROI positive (each $4,997 enrollment = $4,600+ profit after CAC)
 
 ---
 
@@ -1073,14 +1070,14 @@ This is healthy if:
 
 ---
 
-### Risk 2: Jay Never Materializes (Closer Abandons Ship Again)
-**Probability:** High (he said he's not committing)
-**Impact:** No one closes applications, sales funnel collapses
+### Risk 2: DJ Gets Overwhelmed Taking Strategy Calls
+**Probability:** Medium (DJ is also doing content, webinars, coaching)
+**Impact:** Slow follow-up on applications, lost conversions
 **Mitigation:**
-- **Plan A (Preferred):** DJ takes strategy calls himself (15 min each) — 3-5 calls/week is doable
-- **Plan B:** Use VAPI Priya for qualification, then DJ does warm handoff only
-- **Plan C:** No closer calls, acceptance/rejection by email only (conversion drops but survives)
-- By week 2: Get explicit commitment from Jay OR pivot to Plan A/B
+- **Current approach:** DJ takes strategy calls himself (15 min each) -- 3-5 calls/week is doable
+- **Backup:** Use VAPI Priya for qualification, then DJ does warm handoff only
+- **Fallback:** No closer calls, acceptance/rejection by email only (conversion drops but survives)
+- Note: Jay quit. DJ handles all calls directly. Leads arrive pre-sold by content.
 
 ---
 
@@ -1097,13 +1094,13 @@ This is healthy if:
 
 ### Risk 4: Accelerator Students Don't Deliver Results (No Success Stories)
 **Probability:** Medium (depends on student effort + DJ's delivery)
-**Impact:** Can't sell CISO Track upgrade, funnel stalls
+**Impact:** Can't sell CISO Executive Program upgrade, funnel stalls
 **Mitigation:**
 - **Cohort 1:** Select 3-5 of the most motivated applicants (not just first-in)
 - **Curriculum:** Clear deliverables each week (resumes, LinkedIn profiles, certifications)
 - **Accountability:** Bi-weekly check-ins, use a "completion tracker" in GHL
 - **By week 8 of cohort:** At least 1 student should have landed interviews (use as case study)
-- **Contingency:** If no success by week 10, pivot CISO Track messaging away from success stories → toward "advanced technical training" instead
+- **Contingency:** If no success by week 10, pivot CISO Executive Program messaging away from success stories → toward "advanced technical training" instead
 
 ---
 
@@ -1135,7 +1132,7 @@ This is healthy if:
 **Probability:** Low (technical issue)
 **Impact:** Sales funnel collapses, lost revenue
 **Mitigation:**
-- **Week 1:** Create Stripe links for both products ($47 briefing + $997 Accelerator)
+- **Week 1:** Create Stripe links for both products ($27 Career Briefing + $4,997 Cybersecurity Accelerator)
 - **Weekly testing:** Agresh or Dylan test checkout link (process to confirmation page)
 - **Monitor:** Track Stripe webhook failures in logs
 - **Fallback:** If Stripe down, send manual invoice + payment instruction via email (slower but works)
@@ -1147,7 +1144,7 @@ This is healthy if:
 ### 30-Day Gate (April 30)
 - [ ] April 18 webinar held with 20-30 attendees
 - [ ] 5-10 strategy call applications received
-- [ ] $1,000-$1,500 revenue from $47 briefing + early Accelerator enrollment
+- [ ] $1,000-$1,500 revenue from $27 Career Briefing + early Cybersecurity Accelerator enrollment
 - [ ] YouTube channel live with 1-2 videos, 50-100 subscribers
 - [ ] Sales Navigator generating 20-30 DM responses/week
 - [ ] All GHL workflows published and tested
@@ -1170,7 +1167,7 @@ This is healthy if:
 - [ ] Accelerator application conversion: 25%+
 
 **Gate decision:**
-- PASS: Scale Phase 3 (increase LinkedIn DM volume, finalize CISO Track messaging)
+- PASS: Scale Phase 3 (increase LinkedIn DM volume, finalize CISO Executive Program messaging)
 - CONDITIONAL PASS: Fix underperformers, stay in Phase 2 another month
 - FAIL: Kill program, pivot to different audience/offer
 
@@ -1179,14 +1176,14 @@ This is healthy if:
 ### 90-Day Gate (July 1)
 - [ ] Total revenue: $10,000+
 - [ ] Accelerator Cohort 2 launched with 5-8 students
-- [ ] CISO Track inquiries: 1-3 from early Accelerator grads
+- [ ] CISO Executive Program inquiries: 1-3 from early Accelerator grads
 - [ ] YouTube: 300+ subscribers, 1,500+ views/week
 - [ ] Total contacts: 400+
 - [ ] Cost per qualified lead: <$300 (all sources blended)
 - [ ] Customer acquisition cost per Accelerator student: <$500 (breakeven or better)
 
 **Gate decision:**
-- PASS: Scale Phase 4 (double YouTube cadence, expand Sales Navigator, launch CISO Track ads)
+- PASS: Scale Phase 4 (double YouTube cadence, expand Sales Navigator, launch CISO Executive Program ads)
 - CONDITIONAL PASS: Optimize for Phase 4, extend runaway metrics
 - FAIL: Pause new marketing, focus on retention + upsell of current students
 
@@ -1256,9 +1253,9 @@ By day 90, you'll have:
 - Meta ads generating 20-30 leads/week (cost: AUD $50/day, margin: 70%)
 - **Total:** 45-65 leads/week by July 1
 
-At 10-15% conversion to $997 Accelerator, that's $4,000-$10,000/month in recurring revenue by July/August.
+At 10-15% conversion to $4,997 Cybersecurity Accelerator, that's $20,000-$50,000/month in revenue by July/August.
 
-At 30-40% conversion to $5,000 CISO Track, that's an additional $12,000-$20,000/month by August/September.
+At 30-40% conversion to $10,000 CISO Executive Program, that's an additional $30,000-$40,000/month by August/September.
 
 **This is a $50,000+/month revenue business by Q4 2026, if you execute.**
 
@@ -1278,7 +1275,7 @@ At 30-40% conversion to $5,000 CISO Track, that's an additional $12,000-$20,000/
 | Unified Bios | ~/Documents/TQA/Client Files/TQA-UNIFIED-BIOS.md | Dylan | Ready |
 | LinkedIn Posts (10) | ~/Documents/TQA/Client Files/TQA-LINKEDIN-POSTS-APRIL.md | Dylan | Ready |
 | Ad Creative (5 angles) | ~/Documents/TQA/Copy/TQA-Meta-Ads-March9.md | Dylan | Update needed |
-| Landing Pages | dmanwadefreedom.github.io/tqa-jumpstart/ | Dylan | Current |
+| Landing Pages | dmanwadefreedom.github.io/tqa-funnel/ | Dylan | Current |
 | GHL Contact List | ~/Documents/TQA/Client Files/tqa-contacts-meta-upload.csv | Dylan | Ready |
 
 ---
@@ -1300,7 +1297,7 @@ Quick thought: I've hired a lot of cybersecurity people. The best IT-to-cyber tr
 
 **Day 5-6 — Invitation Message (if still no response)**
 ```
-[name], one more thing. I'm running a live career briefing April 18 (90 minutes, real talk about what's possible). If you're even remotely thinking about the move, this might be worth 90 minutes of your time. Just $47 to hold a seat. Totally understand if now's not the time.
+[name], one more thing. I'm running a live career briefing April 18 (90 minutes, real talk about what's possible). If you're even remotely thinking about the move, this might be worth 90 minutes of your time. Just $27 to hold a seat. Totally understand if now's not the time.
 ```
 
 **Day 7 — Light Follow-up (if still no response)**
@@ -1360,18 +1357,18 @@ No pressure, but the briefing is in 4 days. If you want in, link is still live. 
 | 15element.ai (LinkedIn DM outreach) | USD $0 (already paid) | USD $0 |
 | YouTube | USD $0 (organic) | USD $0 |
 | GHL (TQA location) | USD ~$300 (est.) | USD $3,600 |
-| Stripe processing (3% + $0.30) | ~USD $30 (10 x $997) | USD $360 |
+| Stripe processing (3% + $0.30) | ~USD $150 (10 x $4,997) | USD $1,800 |
 | **Total** | **USD ~$1,389** | **USD $16,668** |
 
 ### Revenue vs Cost (Breakeven Analysis)
 
 At 8 Accelerator enrollments/month:
-- Revenue: 8 x $997 = **$7,976**
+- Revenue: 8 x $4,997 = **$39,976**
 - Total cost: $1,389
 - **Gross profit: $6,587** (83% margin)
 - **Net profit (after 20% overhead): $5,269**
 
-This scales exponentially once CISO Track launches (5 x $5,000 = $25,000/month revenue adds to Accelerator).
+This scales exponentially once CISO Executive Program launches (5 x $10,000 = $50,000/month revenue adds to Accelerator).
 
 ---
 
