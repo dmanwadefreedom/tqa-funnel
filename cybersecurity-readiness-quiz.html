@@ -88,7 +88,7 @@ body{font-family:'Inter',sans-serif;background:#080c18;color:#cbd5e1;min-height:
   <div class="quiz-header">
     <div class="eyebrow">DJ Naronikar &bull; 28-Year Cybersecurity Leader</div>
     <h1>Are You <span>Cybersecurity-Ready?</span></h1>
-    <p>5 questions. 2 minutes. Find out exactly where you stand on the path to your first (or next) cybersecurity role.</p>
+    <p>7 questions. 2 minutes. Find out exactly where you stand on the path to your first (or next) cybersecurity role.</p>
   </div>
 
   <div class="progress-wrap">
@@ -141,6 +141,25 @@ body{font-family:'Inter',sans-serif;background:#080c18;color:#cbd5e1;min-height:
     <div class="option" onclick="answer(5, this, 7)">Within 3 months</div>
     <div class="option" onclick="answer(5, this, 4)">Within 6 months</div>
     <div class="option" onclick="answer(5, this, 2)">Just exploring for now</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" id="q6">
+    <h2>What is your current salary range?</h2>
+    <div class="option" onclick="answer(6, this, 3)">Under $70K</div>
+    <div class="option" onclick="answer(6, this, 6)">$70K to $100K</div>
+    <div class="option" onclick="answer(6, this, 8)">$100K to $140K</div>
+    <div class="option" onclick="answer(6, this, 10)">$140K+</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" id="q7">
+    <h2>What pushed you to look into this today?</h2>
+    <div class="option" onclick="answer(7, this, 6)">I want a higher salary</div>
+    <div class="option" onclick="answer(7, this, 8)">I feel stuck and need a change</div>
+    <div class="option" onclick="answer(7, this, 9)">AI is threatening my current role</div>
+    <div class="option" onclick="answer(7, this, 7)">I have always been interested in security</div>
+    <div class="option" onclick="answer(7, this, 10)">I got passed over or let go recently</div>
   </div>
 
   <!-- EMAIL GATE -->
@@ -205,14 +224,15 @@ function answer(q, el, pts) {
   // advance after short delay
   setTimeout(() => {
     document.getElementById('q'+q).style.display = 'none';
-    if (q < 5) {
+    var total = 7;
+    if (q < total) {
       document.getElementById('q'+(q+1)).classList.add('active');
       document.getElementById('q'+(q+1)).style.display = 'block';
-      document.getElementById('progress').style.width = (q*20)+'%';
-      document.getElementById('progress-text').textContent = q+' of 5';
+      document.getElementById('progress').style.width = Math.round((q/total)*100)+'%';
+      document.getElementById('progress-text').textContent = q+' of '+total;
     } else {
       document.getElementById('progress').style.width = '100%';
-      document.getElementById('progress-text').textContent = '5 of 5';
+      document.getElementById('progress-text').textContent = total+' of '+total;
       document.getElementById('email-gate').style.display = 'block';
     }
   }, 300);
@@ -229,8 +249,8 @@ function showResults() {
   // Calculate
   var raw = 0;
   for (var k in scores) raw += scores[k];
-  // Normalize to 0-100 (max possible = 10+10+10+8+10 = 48)
-  var pct = Math.round((raw / 48) * 100);
+  // Normalize to 0-100 (max possible = 9+10+10+8+10+10+10 = 67)
+  var pct = Math.round((raw / 67) * 100);
   if (pct > 100) pct = 100;
 
   document.getElementById('scoreNum').textContent = pct;
