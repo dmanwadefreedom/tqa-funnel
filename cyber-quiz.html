@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Readiness Assessment | DJ Naronikar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #080c18;
+  --gold: #d4a84b;
+  --gold-dim: rgba(212, 168, 75, 0.15);
+  --teal: #06b6d4;
+  --teal-dim: rgba(6, 182, 212, 0.12);
+  --red: #ef4444;
+  --green: #22c55e;
+  --white: #fff;
+  --muted: #64748b;
+  --card-bg: rgba(8, 12, 24, 0.85);
+  --card-border: rgba(6, 182, 212, 0.15);
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+#three-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+/* ─── THREAT NOTIFICATIONS ─── */
+.threat-toast {
+  position: fixed;
+  z-index: 100;
+  max-width: 340px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-family: 'Inter', monospace;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  pointer-events: none;
+  opacity: 0;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  background: rgba(8, 12, 24, 0.92);
+}
+.threat-toast.threat { border-color: rgba(239, 68, 68, 0.4); }
+.threat-toast.threat .toast-label { color: var(--red); }
+.threat-toast.alert { border-color: rgba(212, 168, 75, 0.4); }
+.threat-toast.alert .toast-label { color: var(--gold); }
+.threat-toast.warning { border-color: rgba(212, 168, 75, 0.3); }
+.threat-toast.warning .toast-label { color: var(--gold); }
+.threat-toast.notice { border-color: rgba(6, 182, 212, 0.3); }
+.threat-toast.notice .toast-label { color: var(--teal); }
+.threat-toast.intel { border-color: rgba(34, 197, 94, 0.3); }
+.threat-toast.intel .toast-label { color: var(--green); }
+.toast-label { font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.toast-msg { color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+/* ─── PROGRESS BAR ─── */
+.progress-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+.progress-label {
+  font-family: 'Inter', monospace;
+  font-size: 0.78rem;
+  color: var(--teal);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.blink-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background: var(--teal);
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(6, 182, 212, 0.12);
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-sector {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+}
+
+/* ─── INTRO SCREEN ─── */
+.screen {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+.screen.hidden { display: none; }
+
+.intro-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  margin-bottom: 24px;
+}
+.intro-title {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--white), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.intro-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+.intro-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.04em; }
+
+/* ─── BUTTONS ─── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--gold), #c49a3a);
+  color: #080c18;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(212, 168, 75, 0.25);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(212, 168, 75, 0.35); }
+.btn-gold:active { transform: translateY(0); }
+
+/* ─── QUESTION SCREEN ─── */
+.question-num {
+  font-size: 0.72rem;
+  color: var(--teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.question-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 28px;
+}
+
+.options-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+.option-btn {
+  width: 100%;
+  padding: 16px 20px;
+  text-align: left;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  backdrop-filter: blur(4px);
+  -webkit-tap-highlight-color: transparent;
+}
+.option-btn:hover {
+  border-color: var(--teal);
+  background: rgba(6, 182, 212, 0.08);
+  transform: translateX(4px);
+}
+.option-btn.selected {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+
+/* ─── EMAIL GATE ─── */
+.gate-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.gate-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field::placeholder { color: var(--muted); }
+.input-field:focus { border-color: var(--teal); }
+
+.gate-cred {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ─── RESULTS SCREEN ─── */
+.decrypt-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(8, 12, 24, 0.95);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.decrypt-text {
+  font-family: 'Inter', monospace;
+  font-size: 1.2rem;
+  color: var(--teal);
+  letter-spacing: 0.15em;
+}
+.decrypt-bar {
+  width: 200px;
+  height: 3px;
+  background: rgba(6, 182, 212, 0.15);
+  border-radius: 2px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+.decrypt-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--teal);
+  border-radius: 2px;
+}
+
+.score-circle-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px;
+}
+.score-circle-wrap svg {
+  width: 180px;
+  height: 180px;
+  transform: rotate(-90deg);
+}
+.score-bg { fill: none; stroke: rgba(6, 182, 212, 0.1); stroke-width: 8; }
+.score-ring { fill: none; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 502; stroke-dashoffset: 502; }
+.score-value {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.score-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.score-of {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.score-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.score-desc {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+@media (max-width: 480px) { .result-cards { grid-template-columns: 1fr; } }
+
+.result-card {
+  padding: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  text-align: left;
+  backdrop-filter: blur(4px);
+}
+.result-card-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.result-card-label.strength { color: var(--green); }
+.result-card-label.gap { color: var(--red); }
+.result-card-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.result-card-detail {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* ─── UPSELL CARD ─── */
+.upsell-card {
+  width: 100%;
+  padding: 28px 24px;
+  background: var(--card-bg);
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 0 40px rgba(212, 168, 75, 0.08);
+}
+.upsell-eyebrow {
+  font-size: 0.7rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.upsell-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.upsell-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.upsell-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 360px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--gold), #c49a3a);
+  color: #080c18;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(212, 168, 75, 0.25);
+}
+.upsell-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(212, 168, 75, 0.35); }
+
+.skip-link {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  cursor: pointer;
+  margin-bottom: 48px;
+  transition: color 0.2s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+.skip-link:hover { color: rgba(255,255,255,0.5); }
+
+/* ─── TRUST FOOTER ─── */
+.trust-footer {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 32px;
+  text-align: center;
+}
+.trust-headshot {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  margin: 0 auto 14px;
+  object-fit: cover;
+  background: rgba(212, 168, 75, 0.1);
+  display: block;
+}
+.trust-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.trust-creds {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.logo-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  opacity: 0.4;
+}
+.logo-placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 640px) {
+  #app { padding: 16px 14px; }
+  .threat-toast { max-width: 260px; font-size: 0.65rem; padding: 8px 12px; }
+  .intro-stats { gap: 20px; }
+  .stat-num { font-size: 1.3rem; }
+  .option-btn { padding: 14px 16px; font-size: 0.9rem; }
+  .upsell-card { padding: 22px 18px; }
+  .logo-bar { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="three-canvas"></canvas>
+
+<div id="app">
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" id="progress-wrap" style="display:none;">
+    <div class="progress-label">
+      <span id="progress-text">SCANNING...</span>
+      <span class="blink-cursor"></span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-sector" id="progress-sector"></div>
+  </div>
+
+  <!-- INTRO SCREEN -->
+  <div class="screen" id="screen-intro">
+    <div class="intro-badge">Cybersecurity Readiness Assessment</div>
+    <h1 class="intro-title">Are You Ready to Break Into Cybersecurity?</h1>
+    <p class="intro-sub">Take this 2-minute assessment and discover your Cybersecurity Readiness Score, your biggest strength, and the #1 gap holding you back.</p>
+    <div class="intro-stats">
+      <div class="stat-item">
+        <div class="stat-num">3.4M</div>
+        <div class="stat-label">Unfilled Positions</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$267K</div>
+        <div class="stat-label">Avg CISO Salary</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">28%</div>
+        <div class="stat-label">YoY Job Growth</div>
+      </div>
+    </div>
+    <button class="btn-gold" id="btn-start">BEGIN SECURITY SCAN</button>
+  </div>
+
+  <!-- QUESTION SCREEN -->
+  <div class="screen hidden" id="screen-question">
+    <div class="question-num" id="q-num"></div>
+    <h2 class="question-text" id="q-text"></h2>
+    <ul class="options-list" id="q-options"></ul>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <div class="screen hidden" id="screen-gate">
+    <h2 class="gate-title">Your threat assessment is ready.</h2>
+    <p class="gate-sub">Enter your name and email to access your Cybersecurity Readiness Score and personalized gap analysis.</p>
+    <div class="input-group">
+      <input type="text" class="input-field" id="input-name" placeholder="First name" autocomplete="given-name">
+      <input type="email" class="input-field" id="input-email" placeholder="Email address" autocomplete="email">
+    </div>
+    <button class="btn-gold" id="btn-decrypt">DECRYPT MY RESULTS</button>
+    <p class="gate-cred">DJ Naronikar &bull; 28-Year Cybersecurity Leader &bull; Deloitte, EY, Shell</p>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div class="screen hidden" id="screen-results">
+    <div class="score-circle-wrap">
+      <svg viewBox="0 0 180 180">
+        <circle class="score-bg" cx="90" cy="90" r="80"/>
+        <circle class="score-ring" id="score-ring" cx="90" cy="90" r="80"/>
+      </svg>
+      <div class="score-value">
+        <div class="score-number" id="score-number">0</div>
+        <div class="score-of">out of 100</div>
+      </div>
+    </div>
+    <div class="score-label" id="score-label"></div>
+    <p class="score-desc" id="score-desc"></p>
+
+    <div class="result-cards">
+      <div class="result-card">
+        <div class="result-card-label strength">Your Strength</div>
+        <div class="result-card-value" id="strength-title"></div>
+        <div class="result-card-detail" id="strength-detail"></div>
+      </div>
+      <div class="result-card">
+        <div class="result-card-label gap">Your #1 Gap</div>
+        <div class="result-card-value" id="gap-title"></div>
+        <div class="result-card-detail" id="gap-detail"></div>
+      </div>
+    </div>
+
+    <div class="upsell-card">
+      <div class="upsell-eyebrow">Go Deeper</div>
+      <h3 class="upsell-title">Want the full picture?</h3>
+      <p class="upsell-desc">Get your personalized 8-page Career Scorecard. Includes your recommended certification path, target roles in your city, salary projection, and 90-day action plan.</p>
+      <button class="upsell-btn" id="btn-upsell">Get Your Full Scorecard ($47)</button>
+    </div>
+    <button class="skip-link" id="btn-skip">No thanks, I'll start with the free weekly briefings</button>
+
+    <div class="trust-footer">
+      <img src="assets/dj-main-headshot.webp" alt="DJ Naronikar" class="trust-headshot">
+      <div class="trust-name">DJ Naronikar</div>
+      <div class="trust-creds">28-Year Cybersecurity Leader &bull; Deloitte, EY, Shell &bull; CIO Choice Award 2026</div>
+      <div class="logo-bar">
+        <span class="logo-placeholder">Deloitte</span>
+        <span class="logo-placeholder">EY</span>
+        <span class="logo-placeholder">Shell</span>
+        <span class="logo-placeholder">Accenture</span>
+        <span class="logo-placeholder">KPMG</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DECRYPT OVERLAY (hidden by default) -->
+<div class="decrypt-overlay" id="decrypt-overlay" style="display:none;">
+  <div class="decrypt-text" id="decrypt-label">DECRYPTING...</div>
+  <div class="decrypt-bar"><div class="decrypt-bar-fill" id="decrypt-fill"></div></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   THREE.JS — CYBER ATTACK BACKGROUND
+   ═══════════════════════════════════════════ */
+(function initThreeBackground() {
+  const canvas = document.getElementById('three-canvas');
+  const isMobile = window.innerWidth < 768;
+  const NODE_COUNT = isMobile ? 30 : 60;
+  const CONNECTION_DIST = isMobile ? 180 : 160;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+  camera.position.z = 400;
+
+  /* ── Nodes ── */
+  const nodeGeo = new THREE.BufferGeometry();
+  const nodePositions = new Float32Array(NODE_COUNT * 3);
+  const nodeColors = new Float32Array(NODE_COUNT * 3);
+  const nodeVelocities = [];
+  const cyanColor = new THREE.Color(0x06b6d4);
+
+  for (let i = 0; i < NODE_COUNT; i++) {
+    const x = (Math.random() - 0.5) * 700;
+    const y = (Math.random() - 0.5) * 500;
+    const z = (Math.random() - 0.5) * 200;
+    nodePositions[i * 3] = x;
+    nodePositions[i * 3 + 1] = y;
+    nodePositions[i * 3 + 2] = z;
+    nodeColors[i * 3] = cyanColor.r;
+    nodeColors[i * 3 + 1] = cyanColor.g;
+    nodeColors[i * 3 + 2] = cyanColor.b;
+    nodeVelocities.push({
+      x: (Math.random() - 0.5) * 0.15,
+      y: (Math.random() - 0.5) * 0.15,
+      z: (Math.random() - 0.5) * 0.05
+    });
+  }
+  nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
+  nodeGeo.setAttribute('color', new THREE.BufferAttribute(nodeColors, 3));
+
+  const nodeMat = new THREE.PointsMaterial({
+    size: isMobile ? 4 : 3,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.85,
+    sizeAttenuation: true
+  });
+  const nodePoints = new THREE.Points(nodeGeo, nodeMat);
+  scene.add(nodePoints);
+
+  /* ── Connection lines ── */
+  const lineMat = new THREE.LineBasicMaterial({ color: 0x06b6d4, transparent: true, opacity: 0.08 });
+  let linesMesh = null;
+
+  function buildLines() {
+    if (linesMesh) scene.remove(linesMesh);
+    const verts = [];
+    for (let i = 0; i < NODE_COUNT; i++) {
+      for (let j = i + 1; j < NODE_COUNT; j++) {
+        const dx = nodePositions[i*3] - nodePositions[j*3];
+        const dy = nodePositions[i*3+1] - nodePositions[j*3+1];
+        const dz = nodePositions[i*3+2] - nodePositions[j*3+2];
+        if (Math.sqrt(dx*dx + dy*dy + dz*dz) < CONNECTION_DIST) {
+          verts.push(nodePositions[i*3], nodePositions[i*3+1], nodePositions[i*3+2]);
+          verts.push(nodePositions[j*3], nodePositions[j*3+1], nodePositions[j*3+2]);
+        }
+      }
+    }
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+    linesMesh = new THREE.LineSegments(lineGeo, lineMat);
+    scene.add(linesMesh);
+  }
+  buildLines();
+
+  /* ── Matrix rain (faint) ── */
+  const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
+  const matrixCount = isMobile ? 60 : 150;
+  const matrixCanvas = document.createElement('canvas');
+  matrixCanvas.width = 64;
+  matrixCanvas.height = 64;
+  const mctx = matrixCanvas.getContext('2d');
+  mctx.fillStyle = '#06b6d4';
+  mctx.font = '48px monospace';
+  mctx.textAlign = 'center';
+  mctx.textBaseline = 'middle';
+  mctx.fillText('0', 32, 32);
+  const matrixTex = new THREE.CanvasTexture(matrixCanvas);
+
+  const matrixGeo = new THREE.BufferGeometry();
+  const matrixPos = new Float32Array(matrixCount * 3);
+  const matrixSpeeds = [];
+  for (let i = 0; i < matrixCount; i++) {
+    matrixPos[i*3] = (Math.random() - 0.5) * 800;
+    matrixPos[i*3+1] = (Math.random() - 0.5) * 600;
+    matrixPos[i*3+2] = -50 + Math.random() * -100;
+    matrixSpeeds.push(0.3 + Math.random() * 0.8);
+  }
+  matrixGeo.setAttribute('position', new THREE.BufferAttribute(matrixPos, 3));
+  const matrixMat = new THREE.PointsMaterial({
+    map: matrixTex,
+    size: isMobile ? 3 : 4,
+    transparent: true,
+    opacity: 0.06,
+    sizeAttenuation: true,
+    depthWrite: false
+  });
+  const matrixPoints = new THREE.Points(matrixGeo, matrixMat);
+  scene.add(matrixPoints);
+
+  /* ── Attack particles ── */
+  const attackParticles = [];
+
+  function launchAttack() {
+    const pairs = [];
+    for (let i = 0; i < NODE_COUNT; i++) {
+      for (let j = i + 1; j < NODE_COUNT; j++) {
+        const dx = nodePositions[i*3] - nodePositions[j*3];
+        const dy = nodePositions[i*3+1] - nodePositions[j*3+1];
+        const dz = nodePositions[i*3+2] - nodePositions[j*3+2];
+        if (Math.sqrt(dx*dx + dy*dy + dz*dz) < CONNECTION_DIST) {
+          pairs.push([i, j]);
+        }
+      }
+    }
+    if (pairs.length === 0) return;
+    const pair = pairs[Math.floor(Math.random() * pairs.length)];
+    const srcIdx = pair[0];
+    const tgtIdx = pair[1];
+    const start = new THREE.Vector3(nodePositions[srcIdx*3], nodePositions[srcIdx*3+1], nodePositions[srcIdx*3+2]);
+    const end = new THREE.Vector3(nodePositions[tgtIdx*3], nodePositions[tgtIdx*3+1], nodePositions[tgtIdx*3+2]);
+
+    const particleCount = 6;
+    const pGeo = new THREE.BufferGeometry();
+    const pPos = new Float32Array(particleCount * 3);
+    for (let k = 0; k < particleCount; k++) {
+      pPos[k*3] = start.x;
+      pPos[k*3+1] = start.y;
+      pPos[k*3+2] = start.z;
+    }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    const pMat = new THREE.PointsMaterial({ color: 0xef4444, size: isMobile ? 5 : 4, transparent: true, opacity: 0.9, sizeAttenuation: true });
+    const pMesh = new THREE.Points(pGeo, pMat);
+    scene.add(pMesh);
+
+    attackParticles.push({
+      mesh: pMesh,
+      start: start.clone(),
+      end: end.clone(),
+      progress: 0,
+      targetNode: tgtIdx,
+      particleCount
+    });
+  }
+
+  let lastAttack = 0;
+  const attackInterval = 3000 + Math.random() * 2000;
+  let frameCount = 0;
+
+  /* ── Animate ── */
+  function animate(time) {
+    requestAnimationFrame(animate);
+
+    /* Move nodes */
+    for (let i = 0; i < NODE_COUNT; i++) {
+      nodePositions[i*3] += nodeVelocities[i].x;
+      nodePositions[i*3+1] += nodeVelocities[i].y;
+      nodePositions[i*3+2] += nodeVelocities[i].z;
+      if (Math.abs(nodePositions[i*3]) > 380) nodeVelocities[i].x *= -1;
+      if (Math.abs(nodePositions[i*3+1]) > 280) nodeVelocities[i].y *= -1;
+      if (Math.abs(nodePositions[i*3+2]) > 120) nodeVelocities[i].z *= -1;
+
+      /* Pulse — subtle size oscillation via color brightness */
+      const pulse = 0.85 + 0.15 * Math.sin(time * 0.002 + i);
+      nodeColors[i*3] = cyanColor.r * pulse;
+      nodeColors[i*3+1] = cyanColor.g * pulse;
+      nodeColors[i*3+2] = cyanColor.b * pulse;
+    }
+    nodeGeo.attributes.position.needsUpdate = true;
+    nodeGeo.attributes.color.needsUpdate = true;
+
+    /* Rebuild lines periodically */
+    frameCount++;
+    if (frameCount % 30 === 0) buildLines();
+
+    /* Matrix rain */
+    for (let i = 0; i < matrixCount; i++) {
+      matrixPos[i*3+1] -= matrixSpeeds[i];
+      if (matrixPos[i*3+1] < -320) {
+        matrixPos[i*3+1] = 320;
+        matrixPos[i*3] = (Math.random() - 0.5) * 800;
+      }
+    }
+    matrixGeo.attributes.position.needsUpdate = true;
+
+    /* Attacks */
+    if (time - lastAttack > attackInterval) {
+      launchAttack();
+      lastAttack = time;
+    }
+
+    for (let a = attackParticles.length - 1; a >= 0; a--) {
+      const atk = attackParticles[a];
+      atk.progress += 0.025;
+      if (atk.progress >= 1) {
+        /* Flash target node red briefly */
+        const ti = atk.targetNode;
+        nodeColors[ti*3] = 0.94;
+        nodeColors[ti*3+1] = 0.27;
+        nodeColors[ti*3+2] = 0.27;
+        setTimeout(() => {
+          nodeColors[ti*3] = cyanColor.r;
+          nodeColors[ti*3+1] = cyanColor.g;
+          nodeColors[ti*3+2] = cyanColor.b;
+        }, 400);
+        scene.remove(atk.mesh);
+        atk.mesh.geometry.dispose();
+        atk.mesh.material.dispose();
+        attackParticles.splice(a, 1);
+        continue;
+      }
+      const positions = atk.mesh.geometry.attributes.position.array;
+      for (let k = 0; k < atk.particleCount; k++) {
+        const t = Math.max(0, Math.min(1, atk.progress - k * 0.04));
+        positions[k*3] = atk.start.x + (atk.end.x - atk.start.x) * t + (Math.random() - 0.5) * 2;
+        positions[k*3+1] = atk.start.y + (atk.end.y - atk.start.y) * t + (Math.random() - 0.5) * 2;
+        positions[k*3+2] = atk.start.z + (atk.end.z - atk.start.z) * t;
+      }
+      atk.mesh.geometry.attributes.position.needsUpdate = true;
+      atk.mesh.material.opacity = 0.9 - atk.progress * 0.4;
+    }
+
+    renderer.render(scene, camera);
+  }
+  animate(0);
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+})();
+
+/* ═══════════════════════════════════════════
+   THREAT TOAST NOTIFICATIONS
+   ═══════════════════════════════════════════ */
+(function initThreats() {
+  const threats = [
+    { type: 'threat', label: 'THREAT DETECTED', msg: 'Unauthorized access attempt blocked' },
+    { type: 'alert', label: 'ALERT', msg: 'Unusual network traffic pattern identified' },
+    { type: 'warning', label: 'WARNING', msg: 'Phishing campaign targeting IT professionals' },
+    { type: 'notice', label: 'NOTICE', msg: '3.4M cybersecurity positions unfilled globally' },
+    { type: 'intel', label: 'INTEL', msg: 'Average CISO salary $267,000 (up 12% YoY)' },
+    { type: 'threat', label: 'THREAT DETECTED', msg: 'Brute force attempt on SSH port 22' },
+    { type: 'alert', label: 'ALERT', msg: 'New zero-day exploit disclosed — CVE-2026-3841' },
+    { type: 'intel', label: 'INTEL', msg: 'SOC analyst demand up 34% this quarter' },
+    { type: 'notice', label: 'NOTICE', msg: 'Global ransomware damages projected at $265B by 2031' },
+    { type: 'warning', label: 'WARNING', msg: 'Credential stuffing attack detected from 14 IPs' }
+  ];
+
+  const corners = [
+    { top: '20px', right: '20px' },
+    { bottom: '20px', right: '20px' },
+    { top: '20px', left: '20px' },
+    { bottom: '20px', left: '20px' }
+  ];
+
+  let idx = 0;
+  let active = false;
+
+  function showThreat() {
+    if (active) return;
+    active = true;
+    const t = threats[idx % threats.length];
+    idx++;
+    const corner = corners[Math.floor(Math.random() * corners.length)];
+
+    const el = document.createElement('div');
+    el.className = 'threat-toast ' + t.type;
+    el.innerHTML = '<div class="toast-label">' + t.label + '</div><div class="toast-msg">' + t.msg + '</div>';
+    Object.assign(el.style, corner);
+    document.body.appendChild(el);
+
+    gsap.fromTo(el, { opacity: 0, y: 10 }, {
+      opacity: 1, y: 0, duration: 0.4, ease: 'power2.out',
+      onComplete: () => {
+        gsap.to(el, {
+          opacity: 0, y: -10, duration: 0.4, delay: 3, ease: 'power2.in',
+          onComplete: () => { el.remove(); active = false; }
+        });
+      }
+    });
+  }
+
+  /* Start after a short delay, repeat every 5-8 seconds */
+  setTimeout(() => {
+    showThreat();
+    setInterval(() => showThreat(), 5000 + Math.random() * 3000);
+  }, 2000);
+})();
+
+/* ═══════════════════════════════════════════
+   QUIZ ENGINE
+   ═══════════════════════════════════════════ */
+(function initQuiz() {
+  const MAX_POSSIBLE = 67; /* 9+10+10+8+10+10+10 */
+
+  const questions = [
+    {
+      text: 'What best describes your current role?',
+      options: [
+        { label: 'IT Support or Helpdesk', pts: 2 },
+        { label: 'Sysadmin, Network Admin, or DBA', pts: 4 },
+        { label: 'Cloud Engineer, DevOps, or SRE', pts: 6 },
+        { label: 'IT Manager or IT Director', pts: 8 },
+        { label: 'Security Analyst, SOC, or GRC', pts: 9 },
+        { label: 'Between roles right now', pts: 3 }
+      ]
+    },
+    {
+      text: 'How many years have you worked in IT or security?',
+      options: [
+        { label: 'Less than 3 years', pts: 2 },
+        { label: '3 to 7 years', pts: 5 },
+        { label: '8 to 15 years', pts: 8 },
+        { label: '15+ years', pts: 10 }
+      ]
+    },
+    {
+      text: 'Do you hold any cybersecurity certifications?',
+      options: [
+        { label: 'None yet', pts: 3 },
+        { label: 'CompTIA Security+ or equivalent', pts: 6 },
+        { label: 'CISSP, CISM, or CISA', pts: 8 },
+        { label: 'Multiple advanced certifications', pts: 10 }
+      ]
+    },
+    {
+      text: 'What is your biggest barrier right now?',
+      options: [
+        { label: 'I do not know where to start', pts: 5 },
+        { label: 'I know the path but need guidance getting there', pts: 7 },
+        { label: 'I have the skills but cannot land interviews', pts: 6 },
+        { label: 'I am stuck at my current level and want to advance', pts: 8 }
+      ]
+    },
+    {
+      text: 'How soon do you want to make your next move?',
+      options: [
+        { label: 'Right now. I am ready.', pts: 10 },
+        { label: 'Within 3 months', pts: 7 },
+        { label: 'Within 6 months', pts: 4 },
+        { label: 'Just exploring for now', pts: 2 }
+      ]
+    },
+    {
+      text: 'What is your current salary range?',
+      options: [
+        { label: 'Under $70K', pts: 3 },
+        { label: '$70K to $100K', pts: 6 },
+        { label: '$100K to $140K', pts: 8 },
+        { label: '$140K+', pts: 10 }
+      ]
+    },
+    {
+      text: 'What pushed you to look into this today?',
+      options: [
+        { label: 'I want a higher salary', pts: 6 },
+        { label: 'I feel stuck and need a change', pts: 8 },
+        { label: 'AI is threatening my current role', pts: 9 },
+        { label: 'I have always been interested in security', pts: 7 },
+        { label: 'I got passed over or let go recently', pts: 10 }
+      ]
+    }
+  ];
+
+  let currentQ = 0;
+  let answers = [];
+
+  const screenIntro = document.getElementById('screen-intro');
+  const screenQuestion = document.getElementById('screen-question');
+  const screenGate = document.getElementById('screen-gate');
+  const screenResults = document.getElementById('screen-results');
+  const progressWrap = document.getElementById('progress-wrap');
+  const progressFill = document.getElementById('progress-fill');
+  const progressText = document.getElementById('progress-text');
+  const progressSector = document.getElementById('progress-sector');
+
+  function showScreen(target) {
+    [screenIntro, screenQuestion, screenGate, screenResults].forEach(s => {
+      s.classList.add('hidden');
+      s.style.opacity = '0';
+    });
+    target.classList.remove('hidden');
+    gsap.fromTo(target, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
+  }
+
+  function updateProgress() {
+    const pct = (currentQ / questions.length) * 100;
+    progressFill.style.width = pct + '%';
+    progressSector.textContent = 'Analyzing sector ' + currentQ + ' of ' + questions.length;
+    if (currentQ > 0) {
+      progressText.textContent = 'SCANNING...';
+    }
+  }
+
+  function renderQuestion() {
+    const q = questions[currentQ];
+    document.getElementById('q-num').textContent = 'QUESTION ' + (currentQ + 1) + ' OF ' + questions.length;
+    document.getElementById('q-text').textContent = q.text;
+
+    const optList = document.getElementById('q-options');
+    optList.innerHTML = '';
+
+    q.options.forEach((opt, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.textContent = opt.label;
+      btn.addEventListener('click', () => selectOption(i, opt.pts));
+      li.appendChild(btn);
+      optList.appendChild(li);
+
+      gsap.fromTo(li, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, delay: i * 0.06, ease: 'power2.out' });
+    });
+  }
+
+  function selectOption(index, pts) {
+    const btns = document.querySelectorAll('.option-btn');
+    btns.forEach(b => b.classList.remove('selected'));
+    btns[index].classList.add('selected');
+
+    answers[currentQ] = { index, pts };
+
+    setTimeout(() => {
+      currentQ++;
+      if (currentQ < questions.length) {
+        updateProgress();
+        showScreen(screenQuestion);
+        renderQuestion();
+      } else {
+        /* Done — show email gate */
+        progressFill.style.width = '100%';
+        progressText.textContent = 'SCAN COMPLETE';
+        progressSector.textContent = 'GENERATING REPORT...';
+        setTimeout(() => {
+          showScreen(screenGate);
+        }, 400);
+      }
+    }, 300);
+  }
+
+  /* ── Start button ── */
+  document.getElementById('btn-start').addEventListener('click', () => {
+    progressWrap.style.display = 'block';
+    gsap.fromTo(progressWrap, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+    currentQ = 0;
+    answers = [];
+    updateProgress();
+    showScreen(screenQuestion);
+    renderQuestion();
+  });
+
+  /* ── Email gate ── */
+  document.getElementById('btn-decrypt').addEventListener('click', () => {
+    const name = document.getElementById('input-name').value.trim();
+    const email = document.getElementById('input-email').value.trim();
+    if (!name || !email) {
+      const emptyField = !name ? document.getElementById('input-name') : document.getElementById('input-email');
+      emptyField.style.borderColor = 'var(--red)';
+      setTimeout(() => { emptyField.style.borderColor = ''; }, 1500);
+      return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      document.getElementById('input-email').style.borderColor = 'var(--red)';
+      setTimeout(() => { document.getElementById('input-email').style.borderColor = ''; }, 1500);
+      return;
+    }
+
+    showDecryptAnimation(name);
+  });
+
+  /* ── Decrypt animation ── */
+  function showDecryptAnimation(userName) {
+    const overlay = document.getElementById('decrypt-overlay');
+    const label = document.getElementById('decrypt-label');
+    const fill = document.getElementById('decrypt-fill');
+    overlay.style.display = 'flex';
+    gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+
+    const phrases = ['DECRYPTING...', 'ANALYZING THREAT VECTORS...', 'COMPILING REPORT...'];
+    let pi = 0;
+    const phraseTimer = setInterval(() => {
+      pi++;
+      if (pi < phrases.length) label.textContent = phrases[pi];
+    }, 600);
+
+    gsap.to(fill, { width: '100%', duration: 1.8, ease: 'power1.inOut', onComplete: () => {
+      clearInterval(phraseTimer);
+      gsap.to(overlay, { opacity: 0, duration: 0.3, onComplete: () => {
+        overlay.style.display = 'none';
+        progressWrap.style.display = 'none';
+        showResults(userName);
+      }});
+    }});
+  }
+
+  /* ── Results ── */
+  function showResults(userName) {
+    const rawScore = answers.reduce((sum, a) => sum + a.pts, 0);
+    const normalizedScore = Math.round((rawScore / MAX_POSSIBLE) * 100);
+
+    showScreen(screenResults);
+
+    /* Score ring animation */
+    const ring = document.getElementById('score-ring');
+    const circumference = 2 * Math.PI * 80; /* ~502 */
+    const offset = circumference - (normalizedScore / 100) * circumference;
+
+    let ringColor;
+    if (normalizedScore >= 75) ringColor = '#22c55e';
+    else if (normalizedScore >= 50) ringColor = '#d4a84b';
+    else ringColor = '#06b6d4';
+    ring.style.stroke = ringColor;
+
+    gsap.to(ring, { strokeDashoffset: offset, duration: 1.5, delay: 0.3, ease: 'power2.out' });
+
+    /* Animated counter */
+    const counter = { val: 0 };
+    gsap.to(counter, {
+      val: normalizedScore,
+      duration: 1.5,
+      delay: 0.3,
+      ease: 'power2.out',
+      onUpdate: () => {
+        document.getElementById('score-number').textContent = Math.round(counter.val);
+      }
+    });
+
+    /* Score label and description */
+    const labelEl = document.getElementById('score-label');
+    const descEl = document.getElementById('score-desc');
+
+    if (normalizedScore >= 75) {
+      labelEl.textContent = 'Strong Foundation';
+      labelEl.style.color = 'var(--green)';
+      descEl.textContent = userName + ', you have a strong foundation for a cybersecurity career. Your experience and credentials put you ahead of most professionals making this transition. The right strategy and positioning could accelerate your timeline significantly.';
+    } else if (normalizedScore >= 50) {
+      labelEl.textContent = 'Solid Starting Point';
+      labelEl.style.color = 'var(--gold)';
+      descEl.textContent = userName + ', you have a solid starting point with real skills that translate directly into cybersecurity. With targeted guidance on certifications and positioning, you could be in a security role faster than you think.';
+    } else {
+      labelEl.textContent = 'Early Stage';
+      labelEl.style.color = 'var(--teal)';
+      descEl.textContent = userName + ', you are earlier in your journey, but that means you can build the right foundation from day one. The cybersecurity talent gap is massive, and the right roadmap can get you there faster than a traditional path.';
+    }
+
+    /* Strength and Gap analysis based on answers */
+    computeStrengthAndGap();
+  }
+
+  function computeStrengthAndGap() {
+    const strengthEl = document.getElementById('strength-title');
+    const strengthDetail = document.getElementById('strength-detail');
+    const gapEl = document.getElementById('gap-title');
+    const gapDetail = document.getElementById('gap-detail');
+
+    /* Find highest-scoring answer (relative to max for that question) */
+    const maxPerQ = [9, 10, 10, 8, 10, 10, 10];
+    let bestRatio = 0, bestQ = 0;
+    let worstRatio = 1, worstQ = 0;
+
+    answers.forEach((a, i) => {
+      const ratio = a.pts / maxPerQ[i];
+      if (ratio > bestRatio) { bestRatio = ratio; bestQ = i; }
+      if (ratio < worstRatio) { worstRatio = ratio; worstQ = i; }
+    });
+
+    const strengthMap = [
+      { title: 'Industry Experience', detail: 'Your current role gives you practical knowledge that translates directly into cybersecurity operations.' },
+      { title: 'Years of Experience', detail: 'Your tenure in IT gives you the systems-level understanding that most cybersecurity roles demand.' },
+      { title: 'Certification Portfolio', detail: 'Your certifications demonstrate validated knowledge that hiring managers actively seek.' },
+      { title: 'Self-Awareness', detail: 'Knowing exactly what you need is half the battle. You have clarity most candidates lack.' },
+      { title: 'Urgency & Momentum', detail: 'Your readiness to move now means you can capitalize on the current hiring wave before it cools.' },
+      { title: 'Earning Potential', detail: 'Your current compensation level positions you well for high-tier cybersecurity roles.' },
+      { title: 'Strong Motivation', detail: 'Your driving reason creates the sustained energy needed to push through the transition.' }
+    ];
+
+    const gapMap = [
+      { title: 'Role Positioning', detail: 'Bridging from your current role to a security title requires targeted positioning on your resume and LinkedIn.' },
+      { title: 'Experience Depth', detail: 'Building deeper hands-on experience through labs, projects, or volunteer security work will strengthen your candidacy.' },
+      { title: 'Certification Gap', detail: 'A targeted certification (Security+, CISSP, or CISM) would dramatically increase your interview callback rate.' },
+      { title: 'Strategic Roadmap', detail: 'A clear step-by-step plan will eliminate the guesswork and get you moving in the right direction immediately.' },
+      { title: 'Timeline Pressure', detail: 'Compressing your timeline with a structured sprint approach will prevent this goal from staying on the back burner.' },
+      { title: 'Salary Negotiation', detail: 'Positioning yourself for the right compensation bracket requires knowing your market value and negotiation strategy.' },
+      { title: 'Career Catalyst', detail: 'Converting your motivation into structured daily action is the difference between thinking about it and doing it.' }
+    ];
+
+    strengthEl.textContent = strengthMap[bestQ].title;
+    strengthDetail.textContent = strengthMap[bestQ].detail;
+    gapEl.textContent = gapMap[worstQ].title;
+    gapDetail.textContent = gapMap[worstQ].detail;
+
+    /* Animate cards in */
+    gsap.fromTo('.result-card', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.15, delay: 1.6, ease: 'power2.out' });
+    gsap.fromTo('.upsell-card', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, delay: 2.0, ease: 'power2.out' });
+    gsap.fromTo('.skip-link', { opacity: 0 }, { opacity: 1, duration: 0.4, delay: 2.3 });
+    gsap.fromTo('.trust-footer', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, delay: 2.5, ease: 'power2.out' });
+  }
+
+  /* ── Upsell and skip handlers ── */
+  document.getElementById('btn-upsell').addEventListener('click', () => {
+    /* Replace with actual payment link */
+    alert('Redirecting to checkout...');
+  });
+
+  document.getElementById('btn-skip').addEventListener('click', () => {
+    alert('You have been subscribed to the free weekly briefings.');
+  });
+})();
+</script>
+</body>
+</html>
