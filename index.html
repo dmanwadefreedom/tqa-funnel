@@ -123,10 +123,25 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 .notes-area:focus{border-color:var(--gold)}
 .notes-label{font-size:0.65rem;font-weight:700;color:var(--m);text-transform:uppercase;letter-spacing:0.08em;margin-top:1rem;margin-bottom:0.3rem}
 
-/* Approve button */
-.approve-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:#0a0e1a;font-family:'Poppins';font-size:0.82rem;font-weight:700;padding:0.7rem 1.5rem;border:none;border-radius:8px;cursor:pointer;margin-top:1rem;transition:all 0.15s}
-.approve-btn:hover{background:#e5c05f;transform:translateY(-1px)}
-.approve-btn.approved{background:var(--green)}
+/* Verdict bar */
+.verdict{display:flex;gap:0.6rem;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--b)}
+.verdict-btn{flex:1;padding:0.7rem 1rem;border-radius:8px;font-family:'Poppins';font-size:0.78rem;font-weight:700;border:2px solid var(--b);background:transparent;cursor:pointer;transition:all 0.15s;text-align:center}
+.verdict-btn:hover{transform:translateY(-1px)}
+.vb-approve{color:var(--green);border-color:rgba(34,197,94,0.3)}
+.vb-approve:hover,.vb-approve.picked{background:var(--green);color:#fff;border-color:var(--green)}
+.vb-changes{color:var(--gold);border-color:rgba(212,168,75,0.3)}
+.vb-changes:hover,.vb-changes.picked{background:var(--gold);color:#0a0e1a;border-color:var(--gold)}
+.changes-box{display:none;margin-top:0.8rem}
+.changes-box.show{display:block}
+
+/* Send bar */
+.send-bar{background:linear-gradient(135deg,#0d1b3e,#091529);border:2px solid var(--gold);border-radius:14px;padding:1.5rem;text-align:center;margin-top:2rem}
+.send-bar h3{font-family:'Poppins';font-size:1.1rem;font-weight:800;color:var(--w);margin-bottom:0.4rem}
+.send-bar p{font-size:0.8rem;color:var(--m);margin-bottom:1rem}
+.send-btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--green);color:#fff;font-family:'Poppins';font-size:0.88rem;font-weight:700;padding:0.85rem 2rem;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s}
+.send-btn:hover{background:#1dd069;transform:translateY(-2px)}
+.send-btn svg{width:20px;height:20px;fill:#fff}
+.copied-msg{display:none;margin-top:0.6rem;font-size:0.75rem;color:var(--green);font-weight:600}
 
 /* Footer */
 .footer{text-align:center;padding:2rem;border-top:1px solid var(--b);margin-top:2rem}
@@ -255,8 +270,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 </div>
 </div>
 
-<div class="notes-label">Notes / Change Requests</div>
-<textarea class="notes-area" placeholder="Type any changes you want to the brand guide, bios, or banners here..."></textarea>
+<div class="verdict">
+<button class="verdict-btn vb-approve" onclick="setVerdict('phase1','approved',this)">Approved</button>
+<button class="verdict-btn vb-changes" onclick="setVerdict('phase1','changes',this)">Request Changes</button>
+</div>
+<div class="changes-box" id="phase1-changes">
+<textarea class="notes-area" data-phase="1" placeholder="What needs to change? Be specific so we can fix it fast."></textarea>
+</div>
 </div>
 </div>
 
@@ -327,8 +347,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 
 <div class="callout callout-blue"><strong>Competitor reference:</strong> Boyd Clewis charges $2,997 for his Cybersecurity Accelerator on Skool with 318K YouTube subs. You're charging $4,997 for a more premium, cohort-based experience with direct access to a 28-year CISO. That premium is justified by your track record. The content experience needs to deliver at that level.</div>
 
-<div class="notes-label">Notes / Pricing Changes</div>
-<textarea class="notes-area" placeholder="Any changes to pricing, payment terms, or offer structure..."></textarea>
+<div class="verdict">
+<button class="verdict-btn vb-approve" onclick="setVerdict('phase2','approved',this)">Approved</button>
+<button class="verdict-btn vb-changes" onclick="setVerdict('phase2','changes',this)">Request Changes</button>
+</div>
+<div class="changes-box" id="phase2-changes">
+<textarea class="notes-area" data-phase="2" placeholder="What needs to change? Pricing, tiers, payment terms?"></textarea>
+</div>
 </div>
 </div>
 
@@ -415,8 +440,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 </div>
 </div>
 
-<div class="notes-label">Notes / Funnel Changes</div>
-<textarea class="notes-area" placeholder="Any changes to the funnel flow, scripts, or quiz..."></textarea>
+<div class="verdict">
+<button class="verdict-btn vb-approve" onclick="setVerdict('phase3','approved',this)">Approved</button>
+<button class="verdict-btn vb-changes" onclick="setVerdict('phase3','changes',this)">Request Changes</button>
+</div>
+<div class="changes-box" id="phase3-changes">
+<textarea class="notes-area" data-phase="3" placeholder="What needs to change? Funnel flow, scripts, quiz?"></textarea>
+</div>
 </div>
 </div>
 
@@ -491,8 +521,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 </div>
 </div>
 
-<div class="notes-label">Notes / Content Changes</div>
-<textarea class="notes-area" placeholder="Any changes to posts, emails, or content strategy..."></textarea>
+<div class="verdict">
+<button class="verdict-btn vb-approve" onclick="setVerdict('phase4','approved',this)">Approved</button>
+<button class="verdict-btn vb-changes" onclick="setVerdict('phase4','changes',this)">Request Changes</button>
+</div>
+<div class="changes-box" id="phase4-changes">
+<textarea class="notes-area" data-phase="4" placeholder="What needs to change? Posts, emails, content strategy?"></textarea>
+</div>
 </div>
 </div>
 
@@ -575,8 +610,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 </div>
 </div>
 
-<div class="notes-label">Notes / Tech Changes</div>
-<textarea class="notes-area" placeholder="Any changes to GHL spec, VAPI, Stripe, or deployment..."></textarea>
+<div class="verdict">
+<button class="verdict-btn vb-approve" onclick="setVerdict('phase5','approved',this)">Approved</button>
+<button class="verdict-btn vb-changes" onclick="setVerdict('phase5','changes',this)">Request Changes</button>
+</div>
+<div class="changes-box" id="phase5-changes">
+<textarea class="notes-area" data-phase="5" placeholder="What needs to change? GHL, VAPI, Stripe, deployment?"></textarea>
+</div>
 </div>
 </div>
 
@@ -658,8 +698,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 </div>
 </div>
 
-<div class="notes-label">Notes / Questions</div>
-<textarea class="notes-area" placeholder="Any questions or scheduling notes..."></textarea>
+<div class="verdict">
+<button class="verdict-btn vb-approve" onclick="setVerdict('phase6','approved',this)">Got It</button>
+<button class="verdict-btn vb-changes" onclick="setVerdict('phase6','changes',this)">Questions</button>
+</div>
+<div class="changes-box" id="phase6-changes">
+<textarea class="notes-area" data-phase="6" placeholder="Questions about recordings? Scheduling constraints?"></textarea>
+</div>
 </div>
 </div>
 
@@ -746,6 +791,17 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);line-hei
 
 </div>
 
+<!-- ═══════════ SEND FEEDBACK ═══════════ -->
+<div class="send-bar" id="sendBar">
+<h3>Ready to send your feedback?</h3>
+<p>This compiles all your approvals and notes into one message. Tap the button, paste it to Dylan on WhatsApp.</p>
+<button class="send-btn" onclick="compileFeedback()">
+<svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+Copy Feedback to Clipboard
+</button>
+<div class="copied-msg" id="copiedMsg">Copied! Paste it to Dylan on WhatsApp.</div>
+</div>
+
 <!-- ═══════════ FOOTER ═══════════ -->
 <div class="footer">
 <p>Prepared by Dylan Ewing &bull; Elevated AI &bull; April 2026</p>
@@ -788,6 +844,40 @@ if(i===0)dot.classList.add('active');
 });
 }
 
+// Verdict buttons
+const verdicts={};
+function setVerdict(phase,type,btn){
+verdicts[phase]=type;
+const parent=btn.parentElement;
+parent.querySelectorAll('.verdict-btn').forEach(b=>b.classList.remove('picked'));
+btn.classList.add('picked');
+const box=document.getElementById(phase+'-changes');
+if(type==='changes'){box.classList.add('show');}
+else{box.classList.remove('show');}
+saveState();
+updateProgress();
+}
+
+// Compile all feedback into clipboard
+function compileFeedback(){
+const names={phase1:'Foundation & Brand',phase2:'Pricing & Offer',phase3:'Funnel Flow',phase4:'Social Content',phase5:'Tech & Deployment',phase6:'Recordings & Actions'};
+let msg='TQA Launch Control Feedback\n\n';
+for(let i=1;i<=6;i++){
+const key='phase'+i;
+const v=verdicts[key]||'not reviewed';
+const ta=document.querySelector('#'+key+'-changes textarea');
+const notes=ta?ta.value.trim():'';
+const status=v==='approved'?'APPROVED':v==='changes'?'CHANGES NEEDED':'Not reviewed yet';
+msg+=names[key]+': '+status+'\n';
+if(notes)msg+='Notes: '+notes+'\n';
+msg+='\n';
+}
+navigator.clipboard.writeText(msg).then(()=>{
+document.getElementById('copiedMsg').style.display='block';
+setTimeout(()=>{document.getElementById('copiedMsg').style.display='none';},4000);
+});
+}
+
 // Rewrite .md links to GitHub blob view (GitHub Pages doesn't render Markdown)
 document.querySelectorAll('a.file-link').forEach(a=>{
 const href=a.getAttribute('href');
@@ -800,20 +890,33 @@ a.target='_blank';
 // Make all HTML file links open in new tab
 document.querySelectorAll('a.file-link.html-file').forEach(a=>{a.target='_blank';});
 
-// Save/load checkbox state to localStorage
-const KEY='tqa-launch-control-state';
+// Save/load state to localStorage
+const KEY='tqa-launch-control-v2';
 function saveState(){
-const state={};
-document.querySelectorAll('input[type="checkbox"]').forEach((cb,i)=>{state[i]=cb.checked;});
-document.querySelectorAll('textarea').forEach((ta,i)=>{state['note'+i]=ta.value;});
+const state={verdicts:{},checks:{},notes:{}};
+Object.assign(state.verdicts,verdicts);
+document.querySelectorAll('input[type="checkbox"]').forEach((cb,i)=>{state.checks[i]=cb.checked;});
+document.querySelectorAll('textarea').forEach((ta,i)=>{state.notes[i]=ta.value;});
 localStorage.setItem(KEY,JSON.stringify(state));
 }
 function loadState(){
 try{
 const state=JSON.parse(localStorage.getItem(KEY));
 if(!state)return;
-document.querySelectorAll('input[type="checkbox"]').forEach((cb,i)=>{if(state[i])cb.checked=true;});
-document.querySelectorAll('textarea').forEach((ta,i)=>{if(state['note'+i])ta.value=state['note'+i];});
+if(state.verdicts){
+Object.assign(verdicts,state.verdicts);
+Object.entries(state.verdicts).forEach(([phase,type])=>{
+const btns=document.querySelectorAll('#'+phase+' .verdict-btn');
+btns.forEach(b=>{
+if((type==='approved'&&b.classList.contains('vb-approve'))||(type==='changes'&&b.classList.contains('vb-changes'))){
+b.classList.add('picked');
+}
+});
+if(type==='changes'){const box=document.getElementById(phase+'-changes');if(box)box.classList.add('show');}
+});
+}
+if(state.checks)document.querySelectorAll('input[type="checkbox"]').forEach((cb,i)=>{if(state.checks[i])cb.checked=true;});
+if(state.notes)document.querySelectorAll('textarea').forEach((ta,i)=>{if(state.notes[i])ta.value=state.notes[i];});
 updateProgress();
 }catch(e){}
 }
